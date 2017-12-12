@@ -1,0 +1,191 @@
+<div class="layout vertical" style="height: 100%" xmlns:v-bind="http://www.w3.org/1999/xhtml"
+     xmlns:v-on="http://www.w3.org/1999/xhtml">
+    <div class="wrapper layout horizontal">
+        <div class="layout vertical">
+            <span>效果预览</span>
+            <div style="border-width: 2px; border-style: outset; background-color: #1a1a1a">
+                <canvas width="350" height="600">
+
+                </canvas>
+            </div>
+        </div>
+        <div class="layout vertical flex-1">
+            <ui-prop name="文件名:">
+                <div class="flex-1 layout horizontal  center">
+                    <ui-input class="flex-1" v-on:blur="onUpdateSaveName" v-value="fileSaveName"></ui-input>
+                    <ui-button class="green" v-on:confirm="onClickGen"> 生成</ui-button>
+                </div>
+            </ui-prop>
+
+            <ui-prop name="图片:">
+                <div class="flex-1 layout horizontal  center ">
+                    <ui-input class="flex-1" v-value="fileImportPath"></ui-input>
+                    <ui-button class="  " v-on:confirm="onSelectImportPath"> 选择</ui-button>
+                </div>
+            </ui-prop>
+            <ui-prop name="重力">
+                <ui-prop name="X" slidable   class="fixed-label flex-1">
+                    <ui-num-input class="flex-1"></ui-num-input>
+                </ui-prop>
+                <ui-prop name="Y" slidable   class="fixed-label flex-1">
+                    <ui-num-input class="flex-1"></ui-num-input>
+                </ui-prop>
+            </ui-prop>
+            <ui-prop name="发射区域">
+                <div class=" child">
+                    <div class="layout horizontal  center">
+                        <ui-prop name="X" slidable indent="2" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                        <ui-prop name="浮动±" slidable indent="1" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                    </div>
+                    <div class="layout horizontal  center">
+                        <ui-prop name="Y" slidable indent="2" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                        <ui-prop name="浮动±" slidable indent="1" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                    </div>
+                </div>
+            </ui-prop>
+
+            <ui-prop name="发射速度">
+                <div class=" child">
+                    <div class="layout horizontal  center">
+                        <ui-prop name="X" slidable indent="2" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                        <ui-prop name="浮动±" slidable indent="1" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                    </div>
+                    <div class="layout horizontal  center">
+                        <ui-prop name="Y" slidable indent="2" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                        <ui-prop name="浮动±" slidable indent="1" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                    </div>
+                </div>
+            </ui-prop>
+
+            <ui-prop name="粒子开始旋转角度">
+                <div class=" child">
+                    <div class="layout horizontal  center">
+                        <ui-prop name="X" slidable indent="2" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                        <ui-prop name="浮动±" slidable indent="1" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                    </div>
+                    <div class="layout horizontal  center">
+                        <ui-prop name="Y" slidable indent="2" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                        <ui-prop name="浮动±" slidable indent="1" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                    </div>
+                </div>
+            </ui-prop>
+            <ui-prop name="粒子结束旋转角度">
+                <div class=" child">
+                    <div class="layout horizontal  center">
+                        <ui-prop name="X" slidable indent="2" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                        <ui-prop name="浮动±" slidable indent="1" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                    </div>
+                    <div class="layout horizontal  center">
+                        <ui-prop name="Y" slidable indent="2" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                        <ui-prop name="浮动±" slidable indent="1" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                    </div>
+                </div>
+            </ui-prop>
+            <ui-prop name="粒子开始大小">
+                <div class=" child">
+                    <div class="layout horizontal  center">
+                        <ui-prop name="X" slidable indent="2" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                        <ui-prop name="浮动±" slidable indent="1" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                    </div>
+                    <div class="layout horizontal  center">
+                        <ui-prop name="Y" slidable indent="2" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                        <ui-prop name="浮动±" slidable indent="1" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                    </div>
+                </div>
+            </ui-prop>
+            <ui-prop name="粒子结束大小">
+                <div class=" child">
+                    <div class="layout horizontal  center">
+                        <ui-prop name="X" slidable indent="2" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                        <ui-prop name="浮动±" slidable indent="1" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                    </div>
+                    <div class="layout horizontal  center">
+                        <ui-prop name="Y" slidable indent="2" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                        <ui-prop name="浮动±" slidable indent="1" class="fixed-label flex-1">
+                            <ui-num-input class="flex-1"></ui-num-input>
+                        </ui-prop>
+                    </div>
+                </div>
+            </ui-prop>
+            <ui-prop name="粒子数量:">
+                <ui-slider min="0" max="500" step="1"></ui-slider>
+            </ui-prop>
+            <ui-prop name="最大粒子数量:">
+                <div class="flex-1 layout horizontal  center">
+                    <ui-input class="flex-1" v-on:blur="onUpdateSaveName" v-value="fileSaveName"></ui-input>
+                </div>
+            </ui-prop>
+
+            <ui-prop name="粒子发射持续时间:">
+                <ui-slider min="0" max="500" step="1"></ui-slider>
+            </ui-prop>
+            <ui-prop name="粒子生命周期:">
+                <ui-slider min="0" max="500" step="1"></ui-slider>
+            </ui-prop>
+            <ui-prop name="排放速率:">
+                <ui-slider min="0" max="500" step="1"></ui-slider>
+            </ui-prop>
+            <ui-prop name="角度:">
+                <ui-slider min="0" max="500" step="1"></ui-slider>
+            </ui-prop>
+            <ui-prop name="开始颜色:">
+                <ui-color></ui-color>
+            </ui-prop>
+            <ui-prop name="结束颜色:">
+                <ui-color></ui-color>
+
+            </ui-prop>
+
+        </div>
+
+    </div>
+
+</div>
+
+

@@ -1,0 +1,23 @@
+{
+  "name": "hot-update-tools",
+  "version": "0.0.3",
+  "description": "hotUpdateTools",
+  "author": "xu_yanfeng",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.project.title/i18n:hot-update-tools.title": {
+      "icon": "icon.png",
+      "accelerator": "CmdOrCtrl+h",
+      "message": "hot-update-tools:showPanel"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "hotUpdateTools",
+    "width": 900,
+    "height": 900
+  },
+  "dependencies": {
+  }
+}

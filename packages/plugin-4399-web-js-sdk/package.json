@@ -1,0 +1,21 @@
+{
+  "name": "plugin-4399-web-js-sdk",
+  "version": "0.0.1",
+  "description": "The package template for getting started.",
+  "author": "Cocos Creator",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.package.title/i18n:plugin-4399-web-js-sdk.title": {
+      "message": "plugin-4399-web-js-sdk:open"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "plugin-4399-web-js-sdk",
+    "width": 400,
+    "height": 360,
+    "max-height":360,
+    "min-height":360
+  }
+}

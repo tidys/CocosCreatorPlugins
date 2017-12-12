@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "3d49fac6-6f4f-41d1-979e-e0129935902a",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "lizi_zd_paopao_04": {
+      "ver": "1.0.3",
+      "uuid": "be955f12-b056-4d11-b23d-07ecc6f053db",
+      "rawTextureUuid": "3d49fac6-6f4f-41d1-979e-e0129935902a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 40,
+      "height": 40,
+      "rawWidth": 40,
+      "rawHeight": 40,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

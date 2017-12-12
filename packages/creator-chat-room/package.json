@@ -1,0 +1,22 @@
+{
+  "name": "creator-chat-room",
+  "version": "0.0.1",
+  "description": "creator chat room",
+  "author": "xu_yanfeng",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.package.title/creator-chat-room": {
+      "message": "creator-chat-room:open"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "creator-chat-room",
+    "width": 400,
+    "height": 300
+  },
+  "dependencies": {
+    "wilddog": "^2.5.17"
+  }
+}

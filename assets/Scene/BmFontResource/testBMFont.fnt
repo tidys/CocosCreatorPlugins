@@ -1,0 +1,7 @@
+info face="微软雅黑" size=40 bold=0 italic=0 charset="" unicode=1 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=1,1 outline=0
+common lineHeight=40 base=26 scaleW=52 scaleH=24 pages=1 packed=0 alphaChnl=1 redChnl=0 greenChnl=0 blueChnl=0
+page id=0 file="testBMFont.png"
+chars count=3
+char id=49   x=0    y=0     width=14    height=23    xoffset=0     yoffset=0     xadvance=14    page=0  chnl=15
+char id=50   x=14    y=0     width=18    height=23    xoffset=0     yoffset=0     xadvance=18    page=0  chnl=15
+char id=48   x=32    y=0     width=20    height=24    xoffset=0     yoffset=0     xadvance=20    page=0  chnl=15

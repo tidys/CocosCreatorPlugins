@@ -1,0 +1,121 @@
+<div class="layout vertical" style="height: 100%" ref="uiRoot" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+    <!--<div class="layout horizontal start-justified center">-->
+        <!--<ui-select class="flex-3" v-on:change="onIpSelectChange" id="ipSelection">-->
+
+            <!--<template v-for="ip in ipArray">-->
+                <!--<option v-bind:value="ip">{{ip}}</option>-->
+            <!--</template>-->
+        <!--</ui-select>-->
+        <!--<ui-button v-disabled="false" v-on:confirm="onTestSelect">add select</ui-button>-->
+        <!--<ui-button v-disabled="false" v-on:confirm="onLogIp">ip</ui-button>-->
+    <!--</div>-->
+
+    <div class="layout vertical start-justified">
+        <h2>生成Manifest配置</h2>
+        <ui-prop name="版本号">
+            <div class="flex-1 layout horizontal center">
+                <ui-input class="flex-1" v-on:blur="onInputVersionOver" v-value="version"></ui-input>
+            </div>
+        </ui-prop>
+
+        <ui-prop name="资源服务器url" tooltip="游戏热更新服务器的url">
+            <div class="flex-1 layout horizontal center">
+                <ui-input class="flex-2" v-on:blur="onInPutUrlOver" v-value="serverRootDir"></ui-input>
+
+
+
+                <ui-button v-on:confirm="onTestUrl">Test URL</ui-button>
+                <!--<ui-button v-on:confirm="onOpenUrl">浏览器访问</ui-button>-->
+                <ui-button v-on:confirm="userLocalIP">使用本机IP</ui-button>
+
+
+            </div>
+        </ui-prop>
+
+        <ui-prop name="build项目资源文件目录">
+            <div class="flex-1 layout horizontal center">
+                <ui-input class="flex-2" readonly disabled v-value="resourceRootDir"></ui-input>
+                <ui-button v-on:confirm="onSelectResourceRootDir">选择</ui-button>
+                <ui-button v-on:confirm="onOpenResourceDir">打开</ui-button>
+            </div>
+        </ui-prop>
+
+        <ui-prop name="manifest存储目录">
+            <div class="flex-1 layout horizontal center">
+                <ui-input class="flex-2" readonly disabled v-value="genManifestDir"></ui-input>
+                <!--<ui-button v-on:confirm="onSelectGenManifestDir">选择</ui-button>-->
+                <ui-button v-on:confirm="onOpenManifestDir">打开</ui-button>
+            </div>
+        </ui-prop>
+
+        <div class="self-end">
+            <!--<ui-button class="self-start" v-on:confirm="onCleanAPPCfg">-->
+            <!--清除APP配置-->
+            <!--</ui-button>-->
+            <ui-button class="self-end red" v-on:confirm="onClickGenCfg"> 生成</ui-button>
+        </div>
+    </div>
+    <div class="layout vertical">
+        <h2> 当前游戏</h2>
+        <ui-prop name="项目热更配置文件(project.mainfest)">
+            <div class="flex-1 layout horizontal center">
+                <ui-input class="flex-1" disabled v-value="localGameProjectManifest"></ui-input>
+                <ui-button v-on:confirm="onOpenLocalGameManifestDir">打开文件夹</ui-button>
+            </div>
+        </ui-prop>
+        <ui-prop name="项目热更配置文件(version.mainfest)">
+            <div class="flex-1 layout horizontal center">
+                <ui-input class="flex-1" disabled v-value="localGameVersionManifest"></ui-input>
+                <ui-button v-on:confirm="onOpenLocalGameManifestDir">打开文件夹</ui-button>
+            </div>
+        </ui-prop>
+        <ui-prop name="package url:">
+            <div class="flex-1 layout horizontal center">
+                <h4 class="flex-2">{{localGamePackageUrl}}</h4>
+            </div>
+        </ui-prop>
+        <ui-prop name="游戏版本号:">
+            <div class="flex-1 layout horizontal center">
+                <h4 class="flex-2">{{localGameVersion}}</h4>
+                <ui-button class="end-justified" v-on:confirm="importManifestToGame">导入manifest</ui-button>
+                <ui-button class="end-justified" v-on:confirm="initLocalGameVersion">刷新</ui-button>
+            </div>
+        </ui-prop>
+    </div>
+    <div class="layout vertical">
+        <h2>本地测试服务器</h2>
+        <ui-prop name="package url">
+            <div class="flex-1 layout horizontal center">
+                <h4 class="flex-2">{{serverPackageUrl}}</h4>
+            </div>
+        </ui-prop>
+        <ui-prop name="服务器版本">
+            <div class="flex-1 layout horizontal center">
+                <h4 class="flex-2">{{serverVersion}}</h4>
+                <ui-button class="end-justified" v-on:confirm="refreshLocalServerVersion">刷新</ui-button>
+            </div>
+        </ui-prop>
+
+        <ui-prop name="本机server物理路径">
+            <div class="flex-1 layout horizontal center">
+                <ui-input class="flex-2" disabled v-value="localServerPath"></ui-input>
+                <ui-button v-on:confirm="onSelectLocalServerPath">选择</ui-button>
+                <ui-button v-on:confirm="onOpenLocalServer">打开目录</ui-button>
+            </div>
+        </ui-prop>
+        <ui-prop name="操作">
+            <div class="flex-1 layout horizontal center">
+                <h3 class="flex-2"></h3>
+                <ui-button class="end-justified green" v-on:confirm="onCopyFileToLocalServer">部署</ui-button>
+                <ui-button class="end-justified blue" v-on:confirm="onCleanSimRemoteRes">清理模拟器缓存</ui-button>
+            </div>
+        </ui-prop>
+        <ui-progress style="width: 100%;" v-value="copyProgress">40</ui-progress>
+    </div>
+
+    <h2>日志:</h2>
+    <textarea class="flex-1 " id="logTextArea" v-value="logView"
+              style="width: 100%; height: 100%; background: #252525;	color: #fd942b;	border-color: #fd942b;"></textarea>
+</div>
+
+

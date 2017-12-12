@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "5d35a7bb-27dc-4e44-8c8f-c9b45e265bc4",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "lizi_cj_tss_diandian_02": {
+      "ver": "1.0.3",
+      "uuid": "7808e97b-f5de-4b45-8d3d-ee6f1e962fba",
+      "rawTextureUuid": "5d35a7bb-27dc-4e44-8c8f-c9b45e265bc4",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 63,
+      "height": 64,
+      "rawWidth": 64,
+      "rawHeight": 64,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

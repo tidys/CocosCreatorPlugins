@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "78fea1b4-e28a-4af1-9dce-e0cb145c38b6",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "lizi_xingxing_katong_02": {
+      "ver": "1.0.3",
+      "uuid": "074ceb4c-701b-4085-b18c-c728bf675ef7",
+      "rawTextureUuid": "78fea1b4-e28a-4af1-9dce-e0cb145c38b6",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 64,
+      "height": 64,
+      "rawWidth": 64,
+      "rawHeight": 64,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

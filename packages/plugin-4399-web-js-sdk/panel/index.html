@@ -1,0 +1,36 @@
+<div class="layout vertical" style="width: 100%">
+
+    <div class="layout vertical start-justified">
+        <ui-prop name="添加SDK">
+            <ui-checkbox v-bind:checked="isAutoAddSdk" v-on:change="clickAutoAddSdk">构建完成后自动添加</ui-checkbox>
+        </ui-prop>
+        <ui-prop name="游戏名称">
+            <div class="layout flex-1 horizontal center">
+                <ui-input class="flex-1" v-value="gameName" v-on:blur="onChangeGameName"></ui-input>
+            </div>
+        </ui-prop>
+
+        <ui-prop name="游戏ID">
+            <div class="layout flex-1 horizontal center">
+                <ui-input class="flex-1" v-value="gameID" v-on:blur="onChangeGameID"></ui-input>
+            </div>
+        </ui-prop>
+        <ui-prop name="游戏宽">
+            <div class="layout flex-1 horizontal center">
+                <ui-input class="flex-1" v-value="gameWidth" v-on:blur="onChangeGameSize"></ui-input>
+            </div>
+        </ui-prop>
+        <ui-prop name="游戏高">
+            <div class="layout flex-1 horizontal center">
+                <ui-input class="flex-1" v-value="gameHeight" v-on:blur="onChangeGameSize"></ui-input>
+            </div>
+        </ui-prop>
+        <div class="self-end layout center horizontal">
+            <ui-button class="self-end red" v-on:confirm="onAdd4399Sdk">添加4399SDK</ui-button>
+        </div>
+        <h2>日志:</h2>
+        <textarea class="" id="logTextArea" v-value="logView"
+                  style="width: 100%; height: 100px; background: #252525;	color: #fd942b;	border-color: #fd942b;"></textarea>
+    </div>
+
+</div>

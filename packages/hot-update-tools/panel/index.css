@@ -1,0 +1,14 @@
+:host {
+    margin: 5px;
+}
+
+h2 {
+    color: #11ff00;
+}
+
+ui-section {
+    overflow-y: auto;
+    margin: 0px 0px;
+    padding: 0 0px;
+    flex: 1
+}

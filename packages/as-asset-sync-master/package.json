@@ -1,0 +1,9 @@
+{
+  "name": "as-asset-sync",
+  "version": "0.0.1",
+  "description": "构建完成后同步资源文件到android studio中, 无需再点击编译",
+  "author": "MakeHui",
+  "main": "main.js",
+  "main-menu": {
+  }
+}

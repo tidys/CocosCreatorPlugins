@@ -1,0 +1,31 @@
+button {
+    font-family: Calibri;
+}
+
+h1 {
+    position: relative;
+    left: 10px;
+    top: 0px;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    float: right;
+}
+
+h2 {
+    background-color: gray;
+    /*padding: 20px 15px 10px 5px;*/
+    border-style: outset;
+    /*border-left-style:dashed;*/
+    border-width: 1px;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("timg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
