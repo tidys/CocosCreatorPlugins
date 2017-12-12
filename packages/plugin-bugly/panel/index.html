@@ -1,0 +1,58 @@
+<div class="layout vertical" style="width: 100%;height: 100%">
+    <!--<ui-button id="btn">Send To Main</ui-button>-->
+    <div class="layout vertical start-justified">
+
+        <ui-prop name="App Id" tooltip="">
+            <div class="layout horizontal center flex-1 ">
+                <ui-input class="flex-1" v-value="gameID" v-on:blur="onChangeGameID"></ui-input>
+            </div>
+        </ui-prop>
+
+
+        <!--<div class="self-end layout center horizontal">-->
+            <!--<ui-button class="self-end red" v-on:confirm="onAddBuglySdk">添加Bugly</ui-button>-->
+        <!--</div>-->
+
+        <ui-prop name="App Key">
+            <div class="layout horizontal center flex-1 ">
+                <ui-input class="flex-1" v-value="gameKey" v-on:blur="onSaveCfg"></ui-input>
+            </div>
+        </ui-prop>
+        <ui-prop name="App Package" tooltip="游戏包名">
+            <div class="layout horizontal center flex-1 ">
+                <ui-input class="flex-1" disabled readonly v-value="gamePackage"></ui-input>
+                <ui-button v-on:confirm="updateGamePackageName" v-if="isShowFreshAppPackage">刷新</ui-button>
+            </div>
+        </ui-prop>
+        <ui-prop name="App Version" tooltip="游戏版本">
+            <div class="layout horizontal center flex-1 ">
+                <ui-input class="flex-1" v-value="gameVersion" v-on:blur="onSaveCfg"></ui-input>
+            </div>
+        </ui-prop>
+        <ui-prop name="App Channal" tooltip="游戏渠道">
+            <div class="layout horizontal center flex-1 ">
+                <ui-input class="flex-1" v-value="channal" v-on:blur="onSaveCfg"></ui-input>
+            </div>
+        </ui-prop>
+        <ui-prop name="符号文件保存位置" v-if="isShowOutPutFileFilePath" tooltip="">
+            <div class="layout horizontal center flex-1 ">
+                <ui-input class="flex-1" v-value="outPutFilePath" disabled readonly v-on:blur="onSaveCfg"></ui-input>
+                <ui-button v-on:confirm="onOpenBuglySymbol">打开</ui-button>
+            </div>
+        </ui-prop>
+        <ui-prop name="自动上传符号表" tooltip="自动上传符号表到Bugly">
+            <div class="layout horizontal center flex-1 ">
+                <ui-checkbox v-bind:checked="isAutoUpload" v-on:change="onAutoUpload"></ui-checkbox>
+
+            </div>
+        </ui-prop>
+        <div class="self-end layout center horizontal">
+            <ui-button class="self-end red" v-on:confirm="onAddBuglySdk">添加Bugly</ui-button>
+            <ui-button id="uploadBtn" class="self-end green" v-on:confirm="onUploadBuglySymbol">生成符号表</ui-button>
+        </div>
+
+        <h2>日志:</h2>
+        <textarea class="" id="logTextArea" v-value="logView" @contextmenu="onLogViewMenu"
+                  style="width: 100%; height: 520px; background: #252525;	color: #fd942b;	border-color: #fd942b;"></textarea>
+    </div>
+</div>

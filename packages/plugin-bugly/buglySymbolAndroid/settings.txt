@@ -1,0 +1,13 @@
+******************************************
+*    Bugly 符号表工具配置文件            *
+*                                        *
+*  Debug     调试模式开关（打印更多Log） *
+*  Upload    上传开关                    *
+*  ID        Bugly平台的APP ID           *
+*  Key       Bugly平台的APP key          *
+*                                        *
+******************************************
+Debug=false
+Upload=false
+ID=
+Key=

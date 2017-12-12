@@ -1,0 +1,20 @@
+{
+  "name": "plugin-bugly",
+  "version": "0.0.1",
+  "description": "The package template for getting started.",
+  "author": "Cocos Creator",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.package.title/i18n:plugin-bugly.title": {
+      "message": "plugin-bugly:open"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "plugin-bugly",
+    "width": 400,
+    "height": 780,
+    "min-height": 780
+  }
+}
