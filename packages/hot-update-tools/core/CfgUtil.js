@@ -1,5 +1,5 @@
-let fs = require('fs');
-let path = require('path');
+let fs = require('fire-fs');
+let path = require('fire-path');
 const {remote} = require('electron');
 let FileUtil = Editor.require("packages://hot-update-tools/core/FileUtil");
 

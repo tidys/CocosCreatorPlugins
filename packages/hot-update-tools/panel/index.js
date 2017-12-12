@@ -1,5 +1,5 @@
-var fs = require('fs');
-var path = require('path');
+var fs = require('fire-fs');
+var path = require('fire-path');
 var Electron = require('electron');
 var {remote} = require('electron');
 var CfgUtil = Editor.require('packages://hot-update-tools/core/CfgUtil.js');

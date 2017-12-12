@@ -1,4 +1,4 @@
-let fs = require("fs");
+let fs = require("fire-fs");
 let path = require("path");
 
 let self = module.exports = {
