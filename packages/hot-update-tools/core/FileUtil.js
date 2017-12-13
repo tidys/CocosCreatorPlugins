@@ -1,5 +1,5 @@
 let fs = require("fire-fs");
-let path = require("path");
+let path = require("fire-path");
 
 let self = module.exports = {
     getDirAllFiles(dirPath, result) {

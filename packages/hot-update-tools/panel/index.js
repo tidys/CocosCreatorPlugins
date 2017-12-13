@@ -520,8 +520,8 @@ Editor.Panel.extend({
                 },
                 _updateServerVersion() {
                     if (this.localServerPath.length > 0) {
-                        let path = require("path");
-                        let fs = require("fs");
+                        let path = require("fire-path");
+                        let fs = require("fire-fs");
                         let versionCfg = path.join(this.localServerPath, "version.manifest");
                         fs.readFile(versionCfg, 'utf-8', function (err, data) {
                             if (!err) {
@@ -826,7 +826,7 @@ Editor.Panel.extend({
                     }
                 },
                 onCleanSimRemoteRes() {
-                    let path = require("path");
+                    let path = require("fire-path");
                     let simPath = path.join(__dirname, "../cocos2d-x/simulator/win32");
                     let remoteAsset = path.join(simPath, "remote-asset");
                     if (!fs.existsSync(remoteAsset)) {

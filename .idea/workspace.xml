@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77be2a0d-245c-4481-9db8-0f8f0c8c25fa" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/packages/hot-update-tools/UPDATE.md" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/packages/hot-update-tools/core/CfgUtil.js" afterPath="$PROJECT_DIR$/packages/hot-update-tools/core/CfgUtil.js" />
       <change beforePath="$PROJECT_DIR$/packages/hot-update-tools/core/FileUtil.js" afterPath="$PROJECT_DIR$/packages/hot-update-tools/core/FileUtil.js" />
       <change beforePath="$PROJECT_DIR$/packages/hot-update-tools/panel/index.js" afterPath="$PROJECT_DIR$/packages/hot-update-tools/panel/index.js" />
     </list>
@@ -23,7 +23,7 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/packages/creator-chat-room/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
+            <state relative-caret-position="0">
               <caret line="13" column="3" lean-forward="false" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
               <folding />
             </state>
@@ -33,19 +33,32 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
+            <state relative-caret-position="300">
               <caret line="20" column="44" lean-forward="false" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+            <state relative-caret-position="227">
+              <caret line="159" column="66" lean-forward="false" selection-start-line="159" selection-start-column="66" selection-end-line="159" selection-end-column="66" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UPDATE.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/UPDATE.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="240">
+                <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="26" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -53,8 +66,8 @@
       <file leaf-file-name="CfgUtil.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/core/CfgUtil.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+            <state relative-caret-position="0">
+              <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -63,8 +76,8 @@
       <file leaf-file-name="FileUtil.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/core/FileUtil.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+            <state relative-caret-position="15">
+              <caret line="1" column="25" lean-forward="false" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -97,9 +110,9 @@
       <find>buildFullDir</find>
       <find>reportException</find>
       <find>LOCAL_SRC_FILES</find>
-      <find>require</find>
       <find>punc</find>
       <find>requi</find>
+      <find>require</find>
     </findStrings>
     <replaceStrings>
       <replace>this._addLog</replace>
@@ -111,7 +124,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/packages/font-slimming-tools/package.json" />
         <option value="$PROJECT_DIR$/packages/index.html" />
         <option value="$PROJECT_DIR$/packages/font-slimming-tools/panel/FileUtil.js" />
         <option value="$PROJECT_DIR$/packages/font-slimming-tools/panel/index.js" />
@@ -159,9 +171,10 @@
         <option value="$PROJECT_DIR$/packages/cocos-particle2d/panel/index.html" />
         <option value="$PROJECT_DIR$/packages/creator-chat-room/README.md" />
         <option value="$PROJECT_DIR$/packages/cocos-particle2d/README.md" />
-        <option value="$PROJECT_DIR$/packages/hot-update-tools/core/FileUtil.js" />
         <option value="$PROJECT_DIR$/packages/hot-update-tools/core/CfgUtil.js" />
+        <option value="$PROJECT_DIR$/packages/hot-update-tools/core/FileUtil.js" />
         <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/index.js" />
+        <option value="$PROJECT_DIR$/packages/hot-update-tools/UPDATE.md" />
       </list>
     </option>
   </component>
@@ -182,8 +195,8 @@
     <handled-path value="$PROJECT_DIR$/packages/creator-chat-room/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="373" />
-    <option name="y" value="19" />
+    <option name="x" value="478" />
+    <option name="y" value="14" />
     <option name="width" value="1455" />
     <option name="height" value="900" />
   </component>
@@ -221,6 +234,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -244,33 +259,17 @@
               <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
               <item name="packages" type="462c0819:PsiDirectoryNode" />
               <item name="hot-update-tools" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
-              <item name="hot-update-tools" type="462c0819:PsiDirectoryNode" />
               <item name="i18n" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
-              <item name="hot-update-tools" type="462c0819:PsiDirectoryNode" />
-              <item name="panel" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../client/eduGame" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
@@ -329,14 +328,16 @@
       <workItem from="1513041328163" duration="264000" />
       <workItem from="1513041688426" duration="604000" />
       <workItem from="1513072540480" duration="642000" />
+      <workItem from="1513128091931" duration="3040000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90462000" />
+    <option name="totallyTimeSpent" value="93502000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="373" y="19" width="1455" height="900" extended-state="0" />
+    <frame x="478" y="14" width="1455" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24014337" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -373,20 +374,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/packages/plugin-4399-web-js-sdk/panel/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/plugin-4399-web-js-sdk/core/CfgUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="15" column="6" lean-forward="true" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -571,7 +558,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/packages/creator-chat-room/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
+        <state relative-caret-position="0">
           <caret line="13" column="3" lean-forward="false" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
           <folding />
         </state>
@@ -579,7 +566,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
+        <state relative-caret-position="300">
           <caret line="20" column="44" lean-forward="false" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
           <folding />
         </state>
@@ -587,25 +574,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/core/CfgUtil.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        <state relative-caret-position="0">
+          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/core/FileUtil.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        <state relative-caret-position="15">
+          <caret line="1" column="25" lean-forward="false" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        <state relative-caret-position="227">
+          <caret line="159" column="66" lean-forward="false" selection-start-line="159" selection-start-column="66" selection-end-line="159" selection-end-column="66" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/UPDATE.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="240">
+            <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="26" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
