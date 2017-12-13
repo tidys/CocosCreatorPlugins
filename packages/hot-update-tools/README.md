@@ -67,6 +67,7 @@ windows下为:creator\resources\cocos2d-x\simulator\win32\remote-asset
 ## 如何导出热更新资源
 插件的部署操作里面,你可以指定一个目录,该操作会将热更新的所有资源放到那个目录里面,美中不足的是,插件并不能帮你自动压缩成zip,所有有这个需求的话,需要自动手动压缩喽
 
-QQ打赏:
-
+## 更新记录
+[点击这里](UPDATE.md)
+## QQ打赏:
 ![enter image description here](http://7xq9nm.com1.z0.glb.clouddn.com/qqPay.png)
