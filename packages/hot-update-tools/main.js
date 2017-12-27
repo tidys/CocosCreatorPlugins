@@ -34,7 +34,7 @@ module.exports = {
                         "(function () { \n" +
                         "\n" +
                         "    if (cc && cc.sys.isNative) { \n" +
-                        "        let hotUpdateSearchPaths = cc.sys.localStorage.getItem('HotUpdateSearchPaths'); \n" +
+                        "        var hotUpdateSearchPaths = cc.sys.localStorage.getItem('HotUpdateSearchPaths'); \n" +
                         "        if (hotUpdateSearchPaths) { \n" +
                         "            jsb.fileUtils.setSearchPaths(JSON.parse(hotUpdateSearchPaths)); \n" +
                         "            console.log('[main.js] 热更新SearchPath: ' + JSON.parse(hotUpdateSearchPaths));\n" +
