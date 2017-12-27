@@ -9,8 +9,10 @@ cc.Class({
 
     start() {
         this.tipsLabel.string = this.word + "- old Version";
+        // this.tipsLabel.string = this.word + "- new Version";
     },
 
     update(dt) {
+
     },
 });

@@ -1007,7 +1007,9 @@
     "_fontSize": 40,
     "_lineHeight": 50,
     "_enableWrapText": true,
-    "_N$file": null,
+    "_N$file": {
+      "__uuid__": "5c944147-3b78-4e4d-9ebd-39e8b7784a51"
+    },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_N$string": "客户端出现未知错误",

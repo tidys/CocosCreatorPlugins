@@ -128,8 +128,8 @@ cc.Class({
         Util.log("进入游戏成功");
         this.updateProgress.node.active = false;
 
-        cc.director.loadScene("IndexScene");
-        // DialogMgr.showTipsWithOkBtn("更新成功", function () {
-        // }.bind(this));
+        DialogMgr.showTipsWithOkBtn("更新成功", function () {
+            cc.director.loadScene("IndexScene");
+        }.bind(this));
     },
 });
