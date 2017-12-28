@@ -8,7 +8,7 @@ cc.Class({
 
 
     start() {
-        this.tipsLabel.string = this.word + "- old Version";
+        this.tipsLabel.string = this.word;
         // this.tipsLabel.string = this.word + "- new Version";
     },
 

@@ -33,6 +33,9 @@ module.exports = {
     },
     // 检查更新
     checkUpdate() {
+        if (this._assetsMgr.getState() === jsb.AssetsManager.State.UNINITED) {
+            this._assetsMgr.loadLocalManifest(this.manifestUrl);
+        }
         if (!this._assetsMgr.getLocalManifest().isLoaded()) {
             console.log('加载本地 manifest 失败 ...');
             return;
@@ -88,6 +91,9 @@ module.exports = {
         if (this._assetsMgr) {
             this._updateListener = new jsb.EventListenerAssetsManager(this._assetsMgr, this._hotUpdateCallBack.bind(this));
             cc.eventManager.addListener(this._updateListener, 1);
+            if (this._assetsMgr.getState() === jsb.AssetsManager.State.UNINITED) {
+                this._assetsMgr.loadLocalManifest(this.manifestUrl);
+            }
             this._assetsMgr.update();
         }
     },
@@ -208,7 +214,8 @@ module.exports = {
         if (!cc.sys.isNative) {
             return;
         }
-        let storagePath = ((jsb.fileUtils ? jsb.fileUtils.getWritablePath() : '/') + 'remote-asset');
+        this.manifestUrl = manifestUrl;
+        let storagePath = ((jsb.fileUtils ? jsb.fileUtils.getWritablePath() : '/') + 'happy-car-remote-asset');
         console.log('热更新资源存放路径 : ' + storagePath);
         console.log('本地 manifest 路径 : ' + manifestUrl);
         // this.removeTempDir(storagePath);
