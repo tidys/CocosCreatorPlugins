@@ -139,6 +139,8 @@ Editor.Panel.extend({
                             fileData = fileData.replace(gameIDFlag, newGameIDString);
                             FS.writeFileSync(AppDelegateCppFilePath, fileData);
                             this._addLog("文件成功更新GameID: " + AppDelegateCppFilePath);
+                        } else {
+                            this._addLog("AppID更新失败, 请先添加Bugly");
                         }
                     }
                 },
@@ -196,11 +198,33 @@ Editor.Panel.extend({
                     let data = FS.readFileSync(buildCfg, 'utf-8');
                     let buildData = JSON.parse(data);
                     let buildFullDir = PATH.join(projectPath, buildData.buildPath);
-                    let soPath = PATH.join(buildFullDir,
-                        "jsb-" + buildData.template + "/frameworks/runtime-src/proj.android-studio/app/libs/armeabi-v7a/libcocos2djs.so");
+                    let androidProjectRoot = PATH.join(buildFullDir,
+                        "jsb-" + buildData.template + "/frameworks/runtime-src/proj.android-studio/");
+                    let soPath0 = PATH.join(androidProjectRoot, "app/libs/armeabi-v7a/libcocos2djs.so");//creator 1.7之前的版本so文件会默认放在这个地方
+                    let soPath1 = PATH.join(androidProjectRoot, "app/build/intermediates/ndkBuild/release/obj/local/armeabi-v7a/libcocos2djs.so");//手机上这种多,也是cocos默认的
+                    let soPath2 = PATH.join(androidProjectRoot, "app/build/intermediates/ndkBuild/release/obj/local/armeabi/libcocos2djs.so");
+                    let soPath3 = PATH.join(androidProjectRoot, "app/build/intermediates/ndkBuild/release/obj/local/x86/libcocos2djs.so");// 模拟器上这种
+                    let soPath4 = PATH.join(androidProjectRoot, "app/build/intermediates/ndkBuild/release/obj/local/arm64-v8a/libcocos2djs.so");
 
-                    if (!FS.existsSync(soPath)) {
-                        this._addLog("请编译项目, 没有发现so文件:" + soPath);
+                    let soPath = null;
+                    if (FS.existsSync(soPath0)) {
+                        soPath = soPath0;
+                    } else if (FS.existsSync(soPath1)) {
+                        soPath = soPath1;
+                    } else if (FS.existsSync(soPath2)) {
+                        soPath = soPath2;
+                    } else if (FS.existsSync(soPath3)) {
+                        soPath = soPath3;
+                    } else if (FS.existsSync(soPath4)) {
+                        soPath = soPath4;
+                    } else {
+                        this._addLog("请编译项目, 安卓项目没有发现so文件");
+                        return;
+                    }
+                    if (soPath) {
+                        this._addLog("so文件路径: " + soPath);
+                    } else {
+                        this._addLog("请编译项目, 安卓项目没有发现so文件");
                         return;
                     }
 
@@ -349,9 +373,30 @@ Editor.Panel.extend({
 
                         let desJarDir = PATH.join(projAndroidStudio, "app/libs/");
                         if (!FS.existsSync(desJarDir)) {
-                            window.plugin._addLog("android studio工程未编译,请编译as项目");
+                            FS.mkdirSync(desJarDir);
+                            let str = "未发现目录: " + desJarDir + ",已经自动生成!";
+                            window.plugin._addLog(str);
+                        }
+
+                        // 修改安卓工程jar包依赖
+                        let dependenciesFile = PATH.join(projAndroidStudio, 'app/build.gradle');
+                        if (!FS.existsSync(dependenciesFile)) {
+                            window.plugin._addLog("项目文件: " + dependenciesFile + " 不存在,无法构建jar包依赖");
                             return;
                         }
+
+                        let data = FS.readFileSync(dependenciesFile, 'utf-8');
+
+                        let jarDependenciesFlag = "compile project(':libcocos2dx')\n" +
+                            "    compile files('libs/bugly_agent.jar')\n" +
+                            "    compile files('libs/bugly_crash_release.jar')";
+                        if (data.indexOf(jarDependenciesFlag) === -1) {
+                            data = data.replace("compile project(':libcocos2dx')", jarDependenciesFlag);
+                            window.plugin._addLog("[build.gradle] 增加jar依赖");
+                        } else {
+                            window.plugin._addLog("[build.gradle] 已经增加jar依赖");
+                        }
+                        FS.writeFileSync(dependenciesFile, data);
 
                         fse.copy(jarPath, desJarDir, function (err) {
                             if (err) {
