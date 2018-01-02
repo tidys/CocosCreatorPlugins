@@ -167,7 +167,7 @@ module.exports = {
         }
         let searchPaths = jsb.fileUtils.getSearchPaths();
         let newPaths = this._assetsMgr.getLocalManifest().getSearchPaths();
-        console.log(JSON.stringify(newPaths));
+        console.log("[HotUpdate] 搜索路径: " + JSON.stringify(newPaths));
         Array.prototype.unshift(searchPaths, newPaths);
         cc.sys.localStorage.setItem('HotUpdateSearchPaths', JSON.stringify(searchPaths));
 
@@ -209,13 +209,32 @@ module.exports = {
             console.log("[HotUpdate] dir not exist: " + path);
         }
     },
+    showSearchPath() {
+        console.log("========================搜索路径========================");
+        let searchPaths = jsb.fileUtils.getSearchPaths();
+        // console.log("search path:" + searchPaths);
+        // let arr = searchPaths.split(',');
+        // let arr = searchPaths;
+        for (let i = 0; i < searchPaths.length; i++) {
+            console.log("[" + i + "]: " + searchPaths[i]);
+        }
+        console.log("======================================================");
+        // console.log("================================================================");
+        // let str = cc.sys.localStorage.getItem('HotUpdateSearchPaths');
+        // let localPath = JSON.parse(str);
+        // for (let i = 0; i < localPath.length; i++) {
+        //     console.log("[HotUpdateSearchPaths]" + i + " :" + localPath[i]);
+        // }
+        // jsb.fileUtils.setSearchPaths(localPath);
+    },
     // ------------------------------初始化------------------------------
     init(manifestUrl) {
         if (!cc.sys.isNative) {
             return;
         }
+        this.showSearchPath();
         this.manifestUrl = manifestUrl;
-        let storagePath = ((jsb.fileUtils ? jsb.fileUtils.getWritablePath() : '/') + 'happy-car-remote-asset');
+        let storagePath = ((jsb.fileUtils ? jsb.fileUtils.getWritablePath() : '/') + 'remote-asset');
         console.log('热更新资源存放路径 : ' + storagePath);
         console.log('本地 manifest 路径 : ' + manifestUrl);
         // this.removeTempDir(storagePath);

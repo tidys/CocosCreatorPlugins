@@ -38,10 +38,12 @@ module.exports = {
                         "        if (hotUpdateSearchPaths) { \n" +
                         "            jsb.fileUtils.setSearchPaths(JSON.parse(hotUpdateSearchPaths)); \n" +
                         "            console.log('[main.js] 热更新SearchPath: ' + JSON.parse(hotUpdateSearchPaths));\n" +
+                        "        }else {\n" +
+                        "            console.log('[main.js] 未获取到热更新资源路径!');\n"+
                         "        }\n" +
-                        "    }\n" +
-                        "    // 这是为了解决一个重启的 bug 而添加的\n" +
-                        "    cc.director.startAnimation();\n";
+                        "    }else {\n" +
+                        "        console.log('[main.js] 不是native平台!');\n"+
+                        "    }\n";
 
                     let newData = data.replace("(function () {", newStr);
                     Fs.writeFile(url, newData, function (error) {

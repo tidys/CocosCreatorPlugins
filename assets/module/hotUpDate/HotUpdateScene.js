@@ -63,6 +63,7 @@ cc.Class({
         this._initView();
         // this._checkUpdate();
         this._initVersionFlag();
+        // HotUpdate.showSearchPath();
     },
     _initVersionFlag() {
         /*if (GameCfg.isDebugVersion) {
@@ -130,6 +131,7 @@ cc.Class({
 
         DialogMgr.showTipsWithOkBtn("更新成功", function () {
             cc.director.loadScene("IndexScene");
+            // cc.director.loadScene("TestGameScene");
         }.bind(this));
     },
 });
