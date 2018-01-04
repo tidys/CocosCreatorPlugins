@@ -1,16 +1,22 @@
+"use strict";
+window.packageRoot = 'packages://hot-update-tools/';
+
 var fs = require('fire-fs');
 var path = require('fire-path');
 var Electron = require('electron');
 var {remote} = require('electron');
 var CfgUtil = Editor.require('packages://hot-update-tools/core/CfgUtil.js');
 var FileUtil = Editor.require('packages://hot-update-tools/core/FileUtil.js');
+var Mail = Editor.require('packages://hot-update-tools/mail/Mail.js');
+
 
 Editor.Panel.extend({
     style: fs.readFileSync(Editor.url('packages://hot-update-tools/panel/index.css', 'utf8')) + "",
     template: fs.readFileSync(Editor.url('packages://hot-update-tools/panel/index.html', 'utf8')) + "",
     $: {
         logTextArea: '#logTextArea',
-        ipSelection: '#ipSelection'
+        hotAddressSelect: '#hotAddressSelect',
+        testEnvSelect: '#testEnvSelect',
     },
     ready() {
         let logCtrl = this.$logTextArea;
@@ -19,16 +25,19 @@ Editor.Panel.extend({
                 logCtrl.scrollTop = logCtrl.scrollHeight;
             }, 10);
         };
-        let ipSelectionCtrl = this.$ipSelection;
+
+
+        let hotAddressSelectCtrl = this.$hotAddressSelect;
+        window.hotAddressSelectCtrl = hotAddressSelectCtrl;
 
         function selectionLast(index) {
             setTimeout(function () {
-                ipSelectionCtrl.selectedIndex = index;
+                hotAddressSelectCtrl.selectedIndex = index;
             }, 10);
         }
 
         function getSelectIp() {
-            let ip = ipSelectionCtrl.$select.value;
+            let ip = hotAddressSelectCtrl.$select.value;
             console.log(ip);
             return ip;
         }
@@ -49,6 +58,8 @@ Editor.Panel.extend({
                 verManifestPath: "",
 
                 version: "",
+                remoteServerVersion: "",// 远程服务器版本
+                isShowRemoteServerVersion: false,// 是否显示远程服务器版本号
                 genManifestDir: "",
                 serverRootDir: "",
                 resourceRootDir: "",
@@ -68,9 +79,71 @@ Editor.Panel.extend({
                 localGameProjectManifestUrl: "",//assets的url
                 localGameVersionManifestUrl: "",//
 
-                ipArray: [],
+                // 测试环境逻辑变量
+                testEnvLocal: true,
+                testEnvALi: false,
+                testEnvSelect: 0,
+
+                // 热更资源服务器配置历史记录
+                isShowUseAddrBtn: false,
+                isShowDelAddrBtn: false,
+                hotAddressArray: [
+                    'http://www.baidu.com',
+                    'http://192.168.0.2'
+                ],
             },
             methods: {
+                // 测试
+                onTest() {
+                    Mail.sendMail(this.version, "修复bug", null, function () {
+                        console.log("send over");
+                    });
+
+                },
+
+                onChangeSelectHotAddress(event) {
+                    console.log("change");
+                    this.isShowUseAddrBtn = this.isShowDelAddrBtn = true;
+                },
+                // 增加热更历史地址
+                _addHotAddress(addr) {
+                    let isAddIn = true;
+                    for (let i = 0; i < this.hotAddressArray.length; i++) {
+                        let item = this.hotAddressArray[i];
+                        if (item === addr) {
+                            isAddIn = false;
+                            break;
+                        }
+                    }
+                    if (isAddIn) {
+                        this.hotAddressArray.push(addr);
+                        this._addLog("[HotAddress]历史记录添加成功:" + addr);
+                    } else {
+                        this._addLog("[HotAddress]历史记录已经存在该地址: " + addr);
+                    }
+                },
+                // 删除热更历史地址
+                onBtnClickDelSelectedHotAddress() {
+                    let address = window.hotAddressSelectCtrl.value;
+                    if (this.hotAddressArray.length > 0) {
+                        for (let i = 0; i < this.hotAddressArray.length;) {
+                            let item = this.hotAddressArray[i];
+                            if (item === address) {
+                                this.hotAddressArray.splice(i, 1);
+                                this._addLog("删除历史地址成功: " + item);
+                            } else {
+                                i++;
+                            }
+                        }
+                    } else {
+                        this._addLog("历史地址已经为空");
+                    }
+                },
+                onBtnClickUseSelectedHotAddress() {
+                    let address = window.hotAddressSelectCtrl.value;
+                    this.serverRootDir = address;
+                    this.onInPutUrlOver();
+                },
                 _addLog(str) {
                     let time = new Date();
                     // this.logView = "[" + time.toLocaleString() + "]: " + str + "\n" + this.logView;
@@ -98,6 +171,7 @@ Editor.Panel.extend({
                         genManifestDir: CfgUtil.getMainFestDir(),
 
                         localServerPath: this.localServerPath,
+                        hotAddressArray: this.hotAddressArray,
                     };
                     CfgUtil.saveConfig(data);
                 },
@@ -117,7 +191,9 @@ Editor.Panel.extend({
                             this.serverRootDir = data.serverRootDir;
                             this.resourceRootDir = data.resourceRootDir;
                             this.localServerPath = data.localServerPath;
+                            this.hotAddressArray = data.hotAddressArray || [];
                             this._updateServerVersion();
+                            this._getRemoteServerVersion();
                         } else {
                             this._saveConfig();
                         }
@@ -173,8 +249,6 @@ Editor.Panel.extend({
                     // free.on('exit', function (code, signal) {
                     //     console.log('child process eixt ,exit:' + code);
                     // });
-
-
                 },
                 initLocalGameVersion() {
                     Editor.assetdb.queryAssets('db://assets/**\/*', "raw-asset", function (err, results) {
@@ -680,9 +754,43 @@ Editor.Panel.extend({
                         if (!reg.test(url)) {
                             this._addLog(url + " 不是以http://https://开头，或者不是网址, 已经自动修改");
                             this.serverRootDir = "http://" + this.serverRootDir;
+                            this._getRemoteServerVersion();
                         }
+                    } else {
+                        // 更新服务器版本
+                        this._getRemoteServerVersion();
                     }
+                    this._addHotAddress(this.serverRootDir);
                     this._saveConfig();
+                },
+                // 获取远程资源服务器的版本号
+                _getRemoteServerVersion() {
+                    // TODO 浏览器缓存会导致版本号获取失败
+                    this.isShowRemoteServerVersion = false;
+                    let versionUrl = this.serverRootDir + "/version.manifest";
+
+                    let xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && ((xhr.status >= 200 && xhr.status < 400))) {
+                            let text = xhr.responseText;
+                            // console.log("版本文件内容\n" + versionUrl + "\n" + text);
+                            let json = null;
+                            try {
+                                json = JSON.parse(text);
+                            } catch (e) {
+                                console.log(e);
+                                this._addLog("获取远程版本号失败!");
+                                return;
+                            }
+                            this.isShowRemoteServerVersion = true;
+                            this.remoteServerVersion = json.version;
+                        } else if (xhr.status === 404) {
+                            // console.log("404");
+                        }
+                    }.bind(this);
+                    xhr.open('get', versionUrl, true);
+                    xhr.setRequestHeader("If-Modified-Since", "0");// 不缓存
+                    xhr.send();
                 },
                 onTestUrl() {
                     let url = this.serverRootDir;
@@ -854,8 +962,8 @@ Editor.Panel.extend({
                 //
                 onTestSelect() {
                     let ip = Math.random() * 100;
-                    this.ipArray.push(ip.toFixed(2));
-                    selectionLast(this.ipArray.length - 1);
+                    this.hotAddressArray.push(ip.toFixed(2));
+                    selectionLast(this.hotAddressArray.length - 1);
                 },
                 onIpSelectChange(event) {
                     console.log("index:%d, text:%s, value:%s ", event.detail.index, event.detail.text, event.detail.value);
@@ -865,7 +973,27 @@ Editor.Panel.extend({
                     Editor.Ipc.sendToMain('hot-update-tools:test', 'Hello, this is simple panel');
                     // let relativePath = path.relative(__dirname, path.join(Editor.projectInfo.path, 'assets'));
                     // console.log(relativePath);
-                }
+                },
+                onTestEnvChange(event) {
+                    // let children = event.target.$select.children;
+                    // for (let i = 0; i < children.length; i++) {
+                    //     let item = children[i];
+                    //     if (item.value === "0") {
+                    //         item.selected = true;
+                    //     } else {
+                    //         item.selected = false;
+                    //     }
+                    // }
+                    let selectValue = event.target.value;
+                    this.testEnvALi = false;
+                    this.testEnvLocal = false;
+                    if (selectValue === "0") {// 本地测试环境
+                        this.testEnvLocal = true;
+                    } else if (selectValue === "1") {//阿里云测试环境
+                        this.testEnvALi = true;
+
+                    }
+                },
             }
         });
     },

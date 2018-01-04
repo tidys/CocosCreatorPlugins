@@ -2,680 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77be2a0d-245c-4481-9db8-0f8f0c8c25fa" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/packages/hot-update-tools/CommonIssue.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/packages/hot-update-tools/mail/Mail.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/packages/hot-update-tools/mail/MailTemp.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/packages/hot-update-tools/panel/test.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/assets/module/hotUpDate.meta" afterPath="$PROJECT_DIR$/assets/module/hotUpDate.meta" />
-      <change beforePath="$PROJECT_DIR$/assets/module/hotUpDate/HotUpdateScene.js" afterPath="$PROJECT_DIR$/assets/module/hotUpDate/HotUpdateScene.js" />
-      <change beforePath="$PROJECT_DIR$/assets/module/hotUpDate/hot.meta" afterPath="$PROJECT_DIR$/assets/module/hotUpDate/hot.meta" />
-      <change beforePath="$PROJECT_DIR$/assets/module/hotUpDate/hot/HotUpdate.js" afterPath="$PROJECT_DIR$/assets/module/hotUpDate/hot/HotUpdate.js" />
-      <change beforePath="$PROJECT_DIR$/assets/module/hotUpDate/hot/project.manifest" afterPath="$PROJECT_DIR$/assets/module/hotUpDate/hot/project.manifest" />
-      <change beforePath="$PROJECT_DIR$/assets/module/hotUpDate/hot/version.manifest" afterPath="$PROJECT_DIR$/assets/module/hotUpDate/hot/version.manifest" />
-      <change beforePath="$PROJECT_DIR$/assets/module/hotUpDate/hot/version.manifest.meta" afterPath="$PROJECT_DIR$/assets/module/hotUpDate/hot/version.manifest.meta" />
-      <change beforePath="$PROJECT_DIR$/assets/module/index.meta" afterPath="$PROJECT_DIR$/assets/module/index.meta" />
-      <change beforePath="$PROJECT_DIR$/assets/module/index/IndexScene.fire" afterPath="$PROJECT_DIR$/assets/module/index/IndexScene.fire" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/anniulizi.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/anniulizi.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/anniulizi.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/anniulizi.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/baozha02.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/baozha02.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/baozha02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/baozha02.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/baozha03.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/baozha03.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/baozhu.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/baozhu.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/baozhu.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/baozhu.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bluefw.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bluefw.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bluefw.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bluefw.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bombparticle_shanshuolizi.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bombparticle_shanshuolizi.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bombparticle_shanshuolizi.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bombparticle_shanshuolizi.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_12.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_12.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_12.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_12.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_arrow_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_arrow_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_arrow_1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_arrow_1.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_1.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_2.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_2.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_2.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_3.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_3.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_3.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_4.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_4.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_4.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_5.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_5.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_5.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bird_5.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_blitzball_4.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_blitzball_4.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_blitzball_4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_blitzball_4.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bubble_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bubble_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bubble_1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_bubble_1.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_cannon_3.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_cannon_3.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_cannon_3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_cannon_3.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_missile_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_missile_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_missile_1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_missile_1.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_missile_3.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_missile_3.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_missile_3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_missile_3.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_moonlight_3.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_moonlight_3.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_moonlight_3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_moonlight_3.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_shoulijian_3.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_shoulijian_3.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_shoulijian_3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_shoulijian_3.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_shoulijian_4.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_shoulijian_4.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_shoulijian_4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_shoulijian_4.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_tail_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_tail_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_tail_1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_tail_1.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_tail_3.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_tail_3.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_tail_3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_tail_3.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_tail_4.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_tail_4.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_tail_4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_tail_4.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_tail_5.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_tail_5.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_tail_5.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bullet_tail_5.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_1.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_10.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_10.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_10.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_10.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_11.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_11.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_11.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_11.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_12.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_12.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_12.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_12.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_2.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_2.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_2.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_4.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_4.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_4.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_5.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_5.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_5.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_5.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_6.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_6.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_6.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_6.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_6_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_6_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_6_1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_6_1.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_6_2.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_6_2.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_6_2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_6_2.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_6_3.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_6_3.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_6_3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_6_3.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_8.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_8.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_8.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/buttle_8.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bxlizi.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bxlizi.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bxlizi.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/bxlizi.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/caidai.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/caidai.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/caidai.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/caidai.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/caidailuo1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/caidailuo1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/caidailuo1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/caidailuo1.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/caisexing2.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/caisexing2.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/caisexing2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/caisexing2.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/cj_diandian.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/cj_diandian.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/cj_diandian.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/cj_diandian.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/cjlizi.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/cjlizi.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/cjlizi.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/cjlizi.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/cristal_tail.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/cristal_tail.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/cristal_tail.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/cristal_tail.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/dalizi.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/dalizi.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/dalizi.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/dalizi.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/datuowei.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/datuowei.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/datuowei.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/datuowei.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/denglongyu_xmax03.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/denglongyu_xmax03.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/denglongyu_xmax03.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/denglongyu_xmax03.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/door_close.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/door_close.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/door_close.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/door_close.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/fever_ready.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/fever_ready.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/fever_ready.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/fever_ready.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/fish_dead_4.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/fish_dead_4.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/fish_dead_4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/fish_dead_4.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/fish_unlock.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/fish_unlock.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/fish_unlock.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/fish_unlock.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/gas_disappear.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/gas_disappear.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/gas_disappear.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/gas_disappear.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/gas_loopbubble.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/gas_loopbubble.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/gas_loopbubble.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/gas_loopbubble.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/gas_loopsmoke.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/gas_loopsmoke.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/gas_loopsmoke.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/gas_loopsmoke.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/hailang.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/hailang.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/hailang.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/hailang.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/harpoon_explode2.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/harpoon_explode2.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/harpoon_explode2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/harpoon_explode2.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/hetun_crash.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/hetun_crash.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/hetun_crash.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/hetun_crash.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/hetun_crash_blue.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/hetun_crash_blue.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/hetun_crash_blue.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/hetun_crash_blue.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/hetunpao.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/hetunpao.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/hetunpao.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/hetunpao.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/huanglizi.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/huanglizi.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/huanglizi.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/huanglizi.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/huo.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/huo.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/huo.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/huo.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jbtwlz.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jbtwlz.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jbtwlz.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jbtwlz.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jiguanglizi.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jiguanglizi.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jiguanglizi.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jiguanglizi.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jiguangxing.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jiguangxing.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jiguangxing.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jiguangxing.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jinbi2.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jinbi2.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jinbi2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jinbi2.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jizhonglizi.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jizhonglizi.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jizhonglizi.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/jizhonglizi.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lanxing.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lanxing.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lanxing.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lanxing.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi2.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi2.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi2.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_01.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_02.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_02.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_03.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_03.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_03.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_03.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_04.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_04.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_04.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_04.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_05.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_05.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_05.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_05.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_06.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_06.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_06.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_06.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_07.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_07.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_07.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_07.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_08.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_08.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_08.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_08.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_10.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_10.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_10.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_10.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_11.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_11.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_11.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_11.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_12.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_12.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_12.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_12.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_13.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_13.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_13.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_13.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_14.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_14.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_14.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_caixing_14.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_changjiangpaopao_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_changjiangpaopao_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_changjingpaopao_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_changjingpaopao_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_changjingpaopao_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_changjingpaopao_01.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_hs_paopao_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_hs_paopao_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_hs_yan_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_hs_yan_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_hs_yan_02.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_hs_yan_02.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_jbs_paopao_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_jbs_paopao_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_jbs_paopao_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_jbs_paopao_01.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_jbs_qiuqiu_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_jbs_qiuqiu_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_jbs_qiuqiu_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_jbs_qiuqiu_01.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_tss_diandian_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_tss_diandian_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_tss_diandian_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_tss_diandian_01.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_tss_diandian_02.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_tss_diandian_02.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_tss_diandian_02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cj_tss_diandian_02.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cja_zj_huoxingxing.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cja_zj_huoxingxing.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cja_zj_huoxingxing.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cja_zj_huoxingxing.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cja_zqj_paopao1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cja_zqj_paopao1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cja_zqj_paopao1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_cja_zqj_paopao1.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_dtxz_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_dtxz_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_dtxz_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_dtxz_01.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_dtxz_02.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_dtxz_02.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_dtxz_02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_dtxz_02.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_fuwenxx_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_fuwenxx_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_fuwenxx_02.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_fuwenxx_02.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_jinbi_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_jinbi_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_jinbihuodexingxing_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_jinbihuodexingxing_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_jinbihuodexingxing_02.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_jinbihuodexingxing_02.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_jsss_hx_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_jsss_hx_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_jsss_hx_03.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_jsss_hx_03.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_jsss_sd_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_jsss_sd_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_jsss_sd_02.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_jsss_sd_02.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_pai_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_pai_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_pai_xingxing_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_pai_xingxing_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_paopao_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_paopao_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_paopao_03.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_paopao_03.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_paotaijiesuo_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_paotaijiesuo_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_pian_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_pian_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_pose_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_pose_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_pose_02.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_pose_02.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_shengli_xingxing_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_shengli_xingxing_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingkong_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingkong_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingkong_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingkong_01.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingkong_03.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingkong_03.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_02.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_02_die.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_02_die.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_03.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_03.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_03_die.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_03_die.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_04.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_04.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_05.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_05.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_06.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_06.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_07.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_07.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_08.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_08.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_09.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_09.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_katong_02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_xingxing_katong_02.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_yan_03.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_yan_03.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_baozha_03_paopao.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_baozha_03_paopao.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_baozha_06_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_baozha_06_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_baozha_06_2.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_baozha_06_2.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_baozha_07_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_baozha_07_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_baozha_07_2.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_baozha_07_2.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_baozha_09_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_baozha_09_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_baozha_10_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_baozha_10_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_baozha_10_2.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_baozha_10_2.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_baozhapaopao_01_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_baozhapaopao_01_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_huan.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_huan.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_paopao_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_paopao_01.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_paopao_02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_paopao_02.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_paopao_03.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_paopao_03.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_paopao_04.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_paopao_04.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xh_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xh_01.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_01_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_01_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_02_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_02_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_03_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_03_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_04_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_04_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_05_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_05_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_06_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_06_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_06_2.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_06_2.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_07_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_07_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_08_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_08_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_09_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_09_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_10_1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xingxing_10_1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xx_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xx_01.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xx_02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_xx_02.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_yl_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_yl_01.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_yuan_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_yuan_01.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_yuan_02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizi_zd_yuan_02.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizilan2.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizilan2.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizilan2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizilan2.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizisheng2.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizisheng2.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizisheng2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/lizisheng2.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/pao1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/pao1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/pao1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/pao1.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/pao1_fever.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/pao1_fever.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/pao1_fever.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/pao1_fever.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/pao2.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/pao2.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/pao2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/pao2.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/pao3.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/pao3.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/paopao2.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/paopao2.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/paopao2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/paopao2.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/paopaoxiangshang.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/paopaoxiangshang.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/paopaoxiangshang.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/paopaoxiangshang.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/pinkf.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/pinkf.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/pinkf.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/pinkf.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/qiaoya1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/qiaoya1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/qiaoya1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/qiaoya1.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/shanhupao01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/shanhupao01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/shanhupao01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/shanhupao01.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/shanhupao02.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/shanhupao02.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/shanhupao02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/shanhupao02.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/sjlizixingxing.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/sjlizixingxing.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/sjlizixingxing.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/sjlizixingxing.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/sslizi.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/sslizi.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/sslizi.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/sslizi.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/star1.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/star1.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/star1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/star1.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/star2.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/star2.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/star2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/star2.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/star_fanpai.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/star_fanpai.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/star_fanpai.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/star_fanpai.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/starfw.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/starfw.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/starfw.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/starfw.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/stars_01.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/stars_01.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/stars_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/stars_01.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/stars_02.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/stars_02.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/stars_02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/stars_02.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/startyindao.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/startyindao.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/startyindao.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/startyindao.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/tborange.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/tborange.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/tborange.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/tborange.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/tbyellow.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/tbyellow.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/tbyellow.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/tbyellow.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/test001.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/test001.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/test001.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/test001.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/viplizi3.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/viplizi3.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/viplizi3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/viplizi3.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/waisan.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/waisan.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/waisan.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/waisan.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/waisanhong.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/waisanhong.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/waisanhong.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/waisanhong.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/weapon_soul.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/weapon_soul.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/weapon_soul.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/weapon_soul.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xiaolizi.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xiaolizi.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xiaolizi.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xiaolizi.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xing.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xing.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xing.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xing.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xing33.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xing33.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xing33.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xing33.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xingshao.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xingshao.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xingshao.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xingshao.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xingxinglizi.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xingxinglizi.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xingxinglizi.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xingxinglizi.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xuanzhuan.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xuanzhuan.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xuanzhuan.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xuanzhuan.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xuehua.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xuehua.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xuehua.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xuehua.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xwq_paoyuan.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xwq_paoyuan.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xwq_paoyuan.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/xwq_paoyuan.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua_huang.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua_huang.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua_huang.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua_huang.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua_l.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua_l.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua_l.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua_l.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua_lan.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua_lan.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua_lan.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua_lan.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua_zi.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua_zi.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua_zi.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yanhua_zi.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yellowfw.plist" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yellowfw.plist.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yellowfw.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/resources/particle/yellowfw.png.meta" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/packages/hot-update-tools/README.md" afterPath="$PROJECT_DIR$/packages/hot-update-tools/README.md" />
-      <change beforePath="$PROJECT_DIR$/packages/hot-update-tools/main.js" afterPath="$PROJECT_DIR$/packages/hot-update-tools/main.js" />
+      <change beforePath="$PROJECT_DIR$/packages/hot-update-tools/UPDATE.md" afterPath="$PROJECT_DIR$/packages/hot-update-tools/UPDATE.md" />
+      <change beforePath="$PROJECT_DIR$/packages/hot-update-tools/core/CfgUtil.js" afterPath="$PROJECT_DIR$/packages/hot-update-tools/core/CfgUtil.js" />
+      <change beforePath="$PROJECT_DIR$/packages/hot-update-tools/package.json" afterPath="$PROJECT_DIR$/packages/hot-update-tools/package.json" />
+      <change beforePath="$PROJECT_DIR$/packages/hot-update-tools/panel/index.html" afterPath="$PROJECT_DIR$/packages/hot-update-tools/panel/index.html" />
       <change beforePath="$PROJECT_DIR$/packages/hot-update-tools/panel/index.js" afterPath="$PROJECT_DIR$/packages/hot-update-tools/panel/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -690,113 +24,60 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HotUpdateScene.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/module/hotUpDate/HotUpdateScene.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="117" column="30" lean-forward="false" selection-start-line="117" selection-start-column="30" selection-end-line="117" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="381" column="59" lean-forward="false" selection-start-line="381" selection-start-column="59" selection-end-line="381" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build/jsb-default/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="27" lean-forward="false" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="41" column="79" lean-forward="false" selection-start-line="41" selection-start-column="79" selection-end-line="41" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HotUpdate.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/module/hotUpDate/hot/HotUpdate.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="234" column="15" lean-forward="false" selection-start-line="234" selection-start-column="15" selection-end-line="234" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="38">
-                <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommonIssue.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/CommonIssue.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="240">
-                <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.55584085">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="398">
+                  <caret line="786" column="36" lean-forward="true" selection-start-line="786" selection-start-column="36" selection-end-line="786" selection-end-column="36" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CfgUtil.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/core/CfgUtil.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-47">
+                  <caret line="22" column="60" lean-forward="false" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="151">
+                  <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+                  <folding>
+                    <element signature="n#style#0;n#ui-select#0;n#div#0;n#ui-prop#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>drop</find>
-      <find>.createHash</find>
-      <find>self</find>
-      <find>che</find>
-      <find>isUseSuggestString</find>
-      <find>console.log</find>
-      <find>_catchMainJS</find>
-      <find>onChangeGameID</find>
-      <find>Editor.proj</find>
-      <find>fs.</find>
-      <find>initCrashReport</find>
-      <find>buildFullDir</find>
-      <find>reportException</find>
-      <find>LOCAL_SRC_FILES</find>
-      <find>punc</find>
-      <find>requi</find>
-      <find>require</find>
       <find>GameLocalStorage</find>
       <find>loadLocalManifest</find>
       <find>manifestUrl</find>
@@ -810,9 +91,28 @@
       <find>jsb.Manifest</find>
       <find>init(</find>
       <find>startPhase</find>
+      <find>remoteServerVersion</find>
+      <find>serverRootDir</find>
+      <find>res</find>
+      <find>userLocalIP</find>
+      <find>packages</find>
+      <find>packages://hot-update-tools/</find>
+      <find>testEnvSelect</find>
+      <find>onteste</find>
+      <find>onTestEnvChange</find>
+      <find>selectionLast</find>
+      <find>ipSelection</find>
+      <find>hotAddrSelect</find>
+      <find>ipArray</find>
+      <find>_getRemoteServerVersion</find>
+      <find>onInPutUrlOver</find>
+      <find>testEnvLocal</find>
+      <find>xhr.setRequestHeader(&quot;If-Modified-Since&quot;, &quot;0&quot;);// 不缓存</find>
     </findStrings>
     <replaceStrings>
       <replace>this._addLog</replace>
+      <replace>hotAddrSelect</replace>
+      <replace>hotAddressSelect</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -821,13 +121,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/packages/plugin-4399-web-js-sdk/README.md" />
-        <option value="$PROJECT_DIR$/packages/plugin-bugly/panel/index.css" />
-        <option value="$PROJECT_DIR$/packages/as-asset-sync-master/main.js" />
-        <option value="$PROJECT_DIR$/packages/plugin-bugly/core/CfgUtil.js" />
-        <option value="$PROJECT_DIR$/build/jsb-default/frameworks/runtime-src/proj.android-studio/app/jni/Android.mk" />
-        <option value="$PROJECT_DIR$/packages/plugin-bugly/panel/index.html" />
-        <option value="$PROJECT_DIR$/packages/plugin-bugly/main.js" />
         <option value="$PROJECT_DIR$/build/jsb-default/frameworks/runtime-src/Classes/AppDelegate.cpp" />
         <option value="$PROJECT_DIR$/packages/plugin-bugly/package.json" />
         <option value="$PROJECT_DIR$/packages/plugin-bugly/i18n/zh.js" />
@@ -849,9 +142,7 @@
         <option value="$PROJECT_DIR$/packages/cocos-particle2d/panel/index.html" />
         <option value="$PROJECT_DIR$/packages/creator-chat-room/README.md" />
         <option value="$PROJECT_DIR$/packages/cocos-particle2d/README.md" />
-        <option value="$PROJECT_DIR$/packages/hot-update-tools/core/CfgUtil.js" />
         <option value="$PROJECT_DIR$/packages/hot-update-tools/core/FileUtil.js" />
-        <option value="$PROJECT_DIR$/packages/hot-update-tools/UPDATE.md" />
         <option value="$PROJECT_DIR$/assets/Script/GameMsgGlobal.js" />
         <option value="$PROJECT_DIR$/assets/Script/Util.js" />
         <option value="$PROJECT_DIR$/assets/hotupDate/HotUpdateScene.js" />
@@ -865,13 +156,22 @@
         <option value="$PROJECT_DIR$/assets/module/bugly/BuglyTest.js" />
         <option value="$PROJECT_DIR$/assets/core/native/Native.js" />
         <option value="$PROJECT_DIR$/build/jsb-default/frameworks/runtime-src/proj.android-studio/app/src/org/cocos2dx/javascript/NativeActivity.java" />
-        <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/index.js" />
         <option value="$PROJECT_DIR$/assets/module/hotUpDate/HotUpdateScene.js" />
         <option value="$PROJECT_DIR$/assets/module/hotUpDate/hot/HotUpdate.js" />
         <option value="$PROJECT_DIR$/build/jsb-default/main.js" />
         <option value="$PROJECT_DIR$/packages/hot-update-tools/main.js" />
         <option value="$PROJECT_DIR$/packages/hot-update-tools/CommonIssue.md" />
         <option value="$PROJECT_DIR$/packages/hot-update-tools/README.md" />
+        <option value="$PROJECT_DIR$/packages/hot-update-tools/mail/MailTemp.html" />
+        <option value="$PROJECT_DIR$/packages/hot-update-tools/mail/Mail.js" />
+        <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/TestEnvAli.js" />
+        <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/TestEnvAli.html" />
+        <option value="$PROJECT_DIR$/packages/hot-update-tools/package.json" />
+        <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/test.js" />
+        <option value="$PROJECT_DIR$/packages/hot-update-tools/core/CfgUtil.js" />
+        <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/index.js" />
+        <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/index.html" />
+        <option value="$PROJECT_DIR$/packages/hot-update-tools/UPDATE.md" />
       </list>
     </option>
   </component>
@@ -893,12 +193,13 @@
   </component>
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/packages/creator-chat-room/node_modules" />
+    <handled-path value="$PROJECT_DIR$/packages/hot-update-tools/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="333" />
-    <option name="y" value="121" />
-    <option name="width" value="1424" />
-    <option name="height" value="807" />
+    <option name="x" value="712" />
+    <option name="y" value="56" />
+    <option name="width" value="1469" />
+    <option name="height" value="1037" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -934,40 +235,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="doc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
-              <item name="hot-update-tools" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
-              <item name="hot-update-tools" type="462c0819:PsiDirectoryNode" />
-              <item name="panel" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="cocos">
           <expand>
@@ -1022,12 +290,47 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="hot-update-tools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="hot-update-tools" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="hot-update-tools" type="462c0819:PsiDirectoryNode" />
+              <item name="mail" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../client/eduGame" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
@@ -1038,6 +341,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\project\CocosCreatorPlugins\packages\hot-update-tools\test" />
       <recent name="C:\project\CocosCreatorPlugins\packages\hot-update-tools" />
       <recent name="C:\project\creatorPlugins\packages\plugin-bugly\bugly\1.4.3\prebuilt" />
       <recent name="C:\project\fontSlimming\doc\字体瘦身\test" />
@@ -1102,27 +406,35 @@
       <workItem from="1514450795198" duration="6048000" />
       <workItem from="1514456935201" duration="19000" />
       <workItem from="1514857915854" duration="5001000" />
-      <workItem from="1514864111826" duration="9359000" />
+      <workItem from="1514864111826" duration="9455000" />
+      <workItem from="1514889156566" duration="2336000" />
+      <workItem from="1514941981240" duration="10535000" />
+      <workItem from="1514961833303" duration="20000" />
+      <workItem from="1514962037942" duration="8000" />
+      <workItem from="1514966374729" duration="5993000" />
+      <workItem from="1515028328176" duration="8023000" />
+      <workItem from="1515044855739" duration="776000" />
+      <workItem from="1515045651116" duration="8218000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134051000" />
+    <option name="totallyTimeSpent" value="170056000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="333" y="121" width="1424" height="807" extended-state="0" />
+    <frame x="712" y="56" width="1469" height="1037" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="NativeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20071259" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24560118" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19777778" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17246275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32818073" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26173097" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1145,67 +457,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/packages/bitmap-font/panel/index.js" />
-    <entry file="file://$PROJECT_DIR$/../client/eduGame/assets/module/main/carShop/CarShopLayer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/creator-chat-room/panel/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/creator-chat-room/panel/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/creator-chat-room/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/cocos-particle2d/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/cocos-particle2d/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/creator-chat-room/panel/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="100" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/cocos-particle2d/panel/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/packages/bitmap-font/panel/index.html" />
     <entry file="file://$PROJECT_DIR$/packages/creator-chat-room/test.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -1262,13 +519,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/core/CfgUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/core/FileUtil.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1292,16 +542,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="225">
             <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/UPDATE.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="120">
-            <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
           </first_editor>
           <second_editor />
         </state>
@@ -1390,9 +630,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
+        <state relative-caret-position="615">
           <caret line="41" column="79" lean-forward="false" selection-start-line="41" selection-start-column="79" selection-end-line="41" selection-end-column="79" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1400,23 +639,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" column="27" lean-forward="false" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/module/hotUpDate/HotUpdateScene.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
+        <state relative-caret-position="1755">
           <caret line="117" column="30" lean-forward="false" selection-start-line="117" selection-start-column="30" selection-end-line="117" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/module/hotUpDate/hot/HotUpdate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
+        <state relative-caret-position="3510">
           <caret line="234" column="15" lean-forward="false" selection-start-line="234" selection-start-column="15" selection-end-line="234" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1425,7 +661,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="240">
             <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -1434,8 +669,93 @@
     <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="38">
+          <first_editor relative-caret-position="600">
             <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/creator.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129075">
+          <caret line="8605" column="15" lean-forward="false" selection-start-line="8605" selection-start-column="15" selection-end-line="8605" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/core/HttpService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="15" lean-forward="true" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/mail/MailTemp.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/test/TestEnvAli.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/test/TestEnvAli.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/mail/Mail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="19" lean-forward="false" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="19" lean-forward="false" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/core/CfgUtil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-47">
+          <caret line="22" column="60" lean-forward="false" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#ui-select#0;n#div#0;n#ui-prop#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/UPDATE.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="315">
+            <caret line="21" column="28" lean-forward="false" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
             <folding />
           </first_editor>
           <second_editor />
@@ -1444,8 +764,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="381" column="59" lean-forward="false" selection-start-line="381" selection-start-column="59" selection-end-line="381" selection-end-column="59" />
+        <state relative-caret-position="398">
+          <caret line="786" column="36" lean-forward="true" selection-start-line="786" selection-start-column="36" selection-end-line="786" selection-end-column="36" />
           <folding />
         </state>
       </provider>

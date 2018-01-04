@@ -11,6 +11,8 @@ let self = module.exports = {
         resourceRootDir: "",
         genManifestDir: "",
         localServerPath: "",
+
+        hotAddressArray: [],
     },
     saveConfig(data) {
         let configFilePath = self._getAppCfgPath();
@@ -18,7 +20,7 @@ let self = module.exports = {
         this.cfgData.serverRootDir = data.serverRootDir;
         this.cfgData.resourceRootDir = data.resourceRootDir;
         this.cfgData.localServerPath = data.localServerPath;
-
+        this.cfgData.hotAddressArray = data.hotAddressArray;
         fs.writeFile(configFilePath, JSON.stringify(this.cfgData), function (error) {
             if (!error) {
                 console.log("保存配置成功!");

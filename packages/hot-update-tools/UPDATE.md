@@ -10,9 +10,13 @@ https://github.com/tidys/CocosCreatorPlugins/tree/master/packages/hot-update-too
 - 使用过程中如果遇到任何问题,欢迎加入QQ群224756137
 ## 更新内容
 - [2017/06/12]  
-修复MD5计算不一致,导致更新失败  
-感谢反馈:http://forum.cocos.com/t/bug/47530    
+    - 修复MD5计算不一致,导致更新失败  
+    - 感谢反馈:http://forum.cocos.com/t/bug/47530    
  
 - [2017/12/10]  
-修复报错: too many open files   
-感谢反馈: http://forum.cocos.com/t/1-6-2-too-many-open-files/54221    
+    - 修复报错: too many open files   
+    - 感谢反馈: http://forum.cocos.com/t/1-6-2-too-many-open-files/54221
+
+- [2018/01/04]  
+    - 在<生成Manifest配置>中增加了**资源服务器url配置历史**,方便多版本配置 
+    - **资源服务器url** 中追加显示version,如果url存在问题,则不显示版本号    
