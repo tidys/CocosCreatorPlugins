@@ -44,7 +44,7 @@ Editor.Panel.extend({
 
 
         // 初始化vue面板
-        new window.Vue({
+        window.plugin = new window.Vue({
             el: this.shadowRoot,
             created: function () {
                 this._initPluginCfg();
@@ -95,15 +95,29 @@ Editor.Panel.extend({
             methods: {
                 // 测试
                 onTest() {
+                    Editor.Ipc.sendToMain('hot-update-tools:test', 'Hello, this is simple panel');
+                    return;
                     Mail.sendMail(this.version, "修复bug", null, function () {
                         console.log("send over");
                     });
-
                 },
-
+                onBuildFinished() {
+                    // 当构建完成的时候,genTime和buildTime是一致的
+                    console.log("hot - onBuildFinished");
+                    let time = new Date().getTime();
+                    CfgUtil.updateBuildTime(time);
+                },
                 onChangeSelectHotAddress(event) {
                     console.log("change");
-                    this.isShowUseAddrBtn = this.isShowDelAddrBtn = true;
+                    this.isShowUseAddrBtn = true;
+                    this.isShowDelAddrBtn = true;
+                    this._updateShowUseAddrBtn();
+                },
+                _updateShowUseAddrBtn() {
+                    let selectURL = window.hotAddressSelectCtrl.value;
+                    if (this.serverRootDir === selectURL) {
+                        this.isShowUseAddrBtn = false;
+                    }
                 },
                 // 增加热更历史地址
                 _addHotAddress(addr) {
@@ -119,21 +133,29 @@ Editor.Panel.extend({
                         this.hotAddressArray.push(addr);
                         this._addLog("[HotAddress]历史记录添加成功:" + addr);
                     } else {
-                        this._addLog("[HotAddress]历史记录已经存在该地址: " + addr);
+                        // this._addLog("[HotAddress]历史记录已经存在该地址: " + addr);
                     }
                 },
                 // 删除热更历史地址
                 onBtnClickDelSelectedHotAddress() {
                     let address = window.hotAddressSelectCtrl.value;
                     if (this.hotAddressArray.length > 0) {
+                        let isDel = false;
                         for (let i = 0; i < this.hotAddressArray.length;) {
                             let item = this.hotAddressArray[i];
                             if (item === address) {
                                 this.hotAddressArray.splice(i, 1);
+                                isDel = true;
                                 this._addLog("删除历史地址成功: " + item);
                             } else {
                                 i++;
                             }
+                        }
+
+                        if (isDel) {
+                            this.isShowDelAddrBtn = false;
+                            this.isShowUseAddrBtn = false;
+                            this._saveConfig();
                         }
                     } else {
                         this._addLog("历史地址已经为空");
@@ -143,6 +165,7 @@ Editor.Panel.extend({
                     let address = window.hotAddressSelectCtrl.value;
                     this.serverRootDir = address;
                     this.onInPutUrlOver();
+                    this._updateShowUseAddrBtn();
                 },
                 _addLog(str) {
                     let time = new Date();
@@ -376,6 +399,18 @@ Editor.Panel.extend({
                     }
                 },
                 onClickGenCfg(event) {
+                    // 检查是否需要构建项目
+                    let times = CfgUtil.getBuildTimeGenTime();
+                    let genTime = times.genTime;
+                    let buildTime = times.buildTime;
+                    if (genTime === buildTime) {// 构建完版本之后没有生成manifest文件
+                        CfgUtil.updateGenTime(new Date().getTime(), this.version);// 更新生成时间
+                    } else {
+                        this._addLog("你需要重新构建项目,因为上次构建已经和版本关联:" + CfgUtil.cfgData.genVersion);
+                        return;
+                    }
+
+
                     if (!this.version || this.version.length <= 0) {
                         this._addLog("版本号未填写");
                         return;
@@ -742,7 +777,50 @@ Editor.Panel.extend({
                     // 复制目录
                     exists(source, des, copy);
                 },
+                _isVersionPass(newVersion, baseVersion) {
+                    let arrayA = newVersion.split('.');
+                    let arrayB = baseVersion.split('.');
+                    let len = arrayA.length > arrayB.length ? arrayA.length : arrayB.length;
+
+                    for (let i = 0; i < len; i++) {
+                        let itemA = arrayA[i];
+                        let itemB = arrayB[i];
+
+                        if (itemA && itemB && parseInt(itemA) > parseInt(itemB)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                },
                 onInputVersionOver() {
+                    let buildVersion = CfgUtil.cfgData.genVersion;
+                    let buildTime = CfgUtil.cfgData.buildTime;
+                    let genTime = CfgUtil.cfgData.genTime;// 生成manifest时间
+
+                    let remoteVersion = this.remoteServerVersion;
+                    if (remoteVersion !== null) {// 存在远程版本
+                        if (this._isVersionPass(this.version, remoteVersion)) {
+                            this._addLog("上次构建时版本号: " + buildVersion);
+                            if (this._isVersionPass(this.version, buildVersion)) {// 上次构建版本和远程版本一致
+                                this._addLog("版本通过验证!");
+                            } else {
+                                this._addLog("[Warning] 要构建的版本低于上次构建版本: " + this.version + "<=" + buildVersion);
+                            }
+                        } else {
+                            this._addLog("[Warning] version 填写的版本低于远程版本");
+                        }
+
+
+                    } else {// 未发现远程版本
+
+                    }
+                    // let nowTime = new Date().getTime();
+                    // if (nowTime !== buildTime) {
+                    //     if (genVersion === this.version) {
+                    //         this._addLog("版本一致,请构建项目");
+                    //     } else {
+                    //     }
+                    // }
                     this._saveConfig();
                 },
                 onInPutUrlOver(event) {
@@ -761,12 +839,18 @@ Editor.Panel.extend({
                         this._getRemoteServerVersion();
                     }
                     this._addHotAddress(this.serverRootDir);
+                    this._updateShowUseAddrBtn();
                     this._saveConfig();
                 },
                 // 获取远程资源服务器的版本号
                 _getRemoteServerVersion() {
+                    if (this.serverRootDir.length <= 0) {
+                        console.log("远程资源服务器URL错误: " + this.serverRootDir);
+                        return;
+                    }
                     // TODO 浏览器缓存会导致版本号获取失败
                     this.isShowRemoteServerVersion = false;
+                    this.remoteServerVersion = null;
                     let versionUrl = this.serverRootDir + "/version.manifest";
 
                     let xhr = new XMLHttpRequest();
@@ -997,4 +1081,13 @@ Editor.Panel.extend({
             }
         });
     },
+
+
+    messages: {
+        'hot-update-tools:onBuildFinished'(event) {
+            window.plugin.onBuildFinished();
+        },
+
+    }
+
 });

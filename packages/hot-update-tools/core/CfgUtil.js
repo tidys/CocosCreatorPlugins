@@ -1,6 +1,6 @@
 let fs = require('fire-fs');
 let path = require('fire-path');
-const {remote} = require('electron');
+let electron = require('electron');
 let FileUtil = Editor.require("packages://hot-update-tools/core/FileUtil");
 
 
@@ -13,14 +13,57 @@ let self = module.exports = {
         localServerPath: "",
 
         hotAddressArray: [],
+        buildTime: null,// 构建时间,全部保存int值
+        genTime: null,// manifest生成时间
+        genVersion: null,// manifest版本
+    },
+    updateBuildTimeByMain() {
+        let time = new Date().getTime();
+        // 在main.js中调用electron中没有remote属性
+        // Editor.log(electron.app.getPath('userData'));
+        let cfgPath = this._getAppCfgPath();
+        if (fs.existsSync(cfgPath)) {
+            let data = fs.readFileSync(cfgPath, 'utf-8');
+            let json = JSON.parse(data);
+            json.buildTime = time;
+            json.genTime = time;
+            fs.writeFileSync(cfgPath, JSON.stringify(json));
+        } else {
+            Editor.log("热更新配置文件不存在: " + cfgPath);
+        }
+    },
+    updateBuildTime(time) {
+        this.cfgData.buildTime = time;
+        this.cfgData.genTime = time;
+        this._save();
+    },
+    updateGenTime(time, version) {
+        this.cfgData.genTime = time;
+        this.cfgData.genVersion = version;
+        this._save();
+    },
+    // 获取构建时间生成时间
+    getBuildTimeGenTime() {
+        let ret = {buildTime: null, genTime: null};
+        let cfgPath = this._getAppCfgPath();
+        if (fs.existsSync(cfgPath)) {
+            let data = fs.readFileSync(cfgPath, 'utf-8');
+            let json = JSON.parse(data);
+            ret.buildTime = json.buildTime;
+            ret.genTime = json.genTime;
+        }
+        return ret;
     },
     saveConfig(data) {
-        let configFilePath = self._getAppCfgPath();
         this.cfgData.version = data.version;
         this.cfgData.serverRootDir = data.serverRootDir;
         this.cfgData.resourceRootDir = data.resourceRootDir;
         this.cfgData.localServerPath = data.localServerPath;
         this.cfgData.hotAddressArray = data.hotAddressArray;
+        this._save();
+    },
+    _save() {
+        let configFilePath = self._getAppCfgPath();
         fs.writeFile(configFilePath, JSON.stringify(this.cfgData), function (error) {
             if (!error) {
                 console.log("保存配置成功!");
@@ -32,13 +75,19 @@ let self = module.exports = {
     },
 
     getMainFestDir() {
-        let userDataPath = remote.app.getPath('userData');
+        let userDataPath = electron.remote.app.getPath('userData');
         return path.join(userDataPath, "hot-update-tools-manifestOutPut");
         //输出文件不能存在在插件目录下，否则会造成插件刷新
         // return Editor.url('packages://hot-update-tools/outPut');
     },
     _getAppCfgPath() {
-        let userDataPath = remote.app.getPath('userData');
+        let userDataPath = null;
+        if (electron.remote) {
+            userDataPath = electron.remote.app.getPath('userData');
+        } else {
+            userDataPath = electron.app.getPath('userData');
+        }
+
         let tar = Editor.libraryPath;
         tar = tar.replace(/\\/g, '-');
         tar = tar.replace(/:/g, '-');

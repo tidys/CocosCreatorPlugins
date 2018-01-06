@@ -14,6 +14,7 @@ module.exports = {
         'test'(event, args) {
             console.log("1111111");
             Editor.log(args);
+            Editor.Ipc.sendToPanel('hot-update-tools', 'hot-update-tools:onBuildFinished');
         },
         // 当插件构建完成的时候触发
         'editor:build-finished': function (event, target) {
@@ -39,10 +40,10 @@ module.exports = {
                         "            jsb.fileUtils.setSearchPaths(JSON.parse(hotUpdateSearchPaths)); \n" +
                         "            console.log('[main.js] 热更新SearchPath: ' + JSON.parse(hotUpdateSearchPaths));\n" +
                         "        }else {\n" +
-                        "            console.log('[main.js] 未获取到热更新资源路径!');\n"+
+                        "            console.log('[main.js] 未获取到热更新资源路径!');\n" +
                         "        }\n" +
                         "    }else {\n" +
-                        "        console.log('[main.js] 不是native平台!');\n"+
+                        "        console.log('[main.js] 不是native平台!');\n" +
                         "    }\n";
 
                     let newData = data.replace("(function () {", newStr);
@@ -54,6 +55,11 @@ module.exports = {
                     });
                 });
             }
+            // 记录构建时间
+            // Editor.Ipc.sendToPanel('hot-update-tools', 'hot-update-tools:onBuildFinished');
+            Editor.log("记录构建时间!");
+            let CfgUtil = Editor.require('packages://hot-update-tools/core/CfgUtil.js');
+            CfgUtil.updateBuildTimeByMain();
         }
     },
 };
