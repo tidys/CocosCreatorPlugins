@@ -19,4 +19,7 @@ https://github.com/tidys/CocosCreatorPlugins/tree/master/packages/hot-update-too
 
 - [2018/01/04]  
     - 在<生成Manifest配置>中增加了**资源服务器url配置历史**,方便多版本配置 
-    - **资源服务器url** 中追加显示version,如果url存在问题,则不显示版本号    
+    - **资源服务器url** 中追加显示version,如果url存在问题,则不显示版本号   
+    
+- [2018/01/06]
+    - 增加功能:如果再次使用工具未构建项目,点击生成的时候,提示构建项目!     
