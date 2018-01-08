@@ -22,4 +22,6 @@ https://github.com/tidys/CocosCreatorPlugins/tree/master/packages/hot-update-too
     - **资源服务器url** 中追加显示version,如果url存在问题,则不显示版本号   
     
 - [2018/01/06]
-    - 增加功能:如果再次使用工具未构建项目,点击生成的时候,提示构建项目!     
+    - 增加功能:如果再次使用工具未构建项目,点击生成的时候,提示构建项目!   
+- [2018/01/08]
+    - [增加] 生成manifest的同时,在 **项目目录/packVersion** 下生成该版本的热更资源包       
