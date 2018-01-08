@@ -14,7 +14,7 @@
         <ui-prop name="版本号">
             <div class="flex-1 layout horizontal center">
                 <ui-input class="flex-1" v-on:blur="onInputVersionOver" v-value="version"></ui-input>
-                <!--<ui-button v-on:confirm="onTest">构建完成</ui-button>-->
+                <!--<ui-button v-on:confirm="onTest">测试</ui-button>-->
             </div>
         </ui-prop>
 
@@ -64,6 +64,7 @@
             <!--<ui-button class="self-start" v-on:confirm="onCleanAPPCfg">-->
             <!--清除APP配置-->
             <!--</ui-button>-->
+            <!--<ui-button class="self-end green" v-on:confirm="onBtnClickPackVersion"> 压缩打包</ui-button>-->
             <ui-button class="self-end red" v-on:confirm="onClickGenCfg"> 生成</ui-button>
         </div>
     </div>

@@ -72,11 +72,21 @@ let self = module.exports = {
         fs.unlink(this._getAppCfgPath());
     },
 
+    // manifest文件包地址
     getMainFestDir() {
         let userDataPath = electron.remote.app.getPath('userData');
         return path.join(userDataPath, "hot-update-tools-manifestOutPut");
         //输出文件不能存在在插件目录下，否则会造成插件刷新
         // return Editor.url('packages://hot-update-tools/outPut');
+    },
+    // 获取打包目录地址,一般放在项目目录下
+    getPackZipDir() {
+        let userDataPath = electron.remote.app.getPath('userData');
+        return path.join(this._getAppRootPath(), "packVersion");
+    },
+    _getAppRootPath() {
+        let lib = Editor.libraryPath;
+        return lib.substring(0, lib.length - 7);
     },
     _getAppCfgPath() {
         let userDataPath = null;

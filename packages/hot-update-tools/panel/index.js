@@ -95,11 +95,79 @@ Editor.Panel.extend({
             methods: {
                 // 测试
                 onTest() {
-                    Editor.Ipc.sendToMain('hot-update-tools:test', 'Hello, this is simple panel');
-                    return;
-                    Mail.sendMail(this.version, "修复bug", null, function () {
-                        console.log("send over");
-                    });
+                    // Editor.Ipc.sendToMain('hot-update-tools:test', 'Hello, this is simple panel');
+                    // Mail.sendMail(this.version, "修复bug", null, function () {
+                    //     console.log("send over");
+                    // });
+
+                },
+                onBtnClickPackVersion() {
+                    this._packageVersion();
+                },
+                // 打包目录
+                _packageDir(rootPath, zip) {
+                    let dir = fs.readdirSync(rootPath);
+                    for (let i = 0; i < dir.length; i++) {
+                        let itemDir = dir[i];
+                        let itemFullPath = path.join(rootPath, itemDir);
+                        let stat = fs.statSync(itemFullPath);
+                        if (stat.isFile()) {
+                            zip.file(itemDir, fs.readFileSync(itemFullPath));
+                        } else if (stat.isDirectory()) {
+                            this._packageDir(itemFullPath, zip.folder(itemDir));
+                        }
+                    }
+                },
+                // 将当前版本打包
+                _packageVersion() {
+                    this._addLog("[Pack] 开始打包版本 ...");
+                    let JSZip = Editor.require("packages://hot-update-tools/node_modules/jszip");
+                    let zip = new JSZip();
+
+                    // 打包manifest文件
+                    let version = path.join(this.genManifestDir, "version.manifest");
+                    zip.file("version.manifest", fs.readFileSync(version));
+                    let project = path.join(this.genManifestDir, "project.manifest");
+                    zip.file("project.manifest", fs.readFileSync(project));
+
+                    // 要打包的资源
+                    let srcPath = path.join(this.resourceRootDir, "src");
+                    this._packageDir(srcPath, zip.folder("src"));
+
+                    let resPath = path.join(this.resourceRootDir, "res");
+                    this._packageDir(resPath, zip.folder("res"));
+
+                    // 打包的文件名
+                    let versionData = fs.readFileSync(version, 'utf-8');
+                    let versionJson = JSON.parse(versionData);
+                    let versionStr = versionJson.version;// 版本
+                    this._addLog("[Pack] 打包版本:" + versionStr);
+                    if (versionStr !== this.version) {
+                        this._addLog("[Pack] 打包版本和当前填写的版本不一致,出现异常,停止打包!");
+                        return;
+                    }
+                    // 打包到目录,生成zip
+                    versionStr = versionStr.replace('.', '_');
+                    let zipName = "ver_" + versionStr + ".zip";
+                    let zipDir = CfgUtil.getPackZipDir();
+                    if (!fs.existsSync(zipDir)) {
+                        fs.mkdirSync(zipDir);
+                    }
+                    let zipFilePath = path.join(zipDir, zipName);
+                    if (fs.existsSync(zipFilePath)) {// 存在该版本的zip
+                        fs.unlinkSync(zipFilePath);
+                        this._addLog("[Pack] 发现该版本的zip, 已经删除!");
+                    } else {
+
+                    }
+                    zip.generateNodeStream({type: 'nodebuffer', streamFiles: true})
+                        .pipe(fs.createWriteStream(zipFilePath))
+                        .on('finish', function () {
+                            this._addLog("[Pack] 打包成功: " + zipFilePath);
+                        }.bind(this))
+                        .on('error', function (event) {
+                            this._addLog("[Pack] 打包失败:" + event.message);
+                        }.bind(this));
                 },
                 onBuildFinished(time) {
                     // 当构建完成的时候,genTime和buildTime是一致的
@@ -243,16 +311,6 @@ Editor.Panel.extend({
                             });
                         }.bind(this));
                     this.initLocalGameVersion();
-                    // let JSZip = Editor.require("packages://hot-update-tools/node_modules/jszip");
-                    // let zip = new JSZip();
-                    // zip.file("Hello.txt", "Hello World\n");
-                    //
-                    // let img = zip.folder("images");
-                    // img.file("smile.gif", imgData, {base64: true});
-                    //
-                    // zip.generateAsync({type:"blob"}).then(function(content) {
-                    //     saveAs(content, "example.zip");
-                    // });
 
 
                     // let spawn = require('child_process').spawn;
@@ -437,7 +495,6 @@ Editor.Panel.extend({
                         this._addLog("目录不存在: " + this.genManifestDir);
                         return;
                     }
-                    this._addLog("开始生成manifest配置文件....");
 
                     this._saveConfig();
                     this._genVersion(this.version, this.serverRootDir, this.resourceRootDir, this.genManifestDir);
@@ -447,6 +504,7 @@ Editor.Panel.extend({
                 // buildResourceDir 默认为 build/jsb-default/
                 // -v 10.1.1 -u http://192.168.191.1//cocos/remote-assets/  -s build/jsb-default/ -d assets
                 _genVersion(version, serverUrl, buildResourceDir, genManifestDir) {
+                    this._addLog("[Build] 开始生成manifest配置文件....");
                     let projectFile = "project.manifest";
                     let versionFile = "version.manifest";
                     let manifest = {
@@ -523,18 +581,14 @@ Editor.Panel.extend({
                     mkdirSync(dest);
 
                     // 生成project.manifest
-                    fs.writeFile(destManifest, JSON.stringify(manifest), function (err) {
-                        if (err) throw err;
-                        this._addLog("生成 project.manifest成功");
-                    }.bind(this));
-
+                    fs.writeFileSync(destManifest, JSON.stringify(manifest));
+                    this._addLog("[Build] 生成 project.manifest成功");
                     // 生成version.manifest
                     delete manifest.assets;
                     delete manifest.searchPaths;
-                    fs.writeFile(destVersion, JSON.stringify(manifest), function (err) {
-                        if (err) throw err;
-                        this._addLog("生成 version.manifest成功");
-                    }.bind(this));
+                    fs.writeFileSync(destVersion, JSON.stringify(manifest));
+                    this._addLog("[Build] 生成 version.manifest成功");
+                    this._packageVersion();
                 },
                 // 选择物理server路径
                 onSelectLocalServerPath(event) {
@@ -617,6 +671,7 @@ Editor.Panel.extend({
                     let resNum = this._getFileNum(path.join(this.resourceRootDir, "res"));
                     return srcNum + resNum + 2 + 2;// 2个manifest,2个目录(src, res)
                 },
+
                 addProgress() {
                     this.curNum++;
                     let p = this.curNum / this.totalNum;
@@ -625,7 +680,6 @@ Editor.Panel.extend({
                     this.copyProgress = p * 100;
                     if (p >= 1) {
                         this._addLog("[部署] 部署到指定目录成功:" + this.localServerPath);
-                        console.log("copy over");
                         this._updateServerVersion();
                     }
                 },
@@ -667,7 +721,6 @@ Editor.Panel.extend({
                         let files = fs.readdirSync(fileUrl);//读取该文件夹
                         for (let k in files) {
                             i++;
-                            console.log("文件个数: " + i);
                             let filePath = path.join(fileUrl, files[k]);
                             let stats = fs.statSync(filePath);
                             if (stats.isDirectory()) {
