@@ -17,8 +17,7 @@ let self = module.exports = {
         genTime: null,// manifest生成时间
         genVersion: null,// manifest版本
     },
-    updateBuildTimeByMain() {
-        let time = new Date().getTime();
+    updateBuildTimeByMain(time) {
         // 在main.js中调用electron中没有remote属性
         // Editor.log(electron.app.getPath('userData'));
         let cfgPath = this._getAppCfgPath();
@@ -51,6 +50,8 @@ let self = module.exports = {
             let json = JSON.parse(data);
             ret.buildTime = json.buildTime;
             ret.genTime = json.genTime;
+            this.cfgData.buildTime = json.buildTime;
+            this.cfgData.genTime = json.genTime;
         }
         return ret;
     },
@@ -64,11 +65,8 @@ let self = module.exports = {
     },
     _save() {
         let configFilePath = self._getAppCfgPath();
-        fs.writeFile(configFilePath, JSON.stringify(this.cfgData), function (error) {
-            if (!error) {
-                console.log("保存配置成功!");
-            }
-        }.bind(this));
+        let ret = fs.writeFileSync(configFilePath, JSON.stringify(this.cfgData));
+        console.log("保存配置成功!");
     },
     cleanConfig() {
         fs.unlink(this._getAppCfgPath());

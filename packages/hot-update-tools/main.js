@@ -55,11 +55,12 @@ module.exports = {
                     });
                 });
             }
-            // 记录构建时间
-            // Editor.Ipc.sendToPanel('hot-update-tools', 'hot-update-tools:onBuildFinished');
-            Editor.log("记录构建时间!");
+            let time = new Date().getTime();
+            // 通知panel更新时间
+            Editor.Ipc.sendToPanel('hot-update-tools', 'hot-update-tools:onBuildFinished', time);
+            // 写入本地
             let CfgUtil = Editor.require('packages://hot-update-tools/core/CfgUtil.js');
-            CfgUtil.updateBuildTimeByMain();
+            CfgUtil.updateBuildTimeByMain(time);
         }
     },
 };

@@ -101,10 +101,9 @@ Editor.Panel.extend({
                         console.log("send over");
                     });
                 },
-                onBuildFinished() {
+                onBuildFinished(time) {
                     // 当构建完成的时候,genTime和buildTime是一致的
                     console.log("hot - onBuildFinished");
-                    let time = new Date().getTime();
                     CfgUtil.updateBuildTime(time);
                 },
                 onChangeSelectHotAddress(event) {
@@ -1084,8 +1083,8 @@ Editor.Panel.extend({
 
 
     messages: {
-        'hot-update-tools:onBuildFinished'(event) {
-            window.plugin.onBuildFinished();
+        'hot-update-tools:onBuildFinished'(event, time) {
+            window.plugin.onBuildFinished(time);
         },
 
     }
