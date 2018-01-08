@@ -590,13 +590,20 @@ Editor.Panel.extend({
                             return;
                         }
                     }
-                    this._addLog("开始拷贝文件到:" + this.localServerPath);
+                    this._addLog("[部署] 开始拷贝文件到:" + this.localServerPath);
                     this.curNum = 0;
                     this.copyProgress = 0;
-                    this.totalNum = this._getTotalNum();
-                    this._addLog("操作文件总数据: " + this.totalNum);
 
+                    //删除老文件
+                    this._addLog("[部署] 删除目录路径: " + this.localServerPath);
+                    let delNum = this._getFileNum(this.localServerPath);
+                    this._addLog("[部署] 删除文件个数:" + delNum);
                     this._delDir(this.localServerPath);
+
+
+                    this.totalNum = this._getTotalCopyFileNum();
+                    this._addLog("[部署] 复制文件个数:" + this.totalNum);
+
                     this._copySourceDirToDesDir(srcPath, path.join(this.localServerPath, "src"));
                     this._copySourceDirToDesDir(resPath, path.join(this.localServerPath, "res"));
                     this._copyFileToDesDir(project, this.localServerPath);
@@ -604,20 +611,20 @@ Editor.Panel.extend({
                 },
 
                 // 获取要操作的文件总数量
-                _getTotalNum() {
-                    let delNum = this._getFileNum(this.localServerPath);
+                _getTotalCopyFileNum() {
+                    // let delNum = this._getFileNum(this.localServerPath);
                     let srcNum = this._getFileNum(path.join(this.resourceRootDir, "src"));
                     let resNum = this._getFileNum(path.join(this.resourceRootDir, "res"));
-                    return delNum + srcNum + resNum + 2 + 2;// 2个manifest,2个目录(src, res)
+                    return srcNum + resNum + 2 + 2;// 2个manifest,2个目录(src, res)
                 },
                 addProgress() {
                     this.curNum++;
                     let p = this.curNum / this.totalNum;
                     p = p ? p : 0;
-                    console.log("进度: " + p * 100);
+                    // console.log("进度: " + p * 100);
                     this.copyProgress = p * 100;
                     if (p >= 1) {
-                        this._addLog("拷贝完成");
+                        this._addLog("[部署] 部署到指定目录成功:" + this.localServerPath);
                         console.log("copy over");
                         this._updateServerVersion();
                     }
@@ -660,6 +667,7 @@ Editor.Panel.extend({
                         let files = fs.readdirSync(fileUrl);//读取该文件夹
                         for (let k in files) {
                             i++;
+                            console.log("文件个数: " + i);
                             let filePath = path.join(fileUrl, files[k]);
                             let stats = fs.statSync(filePath);
                             if (stats.isDirectory()) {
@@ -682,7 +690,7 @@ Editor.Panel.extend({
                                 emptyDir(filePath);
                             } else {
                                 fs.unlinkSync(filePath);
-                                self.addProgress();
+                                // self.addProgress();
                                 // console.log("删除文件:" + filePath);
                             }
                         }
@@ -697,13 +705,13 @@ Editor.Panel.extend({
                             }
                             if (fileUrl !== rootFile) {// 不删除根目录
                                 fs.rmdirSync(fileUrl);
-                                self.addProgress();
+                                // self.addProgress();
                                 // console.log('删除空文件夹' + fileUrl);
                             }
                         } else {
                             if (fileUrl !== rootFile) {// 不删除根目录
                                 fs.rmdirSync(fileUrl);
-                                self.addProgress();
+                                // self.addProgress();
                                 // console.log('删除空文件夹' + fileUrl);
                             }
                         }
@@ -784,6 +792,16 @@ Editor.Panel.extend({
                     for (let i = 0; i < len; i++) {
                         let itemA = arrayA[i];
                         let itemB = arrayB[i];
+
+                        // 新版本1.2 老版本 1.2.3
+                        if (itemA === undefined && itemB !== undefined) {
+                            return false;
+                        }
+
+                        // 新版本1.2.1, 老版本1.2
+                        if (itemA !== undefined && itemB === undefined) {
+                            return true;
+                        }
 
                         if (itemA && itemB && parseInt(itemA) > parseInt(itemB)) {
                             return true;
