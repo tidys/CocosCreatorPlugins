@@ -48,7 +48,10 @@
             <div class="flex-1 layout horizontal center">
                 <ui-input class="flex-2" readonly disabled v-value="resourceRootDir"></ui-input>
                 <ui-button v-on:confirm="onSelectResourceRootDir">选择</ui-button>
-                <ui-button v-on:confirm="onOpenResourceDir">打开</ui-button>
+                <ui-button v-on:confirm="onOpenResourceDir">
+                    <i class="icon-doc-text"></i>
+                    <!--打开-->
+                </ui-button>
             </div>
         </ui-prop>
 
@@ -56,7 +59,10 @@
             <div class="flex-1 layout horizontal center">
                 <ui-input class="flex-2" readonly disabled v-value="genManifestDir"></ui-input>
                 <!--<ui-button v-on:confirm="onSelectGenManifestDir">选择</ui-button>-->
-                <ui-button v-on:confirm="onOpenManifestDir">打开</ui-button>
+                <ui-button v-on:confirm="onOpenManifestDir">
+                    <i class="icon-doc-text"></i>
+                    <!--打开-->
+                </ui-button>
             </div>
         </ui-prop>
 
@@ -65,21 +71,28 @@
             <!--清除APP配置-->
             <!--</ui-button>-->
             <!--<ui-button class="self-end green" v-on:confirm="onBtnClickPackVersion"> 压缩打包</ui-button>-->
-            <ui-button class="self-end red" v-on:confirm="onClickGenCfg"> 生成</ui-button>
+            <ui-button class="self-end green" v-on:confirm="onClickGenCfg"> 生成</ui-button>
         </div>
     </div>
     <div class="layout vertical">
-        <h2> 当前游戏</h2>
+        <h2> 当前游戏配置</h2>
         <ui-prop name="项目热更配置文件(project.mainfest)">
             <div class="flex-1 layout horizontal center">
                 <ui-input class="flex-1" disabled v-value="localGameProjectManifest"></ui-input>
-                <ui-button v-on:confirm="onOpenLocalGameManifestDir">打开文件夹</ui-button>
+                <ui-button v-on:confirm="onOpenLocalGameManifestDir">
+                    <i class="icon-doc-text"></i>
+                    <!--打开文件夹-->
+                </ui-button>
             </div>
         </ui-prop>
         <ui-prop name="项目热更配置文件(version.mainfest)">
             <div class="flex-1 layout horizontal center">
                 <ui-input class="flex-1" disabled v-value="localGameVersionManifest"></ui-input>
-                <ui-button v-on:confirm="onOpenLocalGameManifestDir">打开文件夹</ui-button>
+                <ui-button v-on:confirm="onOpenLocalGameManifestDir">
+                    <i class="icon-doc-text"></i>
+                    <!--打开文件夹-->
+                </ui-button>
+
             </div>
         </ui-prop>
         <ui-prop name="package url:">
@@ -90,8 +103,13 @@
         <ui-prop name="游戏版本号:">
             <div class="flex-1 layout horizontal center">
                 <h4 class="flex-2">{{localGameVersion}}</h4>
-                <ui-button class="end-justified" v-on:confirm="importManifestToGame">导入manifest</ui-button>
-                <ui-button class="end-justified" v-on:confirm="initLocalGameVersion">刷新</ui-button>
+                <ui-button title="将生成的2个manifest文件导入到项目中" class="end-justified blue" v-on:confirm="importManifestToGame">
+                    导入manifest
+                </ui-button>
+                <ui-button class="end-justified" v-on:confirm="initLocalGameVersion">
+                    <i class="icon-arrows-cw"></i>
+                    <!--刷新-->
+                </ui-button>
             </div>
         </ui-prop>
     </div>
@@ -116,7 +134,10 @@
             <ui-prop name="服务器版本">
                 <div class="flex-1 layout horizontal center">
                     <h4 class="flex-2">{{serverVersion}}</h4>
-                    <ui-button class="end-justified" v-on:confirm="refreshLocalServerVersion">刷新</ui-button>
+                    <ui-button class="end-justified" v-on:confirm="refreshLocalServerVersion">
+                        <i class="icon-arrows-cw"></i>
+                        <!--刷新-->
+                    </ui-button>
                 </div>
             </ui-prop>
 
@@ -124,14 +145,20 @@
                 <div class="flex-1 layout horizontal center">
                     <ui-input class="flex-2" disabled v-value="localServerPath"></ui-input>
                     <ui-button v-on:confirm="onSelectLocalServerPath">选择</ui-button>
-                    <ui-button v-on:confirm="onOpenLocalServer">打开目录</ui-button>
+                    <ui-button v-on:confirm="onOpenLocalServer">
+                        <i class="icon-doc-text"></i>
+                        <!--打开目录-->
+                    </ui-button>
                 </div>
             </ui-prop>
             <ui-prop name="操作">
                 <div class="flex-1 layout horizontal center">
                     <h3 class="flex-2"></h3>
+                    <ui-button class="end-justified red" v-on:confirm="onCleanSimRemoteRes">
+                        <i class="icon-trash-empty" title="删除win32模拟器热更新资源"></i>
+                        清理模拟器缓存
+                    </ui-button>
                     <ui-button class="end-justified green" v-on:confirm="onCopyFileToLocalServer">部署</ui-button>
-                    <ui-button class="end-justified blue" v-on:confirm="onCleanSimRemoteRes">清理模拟器缓存</ui-button>
                 </div>
             </ui-prop>
             <ui-progress style="width: 100%;" v-value="copyProgress">40</ui-progress>

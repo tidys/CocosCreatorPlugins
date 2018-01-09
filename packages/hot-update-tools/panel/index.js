@@ -463,23 +463,23 @@ Editor.Panel.extend({
                     if (genTime === buildTime) {// 构建完版本之后没有生成manifest文件
                         CfgUtil.updateGenTime(new Date().getTime(), this.version);// 更新生成时间
                     } else {
-                        this._addLog("你需要重新构建项目,因为上次构建已经和版本关联:" + CfgUtil.cfgData.genVersion);
+                        this._addLog("[生成] 你需要重新构建项目,因为上次构建已经和版本关联:" + CfgUtil.cfgData.genVersion);
                         return;
                     }
 
 
                     if (!this.version || this.version.length <= 0) {
-                        this._addLog("版本号未填写");
+                        this._addLog("[生成] 版本号未填写");
                         return;
                     }
                     if (!this.serverRootDir || this.serverRootDir.length <= 0) {
-                        this._addLog("服务器地址未填写");
+                        this._addLog("[生成] 服务器地址未填写");
                         return;
                     }
 
                     // 检查resource目录
                     if (this.resourceRootDir.length === 0) {
-                        this._addLog("请先指定 <build项目资源文件目录>");
+                        this._addLog("[生成] 请先指定 <build项目资源文件目录>");
                         return;
                     }
                     if (this._checkResourceRootDir(this.resourceRootDir) === false) {
@@ -487,12 +487,12 @@ Editor.Panel.extend({
                     }
 
                     if (!this.genManifestDir || this.genManifestDir.length <= 0) {
-                        this._addLog("manifest文件生成地址未填写");
+                        this._addLog("[生成] manifest文件生成地址未填写");
                         return;
                     }
 
                     if (!fs.existsSync(this.genManifestDir)) {
-                        this._addLog("目录不存在: " + this.genManifestDir);
+                        this._addLog("[生成] manifest存储目录不存在: " + this.genManifestDir);
                         return;
                     }
 
@@ -1093,10 +1093,10 @@ Editor.Panel.extend({
                     let remoteAsset = path.join(simPath, "remote-asset");
                     if (!fs.existsSync(remoteAsset)) {
                         console.log(remoteAsset);
-                        this._addLog("目录不存在: " + remoteAsset);
+                        this._addLog("[清理热更缓存] 目录不存在: " + remoteAsset);
                     } else {
                         FileUtil.emptyDir(remoteAsset);
-                        this._addLog("清空目录 " + remoteAsset + " 成功.");
+                        this._addLog("[清理热更缓存] 清空目录 " + remoteAsset + " 成功.");
                     }
                 },
                 onOpenLocalGameManifestDir() {
