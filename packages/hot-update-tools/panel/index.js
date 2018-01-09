@@ -868,7 +868,7 @@ Editor.Panel.extend({
                     let genTime = CfgUtil.cfgData.genTime;// 生成manifest时间
 
                     let remoteVersion = this.remoteServerVersion;
-                    if (remoteVersion !== null) {// 存在远程版本
+                    if (remoteVersion !== null && remoteVersion !== undefined) {// 存在远程版本
                         if (this._isVersionPass(this.version, remoteVersion)) {
                             this._addLog("上次构建时版本号: " + buildVersion);
                             if (this._isVersionPass(this.version, buildVersion)) {// 上次构建版本和远程版本一致
