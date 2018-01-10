@@ -45,6 +45,7 @@ let self = module.exports = {
         let tar = Editor.libraryPath;
         tar = tar.replace(/\\/g, '-');
         tar = tar.replace(/:/g, '-');
+        tar = tar.replace(/\//g, '-');
         return path.join(userDataPath, "bitmap-font-cfg-" + tar + ".json");
         // return Editor.url('packages://hot-update-tools/save/cfg.json');
     },
