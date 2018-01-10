@@ -67,7 +67,4 @@ export
 
 packages/creator-chat-room/node_modules/
 packages/bitmap-font/node_modules/
-settings/builder.json
-settings/builder.panel.json
-settings/project.json
 packVersion/

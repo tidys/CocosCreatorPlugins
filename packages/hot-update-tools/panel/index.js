@@ -838,6 +838,11 @@ Editor.Panel.extend({
                     exists(source, des, copy);
                 },
                 _isVersionPass(newVersion, baseVersion) {
+                    if (newVersion === undefined || newVersion === null ||
+                        baseVersion === undefined || baseVersion === null) {
+                        return false;
+                    }
+
                     let arrayA = newVersion.split('.');
                     let arrayB = baseVersion.split('.');
                     let len = arrayA.length > arrayB.length ? arrayA.length : arrayB.length;
