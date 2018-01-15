@@ -51,9 +51,7 @@ module.exports = {
             }
             if (err) {
                 console.log(err);
-                return;
             }
-            console.log('发送成功');
         });
     }
 };

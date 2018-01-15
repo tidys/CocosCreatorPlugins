@@ -82,23 +82,53 @@ Editor.Panel.extend({
                 // 测试环境逻辑变量
                 testEnvLocal: true,
                 testEnvALi: false,
+                testEnvEmail: false,// 发送邮件界面
                 testEnvSelect: 0,
 
                 // 热更资源服务器配置历史记录
                 isShowUseAddrBtn: false,
                 isShowDelAddrBtn: false,
-                hotAddressArray: [
-                    'http://www.baidu.com',
-                    'http://192.168.0.2'
+                hotAddressArray: [],
+
+                // 邮件逻辑变量
+                emailContent: "邮件内容!",
+                addMailPeople: "",
+                emailPeopleArray: [
+                    "xu_yanfeng@126.com",
                 ],
             },
+            computed:{
+
+            },
             methods: {
+                //////////////////////////////////发送邮件/////////////////////////////////////////////////////
+                onBtnClickSendMail() {
+                    // Editor.Ipc.sendToMain('hot-update-tools:test', 'Hello, this is simple panel');
+                    Mail.sendMail(this.remoteServerVersion, this.emailContent, null, function () {
+                        this._addLog("发送邮件完毕!");
+                    }.bind(this));
+                },
+                onInputMailPeopleOver() {
+                    if (this.isPeopleExist() === false) {
+                        this.emailPeopleArray.push(this.addMailPeople);
+                    }
+                },
+                isPeopleExist() {
+                    console.log("isPeopleExist");
+                    if (this.addMailPeople === null || this.addMailPeople === "") {
+                        return false;
+                    }
+                    for (let i = 0; i < this.emailPeopleArray.length; i++) {
+                        let itemPeople = this.emailPeopleArray[i];
+                        if (itemPeople === this.addMailPeople) {
+                            return true;
+                        }
+                    }
+                    return false;
+                },
+                ///////////////////////////////////////////////////////////////////////////////////////
                 // 测试
                 onTest() {
-                    // Editor.Ipc.sendToMain('hot-update-tools:test', 'Hello, this is simple panel');
-                    // Mail.sendMail(this.version, "修复bug", null, function () {
-                    //     console.log("send over");
-                    // });
 
                 },
                 onBtnClickPackVersion() {
@@ -1146,11 +1176,13 @@ Editor.Panel.extend({
                     let selectValue = event.target.value;
                     this.testEnvALi = false;
                     this.testEnvLocal = false;
+                    this.testEnvEmail = false;
                     if (selectValue === "0") {// 本地测试环境
                         this.testEnvLocal = true;
                     } else if (selectValue === "1") {//阿里云测试环境
                         this.testEnvALi = true;
-
+                    } else if (selectValue === "2") {
+                        this.testEnvEmail = true;
                     }
                 },
             }
