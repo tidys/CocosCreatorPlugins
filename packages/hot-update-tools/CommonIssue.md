@@ -18,3 +18,18 @@
 ```
  classpath 'com.android.tools.build:gradle:2.3.0'        
 ```
+
+### 插件全局安装目录在哪里?
+- 在win上
+```
+C:\Users\用户名\.CocosCreator\packages
+```
+比如
+```
+C:\Users\Administrator\.CocosCreator\packages
+```
+- mac上
+```
+~/.CocosCreator
+```
+
