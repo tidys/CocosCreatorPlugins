@@ -3,15 +3,18 @@ module.exports = {
     inspectorSupport() {
         let postData = {
             scene: {
-                name: "",
-                children: {
-                    // 节点的名字作为key
+                "sceneName": {
+                    name: "",
+                    children: {
+                        // 节点的名字作为key
+                    }
                 }
             },
         };
 
         function getNodeChildren(node, data) {
             let nodeName = node.name;
+            console.log("nodeName: " + nodeName);
             data[nodeName] = {
                 uuid: node.uuid,
                 name: nodeName,
@@ -35,43 +38,30 @@ module.exports = {
                 skewX: node.skewX,
                 skewY: node.skewY,
             };
-            let children = node.getChildren();
-            for (let i = 0; i < children.length; i++) {
-                let childItem = children[i];
+            let nodeChildren = node.getChildren();
+            for (let i = 0; i < nodeChildren.length; i++) {
+                let childItem = nodeChildren[i];
                 let childName = childItem.name;
                 console.log("childName: " + childName);
-                data[childName] = {
-                    uuid: childItem.uuid,
-                    name: childName,
-                    x: childItem.x,
-                    y: childItem.y,
-                    zIndex: childItem.zIndex,
-                    childrenCount: childItem.childrenCount,
-                    children: {},
-                    width: childItem.width,
-                    height: childItem.height,
-                    active: childItem.active,
-                    color: childItem.color.toCSS(),
-                    opacity: childItem.opacity,
-                    rotation: childItem.rotation,
-                    rotationX: childItem.rotationX,
-                    rotationY: childItem.rotationY,
-                    anchorX: childItem.anchorX,
-                    anchorY: childItem.anchorY,
-                    scaleX: childItem.scaleX,
-                    scaleY: childItem.scaleY,
-                    skewX: childItem.skewX,
-                    skewY: childItem.skewY,
-                };
-                getNodeChildren(childItem, data[childName].children);
+                getNodeChildren(childItem, data[nodeName].children);
             }
 
         }
 
         let scene = cc.director.getScene();
         if (scene) {
-            postData.scene.name = scene.name;
-            getNodeChildren(scene, postData.scene);
+            postData.scene = {};
+            let sceneName = scene.name;
+            postData.scene[sceneName] = {};
+            postData.scene[sceneName].name = sceneName;
+            postData.scene[sceneName].children = {};
+
+            let sceneChildren = scene.getChildren();
+            for (let i = 0; i < sceneChildren.length; i++) {
+                let item = sceneChildren[i];
+                getNodeChildren(item, postData.scene[sceneName].children);
+            }
+
             console.log(postData);
         } else {
             postData.scene = null;
