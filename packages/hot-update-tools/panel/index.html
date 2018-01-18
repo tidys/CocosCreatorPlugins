@@ -168,6 +168,12 @@
         <!---------------------------------阿里云测试环境-------------------------------------------------->
         <div class="layout vertical" v-if="testEnvALi">
             <h2>阿里云</h2>
+            <ui-prop name="">
+
+            </ui-prop>
+            <div class="self-end">
+                <ui-button class="self-end green" v-on:confirm="onBtnClickAliTest"> 测试阿里云</ui-button>
+            </div>
         </div>
         <div class="layout vertical" v-if="testEnvEmail">
             <ui-prop name="添加邮件接收者">

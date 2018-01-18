@@ -7,6 +7,7 @@
           <resourceRoots>
             <path value="file://$PROJECT_DIR$/assets/core" />
             <path value="file://$PROJECT_DIR$/assets/core/native" />
+            <path value="file://$PROJECT_DIR$/assets/module/Inspector" />
           </resourceRoots>
         </entryData>
       </entry>

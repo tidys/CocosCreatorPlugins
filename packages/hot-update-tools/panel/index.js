@@ -8,7 +8,8 @@ var {remote} = require('electron');
 var CfgUtil = Editor.require('packages://hot-update-tools/core/CfgUtil.js');
 var FileUtil = Editor.require('packages://hot-update-tools/core/FileUtil.js');
 var Mail = Editor.require('packages://hot-update-tools/mail/Mail.js');
-
+var OSS = Editor.require('packages://hot-update-tools/node_modules/ali-oss');
+var CO = Editor.require('packages://hot-update-tools/node_modules/co');
 
 Editor.Panel.extend({
     style: fs.readFileSync(Editor.url('packages://hot-update-tools/panel/index.css', 'utf8')) + "",
@@ -97,10 +98,44 @@ Editor.Panel.extend({
                     "xu_yanfeng@126.com",
                 ],
             },
-            computed:{
-
-            },
+            computed: {},
             methods: {
+                //////////////////////////////////阿里云环境/////////////////////////////////////////////////////
+                onBtnClickAliTest() {
+                    let client = new OSS({
+                        region: 'oss-cn-beijing',
+                        //云账号AccessKey有所有API访问权限，建议遵循阿里云安全最佳实践，部署在服务端使用RAM子账号或STS，部署在客户端使用STS。
+                        accessKeyId: 'LTAIOxxDqJpJbzfy',
+                        accessKeySecret: 'kZRbbX3nNtxWlx5XWsR8uRrJzj4X5C',
+                        bucket: 'happycars'
+                    });
+                    CO(function* () {
+                        client.useBucket('happycars');
+                        // let ret = yield  client.list();
+                        // yield client.get('');
+                        // for (let i = 0; i < ret.objects.length; i++) {
+                        //     let item = ret.objects[i];
+                        //     console.log(i + ": " + item.url);
+                        // }
+                        // console.log(ret);
+                        function* listDir(dir) {
+                            let list = yield client.list({
+                                prefix: dir,
+                                delimiter: '/'
+                            });
+                            list.prefixes.forEach(function (subDir) {
+                                console.log("目录: " + subDir);
+                            });
+                            list.objects.forEach(function (obj) {
+                                console.log("文件: " + obj.name);
+                            });
+                        }
+
+                        yield listDir('hot');
+                    }).catch(function (err) {
+                        console.log(err);
+                    })
+                },
                 //////////////////////////////////发送邮件/////////////////////////////////////////////////////
                 onBtnClickSendMail() {
                     // Editor.Ipc.sendToMain('hot-update-tools:test', 'Hello, this is simple panel');
