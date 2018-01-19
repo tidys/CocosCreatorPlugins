@@ -19,7 +19,7 @@ module.exports = {
         // 收集节点信息
         function getNodeChildren(node, data) {
             let nodeName = node.name;
-            console.log("nodeName: " + nodeName);
+            // console.log("nodeName: " + nodeName);
             data[nodeName] = {
                 uuid: node.uuid,
                 name: nodeName,
