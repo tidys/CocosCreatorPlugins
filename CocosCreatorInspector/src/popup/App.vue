@@ -4,7 +4,7 @@
     <br/>
     <!--<el-button @click="onBtnClickGitHub">ffffff</el-button>-->
     <div style="height: 20px">
-      <a href="http://www.w3school.com.cn" target="_blank">GitHub开源地址</a>
+      <a href="https://github.com/tidys/CocosCreatorPlugins/tree/master/CocosCreatorInspector" target="_blank">GitHub开源地址</a>
     </div>
     <br/>
     <div style="height: 50px">

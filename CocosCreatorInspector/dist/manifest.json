@@ -1,0 +1,49 @@
+// 开发参考：http://open.chrome.360.cn/extension_dev/overview.html
+// 字段说明参考：http://open.chrome.360.cn/extension_dev/manifest.html
+{
+  "name": "Cocos Creator Inspector",
+  "version": "1.0.1",
+  "description": "Cocos Creator Inspector",
+  "browser_action": {
+    "default_title": "Cocos Creator Inspector",
+    "default_icon": "static/images/icon48.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "48": "static/images/icon48.png"
+  },
+  "devtools_page": "dev.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "contentScripts.main.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "scripts": [
+      "backgroundScripts.main.js"
+    ]
+  },
+  "options_page": "index.html",
+  "manifest_version": 2,
+  "permissions": [
+    "tabs",
+    "http://*/*",
+    "https://*/*",
+    "*://*/*",
+    "system.cpu",
+    "tabs",
+    "storage",
+    "nativeMessaging"
+  ],
+  "web_accessible_resources": [
+    "*/*",
+    "*"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval';  object-src 'self'"
+}
