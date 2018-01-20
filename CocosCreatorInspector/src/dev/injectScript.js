@@ -19,11 +19,11 @@ export default function () {
 
     // 收集节点信息
     function getNodeChildren(node, data) {
-      let nodeName = node.name;
+      let uuid = node.uuid;
       // console.log("nodeName: " + nodeName);
-      data[nodeName] = {
+      data[uuid] = {
         uuid: node.uuid,
-        name: nodeName,
+        name: node.name,
         x: node.x,
         y: node.y,
         zIndex: node.zIndex,
@@ -49,7 +49,7 @@ export default function () {
         let childItem = nodeChildren[i];
         // let childName = childItem.name;
         // console.log("childName: " + childName);
-        getNodeChildren(childItem, data[nodeName].children);
+        getNodeChildren(childItem, data[uuid].children);
       }
 
     }
