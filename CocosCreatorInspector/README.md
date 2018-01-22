@@ -1,6 +1,6 @@
 # cocos-creator-inspector
 ## 插件说明
-本插件为chrome插件,设计该插件的初衷是方便在chrome环境下运行时调试
+本插件为chrome插件,设计该插件的初衷是方便在chrome环境下运行时调试,希望这只 '猫头鹰' 能作为游戏开发之旅的火眼金睛
 ### 论坛帖子地址
  http://forum.cocos.com/t/chrome-creator/55669
 
