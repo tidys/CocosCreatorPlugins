@@ -7,16 +7,15 @@ window.addEventListener('message', function (event) {
 
 let gameCanvas = document.querySelector("#GameCanvas");
 if (gameCanvas) {
-  console.log('find GameCanvas element');
+  // console.log('find GameCanvas element');
   // gameCanvas.addEventListener('click', function () {
   //   console.log("click canvas");
   // });
   // gameCanvas.style.display = 'none';
-  // chrome.extension.sendMessage("hello Cocos");
 } else {
-  console.log("can't find GameCanvas element");
+  // console.log("can't find GameCanvas element");
+  chrome.extension.sendMessage({type: 0, msg: "no creator game!"});
 }
-// window.postMessage({type: 1, msg: "window.messageTest"}, '*');
 
 
 
