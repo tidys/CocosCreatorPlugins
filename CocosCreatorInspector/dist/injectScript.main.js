@@ -70,40 +70,64 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-// eval 注入脚本的代码,变量尽量使用var
+// eval 注入脚本的代码,变量尽量使用var,后来发现在import之后,let会自动变为var
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  ////////////////////////注入界面逻辑代码////////////////////////////////////////////
-  function inspectorTimerUpdate() {
-    var msgType = {
-      nodeListInfo: 1, // 节点信息
-      notSupport: 0 // 不支持的游戏
-    };
-    var postData = {
-      scene: {
-        "sceneName": {
-          name: "",
-          children: {
-            // 节点的名字作为key
-          }
-        }
-      }
-    };
+  var msgType = {
+    nodeInfo: 2, //节点信息
+    nodeListInfo: 1, // 节点列表信息
+    notSupport: 0 // 不支持的游戏
+  };
+  var postData = {
+    scene: {
+      name: "",
+      children: []
+    }
+  };
+  window.inspectorGameMemoryStorage = window.inspectorGameMemoryStorage || {};
 
-    // 收集节点信息
-    function getNodeChildren(node, data) {
-      var nodeName = node.name;
-      // console.log("nodeName: " + nodeName);
-      data[nodeName] = {
+  // 收集组件信息
+  function getNodeComponentsInfo(node) {
+    var ret = [];
+    var nodeComp = node._components;
+    for (var i = 0; i < nodeComp.length; i++) {
+      var itemComp = nodeComp[i];
+      window.inspectorGameMemoryStorage[itemComp.uuid] = itemComp;
+      ret.push({
+        uuid: itemComp.uuid,
+        type: itemComp.constructor.name,
+        name: itemComp.name
+      });
+    }
+    return ret;
+  }
+
+  // 设置节点是否可视
+  window.pluginSetNodeActive = function (uuid, isActive) {
+    var node = window.inspectorGameMemoryStorage[uuid];
+    if (node) {
+      if (isActive === 1) {
+        node.active = true;
+      } else if (isActive === 0) {
+        node.active = false;
+      }
+    }
+  };
+  // 获取节点信息
+  window.getNodeInfo = function (uuid) {
+    var node = window.inspectorGameMemoryStorage[uuid];
+    if (node) {
+      var nodeComp = getNodeComponentsInfo(node);
+      var nodeData = {
+        type: node.constructor.name,
         uuid: node.uuid,
-        name: nodeName,
+        name: node.name,
         x: node.x,
         y: node.y,
         zIndex: node.zIndex,
         childrenCount: node.childrenCount,
-        children: {},
+        children: [],
         width: node.width,
         height: node.height,
-        active: node.active,
         color: node.color.toCSS(),
         opacity: node.opacity,
         rotation: node.rotation,
@@ -114,58 +138,75 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         scaleX: node.scaleX,
         scaleY: node.scaleY,
         skewX: node.skewX,
-        skewY: node.skewY
+        skewY: node.skewY,
+        components: nodeComp
       };
-      var nodeChildren = node.getChildren();
-      for (var i = 0; i < nodeChildren.length; i++) {
-        var childItem = nodeChildren[i];
-        // let childName = childItem.name;
-        // console.log("childName: " + childName);
-        getNodeChildren(childItem, data[nodeName].children);
+      var nodeType = node.constructor.name;
+      if (nodeType === 'cc_Scene') {} else {
+        nodeData.active = node.active;
       }
+      window.sendMsgToDevTools(msgType.nodeInfo, nodeData);
+    } else {
+      // 未获取到节点数据
+      console.log("未获取到节点数据");
     }
+  };
 
-    function sendMsgToDevTools(type, msg) {
-      window.postMessage({ type: type, msg: msg }, "*");
+  // 收集节点信息
+  function getNodeChildren(node, data) {
+    // console.log("nodeName: " + node.name);
+    var nodeData = {
+      uuid: node.uuid,
+      name: node.name,
+      children: []
+    };
+    window.inspectorGameMemoryStorage[node.uuid] = node;
+    var nodeChildren = node.getChildren();
+    for (var i = 0; i < nodeChildren.length; i++) {
+      var childItem = nodeChildren[i];
+      // console.log("childName: " + childItem.name);
+      getNodeChildren(childItem, nodeData.children);
     }
+    data.push(nodeData);
+  }
 
-    // 检测是否包含cc变量
-    try {
-      var cocosInspectorTestVar = cc;
-    } catch (e) {
-      sendMsgToDevTools(msgType.notSupport, "不支持调试游戏!");
-      return;
-    }
+  window.sendMsgToDevTools = function (type, msg) {
+    window.postMessage({ type: type, msg: msg }, "*");
+  };
+  // 检测是否包含cc变量
+  var isCocosCreatorGame = true;
+  try {
+    var cocosInspectorTestVar = cc;
+  } catch (e) {
+    isCocosCreatorGame = false;
+    window.sendMsgToDevTools(msgType.notSupport, "不支持调试游戏!");
+  }
 
+  if (isCocosCreatorGame) {
     var scene = cc.director.getScene();
     if (scene) {
-      postData.scene = {};
-      var sceneName = scene.name;
-      postData.scene[sceneName] = {};
-      postData.scene[sceneName].name = sceneName;
-      postData.scene[sceneName].children = {};
+      postData.scene = {
+        type: 1, // 标识类型
+        uuid: scene.uuid,
+        name: scene.name,
+        children: []
+      };
+      window.inspectorGameMemoryStorage[scene.uuid] = scene;
 
       var sceneChildren = scene.getChildren();
       for (var i = 0; i < sceneChildren.length; i++) {
-        var item = sceneChildren[i];
-        getNodeChildren(item, postData.scene[sceneName].children);
+        var node = sceneChildren[i];
+        getNodeChildren(node, postData.scene.children);
       }
-
       // console.log(postData);
-      sendMsgToDevTools(msgType.nodeListInfo, postData);
+      window.sendMsgToDevTools(msgType.nodeListInfo, postData);
     } else {
       postData.scene = null;
-      sendMsgToDevTools(msgType.notSupport, "不支持调试游戏!");
+      window.sendMsgToDevTools(msgType.notSupport, "不支持调试游戏!");
     }
+  } else {
+    console.log("未发现cocos creator game");
   }
-
-  inspectorTimerUpdate();
-
-  // var inspectorRunCount = 0;
-  // if (window.cocosCreatorInspectorTimer !== undefined) {
-  //   clearInterval(window.cocosCreatorInspectorTimer);
-  // }
-  // window.cocosCreatorInspectorTimer = setInterval(inspectorTimerUpdate, 1000);
 });
 
 /***/ })

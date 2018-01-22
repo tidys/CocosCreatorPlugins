@@ -66,7 +66,7 @@ cc.Class({
         // HotUpdate.showSearchPath();
     },
     start() {
-        require('InspectorScript').inspectorSupport();
+        // require('InspectorScript').inspectorSupport();
     },
     _initVersionFlag() {
         /*if (GameCfg.isDebugVersion) {

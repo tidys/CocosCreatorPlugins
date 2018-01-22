@@ -62,14 +62,6 @@ module.exports = {
       inject: 'body',
       chunks: ['devInspector']
     }),
-    //devNoGame.html
-    new HtmlWebpackPlugin({
-      template: __dirname + "/src/dev/devNoGame/devNoGame.html",
-      filename: 'devNoGame.html',
-      inject: 'body',
-      chunks: ['devNoGame']
-    }),
-
 
     // 拷贝静态资源(manifest.json)
     new CopyWebpackPlugin([

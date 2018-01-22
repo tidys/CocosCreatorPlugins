@@ -1,17 +1,14 @@
 <template>
   <div id="app">
-    <h1>{{label}}</h1>
+    <!--<h1> cc_Scene</h1>-->
   </div>
 </template>
 
 <script>
-
   export default {
     name: "app",
     data() {
-      return {
-        label: "该html不是cocos游戏,无法调试!",
-      }
+      return {}
     }
   }
 </script>

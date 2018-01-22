@@ -2,11 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77be2a0d-245c-4481-9db8-0f8f0c8c25fa" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/SceneProperty.vue" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/.gitignore" afterPath="$PROJECT_DIR$/CocosCreatorInspector/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/README.md" afterPath="$PROJECT_DIR$/CocosCreatorInspector/README.md" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/src/popup/App.vue" afterPath="$PROJECT_DIR$/CocosCreatorInspector/src/popup/App.vue" />
-      <change beforePath="$PROJECT_DIR$/doc/CreatorInspector/scene1.png" afterPath="$PROJECT_DIR$/doc/CreatorInspector/scene1.png" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/backgroundScripts.main.js" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/backgroundScripts.main.js" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/backgroundScripts.main.js.map" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/backgroundScripts.main.js.map" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/contentScripts.main.js" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/contentScripts.main.js" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/contentScripts.main.js.map" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/contentScripts.main.js.map" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/dev.main.js" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/dev.main.js" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/dev.main.js.map" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/dev.main.js.map" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/devInspector.main.js" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/devInspector.main.js" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/devInspector.main.js.map" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/devInspector.main.js.map" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/devNoGame.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/devNoGame.main.js" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/devNoGame.main.js" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/devNoGame.main.js.map" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/devNoGame.main.js.map" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/index.main.js" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/index.main.js" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/index.main.js.map" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/index.main.js.map" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/injectScript.main.js" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/injectScript.main.js" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/injectScript.main.js.map" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/injectScript.main.js.map" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/popup.main.js" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/popup.main.js" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/popup.main.js.map" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/popup.main.js.map" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/util.main.js" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/util.main.js" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/util.main.js.map" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/util.main.js.map" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/App.vue" afterPath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/App.vue" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devNoGame/App.vue" afterPath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/NodeBaseProperty.vue" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devNoGame/main.js" afterPath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devNoGame/main.js" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/injectScript.js" afterPath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/injectScript.js" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/webpack.config.js" afterPath="$PROJECT_DIR$/CocosCreatorInspector/webpack.config.js" />
+      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/数据结构设计思路.md" afterPath="$PROJECT_DIR$/CocosCreatorInspector/数据结构设计思路.md" />
+      <change beforePath="$PROJECT_DIR$/assets/module/hotUpDate/HotUpdateScene.fire" afterPath="$PROJECT_DIR$/assets/module/hotUpDate/HotUpdateScene.fire" />
+      <change beforePath="$PROJECT_DIR$/assets/module/hotUpDate/HotUpdateScene.js" afterPath="$PROJECT_DIR$/assets/module/hotUpDate/HotUpdateScene.js" />
+      <change beforePath="$PROJECT_DIR$/settings/project.json" afterPath="$PROJECT_DIR$/settings/project.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,31 +45,77 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="InspectorScript.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/module/Inspector/InspectorScript.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="270">
-                <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.7664319">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/App.vue">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="465">
+                  <caret line="94" column="9" lean-forward="false" selection-start-line="94" selection-start-column="9" selection-end-line="95" selection-end-column="53" />
+                  <folding>
+                    <element signature="e#1058#1079#0" expanded="true" />
+                    <element signature="e#4688#5034#0" expanded="false" />
+                    <element signature="e#5066#5234#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="NodeBaseProperty.vue" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/NodeBaseProperty.vue">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="229">
+                  <caret line="228" column="21" lean-forward="false" selection-start-line="228" selection-start-column="21" selection-end-line="228" selection-end-column="21" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="injectScript.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/injectScript.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="421">
+                  <caret line="71" column="43" lean-forward="false" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
+                  <folding>
+                    <element signature="e#1234#1890#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="数据结构设计思路.md" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/数据结构设计思路.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                <state split_layout="FIRST">
+                  <first_editor relative-caret-position="225">
+                    <caret line="22" column="15" lean-forward="false" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+                    <folding>
+                      <marker date="1516591249419" expanded="true" signature="31:727" ph="{...}" />
+                      <marker date="1516591249419" expanded="true" signature="44:727" ph="{...}" />
+                      <marker date="1516591249419" expanded="true" signature="92:725" ph="{&quot;name&quot;: &quot;HotUpdateScene&quot;...}" />
+                      <marker date="1516591249419" expanded="true" signature="92:727" ph="{&quot;name&quot;: &quot;HotUpdateScene&quot;...}" />
+                      <marker date="1516591249419" expanded="true" signature="136:722" ph="{...}" />
+                      <marker date="1516591249419" expanded="true" signature="136:725" ph="{...}" />
+                      <marker date="1516591249419" expanded="true" signature="144:676" ph="{&quot;name&quot;: &quot;Canvas&quot;...}" />
+                      <marker date="1516591249419" expanded="true" signature="144:722" ph="{&quot;name&quot;: &quot;Canvas&quot;...}" />
+                      <marker date="1516591249419" expanded="true" signature="668:676" ph="{&quot;width&quot;: 1920.96...}" />
+                      <marker date="1516591249419" expanded="true" signature="684:714" ph="{&quot;uuid&quot;: &quot;...&quot;...}" />
+                      <marker date="1516591249419" expanded="true" signature="786:817" ph="{...}" />
+                    </folding>
+                  </first_editor>
+                  <second_editor />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -52,14 +123,12 @@
         <option value="CSS File" />
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_getRemoteServerVersion</find>
-      <find>testEnvLocal</find>
-      <find>xhr.setRequestHeader(&quot;If-Modified-Since&quot;, &quot;0&quot;);// 不缓存</find>
       <find>Editor.Ipc</find>
       <find>sendToPanel</find>
       <find>hello</find>
@@ -87,12 +156,16 @@
       <find>input</find>
       <find>onloa</find>
       <find>childItem</find>
+      <find>treeItemData</find>
+      <find>onBtnClickTest</find>
+      <find>act</find>
     </findStrings>
     <replaceStrings>
       <replace>this._addLog</replace>
       <replace>hotAddrSelect</replace>
       <replace>hotAddressSelect</replace>
       <replace>node</replace>
+      <replace>itemData</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -101,14 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/packages/bitmap-font/panel/index.js" />
-        <option value="$PROJECT_DIR$/packages/creator-chat-room/package.json" />
-        <option value="$PROJECT_DIR$/packages/creator-chat-room/panel/index.css" />
-        <option value="$PROJECT_DIR$/packages/creator-chat-room/panel/index.html" />
-        <option value="$PROJECT_DIR$/packages/creator-chat-room/panel/index.js" />
-        <option value="$PROJECT_DIR$/packages/creator-chat-room/test.css" />
-        <option value="$PROJECT_DIR$/packages/creator-chat-room/test.html" />
-        <option value="$PROJECT_DIR$/packages/cocos-particle2d/package.json" />
         <option value="$PROJECT_DIR$/packages/cocos-particle2d/panel/index.js" />
         <option value="$PROJECT_DIR$/packages/cocos-particle2d/panel/index.css" />
         <option value="$PROJECT_DIR$/packages/cocos-particle2d/panel/index.html" />
@@ -120,7 +185,6 @@
         <option value="$PROJECT_DIR$/assets/hotupDate/HotUpdateScene.js" />
         <option value="$PROJECT_DIR$/assets/Script/GameLocalStorage.js" />
         <option value="$PROJECT_DIR$/assets/core/UIMgr.js" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/assets/core/GameMsgGlobal.js" />
         <option value="$PROJECT_DIR$/assets/module/hotUpDate/IndexScene.js" />
         <option value="$PROJECT_DIR$/assets/module/index/IndexScene.js" />
@@ -146,12 +210,21 @@
         <option value="$PROJECT_DIR$/packages/hot-update-tools/CommonIssue.md" />
         <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/index.js" />
         <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/index.html" />
-        <option value="$PROJECT_DIR$/assets/module/hotUpDate/HotUpdateScene.js" />
-        <option value="$PROJECT_DIR$/assets/module/Inspector/InspectorScript.js" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/.gitignore" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/src/popup/App.vue" />
         <option value="$PROJECT_DIR$/doc/CreatorInspector/install/README.md" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/README.md" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/CocosCreatorInspector/数据结构设计思路.md" />
+        <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/contentScripts.js" />
+        <option value="$PROJECT_DIR$/assets/module/hotUpDate/HotUpdateScene.js" />
+        <option value="$PROJECT_DIR$/assets/module/Inspector/InspectorScript.js" />
+        <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devNoGame/App.vue" />
+        <option value="$PROJECT_DIR$/CocosCreatorInspector/webpack.config.js" />
+        <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/SceneProperty.vue" />
+        <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/injectScript.js" />
+        <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/App.vue" />
+        <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/NodeBaseProperty.vue" />
       </list>
     </option>
   </component>
@@ -177,10 +250,10 @@
     <handled-path value="$PROJECT_DIR$/packages/hot-update-tools/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="456" />
-    <option name="y" value="81" />
-    <option name="width" value="1171" />
-    <option name="height" value="964" />
+    <option name="x" value="679" />
+    <option name="y" value="66" />
+    <option name="width" value="1282" />
+    <option name="height" value="944" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -202,7 +275,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="cocos" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -216,6 +289,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="cocos">
           <expand>
@@ -239,7 +313,32 @@
               <item name="CocosCreatorPlugins" type="cbb8eebc:String" user="CocosCreatorPlugins" />
               <item name="CocosCreatorInspector" type="cbb8eebc:String" user="CocosCreatorInspector" />
               <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="popup" type="cbb8eebc:String" user="popup" />
+              <item name="dev" type="cbb8eebc:String" user="dev" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="CocosCreatorPlugins" type="cbb8eebc:String" user="CocosCreatorPlugins" />
+              <item name="CocosCreatorInspector" type="cbb8eebc:String" user="CocosCreatorInspector" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="dev" type="cbb8eebc:String" user="dev" />
+              <item name="devInspector" type="cbb8eebc:String" user="devInspector" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="CocosCreatorPlugins" type="cbb8eebc:String" user="CocosCreatorPlugins" />
+              <item name="CocosCreatorInspector" type="cbb8eebc:String" user="CocosCreatorInspector" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="dev" type="cbb8eebc:String" user="dev" />
+              <item name="devInspector" type="cbb8eebc:String" user="devInspector" />
+              <item name="ccType" type="cbb8eebc:String" user="ccType" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="CocosCreatorPlugins" type="cbb8eebc:String" user="CocosCreatorPlugins" />
+              <item name="CocosCreatorInspector" type="cbb8eebc:String" user="CocosCreatorInspector" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="dev" type="cbb8eebc:String" user="dev" />
+              <item name="devNoGame" type="cbb8eebc:String" user="devNoGame" />
             </path>
           </expand>
           <select />
@@ -259,7 +358,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -277,17 +375,6 @@
               <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
               <item name="CocosCreatorInspector" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="doc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="doc" type="462c0819:PsiDirectoryNode" />
-              <item name="CreatorInspector" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -296,7 +383,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../happyCar_xuyanfeng" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
@@ -304,14 +391,15 @@
     <property name="javascript.nodejs.core.library.configured.version" value="8.4.0" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/project/CocosCreatorPlugins/assets/module/Inspector/InspectorScript.js&#10;hot&#9;FILE&#9;file://C:/project/CocosCreatorPlugins/assets/module/hotUpDate/HotUpdateScene.js" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\project\CocosCreatorPlugins\CocosCreatorInspector\src\dev\devInspector\ccType" />
       <recent name="C:\project\CocosCreatorPlugins\packages\hot-update-tools\test" />
       <recent name="C:\project\CocosCreatorPlugins\packages\hot-update-tools" />
       <recent name="C:\project\creatorPlugins\packages\plugin-bugly\bugly\1.4.3\prebuilt" />
       <recent name="C:\project\fontSlimming\doc\字体瘦身\test" />
-      <recent name="C:\project\fontSlimming\packages\font-slimming-tools" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -399,7 +487,12 @@
       <workItem from="1516268425676" duration="1411000" />
       <workItem from="1516270250189" duration="4000" />
       <workItem from="1516344588190" duration="268000" />
-      <workItem from="1516353423709" duration="2153000" />
+      <workItem from="1516353423709" duration="3222000" />
+      <workItem from="1516409957164" duration="2944000" />
+      <workItem from="1516428395966" duration="8733000" />
+      <workItem from="1516583837107" duration="246000" />
+      <workItem from="1516584226144" duration="3580000" />
+      <workItem from="1516590879869" duration="18007000" />
     </task>
     <task id="LOCAL-00001" summary="3">
       <created>1516002621240</created>
@@ -415,17 +508,38 @@
       <option name="project" value="LOCAL" />
       <updated>1516264779997</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="注入脚本的逻辑">
+      <created>1516592142187</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1516592142187</updated>
+    </task>
+    <task id="LOCAL-00004" summary="注入脚本的逻辑修改">
+      <created>1516601637369</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1516601637369</updated>
+    </task>
+    <task id="LOCAL-00005" summary="内容脚本">
+      <created>1516603600771</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1516603600771</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="240260000" />
+    <option name="totallyTimeSpent" value="274839000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="456" y="81" width="1171" height="964" extended-state="0" />
+    <frame x="679" y="66" width="1282" height="944" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21872187" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30278233" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -434,7 +548,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19226119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23791821" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -459,7 +573,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="3" />
     <MESSAGE value="获取节点信息" />
-    <option name="LAST_COMMIT_MESSAGE" value="获取节点信息" />
+    <MESSAGE value="注入脚本的逻辑" />
+    <MESSAGE value="注入脚本的逻辑修改" />
+    <MESSAGE value="内容脚本" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -468,39 +585,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/Script/hot/HotUpdate.js" />
-    <entry file="file://$PROJECT_DIR$/assets/Script/hot/HotUpdateModule.js" />
-    <entry file="file://$PROJECT_DIR$/assets/Script/Util.js" />
-    <entry file="file://$PROJECT_DIR$/assets/Script/GameLocalStorage.js" />
-    <entry file="file://$PROJECT_DIR$/assets/hotupDate/HotUpdateScene.js" />
-    <entry file="file://$PROJECT_DIR$/assets/core/UIMgr.js" />
-    <entry file="file://$PROJECT_DIR$/assets/core/DialogMgr.js" />
-    <entry file="file://$PROJECT_DIR$/assets/core/GameMsgGlobal.js" />
-    <entry file="file://$PROJECT_DIR$/assets/resources/prefab/dialog/DialogLayer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/module/hotUpDate/IndexScene.js" />
-    <entry file="file://$PROJECT_DIR$/assets/module/index/IndexScene.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/plugin-bugly/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="30">
-            <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/jsb-default/frameworks/runtime-src/Classes/AppDelegate.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -686,16 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="225">
-            <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
@@ -739,25 +813,8 @@
         <state split_layout="SECOND">
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/module/hotUpDate/HotUpdateScene.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="33" column="37" lean-forward="true" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/module/Inspector/InspectorScript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -765,7 +822,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -773,7 +829,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -782,7 +837,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="345">
             <caret line="23" column="19" lean-forward="true" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -791,11 +845,157 @@
     <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="270">
-            <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-            <folding />
+          <first_editor relative-caret-position="120">
+            <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="120">
+            <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/dist/injectScript.main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="193" column="3" lean-forward="false" selection-start-line="193" selection-start-column="3" selection-end-line="193" selection-end-column="3" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/8.4.0/core-modules/repl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-88">
+          <caret line="279" column="34" lean-forward="false" selection-start-line="279" selection-start-column="34" selection-end-line="279" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/contentScripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/module/hotUpDate/HotUpdateScene.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="69" column="6" lean-forward="true" selection-start-line="69" selection-start-column="6" selection-end-line="69" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/module/Inspector/InspectorScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="7" lean-forward="false" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="63" column="7" lean-forward="false" selection-start-line="63" selection-start-column="7" selection-end-line="63" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devNoGame/devNoGame.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/dist/devInspector.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="28" lean-forward="false" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#22#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/SceneProperty.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/injectScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="71" column="43" lean-forward="false" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
+          <folding>
+            <element signature="e#1234#1890#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="94" column="9" lean-forward="false" selection-start-line="94" selection-start-column="9" selection-end-line="95" selection-end-column="53" />
+          <folding>
+            <element signature="e#1058#1079#0" expanded="true" />
+            <element signature="e#4688#5034#0" expanded="false" />
+            <element signature="e#5066#5234#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/数据结构设计思路.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="225">
+            <caret line="22" column="15" lean-forward="false" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+            <folding>
+              <marker date="1516591249419" expanded="true" signature="31:727" ph="{...}" />
+              <marker date="1516591249419" expanded="true" signature="44:727" ph="{...}" />
+              <marker date="1516591249419" expanded="true" signature="92:725" ph="{&quot;name&quot;: &quot;HotUpdateScene&quot;...}" />
+              <marker date="1516591249419" expanded="true" signature="92:727" ph="{&quot;name&quot;: &quot;HotUpdateScene&quot;...}" />
+              <marker date="1516591249419" expanded="true" signature="136:722" ph="{...}" />
+              <marker date="1516591249419" expanded="true" signature="136:725" ph="{...}" />
+              <marker date="1516591249419" expanded="true" signature="144:676" ph="{&quot;name&quot;: &quot;Canvas&quot;...}" />
+              <marker date="1516591249419" expanded="true" signature="144:722" ph="{&quot;name&quot;: &quot;Canvas&quot;...}" />
+              <marker date="1516591249419" expanded="true" signature="668:676" ph="{&quot;width&quot;: 1920.96...}" />
+              <marker date="1516591249419" expanded="true" signature="684:714" ph="{&quot;uuid&quot;: &quot;...&quot;...}" />
+              <marker date="1516591249419" expanded="true" signature="786:817" ph="{...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/NodeBaseProperty.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="228" column="21" lean-forward="false" selection-start-line="228" selection-start-column="21" selection-end-line="228" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>

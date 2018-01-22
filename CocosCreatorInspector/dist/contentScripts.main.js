@@ -60,12 +60,12 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 178);
+/******/ 	return __webpack_require__(__webpack_require__.s = 183);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 178:
+/***/ 183:
 /***/ (function(module, exports) {
 
 window.addEventListener('message', function (event) {
@@ -76,16 +76,15 @@ window.addEventListener('message', function (event) {
 
 var gameCanvas = document.querySelector("#GameCanvas");
 if (gameCanvas) {
-  console.log('find GameCanvas element');
+  // console.log('find GameCanvas element');
   // gameCanvas.addEventListener('click', function () {
   //   console.log("click canvas");
   // });
   // gameCanvas.style.display = 'none';
-  // chrome.extension.sendMessage("hello Cocos");
 } else {
-  console.log("can't find GameCanvas element");
+  // console.log("can't find GameCanvas element");
+  chrome.extension.sendMessage({ type: 0, msg: "no creator game!" });
 }
-// window.postMessage({type: 1, msg: "window.messageTest"}, '*');
 
 /***/ })
 
