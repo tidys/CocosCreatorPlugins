@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77be2a0d-245c-4481-9db8-0f8f0c8c25fa" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/CocosCreatorInspector/buid.bat" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/README.md" afterPath="$PROJECT_DIR$/CocosCreatorInspector/README.md" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist.crx" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist.crx" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/backgroundScripts.main.js.map" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/backgroundScripts.main.js.map" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/contentScripts.main.js.map" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/contentScripts.main.js.map" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/dev.main.js.map" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/dev.main.js.map" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/devInspector.main.js" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/devInspector.main.js" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/devInspector.main.js.map" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/devInspector.main.js.map" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/devNoGame.main.js.map" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/devNoGame.main.js.map" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/index.main.js.map" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/index.main.js.map" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/injectScript.main.js.map" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/injectScript.main.js.map" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/popup.main.js.map" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/popup.main.js.map" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/dist/util.main.js.map" afterPath="$PROJECT_DIR$/CocosCreatorInspector/dist/util.main.js.map" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/App.vue" afterPath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/App.vue" />
+      <change beforePath="$PROJECT_DIR$/doc/CreatorInspector/install/README.md" afterPath="$PROJECT_DIR$/doc/CreatorInspector/install/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,12 +32,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="300">
-                <caret line="20" column="15" lean-forward="true" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+              <first_editor relative-caret-position="90">
+                <caret line="6" column="46" lean-forward="true" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/doc/CreatorInspector/install/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="135">
+                <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -187,7 +186,6 @@
         <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/index.html" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/.gitignore" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/src/popup/App.vue" />
-        <option value="$PROJECT_DIR$/doc/CreatorInspector/install/README.md" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/数据结构设计思路.md" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/contentScripts.js" />
@@ -201,6 +199,7 @@
         <option value="$PROJECT_DIR$/CocosCreatorInspector/buid.bat" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/App.vue" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/README.md" />
+        <option value="$PROJECT_DIR$/doc/CreatorInspector/install/README.md" />
       </list>
     </option>
   </component>
@@ -226,8 +225,8 @@
     <handled-path value="$PROJECT_DIR$/packages/hot-update-tools/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="562" />
-    <option name="y" value="355" />
+    <option name="x" value="574" />
+    <option name="y" value="271" />
     <option name="width" value="1282" />
     <option name="height" value="750" />
   </component>
@@ -430,7 +429,7 @@
       <workItem from="1516428395966" duration="8733000" />
       <workItem from="1516583837107" duration="246000" />
       <workItem from="1516584226144" duration="3580000" />
-      <workItem from="1516590879869" duration="22698000" />
+      <workItem from="1516590879869" duration="22921000" />
     </task>
     <task id="LOCAL-00001" summary="3">
       <created>1516002621240</created>
@@ -471,10 +470,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="279530000" />
+    <option name="totallyTimeSpent" value="279753000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="562" y="355" width="1282" height="750" extended-state="0" />
+    <frame x="574" y="271" width="1282" height="750" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22831424" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -756,16 +755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doc/CreatorInspector/install/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="345">
-            <caret line="23" column="19" lean-forward="true" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -930,8 +919,19 @@
     <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="300">
-            <caret line="20" column="15" lean-forward="true" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+          <first_editor relative-caret-position="90">
+            <caret line="6" column="46" lean-forward="true" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/CreatorInspector/install/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="135">
+            <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
             <folding />
           </first_editor>
           <second_editor />
