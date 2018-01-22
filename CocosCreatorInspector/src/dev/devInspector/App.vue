@@ -139,10 +139,12 @@
         let sceneData = data.scene;
         if (sceneData) {
           // scene info
-          this.treeData.push({
+          let dataRoot = {
             type: sceneData.type, uuid: sceneData.uuid,
             label: sceneData.name, children: []
-          });
+          };
+          this.treeData.push(dataRoot);
+          this.handleNodeClick(dataRoot);
           // scene children info
           for (let k in sceneData.children) {
             let itemSceneData = sceneData.children[k];

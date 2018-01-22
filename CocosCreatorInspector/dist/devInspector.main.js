@@ -55904,7 +55904,7 @@ new __WEBPACK_IMPORTED_MODULE_0_vue__["default"]({
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_52b5be93_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_42360ff8_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__(173);
 function injectStyle (ssrContext) {
   __webpack_require__(165)
 }
@@ -55918,12 +55918,12 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-52b5be93"
+var __vue_scopeId__ = "data-v-42360ff8"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_52b5be93_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_42360ff8_hasScoped_true_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -55944,7 +55944,7 @@ var content = __webpack_require__(166);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(16)("60236148", content, true);
+var update = __webpack_require__(16)("512c82ac", content, true);
 
 /***/ }),
 /* 166 */
@@ -55955,7 +55955,7 @@ exports = module.exports = __webpack_require__(15)(undefined);
 
 
 // module
-exports.push([module.i, ".treeInfo[data-v-52b5be93],.treeList[data-v-52b5be93]{height:100%}.bg-purple[data-v-52b5be93]{background:#d3dce6}.grid-content[data-v-52b5be93]{border-radius:4px;min-height:20px}.bg-purple-light[data-v-52b5be93]{background:#e5e9f2}", ""]);
+exports.push([module.i, ".treeInfo[data-v-42360ff8],.treeList[data-v-42360ff8]{height:100%}.bg-purple[data-v-42360ff8]{background:#d3dce6}.grid-content[data-v-42360ff8]{border-radius:4px;min-height:20px}.bg-purple-light[data-v-42360ff8]{background:#e5e9f2}", ""]);
 
 // exports
 
@@ -56111,10 +56111,12 @@ __WEBPACK_IMPORTED_MODULE_0_vue__["default"].component('SceneProperty', __WEBPAC
       var sceneData = data.scene;
       if (sceneData) {
         // scene info
-        this.treeData.push({
+        var dataRoot = {
           type: sceneData.type, uuid: sceneData.uuid,
           label: sceneData.name, children: []
-        });
+        };
+        this.treeData.push(dataRoot);
+        this.handleNodeClick(dataRoot);
         // scene children info
         for (var k in sceneData.children) {
           var itemSceneData = sceneData.children[k];

@@ -10,7 +10,10 @@
 - F12打开**开发者工具**你会发现多了一个cocos选项
   ![](../doc/CreatorInspector/scene1.png)
 - 点击**刷新**按钮即可查看游戏运行时的节点目录树,左侧为节点,右侧为节点信息
-    ![](../doc/CreatorInspector/scene2.png)
+  ![](../doc/CreatorInspector/scene3.png) 
+  - 节点信息中有控制显示隐藏的按钮,点击该按钮将直接影响运行中的游戏效果
+    ![](../doc/CreatorInspector/showHideNode.gif) 
+  - 节点属性列表中显示了改节点上挂的所有组件,目前仅仅支持查看组件名称,并不能实时编辑   
 ## 开发中使用到的技术
 - chrome 插件开发
 - vue+webpack
