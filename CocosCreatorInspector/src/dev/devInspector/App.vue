@@ -41,15 +41,14 @@
     data() {
       return {
         isShowDebug: false,
-        treeItemData: {
-          name: "11",
-          uuid: "32343"
-        },
+        treeItemData: {},
         treeData: [],
         treeDataMap: {},
       }
     },
     created() {
+      // this.onTestData();
+      // return;
       let backgroundPageConnection = chrome.extension.connect({
         name: btoa("for" + String(chrome.devtools.inspectedWindow.tabId))
       });
@@ -83,6 +82,44 @@
       }, false);
     },
     methods: {
+      onTestData() {
+        let testData = {
+          "type": "cc_Node",
+          "uuid": "5cUWX4Yh1MipGk+ssnZ/fL",
+          "name": "Canvas",
+          "x": 960,
+          "y": 540.4931506849315,
+          "zIndex": 0,
+          "childrenCount": 6,
+          "children": [],
+          "width": 1920,
+          "height": 1080.986301369863,
+          "color": "#fff85f",
+          "opacity": 255,
+          "rotation": 0,
+          "rotationX": 0,
+          "rotationY": 0,
+          "anchorX": 0.5,
+          "anchorY": 0.5,
+          "scaleX": 1,
+          "scaleY": 1,
+          "skewX": 0,
+          "skewY": 0,
+          "components": [
+            {
+              "uuid": "Comp.931",
+              "type": "cc_Canvas",
+              "name": "Canvas<Canvas>"
+            },
+            {
+              "uuid": "Comp.932",
+              "type": "HotUpdateScene",
+              "name": "Canvas<HotUpdateScene>"
+            }],
+          "active": true
+        }
+        this.treeItemData = testData;
+      },
       onBtnClickTest() {
         this.isShowDebug = true;
         // chrome.devtools.inspectedWindow.eval("window.game1 =function(){console.log('1');}; window.game1();");

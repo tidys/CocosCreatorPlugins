@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div v-if="itemData.uuid!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> uuid</div>
         </el-col>
@@ -11,7 +11,7 @@
       </el-row>
     </div>
     <div v-if="itemData.name!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> name</div>
         </el-col>
@@ -21,7 +21,7 @@
       </el-row>
     </div>
     <div v-if="itemData.x!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> x</div>
         </el-col>
@@ -31,7 +31,7 @@
       </el-row>
     </div>
     <div v-if="itemData.y!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> y</div>
         </el-col>
@@ -42,7 +42,7 @@
     </div>
 
     <div v-if="itemData.zIndex!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> zIndex</div>
         </el-col>
@@ -53,7 +53,7 @@
     </div>
 
     <div v-if="itemData.childrenCount!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> childrenCount</div>
         </el-col>
@@ -64,7 +64,7 @@
     </div>
 
     <div v-if="itemData.width!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> width</div>
         </el-col>
@@ -75,7 +75,7 @@
     </div>
 
     <div v-if="itemData.height!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> height</div>
         </el-col>
@@ -85,32 +85,39 @@
       </el-row>
     </div>
     <div v-if="itemData.active!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> active</div>
         </el-col>
         <el-col :span="14">
           <div class="grid-content bg-purple">
             {{itemData.active}}
-            <el-button size="mini" v-show="!itemData.active" @click="onBtnClickNodeShow">显示节点</el-button>
-            <el-button size="mini" v-show="itemData.active" @click="onBtnClickNodeHide">隐藏节点</el-button>
+            <el-button type="primary" size="mini" class="btnSize" v-show="!itemData.active" @click="onBtnClickNodeShow">
+              显示节点
+            </el-button>
+            <el-button type="warning" size="mini" class="btnSize" v-show="itemData.active" @click="onBtnClickNodeHide">
+              隐藏节点
+            </el-button>
           </div>
         </el-col>
       </el-row>
     </div>
 
     <div v-if="itemData.color!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> color</div>
         </el-col>
         <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.color}}</div>
+          <div class="grid-content bg-purple">
+            <el-color-picker v-model="itemData.color" disabled style="width: 200px"></el-color-picker>
+            {{itemData.color}}
+          </div>
         </el-col>
       </el-row>
     </div>
     <div v-if="itemData.opacity!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> opacity</div>
         </el-col>
@@ -121,7 +128,7 @@
     </div>
 
     <div v-if="itemData.rotation!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> rotation</div>
         </el-col>
@@ -131,7 +138,7 @@
       </el-row>
     </div>
     <div v-if="itemData.rotationX!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> rotationX</div>
         </el-col>
@@ -141,7 +148,7 @@
       </el-row>
     </div>
     <div v-if="itemData.rotationY!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> rotationY</div>
         </el-col>
@@ -151,7 +158,7 @@
       </el-row>
     </div>
     <div v-if="itemData.anchorX!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> anchorX</div>
         </el-col>
@@ -162,7 +169,7 @@
     </div>
 
     <div v-if="itemData.anchorY!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> anchorY</div>
         </el-col>
@@ -172,7 +179,7 @@
       </el-row>
     </div>
     <div v-if="itemData.scaleX!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> scaleX</div>
         </el-col>
@@ -183,7 +190,7 @@
     </div>
 
     <div v-if="itemData.scaleY!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> scaleY</div>
         </el-col>
@@ -194,7 +201,7 @@
     </div>
 
     <div v-if="itemData.skewX!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> skewX</div>
         </el-col>
@@ -204,7 +211,7 @@
       </el-row>
     </div>
     <div v-if="itemData.skewY!==undefined">
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="compBorder">
         <el-col :span="6">
           <div class="grid-content bg-purple "> skewY</div>
         </el-col>
@@ -213,6 +220,18 @@
         </el-col>
       </el-row>
     </div>
+
+    <div v-if="itemData.components!==undefined">
+      <el-row :gutter="20" v-for="(comp,index) in itemData.components" class="comp">
+        <el-col :span="6">
+          <div class="grid-content bg-purple "> 组件:{{index}}</div>
+        </el-col>
+        <el-col :span="14">
+          <div class="grid-content bg-purple"> {{comp.type}}</div>
+        </el-col>
+      </el-row>
+    </div>
+
   </div>
 </template>
 
@@ -220,11 +239,10 @@
   export default {
     name: "app",
     data() {
-      return {
-        label: "node-base",
-      }
+      return {}
     },
     methods: {
+
       onBtnClickNodeHide() {
         let uuid = this.itemData.uuid;
         if (uuid !== undefined) {
@@ -254,5 +272,21 @@
 </script>
 
 <style scoped>
+  .btnSize {
+    padding: 5px 10px;
+  }
 
+  .comp {
+    border: 2px solid #a1a1a1;
+    padding: 5px 5px;
+    background: #dddddd;
+    width: 100%;
+    border-radius: 5px;
+    -moz-border-radius: 5px; /* 老的 Firefox */
+  }
+
+  .compBorder {
+    border: 1px solid #b3b3b3;
+    background: #ffffff
+  }
 </style>
