@@ -5,7 +5,7 @@
  http://forum.cocos.com/t/chrome-creator/55669
 
 ## 插件安装
-- [安装包下载](dist.crx)   
+- [安装包下载](http://7xq9nm.com1.z0.glb.clouddn.com/ccInspector_v1.1.zip)   
 - [点击查看如何安装](../doc/CreatorInspector/install/README.md)
 ## 如何使用
 - 在chrome中打开creator开发的游戏
