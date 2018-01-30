@@ -76,6 +76,7 @@ module.exports = {
             let frameSize = cc.view.getFrameSize();
             cc.view.setFrameSize(frameSize.height, frameSize.width);
         } else {
+            console.log("平台： "+cc.sys.platform);
             if (cc.sys.platform === cc.sys.OS_ANDROID) {
                 /*
                 // 同时需要修改 frameworks\cocos2d-x\cocos\platform\android\CCApplication-android.cpp
@@ -91,6 +92,7 @@ module.exports = {
                 let sign = "(Z)V";
                 let ret = jsb.reflection.callStaticMethod(className, methodName, sign, b);
             } else if (cc.sys.platform === cc.sys.OS_IOS) {
+                console.log("执行ios平台代码");
                 jsb.reflection.callStaticMethod(
                     "AppController",
                     "sceneOrientationLandscape:",
