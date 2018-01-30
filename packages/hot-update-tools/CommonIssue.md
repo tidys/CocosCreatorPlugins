@@ -33,3 +33,6 @@ C:\Users\Administrator\.CocosCreator\packages
 ~/.CocosCreator
 ```
 
+### 其他问题
+iOS11现在第一次安装应用会提示网络权限，导致无法下载远程版本，第一次安装永远不会热更，我改成如果下载失败就等几秒提示网络错误或没有网络权限，然后自动重启
+更新要在构建后再做，而且setting.js那个文件一定要传，不然出现部分不更新的情况
