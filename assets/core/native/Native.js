@@ -65,17 +65,49 @@ module.exports = {
             return true;
         }
     },
-    rotationSceneToLandscape(b,cb) {
+    // 旋转屏幕到横屏
+    rotationSceneToLandscape(b, cb) {
+        if (this._isLandScape() === b) {
+            console.log("当前屏幕已经是指定的方向,无需旋转!");
+            return;
+        }
         if (cc.sys.isBrowser) {
-
+            let frameSize = cc.view.getFrameSize();
+            cc.view.setFrameSize(frameSize.height, frameSize.width);
         } else {
-            if (cc.sys.platform === cc.sys.ANDROID) {
+            if (cc.sys.platform === cc.sys.OS_ANDROID) {
+                /*
+                // 同时需要修改 frameworks\cocos2d-x\cocos\platform\android\CCApplication-android.cpp
+                void Application::applicationScreenSizeChanged(int newWidth, int newHeight) {
+                    // todo add code for scene
+                    CCLOG("android Application::applicationScreenSizeChanged %d, %d", newWidth, newHeight);
+                    cocos2d::GLView * cocosView = cocos2d::Director::getInstance()->getOpenGLView();
+                    cocosView->setFrameSize(newWidth,newHeight);
+                }
+                */
                 let className = "org/cocos2dx/javascript/AppActivity";
                 let methodName = "sceneOrientationLandscape";
                 let sign = "(Z)V";
                 let ret = jsb.reflection.callStaticMethod(className, methodName, sign, b);
+            } else if (cc.sys.platform === cc.sys.OS_IOS) {
+                jsb.reflection.callStaticMethod(
+                    "AppController",
+                    "sceneOrientationLandscape:",
+                    b);
             }
+            // 延迟执行逻辑
+            cb && setTimeout(function () {
+                cb();
+            }, 500);
         }
-    }
+    },
+    _isLandScape() {
+        let frameSize = cc.view.getFrameSize();
+        if (frameSize.width > frameSize.height) {
+            return true;
+        } else {
+            return false;
+        }
+    },
 
 };

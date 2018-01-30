@@ -6,10 +6,9 @@ cc.Class({
         word: {displayName: "提示语", default: ""},
     },
 
-    onLoad(){
-      require('Native').rotationSceneToLandscape(true);
-	  console.log('IndexScene');
-	  console.log(this);
+    onLoad() {
+        console.log('IndexScene');
+        console.log(this);
     },
     start() {
         this.tipsLabel.string = this.word;
@@ -21,6 +20,8 @@ cc.Class({
 
     },
     onBtnClickTest() {
-        cc.director.loadScene('TestScene');
+        require('Native').rotationSceneToLandscape(false, function () {
+            cc.director.loadScene('TestScene');
+        });
     },
 });

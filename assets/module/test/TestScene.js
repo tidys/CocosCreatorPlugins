@@ -5,9 +5,8 @@ cc.Class({
 
 
     onLoad() {
-		console.log('TestScene');
-		console.log(this);
-        require('Native').rotationSceneToLandscape(false);
+        console.log('TestScene');
+        console.log(this);
 
         let canvas = cc.find('Canvas');
         if (canvas) {
@@ -25,7 +24,9 @@ cc.Class({
 
     },
     onBtnClickTest() {
-        cc.director.loadScene('IndexScene');
+        require('Native').rotationSceneToLandscape(true, function () {
+            cc.director.loadScene('IndexScene');
+        });
     }
 
 });
