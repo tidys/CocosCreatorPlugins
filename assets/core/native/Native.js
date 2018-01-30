@@ -67,6 +67,7 @@ module.exports = {
     },
     // 旋转屏幕到横屏
     rotationSceneToLandscape(b, cb) {
+        console.log("当前平台： " + cc.sys.platform);
         if (this._isLandScape() === b) {
             cb && cb();
             console.log("当前屏幕已经是指定的方向,无需旋转!");
