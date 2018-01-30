@@ -6,7 +6,6 @@ cc.Class({
 
     onLoad() {
         console.log('TestScene');
-        console.log(this);
 
         let canvas = cc.find('Canvas');
         if (canvas) {

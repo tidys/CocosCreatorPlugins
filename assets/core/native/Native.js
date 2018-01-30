@@ -68,6 +68,7 @@ module.exports = {
     // 旋转屏幕到横屏
     rotationSceneToLandscape(b, cb) {
         if (this._isLandScape() === b) {
+            cb && cb();
             console.log("当前屏幕已经是指定的方向,无需旋转!");
             return;
         }
@@ -95,11 +96,11 @@ module.exports = {
                     "sceneOrientationLandscape:",
                     b);
             }
-            // 延迟执行逻辑
-            cb && setTimeout(function () {
-                cb();
-            }, 500);
         }
+        // 延迟执行逻辑
+        cb && setTimeout(function () {
+            cb();
+        }, 500);
     },
     _isLandScape() {
         let frameSize = cc.view.getFrameSize();

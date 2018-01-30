@@ -8,7 +8,6 @@ cc.Class({
 
     onLoad() {
         console.log('IndexScene');
-        console.log(this);
     },
     start() {
         this.tipsLabel.string = this.word;
