@@ -222,7 +222,7 @@
     </div>
 
     <div v-if="itemData.components!==undefined">
-      <el-row :gutter="20" v-for="(comp,index) in itemData.components" class="comp">
+      <el-row :gutter="20" track-by="$index" v-for="(comp,index) in itemData.components" class="comp">
         <el-col :span="6">
           <div class="grid-content bg-purple "> 组件:{{index}}</div>
         </el-col>

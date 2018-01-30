@@ -11,7 +11,6 @@ module.exports = {
   entry: {
     popup: path.resolve(__dirname, "./src/popup/main.js"),
     devInspector: path.resolve(__dirname, './src/dev/devInspector/main.js'),
-    devNoGame: path.resolve(__dirname, './src/dev/devNoGame/main.js'),
     dev: path.resolve(__dirname, './src/dev/dev.js'),
     index: path.resolve(__dirname, './src/index/main.js'),
     backgroundScripts: path.resolve(__dirname, './src/dev/backgroundScripts.js'),
@@ -68,7 +67,8 @@ module.exports = {
       {
         from: path.resolve(__dirname, 'src/assets/'),
         to: 'static',
-        ignore: ['.*']
+        force: true,
+        // ignore: ['.*']
       },
       {
         from: path.resolve(__dirname, 'src/manifest.json'),

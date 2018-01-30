@@ -50,7 +50,7 @@ module.exports = {
     *
     *
     * */
-    test(){
+    test() {
         if (cc.sys.isBrowser) {
             return navigator.onLine;
         } else if (cc.sys.isNative) {
@@ -65,5 +65,17 @@ module.exports = {
             return true;
         }
     },
+    rotationSceneToLandscape(b,cb) {
+        if (cc.sys.isBrowser) {
+
+        } else {
+            if (cc.sys.platform === cc.sys.ANDROID) {
+                let className = "org/cocos2dx/javascript/AppActivity";
+                let methodName = "sceneOrientationLandscape";
+                let sign = "(Z)V";
+                let ret = jsb.reflection.callStaticMethod(className, methodName, sign, b);
+            }
+        }
+    }
 
 };
