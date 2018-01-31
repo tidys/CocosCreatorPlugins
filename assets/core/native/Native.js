@@ -79,18 +79,30 @@ module.exports = {
         } else {
             if (cc.sys.platform === cc.sys.ANDROID) {
                 /*
-                // 同时需要修改 frameworks\cocos2d-x\cocos\platform\android\CCApplication-android.cpp
-                void Application::applicationScreenSizeChanged(int newWidth, int newHeight) {
-                    // todo add code for scene
-                    CCLOG("android Application::applicationScreenSizeChanged %d, %d", newWidth, newHeight);
-                    cocos2d::GLView * cocosView = cocos2d::Director::getInstance()->getOpenGLView();
-                    cocosView->setFrameSize(newWidth,newHeight);
-                }
-                */
+                 // 同时需要修改 frameworks\cocos2d-x\cocos\platform\android\CCApplication-android.cpp
+                 void Application::applicationScreenSizeChanged(int newWidth, int newHeight) {
+                     // todo add code for scene
+                     CCLOG("android Application::applicationScreenSizeChanged %d, %d", newWidth, newHeight);
+                     cocos2d::GLView * cocosView = cocos2d::Director::getInstance()->getOpenGLView();
+                     cocosView->setFrameSize(newWidth,newHeight);
+                 }
+                 // 修改AppActivity.java, 增加以下函数
+                 public static AppActivity instance = null;
+                 public static void sceneOrientationLandscape(boolean b) {
+                     if (b) {
+                         Log.d("debug", "---横屏---");
+                         AppActivity.instance.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);// 横屏
+                     } else {
+                         Log.d("debug", "---竖屏---");
+                         AppActivity.instance.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);// 竖屏
+                     }
+                 }
+                 */
                 let className = "org/cocos2dx/javascript/AppActivity";
                 let methodName = "sceneOrientationLandscape";
                 let sign = "(Z)V";
                 let ret = jsb.reflection.callStaticMethod(className, methodName, sign, b);
+                console.log("ret:"+ret);
             } else if (cc.sys.platform === cc.sys.IPAD ||cc.sys.platform === cc.sys.IPHONE) {
                 jsb.reflection.callStaticMethod(
                     "AppController",
