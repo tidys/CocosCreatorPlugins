@@ -20,13 +20,13 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: './',
+    publicPath: '/',
     filename: '[name].main.js'
   },
   plugins: [
     // webpack 执行之前删除dist下的文件
     new CleanWebpackPlugin(
-      ['dist/*.*'],
+      ['dist/*'],
       {
         root: __dirname,//根目录
         verbose: true,//开启在控制台输出信息

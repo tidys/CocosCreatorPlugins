@@ -6,12 +6,18 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "server": "webpack-dev-server --inline --progress --open --hot --port 8888",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline  --progress --open --hot --port 8888",
+    "dev-server": "webpack-dev-server --inline --progress --open --hot --port 8888",
+    "dev-index": "cross-env NODE_ENV=development webpack-dev-server --open http://localhost:8082/index.html --inline  --progress --hot --port 8082",
+    "dev-popup": "cross-env NODE_ENV=development webpack-dev-server --open http://localhost:8083/popup.html --inline  --progress --hot --port 8083",
+    "dev-inspector": "cross-env NODE_ENV=development webpack-dev-server --open http://localhost:8084/devInspector.html --inline  --progress --hot --port 8084",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
     "fs": "0.0.1-security",
+    "fs-extra": "^5.0.0",
+    "gulp": "^3.9.1",
+    "gulp-shell": "^0.6.5",
+    "path": "^0.12.7",
     "url-loader": "^0.6.2",
     "vue": "^2.4.4"
   },

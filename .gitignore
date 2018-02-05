@@ -68,3 +68,4 @@ export
 packages/creator-chat-room/node_modules/
 packages/bitmap-font/node_modules/
 packVersion/
+CocosCreatorInspector/bin/cc-inspector.crx
