@@ -24,6 +24,7 @@ module.exports = {
     filename: '[name].main.js'
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     // webpack 执行之前删除dist下的文件
     new CleanWebpackPlugin(
       ['dist/*'],

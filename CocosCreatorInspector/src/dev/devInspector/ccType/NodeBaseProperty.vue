@@ -222,7 +222,7 @@
     </div>
 
     <div v-if="itemData.components!==undefined">
-      <el-row :gutter="20" track-by="$index" v-for="(comp,index) in itemData.components" class="comp">
+      <el-row :gutter="20" track-by="$index" v-for="(comp,index) in itemData.components" :key="index" class="comp">
         <el-col :span="6">
           <div class="grid-content bg-purple "> 组件:{{index}}</div>
         </el-col>
@@ -247,23 +247,30 @@
         let uuid = this.itemData.uuid;
         if (uuid !== undefined) {
           let code = "window.pluginSetNodeActive('" + uuid + "', 0)";
-          chrome.devtools.inspectedWindow.eval(code);
+          this._evalCode(code);
 
           // 刷新节点状态
           let code2 = "window.getNodeInfo('" + uuid + "')";
-          chrome.devtools.inspectedWindow.eval(code2);
+          this._evalCode(code2);
         }
       },
       onBtnClickNodeShow() {
         let uuid = this.itemData.uuid;
         if (uuid !== undefined) {
           let code = "window.pluginSetNodeActive('" + uuid + "', 1)";
-          chrome.devtools.inspectedWindow.eval(code);
+          this._evalCode(code);
           // 刷新节点状态
           let code2 = "window.getNodeInfo('" + uuid + "')";
-          chrome.devtools.inspectedWindow.eval(code2);
+          this._evalCode(code2);
         }
-      }
+      },
+      _evalCode(code) {
+        if (chrome && chrome.devtools) {
+          chrome.devtools.inspectedWindow.eval(code);
+        } else {
+          console.log(code);
+        }
+      },
     },
     props: [
       'itemData'

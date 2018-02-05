@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <el-button type="success" class="el-icon-refresh" size="mini" @click="onBtnClickUpdatePage">刷新</el-button>
-    <!--<el-button @click="_updateView">测试</el-button>-->
+    <el-button type="success" size="mini" @click="onTestData">测试</el-button>
     <!--<el-button type="success" size="mini" @click="onBtnClickTest">test</el-button>-->
     <div v-show="isShowDebug">
       <el-row>
@@ -47,8 +47,13 @@
       }
     },
     created() {
-      // this.onTestData();
-      // return;
+      if (chrome && chrome.extension) {
+
+      } else {
+        this.isShowDebug = true;
+        this.onTestData();
+        return;
+      }
       let backgroundPageConnection = chrome.extension.connect({
         name: btoa("for" + String(chrome.devtools.inspectedWindow.tabId))
       });
@@ -71,9 +76,6 @@
             this.treeItemData = message.msg;
           }
         }
-        // this._log();
-        // let btn1 = document.querySelector('#app');
-        // console.log(btn1);
       }.bind(this));
 
       window.addEventListener('message', function (event) {
@@ -119,10 +121,6 @@
           "active": true
         }
         this.treeItemData = testData;
-      },
-      onBtnClickTest() {
-        this.isShowDebug = true;
-        // chrome.devtools.inspectedWindow.eval("window.game1 =function(){console.log('1');}; window.game1();");
       },
       handleNodeClick(data) {
         // todo 去获取节点信息
