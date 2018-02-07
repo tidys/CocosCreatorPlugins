@@ -17,6 +17,7 @@
           <div class="grid-content bg-purple-light treeInfo">
             <NodeBaseProperty v-bind:itemData="treeItemData"></NodeBaseProperty>
             <SceneProperty v-show=" treeItemData.type === 'cc_Scene'"></SceneProperty>
+            <ComponentsProperty v-bind:components="treeItemData.components"></ComponentsProperty>
           </div>
         </el-col>
       </el-row>
@@ -28,13 +29,7 @@
 </template>
 
 <script>
-  import Vue from 'vue'
   import injectScript from '../injectScript.js'
-  import NodeBaseProperty from './ccType/NodeBaseProperty.vue'
-  import SceneProperty from './ccType/SceneProperty.vue'
-
-  Vue.component('NodeBaseProperty', NodeBaseProperty);
-  Vue.component('SceneProperty', SceneProperty);
 
   export default {
     name: "app",
@@ -119,7 +114,7 @@
               "name": "Canvas<HotUpdateScene>"
             }],
           "active": true
-        }
+        };
         this.treeItemData = testData;
       },
       handleNodeClick(data) {
@@ -216,5 +211,9 @@
 
   .bg-purple-light {
     background: #e5e9f2;
+  }
+
+  body span h1 h2 h3 {
+    font-family: BlinkMacSystemFont, 'Helvetica Neue', Helvetica, 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, 'SourceHanSansCN-Normal', Arial, sans-serif
   }
 </style>

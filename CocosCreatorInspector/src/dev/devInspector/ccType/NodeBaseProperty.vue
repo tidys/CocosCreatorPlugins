@@ -1,248 +1,129 @@
 <template>
   <div id="app">
-    <div v-if="itemData.uuid!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> uuid</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.uuid}}</div>
-        </el-col>
-      </el-row>
+    <div>
+      <ui-prop name="uuid">
+        <span> {{itemData.uuid}}</span>
+      </ui-prop>
+      <ui-prop name="name">
+        <span> {{itemData.name}}</span>
+      </ui-prop>
+      <!--坐标-->
+      <ui-prop name="Position">
+        <div style="float: left;width: 100%;">
+          <ui-prop name="X" style="width: 50%;float: left;">
+            <span>{{itemData.x}}</span>
+          </ui-prop>
+          <ui-prop name="Y" style="width: 50%;float:left;">
+            <span>{{itemData.y}}</span>
+          </ui-prop>
+        </div>
+      </ui-prop>
+      <!--旋转-->
+      <!--rotationX, rotationY暂时舍弃显示-->
+      <ui-prop name="Rotation">
+        <span> {{itemData.rotation}}</span>
+      </ui-prop>
+      <!--缩放-->
+      <ui-prop name="Scale">
+        <div style="float: left;width: 100%;">
+          <ui-prop name="X" style="width: 50%;float: left;">
+            <span>{{itemData.scaleX}}</span>
+          </ui-prop>
+          <ui-prop name="Y" style="width: 50%;float:left;">
+            <span>{{itemData.scaleY}}</span>
+          </ui-prop>
+        </div>
+      </ui-prop>
+      <!--锚点-->
+      <ui-prop name="Anchor">
+        <div style="float: left;width: 100%;">
+          <ui-prop name="X" style="width: 50%;float: left;">
+            <span>{{itemData.anchorX}}</span>
+          </ui-prop>
+          <ui-prop name="Y" style="width: 50%;float:left;">
+            <span>{{itemData.anchorY}}</span>
+          </ui-prop>
+        </div>
+      </ui-prop>
+      <!--尺寸-->
+      <ui-prop name="Size">
+        <div style="float: left;width: 100%;">
+          <ui-prop name="W" style="width: 50%;float: left;">
+            <span>{{itemData.width}}</span>
+          </ui-prop>
+          <ui-prop name="H" style="width: 50%;float:left;">
+            <span>{{itemData.height}}</span>
+          </ui-prop>
+        </div>
+      </ui-prop>
+      </ui-prop>
+      <!--透明度-->
+      <ui-prop name="Opacity">
+        <span>{{itemData.opacity}}</span>
+      </ui-prop>
+      <!--斜切-->
+      <ui-prop name="Skew">
+        <div style="float: left;width: 100%;">
+          <ui-prop name="X" style="width: 50%;float: left;">
+            <span>{{itemData.skewX}}</span>
+          </ui-prop>
+          <ui-prop name="Y" style="width: 50%;float:left;">
+            <span>{{itemData.skewY}}</span>
+          </ui-prop>
+        </div>
+      </ui-prop>
     </div>
-    <div v-if="itemData.name!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> name</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.name}}</div>
-        </el-col>
-      </el-row>
-    </div>
-    <div v-if="itemData.x!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> x</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.x}}</div>
-        </el-col>
-      </el-row>
-    </div>
-    <div v-if="itemData.y!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> y</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.y}}</div>
-        </el-col>
-      </el-row>
-    </div>
+    <ui-prop name="zIndex">
+      <span>{{itemData.zIndex}}</span>
+    </ui-prop>
+    <ui-prop name="childrenCount">
+      <span>{{itemData.childrenCount}}</span>
+    </ui-prop>
+    <!--节点状态-->
+    <ui-prop name="active">
+      <p v-if="itemData.active" style="margin: 0;display: flex;align-items: center;flex-wrap: wrap;">
+        <input type="checkbox"
+               style="width: 20px;height: 20px;"
+               :checked="itemData.active"
+               @click="onBtnClickNodeHide">
+        隐藏节点
+      </p>
 
-    <div v-if="itemData.zIndex!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> zIndex</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.zIndex}}</div>
-        </el-col>
-      </el-row>
-    </div>
+      <p v-if="!itemData.active" style="margin: 0;display: flex;align-items: center;flex-wrap: wrap;">
+        <input type="checkbox"
+               style="width: 20px;height: 20px;"
+               :checked="itemData.active"
+               @click="onBtnClickNodeShow"
+        >
+        显示节点
+      </p>
+    </ui-prop>
+    <!--颜色-->
+    <ui-prop name="color">
+      <div style="float: left;width: 100%;">
+        <div style="float: left;width: 50%;">
+          <!--<el-color-picker v-model="itemData.color" disabled style="width: 200px;height: 40px;"></el-color-picker>-->
 
-    <div v-if="itemData.childrenCount!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> childrenCount</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.childrenCount}}</div>
-        </el-col>
-      </el-row>
-    </div>
+          <ColorPicker style="width: 20px;height: 20px;z-index: 1000"></ColorPicker>
+        </div>
+        <div style="float: left;width: 50%;">
+          <span>{{itemData.color}}</span>
+        </div>
+      </div>
 
-    <div v-if="itemData.width!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> width</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.width}}</div>
-        </el-col>
-      </el-row>
-    </div>
-
-    <div v-if="itemData.height!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> height</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.height}}</div>
-        </el-col>
-      </el-row>
-    </div>
-    <div v-if="itemData.active!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> active</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple">
-            {{itemData.active}}
-            <el-button type="primary" size="mini" class="btnSize" v-show="!itemData.active" @click="onBtnClickNodeShow">
-              显示节点
-            </el-button>
-            <el-button type="warning" size="mini" class="btnSize" v-show="itemData.active" @click="onBtnClickNodeHide">
-              隐藏节点
-            </el-button>
-          </div>
-        </el-col>
-      </el-row>
-    </div>
-
-    <div v-if="itemData.color!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> color</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple">
-            <el-color-picker v-model="itemData.color" disabled style="width: 200px"></el-color-picker>
-            {{itemData.color}}
-          </div>
-        </el-col>
-      </el-row>
-    </div>
-    <div v-if="itemData.opacity!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> opacity</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.opacity}}</div>
-        </el-col>
-      </el-row>
-    </div>
-
-    <div v-if="itemData.rotation!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> rotation</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.rotation}}</div>
-        </el-col>
-      </el-row>
-    </div>
-    <div v-if="itemData.rotationX!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> rotationX</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.rotationX}}</div>
-        </el-col>
-      </el-row>
-    </div>
-    <div v-if="itemData.rotationY!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> rotationY</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.rotationY}}</div>
-        </el-col>
-      </el-row>
-    </div>
-    <div v-if="itemData.anchorX!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> anchorX</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.anchorX}}</div>
-        </el-col>
-      </el-row>
-    </div>
-
-    <div v-if="itemData.anchorY!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> anchorY</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.anchorY}}</div>
-        </el-col>
-      </el-row>
-    </div>
-    <div v-if="itemData.scaleX!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> scaleX</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.scaleX}}</div>
-        </el-col>
-      </el-row>
-    </div>
-
-    <div v-if="itemData.scaleY!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> scaleY</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.scaleY}}</div>
-        </el-col>
-      </el-row>
-    </div>
-
-    <div v-if="itemData.skewX!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> skewX</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.skewX}}</div>
-        </el-col>
-      </el-row>
-    </div>
-    <div v-if="itemData.skewY!==undefined">
-      <el-row :gutter="20" class="compBorder">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> skewY</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{itemData.skewY}}</div>
-        </el-col>
-      </el-row>
-    </div>
-
-    <div v-if="itemData.components!==undefined">
-      <el-row :gutter="20" track-by="$index" v-for="(comp,index) in itemData.components" :key="index" class="comp">
-        <el-col :span="6">
-          <div class="grid-content bg-purple "> 组件:{{index}}</div>
-        </el-col>
-        <el-col :span="14">
-          <div class="grid-content bg-purple"> {{comp.type}}</div>
-        </el-col>
-      </el-row>
-    </div>
-
+    </ui-prop>
   </div>
 </template>
 
 <script>
+
+
   export default {
     name: "app",
     data() {
       return {}
     },
     methods: {
-
       onBtnClickNodeHide() {
         let uuid = this.itemData.uuid;
         if (uuid !== undefined) {
@@ -279,6 +160,10 @@
 </script>
 
 <style scoped>
+  span {
+    color: #fd942b;
+  }
+
   .btnSize {
     padding: 5px 10px;
   }
@@ -290,6 +175,10 @@
     width: 100%;
     border-radius: 5px;
     -moz-border-radius: 5px; /* 老的 Firefox */
+  }
+
+  .float-left {
+    float: left;
   }
 
   .compBorder {

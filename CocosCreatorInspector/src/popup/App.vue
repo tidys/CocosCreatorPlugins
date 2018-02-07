@@ -23,6 +23,11 @@
           <img src="static/images/qq.png" style="height: 100%;">
         </a>
       </div>
+      <div style="height: 100%;float: right;margin-right: 10px;">
+        <a href="http://forum.cocos.com/t/chrome-creator/55669" target="_blank">
+          <img src="static/images/tiezi.png" style="height: 100%;">
+        </a>
+      </div>
     </div>
   </div>
 </template>
