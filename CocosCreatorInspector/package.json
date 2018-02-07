@@ -19,7 +19,8 @@
     "gulp-shell": "^0.6.5",
     "path": "^0.12.7",
     "url-loader": "^0.6.2",
-    "vue": "^2.4.4"
+    "vue": "^2.4.4",
+    "vue-awesome": "^2.3.4"
   },
   "browserslist": [
     "> 1%",
