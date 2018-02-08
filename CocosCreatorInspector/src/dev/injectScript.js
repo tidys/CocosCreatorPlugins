@@ -29,6 +29,32 @@ export default function () {
     return ret;
   }
 
+  window.pluginSetNodeColor = function (uuid, colorHex) {
+    let node = window.inspectorGameMemoryStorage[uuid];
+    if (node) {
+      node.color = cc.hexToColor(colorHex);
+    }
+  };
+  window.pluginSetNodeRotation = function (uuid, rotation) {
+    let node = window.inspectorGameMemoryStorage[uuid];
+    if (node) {
+      node.rotation = rotation;
+    }
+  };
+  window.pluginSetNodePosition = function (uuid, x, y) {
+    let node = window.inspectorGameMemoryStorage[uuid];
+    if (node) {
+      node.x = x;
+      node.y = y;
+    }
+  };
+  window.pluginSetNodeSize = function (uuid, width, height) {
+    let node = window.inspectorGameMemoryStorage[uuid];
+    if (node) {
+      node.width = width;
+      node.height = height;
+    }
+  };
   // 设置节点是否可视
   window.pluginSetNodeActive = function (uuid, isActive) {
     let node = window.inspectorGameMemoryStorage[uuid];

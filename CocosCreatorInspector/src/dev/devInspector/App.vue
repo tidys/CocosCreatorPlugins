@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <el-button type="success" class="el-icon-refresh" size="mini" @click="onBtnClickUpdatePage">刷新</el-button>
-    <el-button type="success" size="mini" @click="onTestData">测试</el-button>
+    <!--<el-button type="success" size="mini" @click="onTestData">测试</el-button>-->
     <!--<el-button type="success" size="mini" @click="onBtnClickTest">test</el-button>-->
     <div v-show="isShowDebug">
       <el-row>
