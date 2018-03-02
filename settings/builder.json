@@ -5,7 +5,7 @@
   "excludeScenes": [],
   "includeAnySDK": false,
   "includeSDKBox": false,
-  "inlineSpriteFrames": true,
+  "inlineSpriteFrames": false,
   "inlineSpriteFrames_native": true,
   "jailbreakPlatform": false,
   "md5Cache": false,

@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77be2a0d-245c-4481-9db8-0f8f0c8c25fa" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/ComponentsProperty.vue" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ui/colorPicker.vue" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ui/ui-prop.vue" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/packages/foobar/inspector.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/package-lock.json" afterPath="$PROJECT_DIR$/CocosCreatorInspector/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/package.json" afterPath="$PROJECT_DIR$/CocosCreatorInspector/package.json" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/App.vue" afterPath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/App.vue" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/NodeBaseProperty.vue" afterPath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/NodeBaseProperty.vue" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/main.js" afterPath="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/main.js" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/src/popup/App.vue" afterPath="$PROJECT_DIR$/CocosCreatorInspector/src/popup/App.vue" />
-      <change beforePath="$PROJECT_DIR$/CocosCreatorInspector/webpack.config.js" afterPath="$PROJECT_DIR$/CocosCreatorInspector/webpack.config.js" />
+      <change beforePath="$PROJECT_DIR$/settings/builder.json" afterPath="$PROJECT_DIR$/settings/builder.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,183 +21,102 @@
     <favorites_list name="CocosCreatorPlugins" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/webpack.config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="112" column="7" lean-forward="false" selection-start-line="112" selection-start-column="7" selection-end-line="112" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="35" column="34" lean-forward="false" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NodeBaseProperty.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/NodeBaseProperty.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="106" column="68" lean-forward="false" selection-start-line="106" selection-start-column="68" selection-end-line="106" selection-end-column="68" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#ui-prop#2;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ui-prop#0;n#div#0;n#ui-prop#2;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ui-prop#1;n#div#0;n#ui-prop#2;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#ui-prop#4;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ui-prop#0;n#div#0;n#ui-prop#4;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ui-prop#1;n#div#0;n#ui-prop#4;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#ui-prop#5;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ui-prop#0;n#div#0;n#ui-prop#5;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ui-prop#1;n#div#0;n#ui-prop#5;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#ui-prop#6;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ui-prop#0;n#div#0;n#ui-prop#6;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ui-prop#1;n#div#0;n#ui-prop#6;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#ui-prop#8;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ui-prop#0;n#div#0;n#ui-prop#8;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ui-prop#1;n#div#0;n#ui-prop#8;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#ui-prop#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#p#0;n#ui-prop#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#1;n#ui-prop#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#p#1;n#ui-prop#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#ui-prop#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#ui-prop#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ColorPicker#0;n#div#0;n#div#0;n#ui-prop#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#ui-prop#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ComponentsProperty.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/ComponentsProperty.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-              <folding>
-                <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ui-prop.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ui/ui-prop.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SceneProperty.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/SceneProperty.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="14" lean-forward="false" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/App.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="17" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-              <folding>
-                <element signature="e#5446#5792#0" expanded="false" />
-                <element signature="e#5824#5992#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="colorPicker.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ui/colorPicker.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="217" column="61" lean-forward="false" selection-start-line="217" selection-start-column="61" selection-end-line="217" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/popup/App.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="58" lean-forward="false" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#a#0;n#div#2;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="e#1359#1380#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="vertical" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="injectScript.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/injectScript.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="90" column="30" lean-forward="false" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/packages/plugin-bugly/panel/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="8925">
+                  <caret line="595" column="0" lean-forward="false" selection-start-line="595" selection-start-column="0" selection-end-line="595" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/packages/plugin-bugly/README.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                <state split_layout="SPLIT">
+                  <first_editor relative-caret-position="30">
+                    <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+                    <folding />
+                  </first_editor>
+                  <second_editor />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="BezierScene.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/assets/module/bezier/BezierScene.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="585">
+                  <caret line="39" column="9" lean-forward="false" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MyTestUI.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/assets/module/customUI/MyTestUI.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="150">
+                  <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="inspector.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/packages/foobar/inspector.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="75">
+                  <caret line="5" column="6" lean-forward="true" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="inspector.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/packages/foobar/inspector.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>localServerPath</find>
-      <find>package</find>
-      <find>onInputVersionOver</find>
-      <find>_packageVersion</find>
-      <find>genManifestDir</find>
-      <find>需要重新构建项目</find>
-      <find>repla</find>
-      <find>isversio</find>
-      <find>onTestEnvChange</find>
-      <find>remoteServerVersion =</find>
       <find>remoteServerVersion</find>
       <find>input</find>
       <find>onloa</find>
@@ -226,6 +137,16 @@
       <find>Anchor</find>
       <find>rota</find>
       <find>size</find>
+      <find>model</find>
+      <find>changePositionY</find>
+      <find>changePosition</find>
+      <find>changeHeight</find>
+      <find>changeSize</find>
+      <find>pluginSetNodeColor</find>
+      <find>changePositionMouseAction</find>
+      <find>changePositionAction</find>
+      <find>ew-resize</find>
+      <find>changeSizeActionWidth</find>
     </findStrings>
     <replaceStrings>
       <replace>this._addLog</replace>
@@ -241,11 +162,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/assets/module/hotUpDate/hot/HotUpdate.js" />
-        <option value="$PROJECT_DIR$/build/jsb-default/main.js" />
-        <option value="$PROJECT_DIR$/packages/hot-update-tools/mail/MailTemp.html" />
-        <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/TestEnvAli.js" />
-        <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/TestEnvAli.html" />
         <option value="$PROJECT_DIR$/packages/hot-update-tools/package.json" />
         <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/test.js" />
         <option value="$PROJECT_DIR$/packages/hot-update-tools/main.js" />
@@ -259,14 +175,12 @@
         <option value="$PROJECT_DIR$/packages/hot-update-tools/CommonIssue.md" />
         <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/index.js" />
         <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/index.html" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/数据结构设计思路.md" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/contentScripts.js" />
         <option value="$PROJECT_DIR$/assets/module/hotUpDate/HotUpdateScene.js" />
         <option value="$PROJECT_DIR$/assets/module/Inspector/InspectorScript.js" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devNoGame/App.vue" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/SceneProperty.vue" />
-        <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/injectScript.js" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/README.md" />
         <option value="$PROJECT_DIR$/doc/CreatorInspector/install/README.md" />
         <option value="$PROJECT_DIR$/assets/module/test/TestScene.js" />
@@ -286,12 +200,19 @@
         <option value="$PROJECT_DIR$/CocosCreatorInspector/package.json" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ItemAttr1.vue" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ui/ItemAttr1.vue" />
-        <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ui/ui-prop.vue" />
-        <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/App.vue" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/ComponentsProperty.vue" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/webpack.config.js" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/main.js" />
+        <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/injectScript.js" />
+        <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/App.vue" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/NodeBaseProperty.vue" />
+        <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ui/ui-prop.vue" />
+        <option value="$PROJECT_DIR$/CocosCreatorInspector/Update.md" />
+        <option value="$PROJECT_DIR$/assets/module/bezier/BezierScene.js" />
+        <option value="$PROJECT_DIR$/packages/bezier/README.md" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/assets/module/bezier/MyUI.js" />
+        <option value="$PROJECT_DIR$/packages/foobar/inspector.js" />
       </list>
     </option>
   </component>
@@ -330,10 +251,10 @@
     <handled-path value="$PROJECT_DIR$/packages/hot-update-tools/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="263" />
-    <option name="y" value="144" />
-    <option name="width" value="1416" />
-    <option name="height" value="935" />
+    <option name="x" value="721" />
+    <option name="y" value="213" />
+    <option name="width" value="1428" />
+    <option name="height" value="851" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -355,7 +276,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="cocos" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -369,6 +290,33 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="cocos">
           <expand>
@@ -379,7 +327,31 @@
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="CocosCreatorPlugins" type="cbb8eebc:String" user="CocosCreatorPlugins" />
-              <item name="CocosCreatorInspector" type="cbb8eebc:String" user="CocosCreatorInspector" />
+              <item name="assets" type="cbb8eebc:String" user="assets" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="CocosCreatorPlugins" type="cbb8eebc:String" user="CocosCreatorPlugins" />
+              <item name="assets" type="cbb8eebc:String" user="assets" />
+              <item name="module" type="cbb8eebc:String" user="module" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="CocosCreatorPlugins" type="cbb8eebc:String" user="CocosCreatorPlugins" />
+              <item name="assets" type="cbb8eebc:String" user="assets" />
+              <item name="module" type="cbb8eebc:String" user="module" />
+              <item name="customUI" type="cbb8eebc:String" user="customUI" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="CocosCreatorPlugins" type="cbb8eebc:String" user="CocosCreatorPlugins" />
+              <item name="packages" type="cbb8eebc:String" user="packages" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="CocosCreatorPlugins" type="cbb8eebc:String" user="CocosCreatorPlugins" />
+              <item name="packages" type="cbb8eebc:String" user="packages" />
+              <item name="foobar" type="cbb8eebc:String" user="foobar" />
             </path>
           </expand>
           <select />
@@ -400,75 +372,13 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="CocosCreatorInspector" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="CocosCreatorInspector" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="CocosCreatorInspector" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="CocosCreatorInspector" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="devInspector" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="CocosCreatorInspector" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="devInspector" type="462c0819:PsiDirectoryNode" />
-              <item name="ccType" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="CocosCreatorInspector" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="devInspector" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="CocosCreatorInspector" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="popup" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../happyCar_masterTest" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="javascript.nodejs.core.library.configured.version" value="8.4.0" />
@@ -654,6 +564,14 @@
       <workItem from="1517879826662" duration="3891000" />
       <workItem from="1517967803277" duration="3494000" />
       <workItem from="1517971770982" duration="22033000" />
+      <workItem from="1518051835579" duration="289000" />
+      <workItem from="1518055989916" duration="20983000" />
+      <workItem from="1518083772400" duration="325000" />
+      <workItem from="1518084114666" duration="27000" />
+      <workItem from="1518138391972" duration="6934000" />
+      <workItem from="1519782375827" duration="3520000" />
+      <workItem from="1519797020907" duration="698000" />
+      <workItem from="1519977223205" duration="4563000" />
     </task>
     <task id="LOCAL-00001" summary="3">
       <created>1516002621240</created>
@@ -694,21 +612,21 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="370147000" />
+    <option name="totallyTimeSpent" value="407486000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="263" y="144" width="1416" height="935" extended-state="0" />
+    <frame x="721" y="213" width="1428" height="851" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="NativeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29280397" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277311" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35506243" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32330826" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21892926" sideWeight="0.37044147" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.62955856" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27030814" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22509961" sideWeight="0.3808554" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24780701" sideWeight="0.6191446" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25094697" sideWeight="0.5081967" order="2" side_tool="true" content_ui="tabs" />
@@ -728,6 +646,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -760,50 +688,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/CommonIssue.md" />
-    <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/dist/injectScript.main.js" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/8.4.0/core-modules/repl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-88">
-          <caret line="279" column="34" lean-forward="false" selection-start-line="279" selection-start-column="34" selection-end-line="279" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/contentScripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/module/hotUpDate/HotUpdateScene.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="69" column="6" lean-forward="true" selection-start-line="69" selection-start-column="6" selection-end-line="69" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/module/Inspector/InspectorScript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="7" lean-forward="false" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/injectScript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="69" column="18" lean-forward="false" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/dist/devInspector.html" />
-    <entry file="file://$PROJECT_DIR$/doc/CreatorInspector/scene2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/doc/CreatorInspector/install/README.md" />
     <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devNoGame/devNoGame.html" />
     <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devNoGame/main.js" />
@@ -838,7 +722,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155820">
           <caret line="10388" column="17" lean-forward="false" selection-start-line="10388" selection-start-column="17" selection-end-line="10388" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -858,7 +741,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -877,14 +759,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/buid.bat" />
-    <entry file="file://$PROJECT_DIR$/packages/plugin-bugly/panel/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="209" column="37" lean-forward="false" selection-start-line="209" selection-start-column="27" selection-end-line="209" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/README.md" />
     <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -913,7 +787,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="25" lean-forward="false" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -926,7 +799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -934,7 +806,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -942,7 +813,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -950,32 +820,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="14" lean-forward="false" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ui/ui-prop.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/ComponentsProperty.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#hr#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -983,98 +827,180 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="58" lean-forward="false" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#2;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#1359#1380#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ui/colorPicker.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
+        <state relative-caret-position="3255">
           <caret line="217" column="61" lean-forward="false" selection-start-line="217" selection-start-column="61" selection-end-line="217" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
+        <state relative-caret-position="1680">
           <caret line="112" column="7" lean-forward="false" selection-start-line="112" selection-start-column="7" selection-end-line="112" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
+        <state relative-caret-position="525">
           <caret line="35" column="34" lean-forward="false" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/ComponentsProperty.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ui/ui-prop.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="27" lean-forward="false" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/Update.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="45">
+            <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/NodeBaseProperty.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3330">
+          <caret line="222" column="25" lean-forward="false" selection-start-line="222" selection-start-column="25" selection-end-line="222" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="17" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+        <state relative-caret-position="450">
+          <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
           <folding>
-            <element signature="e#5446#5792#0" expanded="false" />
-            <element signature="e#5824#5992#0" expanded="false" />
+            <element signature="e#5453#5799#0" expanded="false" />
+            <element signature="e#5831#5999#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/main.js">
+    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/injectScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="90" column="30" lean-forward="false" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/NodeBaseProperty.vue">
+    <entry file="file://$PROJECT_DIR$/packages/plugin-bugly/panel/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="106" column="68" lean-forward="false" selection-start-line="106" selection-start-column="68" selection-end-line="106" selection-end-column="68" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#ui-prop#2;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ui-prop#0;n#div#0;n#ui-prop#2;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ui-prop#1;n#div#0;n#ui-prop#2;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ui-prop#4;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ui-prop#0;n#div#0;n#ui-prop#4;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ui-prop#1;n#div#0;n#ui-prop#4;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ui-prop#5;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ui-prop#0;n#div#0;n#ui-prop#5;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ui-prop#1;n#div#0;n#ui-prop#5;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ui-prop#6;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ui-prop#0;n#div#0;n#ui-prop#6;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ui-prop#1;n#div#0;n#ui-prop#6;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ui-prop#8;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ui-prop#0;n#div#0;n#ui-prop#8;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ui-prop#1;n#div#0;n#ui-prop#8;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#ui-prop#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#p#0;n#ui-prop#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#1;n#ui-prop#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#p#1;n#ui-prop#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ui-prop#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#ui-prop#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ColorPicker#0;n#div#0;n#div#0;n#ui-prop#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#ui-prop#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="8925">
+          <caret line="595" column="0" lean-forward="false" selection-start-line="595" selection-start-column="0" selection-end-line="595" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/plugin-bugly/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="30">
+            <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/module/bezier/BezierScene.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="9" lean-forward="false" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/bezier/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="30">
+            <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="255">
+            <caret line="17" column="32" lean-forward="false" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/module/bezier/MyUI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/module/bezier/CustomAni.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/foobar/inspector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="6" lean-forward="true" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/module/customUI/MyTestUI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

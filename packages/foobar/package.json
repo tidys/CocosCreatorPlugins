@@ -1,0 +1,22 @@
+{
+  "name": "foobar",
+  "version": "0.0.1",
+  "description": "The package template for getting started.",
+  "author": "Cocos Creator",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.package.title/foobar/open": {
+      "message": "foobar:open"
+    },
+    "i18n:MAIN_MENU.package.title/foobar/hello": {
+      "message": "foobar:say-hello"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "foobar",
+    "width": 400,
+    "height": 300
+  }
+}
