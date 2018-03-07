@@ -2,7 +2,14 @@
 
     <div class="layout vertical start-justified">
         <ui-prop name="添加SDK">
-            <ui-checkbox v-bind:checked="isAutoAddSdk" v-on:change="clickAutoAddSdk">构建完成后自动添加</ui-checkbox>
+            <div class="layout flex-1 horizontal center">
+                <ui-checkbox class="flex-1" v-bind:checked="isAutoAddSdk" v-on:change="clickAutoAddSdk">构建完成后自动添加
+                </ui-checkbox>
+                <ui-button class="end" v-on:confirm="onBtnClickGo4399Doc">
+                    <i class="icon-doc-text"></i>
+                    4399文档
+                </ui-button>
+            </div>
         </ui-prop>
         <ui-prop name="游戏名称">
             <div class="layout flex-1 horizontal center">

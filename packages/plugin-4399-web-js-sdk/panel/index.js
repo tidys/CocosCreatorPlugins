@@ -39,6 +39,13 @@ Editor.Panel.extend({
                     this.logView += "[" + time.toLocaleString() + "]: " + str + "\n";
                     logListScrollToBottom();
                 },
+                onBtnClickGo4399Doc() {
+                    console.log("app");
+                    let url = "http://www.4399api.com/res/api/html5";
+                    let electron = require('electron');
+                    electron.shell.openExternal(url);
+
+                },
                 initPlugin() {
                     CfgUtil.initCfg(function (data) {
                         if (data) {
