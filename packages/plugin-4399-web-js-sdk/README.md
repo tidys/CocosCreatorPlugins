@@ -1,8 +1,9 @@
 # 插件说明
 - 快速帮你集成4399原创平台SDK,[插件开源地址](https://github.com/tidys/CocosCreatorPlugins/tree/master/packages/plugin-4399-web-js-sdk)
-- 4399原创平台[sdk文档地址](http://www.4399api.com/res/api/html5)
 
 # 关于4399原创平台
+- 网址: http://www.4399api.com/welcome
+- 文档: 4399原创平台[sdk文档地址](http://www.4399api.com/res/api/html5)
 1. 这个平台能发布什么游戏呢?            
 只能发布web游戏,游戏类型不限,一个这个平台的web小游戏很多
 2. 这个平台能盈利吗?            
@@ -14,11 +15,16 @@
 想瞅瞅的客官点击这里:   http://www.4399.com/flash/181547_1.htm
 # 插件安装
 - 在插件商店下载并安装插件(推荐项目安装)
-- 打开creator,点击**菜单=>扩展=>Bitmap字体工具**即可打开插件
+- 打开creator,点击**菜单=>扩展=>439WebSdk插件**即可打开插件
 # 使用说明
+## 使用前准备    
+ - 首先需要注册个开发者账号,在开发者后台创建一个游戏
+## 插件参数说明
 - 参数填写: 游戏名称,游戏ID,游戏宽高 这些参数全部来自4399游戏管理后台
 - 勾选**构建完成后自动添加**,构建web-desktop/web-mobile后插件能够自动添加sdk代码
 - 当游戏参数变动时,修改后点击**添加4399SDK**即可更新SDK信息
+### 如图
+![参数图示](../../doc/4399原创平台SDK/参数.png)
 # 重要提醒
 当项目构建完成之后,插件会自动在main.js中给window对象添加了如下函数
 ```javascript
