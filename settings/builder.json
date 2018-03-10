@@ -21,8 +21,13 @@
   "packageName": "org.cocos2d.helloworld",
   "privateKey": "",
   "renderMode": "0",
-  "startScene": "aa25e25b-eaf3-4d94-a700-ba518c70130f",
+  "startScene": "ec079092-e195-449d-92fc-d25ad117266b",
   "title": "helloWorld",
   "webOrientation": "auto",
-  "xxteaKey": "3c44c5ef-1b08-4a"
+  "wechatgame": {
+    "appid": "",
+    "orientation": "portrait"
+  },
+  "xxteaKey": "3c44c5ef-1b08-4a",
+  "zipCompressJs": true
 }

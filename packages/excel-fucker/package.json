@@ -1,0 +1,23 @@
+{
+  "name": "excel-fucker",
+  "version": "0.0.1",
+  "description": "The package template for getting started.",
+  "author": "Cocos Creator",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.package.title/excel-fucker": {
+      "accelerator": "CmdOrCtrl+Shift+j",
+      "message": "excel-fucker:open"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "excel-fucker",
+    "width": 700,
+    "height": 600
+  },
+  "dependencies": {
+    "node-xlsx": "^0.11.2"
+  }
+}

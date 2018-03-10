@@ -1,0 +1,50 @@
+<div class="layout vertical" style="height: 100%">
+    <div class="layout vertical start-justified">
+        <ui-prop name="Excel路径:">
+            <div class="flex-1 layout horizontal center">
+                <ui-input class="flex-1" v-value="excelRootPath"></ui-input>
+                <ui-button v-on:confirm="onBtnClickSelectExcelRootPath">选择</ui-button>
+            </div>
+        </ui-prop>
+
+        <ui-prop name="Json存放路径:">
+            <ui-input class="flex-1" v-value="jsonSavePath" disabled></ui-input>
+            <ui-button v-on:confirm="onBtnClickOpenJsonSavePath">打开</ui-button>
+        </ui-prop>
+    </div>
+    <div class="layout vertical"
+         style="width:100%;height: 200px;background-color: #888888;
+         margin-left: 4px;margin-right: 4px;">
+        <div class="layout horizontal center flex-1" style="height: 20px;">
+            <h4 style="margin:4px 0 4px 0" class="flex-2">Excel列表:</h4>
+            <h4 style="margin:4px 10px 4px 0" class="self-end">sheet[{{excelArray.length}}]
+                excel[{{excelFileArr.length}}]</h4>
+        </div>
+        <!--表头-->
+        <div class="layout horizontal center"
+             style="width: 100%;height: 20px;background-color: #fd942b;border-radius: 2px;">
+            <div style="width: 20%">
+                <ui-checkbox v-on:change="onBtnClickSelectSheet" checked></ui-checkbox>
+                序号
+            </div>
+            <div style="width: 40%">
+                Excel文件
+            </div>
+            <div style="width: 40%">
+                工作表名称
+            </div>
+        </div>
+        <!--内容-->
+        <div style="overflow: auto;overflow-x:hidden;height: 160px;">
+
+            <excel-item track-by="$index" v-for="(index,item) in excelArray"
+                        v-bind:data="item"
+                        v-bind:index="index">
+            </excel-item>
+        </div>
+
+    </div>
+    <div class="layout horizontal center self-end">
+        <ui-button v-on:confirm="onBtnClickGenJson" class="self-end red">生成</ui-button>
+    </div>
+</div>
