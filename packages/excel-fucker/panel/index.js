@@ -5,6 +5,7 @@ let CfgUtil = Editor.require('packages://' + packageName + '/core/CfgUtil.js');
 let excelItem = Editor.require('packages://' + packageName + '/panel/item/excelItem.js');
 let nodeXlsx = Editor.require('packages://' + packageName + '/node_modules/node-xlsx');
 let Electron = require('electron');
+let uglifyJs = Editor.require('packages://' + packageName + '/node_modules/uglify-js');
 
 Editor.Panel.extend({
     style: fs.readFileSync(Editor.url('packages://' + packageName + '/panel/index.css', 'utf8')) + "",
@@ -20,9 +21,14 @@ Editor.Panel.extend({
             created() {
                 this._initPluginCfg();
             },
+            init(){
+            },
             data: {
                 excelRootPath: null,
-                jsonSavePath: null,
+                jsonSavePath: null,//json文件存放目录
+                pluginResSavePath: null,// 插件资源目录
+                jsFileName: null,//js配置文件名
+                isJsFileExist: false,
                 excelArray: [],
                 excelFileArr: [],
             },
@@ -35,6 +41,10 @@ Editor.Panel.extend({
                             if (fs.existsSync(this.excelRootPath)) {
                                 this._onAnalyzeExcelDirPath(this.excelRootPath);
                             }
+                            this.jsFileName = data.jsFileName || "gameCfg";
+
+
+                            this.checkJsFileExist();
                         }
                     }.bind(this));
                     this._initJsonSavePath();// 默认json路径
@@ -45,7 +55,7 @@ Editor.Panel.extend({
                     if (!fs.existsSync(jsonSavePath)) {
                         fs.mkdirSync(jsonSavePath);
                     }
-
+                    this.pluginResSavePath = jsonSavePath;
                     jsonSavePath = path.join(jsonSavePath, "json");
                     if (!fs.existsSync(jsonSavePath)) {
                         fs.mkdirSync(jsonSavePath);
@@ -65,6 +75,10 @@ Editor.Panel.extend({
                         this._saveConfig();
                     }
                 },
+                onJsFileNameChanged() {
+                    this._saveConfig();
+                },
+                // 查找出目录下的所有excel文件
                 _onAnalyzeExcelDirPath(dir) {
                     // let dir = path.normalize("D:\\proj\\CocosCreatorPlugins\\doc\\excel-fucker");
                     if (dir) {
@@ -89,9 +103,10 @@ Editor.Panel.extend({
                         let excelSheetArray = [];
                         for (let k in excelFileArr) {
                             let itemFullPath = excelFileArr[k];
-                            console.log("excel : " + itemFullPath);
+                            // console.log("excel : " + itemFullPath);
 
                             let excelData = nodeXlsx.parse(itemFullPath);
+                            //todo 检测重名的sheet
                             for (let j in excelData) {
                                 let itemData = {
                                     isUse: true,
@@ -116,7 +131,12 @@ Editor.Panel.extend({
                                     // console.log('dir: ' + itemFullPath);
                                     readDirSync(itemFullPath);
                                 } else if (info.isFile()) {
-                                    allFileArr.push(itemFullPath);
+                                    let headStr = item.substr(0, 2);
+                                    if (headStr === "~$") {
+                                        console.log("检索到excel产生的临时文件:" + itemFullPath);
+                                    } else {
+                                        allFileArr.push(itemFullPath);
+                                    }
                                     // console.log('file: ' + itemFullPath);
                                 }
                             }
@@ -139,7 +159,25 @@ Editor.Panel.extend({
                     }
                 },
                 _saveToJavaScript(excelData, itemSheet) {
+                    let gameCfg = {
+                        'name': {1: {name: 11},},
+                    };
                     // 以key的形式作为索引值
+                    let title = excelData[0];
+                    let desc = excelData[1];
+                    let sheetFormatData = {};
+                    for (let i = 2; i < excelData.length; i++) {
+                        let lineData = excelData[i];
+                        let saveLineData = {};
+                        for (let j = 1; j < title.length; j++) {
+                            let key = title[j];
+                            let value = lineData[j];
+                            saveLineData[key] = value;
+                        }
+                        sheetFormatData[lineData[0]] = saveLineData;
+                    }
+                    // console.log(sheetFormatData);
+                    return sheetFormatData;
                 },
                 _saveToJson(excelData, itemSheet) {
                     let title = excelData[0];
@@ -162,8 +200,29 @@ Editor.Panel.extend({
                     fs.writeFileSync(saveFileFullPath, saveStr);
                     console.log("转换成json文件成功:" + saveFileFullPath);
                 },
+                // 打开生成的js配置文件
+                onBtnClickOpenJsFile() {
+                    let saveFileFullPath = path.join(this.pluginResSavePath, this.jsFileName + ".js");
+                    if (fs.existsSync(saveFileFullPath)) {
+                        Electron.shell.openItem(saveFileFullPath);
+                        Electron.shell.beep();
+                    } else {
+                        // this._addLog("目录不存在：" + this.resourceRootDir);
+                        return;
+                    }
+                },
+                // 检测js配置文件是否存在
+                checkJsFileExist() {
+                    let saveFileFullPath = path.join(this.pluginResSavePath, this.jsFileName + ".js");
+                    if (fs.existsSync(saveFileFullPath)) {
+                        this.isJsFileExist = true;
+                    } else {
+                        this.isJsFileExist = false;
+                    }
+                },
                 onBtnClickGenJson() {
                     console.log("onBtnClickGenJson");
+                    let jsSaveData = {};// 保存的js数据
                     for (let k in this.excelArray) {
                         let itemSheet = this.excelArray[k];
                         if (itemSheet.isUse) {
@@ -176,7 +235,17 @@ Editor.Panel.extend({
                             }
                             if (sheetData) {
                                 if (sheetData.length > 2) {
-                                    this._saveToJson(sheetData, itemSheet);
+                                    // 保存为json
+                                    // this._saveToJson(sheetData, itemSheet);
+
+                                    // 保存为js
+                                    let sheetJsData = this._saveToJavaScript(sheetData, itemSheet);
+                                    // 检测重复问题
+                                    if (jsSaveData[itemSheet.sheet] === undefined) {
+                                        jsSaveData[itemSheet.sheet] = sheetJsData;
+                                    } else {
+                                        console.log("发现重名sheet:" + itemSheet.name + "(" + itemSheet.sheet + ")");
+                                    }
                                 } else {
                                     console.log("行数低于2行,无效sheet:" + itemSheet.sheet);
                                 }
@@ -188,11 +257,41 @@ Editor.Panel.extend({
                             console.log("文件未启用: " + itemSheet.fullPath + '\\' + itemSheet.sheet);
                         }
                     }
-                    console.log("全部转换完成!");
+                    // 保存js文件
+                    console.log(jsSaveData);
+                    // let str = "";
+                    // for (let k in jsSaveData) {
+                    //     let strKey = k;
+                    //     let strData = JSON.stringify(jsSaveData[k]);
+                    //     let obj = {k: k,}
+                    //
+                    // }
+                    let saveStr = "module.exports = " + JSON.stringify(jsSaveData) + ";";
+                    let ast = uglifyJs.parse(saveStr);
+                    let ret = uglifyJs.minify(ast, {
+                        output: {
+                            beautify: true,//如果希望得到格式化的输出，传入true
+                            indent_start: 0,//（仅当beautify为true时有效） - 初始缩进空格
+                            indent_level: 4,//（仅当beautify为true时有效） - 缩进级别，空格数量
+                        }
+                    });
+                    // TODO js是否压缩为一行
+                    if (ret.error) {
+                        console.log('error: ' + ret.error.message);
+                    } else if (ret.code) {
+                        let saveFileFullPath = path.join(this.pluginResSavePath, this.jsFileName + ".js");
+                        fs.writeFileSync(saveFileFullPath, ret.code);
+                        console.log("生成js文件成功:" + saveFileFullPath);
+                        console.log("全部转换完成!");
+                    } else {
+                        console.log(ret);
+                    }
+                    this.checkJsFileExist();
                 },
                 _saveConfig() {
                     let data = {
                         excelRootPath: this.excelRootPath,
+                        jsFileName: this.jsFileName,
                     };
                     CfgUtil.saveCfgByData(data);
                 },

@@ -4,9 +4,9 @@ let electron = require('electron');
 module.exports = {
     cfgData: {
         excelRootPath: null,// excel根路径
-
+        jsFileName: null,
     },
-    initCfg(cb){
+    initCfg(cb) {
         let configFilePath = this._getAppCfgPath();
         let b = fs.existsSync(configFilePath);
         if (b) {
@@ -28,6 +28,7 @@ module.exports = {
     },
     saveCfgByData(data) {
         this.cfgData.excelRootPath = data.excelRootPath;
+        this.cfgData.jsFileName = data.jsFileName;
         this._save();
     },
     _save() {

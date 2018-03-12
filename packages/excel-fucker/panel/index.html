@@ -11,6 +11,12 @@
             <ui-input class="flex-1" v-value="jsonSavePath" disabled></ui-input>
             <ui-button v-on:confirm="onBtnClickOpenJsonSavePath">打开</ui-button>
         </ui-prop>
+
+
+        <ui-prop name="JS配置文件名">
+            <ui-input class="flex-1" v-on:blur="onJsFileNameChanged" v-value="jsFileName"></ui-input>
+            <ui-button v-on:confirm="onBtnClickOpenJsFile" v-show="isJsFileExist">打开</ui-button>
+        </ui-prop>
     </div>
     <div class="layout vertical"
          style="width:100%;height: 200px;background-color: #888888;
