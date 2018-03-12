@@ -51,7 +51,6 @@ module.exports = {
         } else {
             userDataPath = electron.app.getPath('userData');
         }
-
         let tar = Editor.libraryPath;
         tar = tar.replace(/\\/g, '-');
         tar = tar.replace(/:/g, '-');

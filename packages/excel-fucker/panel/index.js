@@ -226,6 +226,15 @@ Editor.Panel.extend({
                         return;
                     }
                 },
+                onBtnClickOpenJsSavePath() {
+                    if (fs.existsSync(this.jsSavePath)) {
+                        Electron.shell.showItemInFolder(this.jsSavePath);
+                        Electron.shell.beep();
+                    } else {
+                        // this._addLog("目录不存在：" + this.resourceRootDir);
+                        return;
+                    }
+                },
                 _getJavaScriptSaveData(excelData, itemSheet) {
                     let title = excelData[0];
                     let desc = excelData[1];

@@ -1,7 +1,7 @@
 <div class="layout vertical" style="height: 100%">
     <div class="layout vertical start-justified">
         <hr style="margin: 1px 0 1px 0">
-        <h2 style="margin: 1px 0 1px 0">配置-Json</h2>
+        <h2 style="margin: 1px 0 1px 0;color: #2feb21;">配置-Json</h2>
         <ui-prop name="Json存放路径:">
             <ui-input class="flex-1" v-value="jsonSavePath" disabled></ui-input>
             <ui-button v-on:confirm="onBtnClickOpenJsonSavePath">打开</ui-button>
@@ -11,7 +11,7 @@
             <ui-checkbox v-bind:checked="isFormatJson" v-on:change="onBtnClickFormatJson"></ui-checkbox>
 
         </ui-prop>
-        <ui-prop name="单文件配置"
+        <ui-prop name="合并所有Json"
                  tooltip="  [√]勾选,所有的json将合并为一个文件
                             [×]未勾选,每个sheet对应一个json文件">
             <ui-checkbox v-bind:checked="isMergeJson" v-on:change="onBtnClickMergeJson"></ui-checkbox>
@@ -22,7 +22,11 @@
         </ui-prop>
 
         <hr style="margin: 1px 0 1px 0">
-        <h2 style="margin: 1px 0 1px 0">配置-JavaScript</h2>
+        <h2 style="margin: 1px 0 1px 0;color: #2feb21;">配置-JavaScript</h2>
+        <ui-prop name="Js存放路径:">
+            <ui-input class="flex-1" v-value="jsSavePath" disabled></ui-input>
+            <ui-button v-on:confirm="onBtnClickOpenJsSavePath">打开</ui-button>
+        </ui-prop>
         <ui-prop name="JS配置文件名">
             <ui-input class="flex-1" v-on:blur="onJsFileNameChanged" v-value="jsFileName"></ui-input>
             <ui-button v-on:confirm="onBtnClickOpenJsFile" v-show="isJsFileExist">打开</ui-button>
@@ -33,7 +37,7 @@
         </ui-prop>
 
         <hr style="margin: 1px 0 1px 0">
-        <h2 style="margin: 1px 0 1px 0">配置-Excel</h2>
+        <h2 style="margin: 1px 0 1px 0;color: #2feb21;">配置-Excel</h2>
         <ui-prop name="Excel文件路径:" tooltip="插件会循环遍历出目录下所有的excel文件">
             <div class="flex-1 layout horizontal center">
                 <ui-input class="flex-1" v-value="excelRootPath"></ui-input>
