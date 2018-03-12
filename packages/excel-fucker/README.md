@@ -1,10 +1,12 @@
 # excel-killer
 ## 插件说明:
-插件实现了最基本的功能:``
+插件实现了最基本的功能:
 - excel转json
 - excel转js
 ## 格式转换说明
 #### excel如下
+- 第1行: 字段的索引key
+- 第2行: 字段的中文注释
 ##### 水果sheet:fruit
 |id| fruit        | cost      |   num    |
 |:----: | :----:    | -----:  | :----: |
