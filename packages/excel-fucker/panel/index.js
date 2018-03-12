@@ -21,18 +21,34 @@ Editor.Panel.extend({
             created() {
                 this._initPluginCfg();
             },
-            init(){
+            init() {
             },
             data: {
                 excelRootPath: null,
+
+                isMergeJson: false,
                 jsonSavePath: null,//json文件存放目录
+                isJsonAllCfgFileExist: false,// 是否单一配置文件存在
+                jsonAllCfgFileName: null,// json配置文件名
                 pluginResSavePath: null,// 插件资源目录
                 jsFileName: null,//js配置文件名
+
                 isJsFileExist: false,
+                isFormatJsCode: false,
                 excelArray: [],
                 excelFileArr: [],
             },
             methods: {
+                _saveConfig() {
+                    let data = {
+                        excelRootPath: this.excelRootPath,
+                        jsFileName: this.jsFileName,
+                        jsonAllFileName: this.jsonAllCfgFileName,
+                        isMergeJson: this.isMergeJson,
+                        isFormatJsCode: this.isFormatJsCode,
+                    };
+                    CfgUtil.saveCfgByData(data);
+                },
                 _initPluginCfg() {
                     console.log("initCfg");
                     CfgUtil.initCfg(function (data) {
@@ -41,10 +57,12 @@ Editor.Panel.extend({
                             if (fs.existsSync(this.excelRootPath)) {
                                 this._onAnalyzeExcelDirPath(this.excelRootPath);
                             }
-                            this.jsFileName = data.jsFileName || "gameCfg";
-
-
+                            this.jsFileName = data.jsFileName || "GameJsCfg";
+                            this.jsonAllCfgFileName = data.jsonAllFileName || "GameJsonCfg";
+                            this.isMergeJson = data.isMergeJson;
+                            this.isFormatJsCode = data.isFormatJsCode;
                             this.checkJsFileExist();
+                            this.checkJsonAllCfgFileExist();
                         }
                     }.bind(this));
                     this._initJsonSavePath();// 默认json路径
@@ -62,6 +80,36 @@ Editor.Panel.extend({
                     }
                     this.jsonSavePath = jsonSavePath;
                 },
+                // 是否合并json
+                onBtnClickMergeJson() {
+                    this.isMergeJson = !this.isMergeJson;
+                    this._saveConfig();
+
+                },
+                // 打开合并的json
+                onBtnClickJsonAllCfgFile() {
+                    let saveFileFullPath = path.join(this.jsonSavePath, this.jsonAllCfgFileName + ".json");
+                    if (fs.existsSync(saveFileFullPath)) {
+                        Electron.shell.openItem(saveFileFullPath);
+                        Electron.shell.beep();
+                    } else {
+                        // this._addLog("目录不存在：" + this.resourceRootDir);
+                        console.log("目录不存在:" + saveFileFullPath);
+                        return;
+                    }
+                },
+                checkJsonAllCfgFileExist() {
+                    let saveFileFullPath = path.join(this.jsonSavePath, this.jsonAllCfgFileName + ".json");
+                    if (fs.existsSync(saveFileFullPath)) {
+                        this.isJsonAllCfgFileExist = true;
+                    } else {
+                        this.isJsonAllCfgFileExist = false;
+                    }
+                },
+                onBtnClickFormatJsCode() {
+                    this.isFormatJsCode = !this.isFormatJsCode;
+                    this._saveConfig();
+                },
                 onBtnClickSelectExcelRootPath() {
                     let res = Editor.Dialog.openFile({
                         title: "选择Excel的根目录",
@@ -75,7 +123,12 @@ Editor.Panel.extend({
                         this._saveConfig();
                     }
                 },
+                // 修改js配置文件
                 onJsFileNameChanged() {
+                    this._saveConfig();
+                },
+                // 修改json配置文件
+                onJsonAllCfgFileChanged() {
                     this._saveConfig();
                 },
                 // 查找出目录下的所有excel文件
@@ -220,8 +273,9 @@ Editor.Panel.extend({
                         this.isJsFileExist = false;
                     }
                 },
-                onBtnClickGenJson() {
-                    console.log("onBtnClickGenJson");
+                // 生成配置
+                onBtnClickGen() {
+                    console.log("onBtnClickGen");
                     let jsSaveData = {};// 保存的js数据
                     for (let k in this.excelArray) {
                         let itemSheet = this.excelArray[k];
@@ -257,44 +311,36 @@ Editor.Panel.extend({
                             console.log("文件未启用: " + itemSheet.fullPath + '\\' + itemSheet.sheet);
                         }
                     }
-                    // 保存js文件
-                    console.log(jsSaveData);
-                    // let str = "";
-                    // for (let k in jsSaveData) {
-                    //     let strKey = k;
-                    //     let strData = JSON.stringify(jsSaveData[k]);
-                    //     let obj = {k: k,}
-                    //
-                    // }
+                    // =====================>>>>  保存js文件   <<<=================================
+                    // TODO 保证key的顺序一致性
+                    let saveFileFullPath = path.join(this.pluginResSavePath, this.jsFileName + ".js");
                     let saveStr = "module.exports = " + JSON.stringify(jsSaveData) + ";";
-                    let ast = uglifyJs.parse(saveStr);
-                    let ret = uglifyJs.minify(ast, {
-                        output: {
-                            beautify: true,//如果希望得到格式化的输出，传入true
-                            indent_start: 0,//（仅当beautify为true时有效） - 初始缩进空格
-                            indent_level: 4,//（仅当beautify为true时有效） - 缩进级别，空格数量
+                    if (this.isFormatJsCode) {// 保存为格式化代码
+                        let ast = uglifyJs.parse(saveStr);
+                        let ret = uglifyJs.minify(ast, {
+                            output: {
+                                beautify: true,//如果希望得到格式化的输出，传入true
+                                indent_start: 0,//（仅当beautify为true时有效） - 初始缩进空格
+                                indent_level: 4,//（仅当beautify为true时有效） - 缩进级别，空格数量
+                            }
+                        });
+                        if (ret.error) {
+                            console.log('error: ' + ret.error.message);
+                        } else if (ret.code) {
+                            fs.writeFileSync(saveFileFullPath, ret.code);
+                            console.log("生成js文件成功:" + saveFileFullPath);
+                            console.log("全部转换完成!");
+                        } else {
+                            console.log(ret);
                         }
-                    });
-                    // TODO js是否压缩为一行
-                    if (ret.error) {
-                        console.log('error: ' + ret.error.message);
-                    } else if (ret.code) {
-                        let saveFileFullPath = path.join(this.pluginResSavePath, this.jsFileName + ".js");
-                        fs.writeFileSync(saveFileFullPath, ret.code);
-                        console.log("生成js文件成功:" + saveFileFullPath);
-                        console.log("全部转换完成!");
-                    } else {
-                        console.log(ret);
+                    } else {// 保存为单行代码
+                        fs.writeFileSync(saveFileFullPath, saveStr);
                     }
+
                     this.checkJsFileExist();
+                    this.checkJsonAllCfgFileExist();
                 },
-                _saveConfig() {
-                    let data = {
-                        excelRootPath: this.excelRootPath,
-                        jsFileName: this.jsFileName,
-                    };
-                    CfgUtil.saveCfgByData(data);
-                },
+
             }
         });
     },

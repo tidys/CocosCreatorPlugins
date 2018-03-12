@@ -5,6 +5,9 @@ module.exports = {
     cfgData: {
         excelRootPath: null,// excel根路径
         jsFileName: null,
+        jsonAllFileName: null,
+        isMergeJson: null,
+        isFormatJsCode: null,
     },
     initCfg(cb) {
         let configFilePath = this._getAppCfgPath();
@@ -29,6 +32,9 @@ module.exports = {
     saveCfgByData(data) {
         this.cfgData.excelRootPath = data.excelRootPath;
         this.cfgData.jsFileName = data.jsFileName;
+        this.cfgData.jsonAllFileName = data.jsonAllFileName;
+        this.cfgData.isMergeJson = data.isMergeJson;
+        this.cfgData.isFormatJsCode = data.isFormatJsCode;
         this._save();
     },
     _save() {

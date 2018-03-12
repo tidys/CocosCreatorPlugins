@@ -1,56 +1,75 @@
 <div class="layout vertical" style="height: 100%">
     <div class="layout vertical start-justified">
-        <ui-prop name="Excel路径:">
+        <hr style="margin: 1px 0 1px 0">
+        <h2 style="margin: 1px 0 1px 0">配置-Json</h2>
+        <ui-prop name="Json存放路径:">
+            <ui-input class="flex-1" v-value="jsonSavePath" disabled></ui-input>
+            <ui-button v-on:confirm="onBtnClickOpenJsonSavePath">打开</ui-button>
+        </ui-prop>
+        <ui-prop name="单文件配置"
+                 tooltip="  [√]勾选,所有的json将合并为一个文件
+                            [×]未勾选,每个sheet对应一个json文件">
+            <ui-checkbox v-bind:checked="isMergeJson" v-on:change="onBtnClickMergeJson"></ui-checkbox>
+            <ui-input class="flex-1" v-on:blur="onJsonAllCfgFileChanged" v-value="jsonAllCfgFileName"
+                      v-show="isMergeJson" placeholder="请输入json配置文件名"></ui-input>
+            <ui-button v-show="isJsonAllCfgFileExist && isMergeJson" v-on:confirm="onBtnClickJsonAllCfgFile">打开
+            </ui-button>
+        </ui-prop>
+
+        <hr style="margin: 1px 0 1px 0">
+        <h2 style="margin: 1px 0 1px 0">配置-JavaScript</h2>
+        <ui-prop name="JS配置文件名">
+            <ui-input class="flex-1" v-on:blur="onJsFileNameChanged" v-value="jsFileName"></ui-input>
+            <ui-button v-on:confirm="onBtnClickOpenJsFile" v-show="isJsFileExist">打开</ui-button>
+        </ui-prop>
+        <ui-prop name="单行文件" tooltip="  [√]勾选,js将保存为单行文件
+                                            [×]未勾选,js将格式化后保存文件">
+            <ui-checkbox v-bind:checked="isFormatJsCode" v-on:change="onBtnClickFormatJsCode"></ui-checkbox>
+        </ui-prop>
+
+        <hr style="margin: 1px 0 1px 0">
+        <h2 style="margin: 1px 0 1px 0">配置-Excel</h2>
+        <ui-prop name="Excel文件路径:" tooltip="插件会循环遍历出目录下所有的excel文件">
             <div class="flex-1 layout horizontal center">
                 <ui-input class="flex-1" v-value="excelRootPath"></ui-input>
                 <ui-button v-on:confirm="onBtnClickSelectExcelRootPath">选择</ui-button>
             </div>
         </ui-prop>
 
-        <ui-prop name="Json存放路径:">
-            <ui-input class="flex-1" v-value="jsonSavePath" disabled></ui-input>
-            <ui-button v-on:confirm="onBtnClickOpenJsonSavePath">打开</ui-button>
-        </ui-prop>
-
-
-        <ui-prop name="JS配置文件名">
-            <ui-input class="flex-1" v-on:blur="onJsFileNameChanged" v-value="jsFileName"></ui-input>
-            <ui-button v-on:confirm="onBtnClickOpenJsFile" v-show="isJsFileExist">打开</ui-button>
-        </ui-prop>
-    </div>
-    <div class="layout vertical"
-         style="width:100%;height: 200px;background-color: #888888;
+        <div class="layout vertical"
+             style="width:100%;height: 200px;background-color: #888888;
          margin-left: 4px;margin-right: 4px;">
-        <div class="layout horizontal center flex-1" style="height: 20px;">
-            <h4 style="margin:4px 0 4px 0" class="flex-2">Excel列表:</h4>
-            <h4 style="margin:4px 10px 4px 0" class="self-end">sheet[{{excelArray.length}}]
-                excel[{{excelFileArr.length}}]</h4>
-        </div>
-        <!--表头-->
-        <div class="layout horizontal center"
-             style="width: 100%;height: 20px;background-color: #fd942b;border-radius: 2px;">
-            <div style="width: 20%">
-                <ui-checkbox v-on:change="onBtnClickSelectSheet" checked></ui-checkbox>
-                序号
+            <div class="layout horizontal center flex-1" style="height: 20px;">
+                <h4 style="margin:4px 0 4px 0" class="flex-2">Excel列表:</h4>
+                <h4 style="margin:4px 10px 4px 0" class="self-end">sheet[{{excelArray.length}}]
+                    excel[{{excelFileArr.length}}]</h4>
             </div>
-            <div style="width: 40%">
-                Excel文件
+            <!--表头-->
+            <div class="layout horizontal center"
+                 style="width: 100%;height: 20px;background-color: #fd942b;border-radius: 2px;">
+                <div style="width: 20%">
+                    <ui-checkbox v-on:change="onBtnClickSelectSheet" checked></ui-checkbox>
+                    序号
+                </div>
+                <div style="width: 40%">
+                    Excel文件
+                </div>
+                <div style="width: 40%">
+                    工作表名称
+                </div>
             </div>
-            <div style="width: 40%">
-                工作表名称
-            </div>
-        </div>
-        <!--内容-->
-        <div style="overflow: auto;overflow-x:hidden;height: 160px;">
+            <!--内容-->
+            <div style="overflow: auto;overflow-x:hidden;height: 160px;">
 
-            <excel-item track-by="$index" v-for="(index,item) in excelArray"
-                        v-bind:data="item"
-                        v-bind:index="index">
-            </excel-item>
-        </div>
+                <excel-item track-by="$index" v-for="(index,item) in excelArray"
+                            v-bind:data="item"
+                            v-bind:index="index">
+                </excel-item>
+            </div>
 
-    </div>
-    <div class="layout horizontal center self-end">
-        <ui-button v-on:confirm="onBtnClickGenJson" class="self-end red">生成</ui-button>
+        </div>
+        <div class="layout horizontal center self-end">
+            <ui-button v-on:confirm="onBtnClickGen" class="self-end red">生成</ui-button>
+        </div>
     </div>
 </div>
