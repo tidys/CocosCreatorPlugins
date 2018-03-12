@@ -8,6 +8,7 @@ module.exports = {
         jsonAllFileName: null,
         isMergeJson: null,
         isFormatJsCode: null,
+        isFormatJson: null,
     },
     initCfg(cb) {
         let configFilePath = this._getAppCfgPath();
@@ -35,6 +36,7 @@ module.exports = {
         this.cfgData.jsonAllFileName = data.jsonAllFileName;
         this.cfgData.isMergeJson = data.isMergeJson;
         this.cfgData.isFormatJsCode = data.isFormatJsCode;
+        this.cfgData.isFormatJson = data.isFormatJson;
         this._save();
     },
     _save() {

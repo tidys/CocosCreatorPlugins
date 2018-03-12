@@ -7,6 +7,7 @@ let nodeXlsx = Editor.require('packages://' + packageName + '/node_modules/node-
 let Electron = require('electron');
 let uglifyJs = Editor.require('packages://' + packageName + '/node_modules/uglify-js');
 let fsExtra = Editor.require('packages://' + packageName + '/node_modules/fs-extra');
+let jsonBeautifully = Editor.require('packages://' + packageName + '/node_modules/json-beautifully');
 
 
 Editor.Panel.extend({
@@ -29,12 +30,13 @@ Editor.Panel.extend({
                 excelRootPath: null,
 
                 isMergeJson: false,
+                isFormatJson: false,// 是否格式化Json
                 jsonSavePath: null,//json文件存放目录
                 isJsonAllCfgFileExist: false,// 是否单一配置文件存在
                 jsonAllCfgFileName: null,// json配置文件名
+
                 jsSavePath: null,// 插件资源目录
                 jsFileName: null,//js配置文件名
-
                 isJsFileExist: false,
                 isFormatJsCode: false,
                 excelArray: [],
@@ -48,6 +50,7 @@ Editor.Panel.extend({
                         jsonAllFileName: this.jsonAllCfgFileName,
                         isMergeJson: this.isMergeJson,
                         isFormatJsCode: this.isFormatJsCode,
+                        isFormatJson: this.isFormatJson,
                     };
                     CfgUtil.saveCfgByData(data);
                 },
@@ -63,6 +66,7 @@ Editor.Panel.extend({
                             this.jsonAllCfgFileName = data.jsonAllFileName || "GameJsonCfg";
                             this.isMergeJson = data.isMergeJson;
                             this.isFormatJsCode = data.isFormatJsCode;
+                            this.isFormatJson = data.isFormatJson;
                             this.checkJsFileExist();
                             this.checkJsonAllCfgFileExist();
                         }
@@ -86,6 +90,10 @@ Editor.Panel.extend({
                         fs.mkdirSync(jsSavePath);
                     }
                     this.jsSavePath = jsSavePath;
+                },
+                onBtnClickFormatJson() {
+                    this.isFormatJson = !this.isFormatJson;
+                    this._saveConfig();
                 },
                 // 是否合并json
                 onBtnClickMergeJson() {
@@ -218,11 +226,7 @@ Editor.Panel.extend({
                         return;
                     }
                 },
-                _saveToJavaScript(excelData, itemSheet) {
-                    let gameCfg = {
-                        'name': {1: {name: 11},},
-                    };
-                    // 以key的形式作为索引值
+                _getJavaScriptSaveData(excelData, itemSheet) {
                     let title = excelData[0];
                     let desc = excelData[1];
                     let sheetFormatData = {};
@@ -234,27 +238,45 @@ Editor.Panel.extend({
                             let value = lineData[j];
                             saveLineData[key] = value;
                         }
-                        sheetFormatData[lineData[0]] = saveLineData;
+                        sheetFormatData[lineData[0].toString()] = saveLineData;
                     }
-                    // console.log(sheetFormatData);
                     return sheetFormatData;
                 },
-                _saveToJson(excelData, itemSheet) {
+                _getJsonSaveData(excelData, itemSheet) {
                     let title = excelData[0];
                     let desc = excelData[1];
-                    let saveData = [];
-                    for (let i = 2; i < excelData.length; i++) {
-                        let lineData = excelData[i];
-                        let saveLineData = {};
-                        for (let j = 0; j < title.length; j++) {
-                            let key = title[j];
-                            let value = lineData[j];
-                            // console.log("" + value);
-                            saveLineData[key] = value;
+                    let ret = null;
+                    let useFormat1 = false;
+                    if (useFormat1) {
+                        let saveData1 = [];// 格式1:对应的为数组
+                        for (let i = 2; i < excelData.length; i++) {
+                            let lineData = excelData[i];
+                            let saveLineData = {};
+                            for (let j = 0; j < title.length; j++) {
+                                let key = title[j];
+                                let value = lineData[j];
+                                // console.log("" + value);
+                                saveLineData[key] = value;
+                            }
+                            saveData1.push(saveLineData);
                         }
-                        saveData.push(saveLineData);
+                        ret = saveData1;
+                    } else {
+                        let saveData2 = {};// 格式2:id作为索引
+                        for (let i = 2; i < excelData.length; i++) {
+                            let lineData = excelData[i];
+                            let saveLineData = {};
+                            for (let j = 1; j < title.length; j++) {
+                                let key = title[j];
+                                let value = lineData[j];
+                                // console.log("" + value);
+                                saveLineData[key] = value;
+                            }
+                            saveData2[lineData[0].toString()] = saveLineData;
+                        }
+                        ret = saveData2;
                     }
-                    return saveData;
+                    return ret;
                 },
                 // 打开生成的js配置文件
                 onBtnClickOpenJsFile() {
@@ -297,17 +319,20 @@ Editor.Panel.extend({
                             if (sheetData) {
                                 if (sheetData.length > 2) {
                                     // 保存为json
-                                    let saveData = this._saveToJson(sheetData, itemSheet);
+                                    let jsonSaveData = this._getJsonSaveData(sheetData, itemSheet);
                                     if (this.isMergeJson) {
-                                        jsonAllSaveData[itemSheet.sheet] = saveData;
+                                        jsonAllSaveData[itemSheet.sheet] = jsonSaveData;
                                     } else {
-                                        let saveStr = JSON.stringify(saveData);
+                                        let saveStr = JSON.stringify(jsonSaveData);
+                                        if (this.isFormatJson) {// 格式化json
+                                            saveStr = jsonBeautifully(saveStr);
+                                        }
                                         let saveFileFullPath = path.join(this.jsonSavePath, itemSheet.sheet + ".json");
                                         fs.writeFileSync(saveFileFullPath, saveStr);
                                         console.log("转换成json文件成功:" + saveFileFullPath);
                                     }
                                     // 保存为js
-                                    let sheetJsData = this._saveToJavaScript(sheetData, itemSheet);
+                                    let sheetJsData = this._getJavaScriptSaveData(sheetData, itemSheet);
                                     // 检测重复问题
                                     if (jsSaveData[itemSheet.sheet] === undefined) {
                                         jsSaveData[itemSheet.sheet] = sheetJsData;
@@ -328,7 +353,11 @@ Editor.Panel.extend({
                     // =====================>>>>  保存json文件   <<<=================================
                     if (this.isMergeJson) {
                         let saveFileFullPath = path.join(this.jsonSavePath, this.jsonAllCfgFileName + ".json");
-                        fs.writeFileSync(saveFileFullPath, JSON.stringify(jsonAllSaveData));
+                        let str = JSON.stringify(jsonAllSaveData);
+                        if (this.isFormatJson) {
+                            str = jsonBeautifully(str);
+                        }
+                        fs.writeFileSync(saveFileFullPath, str);
                         console.log("保存配置成功!");
                     }
                     // =====================>>>>  保存js文件   <<<=================================

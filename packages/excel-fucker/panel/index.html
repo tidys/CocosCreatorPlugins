@@ -6,6 +6,11 @@
             <ui-input class="flex-1" v-value="jsonSavePath" disabled></ui-input>
             <ui-button v-on:confirm="onBtnClickOpenJsonSavePath">打开</ui-button>
         </ui-prop>
+        <ui-prop name="Json格式化" tooltip=" [√]勾选,json将格式化后保存
+                                            [×]未勾选,json将保存为单行文件">
+            <ui-checkbox v-bind:checked="isFormatJson" v-on:change="onBtnClickFormatJson"></ui-checkbox>
+
+        </ui-prop>
         <ui-prop name="单文件配置"
                  tooltip="  [√]勾选,所有的json将合并为一个文件
                             [×]未勾选,每个sheet对应一个json文件">
