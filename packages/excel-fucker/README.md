@@ -116,6 +116,6 @@ module.exports={test:"100"}
 > 需要手动指定自己的excel所存放的目录,插件会识别出来目录下的所有excle文件,因此允许目录嵌套的方式存放excel
 ### Excel列表
 - 列表中罗列出来了目录下的所有excel的sheet
-- 标题右侧**sheet[x] excel[y]**的意思是,目录下sheet一共x个,excel文件一共y个
+- 标题右侧 **sheet[x] excel[y]** 的意思是,目录下sheet一共x个,excel文件一共y个
 - 每个sheet列表条目都有一个选中项,如果勾选,则会加入到生成队列中,反之不会被生成,默认全部选中
 
