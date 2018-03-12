@@ -22,8 +22,8 @@
             <ui-input class="flex-1" v-on:blur="onJsFileNameChanged" v-value="jsFileName"></ui-input>
             <ui-button v-on:confirm="onBtnClickOpenJsFile" v-show="isJsFileExist">打开</ui-button>
         </ui-prop>
-        <ui-prop name="单行文件" tooltip="  [√]勾选,js将保存为单行文件
-                                            [×]未勾选,js将格式化后保存文件">
+        <ui-prop name="代码格式化" tooltip=" [√]勾选,js将格式化后保存文件
+                                            [×]未勾选,js将保存为单行文件">
             <ui-checkbox v-bind:checked="isFormatJsCode" v-on:change="onBtnClickFormatJsCode"></ui-checkbox>
         </ui-prop>
 

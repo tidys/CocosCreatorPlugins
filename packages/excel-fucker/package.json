@@ -18,6 +18,7 @@
     "height": 600
   },
   "dependencies": {
+    "fs-extra": "^5.0.0",
     "node-xlsx": "^0.11.2",
     "uglify-js": "^3.3.14"
   }

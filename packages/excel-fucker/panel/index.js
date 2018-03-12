@@ -6,6 +6,8 @@ let excelItem = Editor.require('packages://' + packageName + '/panel/item/excelI
 let nodeXlsx = Editor.require('packages://' + packageName + '/node_modules/node-xlsx');
 let Electron = require('electron');
 let uglifyJs = Editor.require('packages://' + packageName + '/node_modules/uglify-js');
+let fsExtra = Editor.require('packages://' + packageName + '/node_modules/fs-extra');
+
 
 Editor.Panel.extend({
     style: fs.readFileSync(Editor.url('packages://' + packageName + '/panel/index.css', 'utf8')) + "",
@@ -30,7 +32,7 @@ Editor.Panel.extend({
                 jsonSavePath: null,//json文件存放目录
                 isJsonAllCfgFileExist: false,// 是否单一配置文件存在
                 jsonAllCfgFileName: null,// json配置文件名
-                pluginResSavePath: null,// 插件资源目录
+                jsSavePath: null,// 插件资源目录
                 jsFileName: null,//js配置文件名
 
                 isJsFileExist: false,
@@ -69,16 +71,21 @@ Editor.Panel.extend({
                 },
                 _initJsonSavePath() {
                     let projectPath = Editor.projectInfo.path;
-                    let jsonSavePath = path.join(projectPath, "plugin-resource");
-                    if (!fs.existsSync(jsonSavePath)) {
-                        fs.mkdirSync(jsonSavePath);
+                    let pluginResPath = path.join(projectPath, "plugin-resource");
+                    if (!fs.existsSync(pluginResPath)) {
+                        fs.mkdirSync(pluginResPath);
                     }
-                    this.pluginResSavePath = jsonSavePath;
-                    jsonSavePath = path.join(jsonSavePath, "json");
+                    let jsonSavePath = path.join(pluginResPath, "json");
                     if (!fs.existsSync(jsonSavePath)) {
                         fs.mkdirSync(jsonSavePath);
                     }
                     this.jsonSavePath = jsonSavePath;
+
+                    let jsSavePath = path.join(pluginResPath, "js");
+                    if (!fs.existsSync(jsSavePath)) {
+                        fs.mkdirSync(jsSavePath);
+                    }
+                    this.jsSavePath = jsSavePath;
                 },
                 // 是否合并json
                 onBtnClickMergeJson() {
@@ -247,15 +254,11 @@ Editor.Panel.extend({
                         }
                         saveData.push(saveLineData);
                     }
-                    // 保存
-                    let saveStr = JSON.stringify(saveData);
-                    let saveFileFullPath = path.join(this.jsonSavePath, itemSheet.sheet + ".json");
-                    fs.writeFileSync(saveFileFullPath, saveStr);
-                    console.log("转换成json文件成功:" + saveFileFullPath);
+                    return saveData;
                 },
                 // 打开生成的js配置文件
                 onBtnClickOpenJsFile() {
-                    let saveFileFullPath = path.join(this.pluginResSavePath, this.jsFileName + ".js");
+                    let saveFileFullPath = path.join(this.jsSavePath, this.jsFileName + ".js");
                     if (fs.existsSync(saveFileFullPath)) {
                         Electron.shell.openItem(saveFileFullPath);
                         Electron.shell.beep();
@@ -266,7 +269,7 @@ Editor.Panel.extend({
                 },
                 // 检测js配置文件是否存在
                 checkJsFileExist() {
-                    let saveFileFullPath = path.join(this.pluginResSavePath, this.jsFileName + ".js");
+                    let saveFileFullPath = path.join(this.jsSavePath, this.jsFileName + ".js");
                     if (fs.existsSync(saveFileFullPath)) {
                         this.isJsFileExist = true;
                     } else {
@@ -276,7 +279,11 @@ Editor.Panel.extend({
                 // 生成配置
                 onBtnClickGen() {
                     console.log("onBtnClickGen");
+                    // 删除老的配置
+                    fsExtra.emptyDirSync(this.jsonSavePath);
+                    fsExtra.emptyDirSync(this.jsSavePath);
                     let jsSaveData = {};// 保存的js数据
+                    let jsonAllSaveData = {};// 保存的json数据
                     for (let k in this.excelArray) {
                         let itemSheet = this.excelArray[k];
                         if (itemSheet.isUse) {
@@ -290,8 +297,15 @@ Editor.Panel.extend({
                             if (sheetData) {
                                 if (sheetData.length > 2) {
                                     // 保存为json
-                                    // this._saveToJson(sheetData, itemSheet);
-
+                                    let saveData = this._saveToJson(sheetData, itemSheet);
+                                    if (this.isMergeJson) {
+                                        jsonAllSaveData[itemSheet.sheet] = saveData;
+                                    } else {
+                                        let saveStr = JSON.stringify(saveData);
+                                        let saveFileFullPath = path.join(this.jsonSavePath, itemSheet.sheet + ".json");
+                                        fs.writeFileSync(saveFileFullPath, saveStr);
+                                        console.log("转换成json文件成功:" + saveFileFullPath);
+                                    }
                                     // 保存为js
                                     let sheetJsData = this._saveToJavaScript(sheetData, itemSheet);
                                     // 检测重复问题
@@ -311,9 +325,15 @@ Editor.Panel.extend({
                             console.log("文件未启用: " + itemSheet.fullPath + '\\' + itemSheet.sheet);
                         }
                     }
+                    // =====================>>>>  保存json文件   <<<=================================
+                    if (this.isMergeJson) {
+                        let saveFileFullPath = path.join(this.jsonSavePath, this.jsonAllCfgFileName + ".json");
+                        fs.writeFileSync(saveFileFullPath, JSON.stringify(jsonAllSaveData));
+                        console.log("保存配置成功!");
+                    }
                     // =====================>>>>  保存js文件   <<<=================================
                     // TODO 保证key的顺序一致性
-                    let saveFileFullPath = path.join(this.pluginResSavePath, this.jsFileName + ".js");
+                    let saveFileFullPath = path.join(this.jsSavePath, this.jsFileName + ".js");
                     let saveStr = "module.exports = " + JSON.stringify(jsSaveData) + ";";
                     if (this.isFormatJsCode) {// 保存为格式化代码
                         let ast = uglifyJs.parse(saveStr);
