@@ -1,16 +1,17 @@
 <div class="layout vertical" style="height: 100%">
     <div class="layout vertical start-justified">
         <hr style="margin: 1px 0 1px 0">
-        <h2 style="margin: 1px 0 1px 0;color: #2feb21;">配置-Json</h2>
+        <div class="layout horizontal center justified">
+            <h2 class="end-justified" style="margin: 1px 0 1px 0;color: #2feb21;">配置-Json</h2>
+            <ui-button class="end-justified" v-on:confirm="onBtnClickTellMe"
+                       style="background: url('http://wpa.qq.com/pa?p=2:774177933:51');width: 79px;height: 25px;">
+            </ui-button>
+        </div>
         <ui-prop name="Json存放路径:">
             <ui-input class="flex-1" v-value="jsonSavePath" disabled></ui-input>
-            <ui-button v-on:confirm="onBtnClickOpenJsonSavePath">打开</ui-button>
+            <ui-button class="green" v-on:confirm="onBtnClickOpenJsonSavePath">打开</ui-button>
         </ui-prop>
-        <ui-prop name="Json格式化" tooltip=" [√]勾选,json将格式化后保存
-                                            [×]未勾选,json将保存为单行文件">
-            <ui-checkbox v-bind:checked="isFormatJson" v-on:change="onBtnClickFormatJson"></ui-checkbox>
 
-        </ui-prop>
         <ui-prop name="合并所有Json"
                  tooltip="  [√]勾选,所有的json将合并为一个文件
                             [×]未勾选,每个sheet对应一个json文件">
@@ -20,12 +21,17 @@
             <ui-button v-show="isJsonAllCfgFileExist && isMergeJson" v-on:confirm="onBtnClickJsonAllCfgFile">打开
             </ui-button>
         </ui-prop>
+        <ui-prop name="Json格式化" tooltip=" [√]勾选,json将格式化后保存
+                                            [×]未勾选,json将保存为单行文件">
+            <ui-checkbox v-bind:checked="isFormatJson" v-on:change="onBtnClickFormatJson"></ui-checkbox>
+
+        </ui-prop>
 
         <hr style="margin: 1px 0 1px 0">
         <h2 style="margin: 1px 0 1px 0;color: #2feb21;">配置-JavaScript</h2>
         <ui-prop name="Js存放路径:">
             <ui-input class="flex-1" v-value="jsSavePath" disabled></ui-input>
-            <ui-button v-on:confirm="onBtnClickOpenJsSavePath">打开</ui-button>
+            <ui-button class="green" v-on:confirm="onBtnClickOpenJsSavePath">打开</ui-button>
         </ui-prop>
         <ui-prop name="JS配置文件名">
             <ui-input class="flex-1" v-on:blur="onJsFileNameChanged" v-value="jsFileName"></ui-input>
@@ -41,7 +47,7 @@
         <ui-prop name="Excel文件路径:" tooltip="插件会循环遍历出目录下所有的excel文件">
             <div class="flex-1 layout horizontal center">
                 <ui-input class="flex-1" v-value="excelRootPath"></ui-input>
-                <ui-button v-on:confirm="onBtnClickSelectExcelRootPath">选择</ui-button>
+                <ui-button class="blue" v-on:confirm="onBtnClickSelectExcelRootPath">选择</ui-button>
             </div>
         </ui-prop>
 
@@ -78,10 +84,10 @@
 
         </div>
         <div class="layout horizontal center justified ">
-            <ui-button class="start-justified" v-on:confirm="onBtnClickTellMe"
-                       style="background: url('http://wpa.qq.com/pa?p=2:774177933:51');width: 79px;height: 25px;">
-            </ui-button>
+            <h2 class="start-justified" style="margin: 1px 0 1px 0;color: #2feb21;"> 输出日志 </h2>
             <ui-button v-on:confirm="onBtnClickGen" class="end-justified red">生成</ui-button>
         </div>
     </div>
+    <textarea class="flex-1 " id="logTextArea" v-model="logView"
+              style="width: 100%; height: 100%; background: #252525;	color: #fd942b;	border-color: #fd942b;"></textarea>
 </div>
