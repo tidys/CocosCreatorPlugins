@@ -2,11 +2,305 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77be2a0d-245c-4481-9db8-0f8f0c8c25fa" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/excel-fucker/test.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/core/CfgUtil.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/core/excel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/.bin/adler32" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/.bin/adler32.cmd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/.bin/cfb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/.bin/cfb.cmd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/.bin/codepage" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/.bin/codepage.cmd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/.bin/crc32" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/.bin/crc32.cmd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/.bin/printj" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/.bin/printj.cmd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/.bin/ssf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/.bin/ssf.cmd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/.bin/uglifyjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/.bin/uglifyjs.cmd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/.bin/xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/.bin/xlsx.cmd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/adler-32/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/adler-32/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/adler-32/adler32.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/adler-32/bin/adler32.njs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/adler-32/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/adler-32/types/index.d.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/adler-32/types/tsconfig.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/adler-32/types/tslint.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/bin/cfb.njs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/cfb.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/dist/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/dist/cfb.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/dist/cfb.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/dist/cfb.min.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/dist/xlscfb.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/node_modules/commander/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/node_modules/commander/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/node_modules/commander/Readme.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/node_modules/commander/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/node_modules/commander/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/node_modules/commander/typings/index.d.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/types/index.d.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/types/tsconfig.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/cfb/xlscfb.flow.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/codepage/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/codepage/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/codepage/bin/codepage.njs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/codepage/cptable.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/codepage/cputils.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/codepage/dist/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/codepage/dist/cpexcel.full.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/codepage/dist/sbcs.full.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/codepage/node_modules/commander/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/codepage/node_modules/commander/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/codepage/node_modules/commander/Readme.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/codepage/node_modules/commander/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/codepage/node_modules/commander/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/codepage/node_modules/commander/typings/index.d.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/codepage/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/codepage/types/index.d.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/codepage/types/tsconfig.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/codepage/types/tslint.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/commander/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/commander/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/commander/Readme.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/commander/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/commander/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/commander/typings/index.d.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/crc-32/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/crc-32/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/crc-32/bin/crc32.njs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/crc-32/crc32.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/crc-32/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/crc-32/types/index.d.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/crc-32/types/tsconfig.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/crc-32/types/tslint.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/exit-on-epipe/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/exit-on-epipe/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/exit-on-epipe/exit-on-epipe.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/exit-on-epipe/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/frac/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/frac/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/frac/dist/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/frac/dist/frac.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/frac/dist/frac.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/frac/dist/frac.min.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/frac/frac.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/frac/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/frac/types/index.d.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/frac/types/tsconfig.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/frac/types/tslint.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/copy-sync.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/copy.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/emptyDir-sync.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/emptyDir.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/ensureDir-sync.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/ensureDir.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/ensureFile-sync.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/ensureFile.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/ensureLink-sync.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/ensureLink.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/ensureSymlink-sync.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/ensureSymlink.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/fs-read-write.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/move-sync.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/move.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/outputFile-sync.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/outputFile.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/outputJson-sync.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/outputJson.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/pathExists-sync.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/pathExists.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/readJson-sync.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/readJson.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/remove-sync.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/remove.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/writeJson-sync.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/docs/writeJson.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/copy-sync/copy-sync.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/copy-sync/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/copy/copy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/copy/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/empty/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/ensure/file.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/ensure/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/ensure/link.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/ensure/symlink-paths.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/ensure/symlink-type.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/ensure/symlink.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/fs/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/json/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/json/jsonfile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/json/output-json-sync.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/json/output-json.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/mkdirs/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/mkdirs/mkdirs-sync.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/mkdirs/mkdirs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/mkdirs/win32.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/move-sync/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/move/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/output/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/path-exists/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/remove/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/remove/rimraf.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/util/assign.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/util/buffer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/lib/util/utimes.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/fs-extra/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/graceful-fs/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/graceful-fs/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/graceful-fs/fs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/graceful-fs/graceful-fs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/graceful-fs/legacy-streams.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/graceful-fs/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/graceful-fs/polyfills.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/json-beautifully/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/json-beautifully/lib/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/json-beautifully/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/jsonfile/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/jsonfile/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/jsonfile/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/jsonfile/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/jsonfile/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/.babelrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/.eslintrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/LICENSE.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/lib/helpers.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/lib/helpers.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/lib/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/lib/index.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/lib/workbook.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/lib/workbook.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/src/helpers.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/src/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/src/workbook.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/test/.eslintrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/test/fixtures/dateField.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/test/fixtures/dateField.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/test/fixtures/test.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/test/fixtures/test.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/test/specs/build.spec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/test/specs/helper.spec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/test/specs/import.spec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/node-xlsx/test/specs/parse.spec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/printj/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/printj/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/printj/bin/printj.njs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/printj/dist/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/printj/dist/printj.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/printj/dist/printj.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/printj/dist/printj.min.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/printj/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/printj/printj.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/printj/types/index.d.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/printj/types/tsconfig.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/printj/types/tslint.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/dist/source-map.debug.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/dist/source-map.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/dist/source-map.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/dist/source-map.min.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/lib/array-set.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/lib/base64-vlq.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/lib/base64.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/lib/binary-search.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/lib/mapping-list.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/lib/quick-sort.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/lib/source-map-consumer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/lib/source-map-generator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/lib/source-node.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/lib/util.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/source-map.d.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/source-map/source-map.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/ssf/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/ssf/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/ssf/bin/ssf.njs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/ssf/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/ssf/shim.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/ssf/ssf.flow.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/ssf/ssf.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/ssf/types/index.d.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/ssf/types/tsconfig.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/bin/uglifyjs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/lib/ast.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/lib/compress.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/lib/minify.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/lib/mozilla-ast.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/lib/output.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/lib/parse.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/lib/propmangle.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/lib/scope.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/lib/sourcemap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/lib/transform.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/lib/utils.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/node_modules/commander/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/node_modules/commander/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/node_modules/commander/Readme.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/node_modules/commander/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/node_modules/commander/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/node_modules/commander/typings/index.d.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/tools/domprops.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/tools/exit.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/tools/exports.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/tools/node.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/uglify-js/tools/props.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/universalify/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/universalify/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/universalify/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/universalify/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/bin/xlsx.njs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/dist/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/dist/cpexcel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/dist/jszip.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/dist/shim.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/dist/xlsx.core.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/dist/xlsx.core.min.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/dist/xlsx.full.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/dist/xlsx.full.min.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/dist/xlsx.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/dist/xlsx.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/dist/xlsx.min.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/formats.dot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/formats.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/jszip.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/legend.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/types/index.d.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/types/tsconfig.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/xlsx.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/node_modules/xlsx/xlsxworker.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/package-lock.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/panel/index.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/panel/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/panel/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/panel/item/excelItem.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/excel-fucker/panel/item/excelItem.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/excel-fucker/README.md" afterPath="$PROJECT_DIR$/packages/excel-fucker/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/excel-fucker/panel/index.html" afterPath="$PROJECT_DIR$/packages/excel-fucker/panel/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/excel-fucker/panel/index.js" afterPath="$PROJECT_DIR$/packages/excel-fucker/panel/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,80 +313,103 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.js">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="189">
+                    <caret line="301" column="13" lean-forward="false" selection-start-line="301" selection-start-column="13" selection-end-line="306" selection-end-column="18" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.html">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="195">
+                    <caret line="116" column="8" lean-forward="false" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="8" />
+                    <folding>
+                      <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                      <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
+                      <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
+                      <element signature="n#div#2;n#div#0;n#!!top" expanded="false" />
+                      <element signature="n#style#0;n#textarea#0;n#div#0;n#!!top" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="CocosCreatorPlugins" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5352381">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/packages/excel-fucker/README.md">
-              <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-                <state split_layout="SPLIT">
-                  <first_editor relative-caret-position="90">
-                    <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-                    <folding />
-                  </first_editor>
-                  <second_editor>
-                    <js_state />
-                  </second_editor>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CfgUtil.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/packages/excel-fucker/core/CfgUtil.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="186">
-                  <caret line="44" column="11" lean-forward="false" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/packages/excel-fucker/panel/index.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="316">
-                  <caret line="49" column="27" lean-forward="true" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/packages/excel-fucker/panel/index.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="49" column="46" lean-forward="true" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/packages/excel-fucker/panel/index.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="73">
-                  <caret line="58" column="14" lean-forward="false" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#ui-button#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packages/excel-killer/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor>
+                <js_state />
+              </second_editor>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package-lock.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packages/excel-killer/package-lock.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packages/excel-killer/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packages/excel-killer/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/packages/excel-killer/panel/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="422" column="38" lean-forward="true" selection-start-line="422" selection-start-column="38" selection-end-line="422" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -106,10 +423,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>changePosition</find>
-      <find>changeHeight</find>
-      <find>changeSize</find>
-      <find>pluginSetNodeColor</find>
       <find>changePositionMouseAction</find>
       <find>changePositionAction</find>
       <find>ew-resize</find>
@@ -136,15 +449,20 @@
       <find>nodeXlsx</find>
       <find>onBtnClickGo4399Doc</find>
       <find>.xlsx</find>
+      <find>conso</find>
+      <find>console.log</find>
+      <find>文件未启用</find>
+      <find>excel-fucker</find>
     </findStrings>
     <replaceStrings>
-      <replace>this._addLog</replace>
       <replace>hotAddrSelect</replace>
       <replace>hotAddressSelect</replace>
       <replace>node</replace>
       <replace>itemData</replace>
       <replace>jsSavePath</replace>
       <replace>，</replace>
+      <replace>this._addLog</replace>
+      <replace>excel-killer</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -153,9 +471,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/assets/module/hotUpDate/HotUpdateScene.js" />
-        <option value="$PROJECT_DIR$/assets/module/Inspector/InspectorScript.js" />
-        <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devNoGame/App.vue" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/SceneProperty.vue" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/README.md" />
         <option value="$PROJECT_DIR$/doc/CreatorInspector/install/README.md" />
@@ -200,10 +515,13 @@
         <option value="$PROJECT_DIR$/packages/excel-fucker/package.json" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/packages/excel-fucker/core/CfgUtil.js" />
-        <option value="$PROJECT_DIR$/packages/excel-fucker/README.md" />
         <option value="$PROJECT_DIR$/packages/excel-fucker/test.html" />
         <option value="$PROJECT_DIR$/packages/excel-fucker/panel/index.html" />
         <option value="$PROJECT_DIR$/packages/excel-fucker/panel/index.js" />
+        <option value="$PROJECT_DIR$/packages/excel-fucker/README.md" />
+        <option value="$PROJECT_DIR$/packages/excel-killer/package.json" />
+        <option value="$PROJECT_DIR$/packages/excel-killer/main.js" />
+        <option value="$PROJECT_DIR$/packages/excel-killer/panel/index.js" />
       </list>
     </option>
   </component>
@@ -237,12 +555,11 @@
     <scope name="cocos" pattern="(!file[fontSlimming]:.idea//*||file[fontSlimming]:packages//*)&amp;&amp;!file[fontSlimming]:test//*&amp;&amp;!file[fontSlimming]:doc//*&amp;&amp;!file:*.meta&amp;&amp;!file:*.fire&amp;&amp;!file:*.fnt&amp;&amp;!file:assets/*.png&amp;&amp;!file:*.prefab&amp;&amp;!file:*.plist&amp;&amp;!file:CocosCreatorInspector/*.main.js.map" />
   </component>
   <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/packages/excel-fucker/node_modules" />
     <handled-path value="$PROJECT_DIR$/packages/hot-update-tools/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="350" />
-    <option name="y" value="105" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="325" />
+    <option name="y" value="46" />
     <option name="width" value="1081" />
     <option name="height" value="688" />
   </component>
@@ -297,19 +614,13 @@
               <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
               <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
               <item name="packages" type="462c0819:PsiDirectoryNode" />
-              <item name="excel-fucker" type="462c0819:PsiDirectoryNode" />
+              <item name="excel-killer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
               <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
               <item name="packages" type="462c0819:PsiDirectoryNode" />
-              <item name="plugin-4399-web-js-sdk" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
-              <item name="plugin-4399-web-js-sdk" type="462c0819:PsiDirectoryNode" />
+              <item name="excel-killer" type="462c0819:PsiDirectoryNode" />
               <item name="panel" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -563,7 +874,7 @@
       <workItem from="1520581532443" duration="30000" />
       <workItem from="1520650075858" duration="21869000" />
       <workItem from="1520816833238" duration="23875000" />
-      <workItem from="1520853329760" duration="6675000" />
+      <workItem from="1520853329760" duration="9118000" />
     </task>
     <task id="LOCAL-00001" summary="3">
       <created>1516002621240</created>
@@ -632,14 +943,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="473872000" />
+    <option name="totallyTimeSpent" value="476315000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="350" y="105" width="1081" height="688" extended-state="0" />
+    <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22509961" sideWeight="0.3808554" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22243528" sideWeight="0.6191446" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18096724" sideWeight="0.6191446" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35506243" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -710,41 +1021,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/SceneProperty.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="14" lean-forward="false" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ui/colorPicker.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3255">
-          <caret line="217" column="61" lean-forward="false" selection-start-line="217" selection-start-column="61" selection-end-line="217" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="112" column="7" lean-forward="false" selection-start-line="112" selection-start-column="7" selection-end-line="112" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="34" lean-forward="false" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/dev/devInspector/ccType/ComponentsProperty.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -914,14 +1190,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/packages/excel-fucker/panel/item/excelItem.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -942,6 +1210,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="84" column="50" lean-forward="false" selection-start-line="84" selection-start-column="50" selection-end-line="84" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -972,16 +1241,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/packages/excel-fucker/core/CfgUtil.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
+        <state relative-caret-position="282">
           <caret line="44" column="11" lean-forward="false" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
           <folding />
         </state>
@@ -995,25 +1257,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/packages/excel-fucker/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="90">
-            <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-            <folding />
-          </first_editor>
-          <second_editor>
-            <js_state />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/packages/plugin-4399-web-js-sdk/panel/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="72" lean-forward="false" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="72" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1026,20 +1275,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/packages/excel-fucker/panel/index.html">
+    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="49" column="46" lean-forward="true" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
+        <state relative-caret-position="195">
+          <caret line="116" column="8" lean-forward="false" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="8" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="301" column="13" lean-forward="false" selection-start-line="301" selection-start-column="13" selection-end-line="306" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/excel-fucker/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1241">
+            <caret line="122" column="27" lean-forward="true" selection-start-line="122" selection-start-column="27" selection-end-line="122" selection-end-column="27" />
+            <folding />
+          </first_editor>
+          <second_editor>
+            <js_state />
+          </second_editor>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/packages/excel-fucker/panel/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="49" column="27" lean-forward="true" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
+        <state relative-caret-position="232">
+          <caret line="380" column="40" lean-forward="false" selection-start-line="380" selection-start-column="40" selection-end-line="380" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/excel-fucker/panel/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="75" column="7" lean-forward="true" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/excel-killer/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor>
+            <js_state />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/excel-killer/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/excel-killer/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/excel-killer/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/excel-killer/panel/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="422" column="38" lean-forward="true" selection-start-line="422" selection-start-column="38" selection-end-line="422" selection-end-column="38" />
           <folding />
         </state>
       </provider>
