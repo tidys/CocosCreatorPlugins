@@ -217,11 +217,16 @@ Editor.Panel.extend({
                                 };
                                 itemData.name = itemFullPath.substr(dir.length + 1, itemFullPath.length - dir.length);
 
+                                if (excelData[j].data.length === 0) {
+                                    this._addLog("[Error] 空Sheet: " + itemData.name + " - " + itemData.sheet);
+                                    continue;
+                                }
+
                                 if (sheetDuplicationChecker[itemData.sheet]) {
                                     //  重名sheet问题
-                                    this._addLog("[Error]出现了重名sheet: " + itemData.sheet);
-                                    this._addLog("[Sheet1]" + sheetDuplicationChecker[itemData.sheet].fullPath);
-                                    this._addLog("[Sheet2]" + itemFullPath);
+                                    this._addLog("[Error ] 出现了重名sheet: " + itemData.sheet);
+                                    this._addLog("[Sheet1] " + sheetDuplicationChecker[itemData.sheet].fullPath);
+                                    this._addLog("[Sheet2] " + itemFullPath);
                                     this._addLog("请仔细检查Excel-Sheet!");
                                 } else {
                                     sheetDuplicationChecker[itemData.sheet] = itemData;
