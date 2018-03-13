@@ -4,15 +4,16 @@
 - excel转json
 - excel转js
 - excel转lua(后续支持)
-- ![](../../doc/excel-killer/scene.png)
+![](../../doc/excel-killer/scene.png)
 ## 格式转换说明
 #### excel
 ##### 支持的格式:
 - *.xlsx, *.xls
 - [示例excel](../../doc/excel-killer/test.xlsx)
 ##### 内容格式如下
-- 第1行: 字段的索引key
+- 第1行: 字段的索引key,这个是不能重复的,想必这个肯定是常识吧!
 - 第2行: 字段的中文注释
+- 尽量不要出现空行,空单元格,当然插件也做了这方面的优化,空单元格统一处理为空字符串,空行直接跳过
 ##### 水果sheet:fruit
 |id| fruit        | cost      |   num    |
 |:----: | :----:    | -----:  | :----: |

@@ -61,6 +61,9 @@ Editor.Panel.extend({
                     logListScrollToBottom();
                 },
                 onBtnClickTellMe() {
+                    // let data = nodeXlsx.parse(path.join(this.excelRootPath, 'test2.xlsx'));
+                    // console.log(data);
+                    // return;
                     let url = "http://wpa.qq.com/msgrd?v=3&uin=774177933&site=qq&menu=yes";
                     Electron.shell.openExternal(url);
                 },
@@ -146,7 +149,7 @@ Editor.Panel.extend({
                     this.isFormatJsCode = !this.isFormatJsCode;
                     this._saveConfig();
                 },
-                onBtnClickOpenExcelRootPath(){
+                onBtnClickOpenExcelRootPath() {
                     if (fs.existsSync(this.excelRootPath)) {
                         Electron.shell.showItemInFolder(this.excelRootPath);
                         Electron.shell.beep();
@@ -241,7 +244,7 @@ Editor.Panel.extend({
                                 } else if (info.isFile()) {
                                     let headStr = item.substr(0, 2);
                                     if (headStr === "~$") {
-                                        this._addLog("检索到excel产生的临时文件:" + itemFullPath);
+                                        window.plugin._addLog("检索到excel产生的临时文件:" + itemFullPath);
                                     } else {
                                         allFileArr.push(itemFullPath);
                                     }
@@ -279,10 +282,26 @@ Editor.Panel.extend({
                     let sheetFormatData = {};
                     for (let i = 2; i < excelData.length; i++) {
                         let lineData = excelData[i];
+                        if (lineData.length === 0) {
+                            // 空行直接跳过
+                            continue;
+                        } else {
+                            if (lineData.length < title.length) {
+                                this._addLog("[Error] 发现第" + i + "行缺少字段,跳过改行数据配置.");
+                                continue;
+                            } else if (lineData.length > title.length) {
+                                this._addLog("[Error] 发现第" + i + "行多余字段,跳过改行数据配置.");
+                                continue;
+                            }
+                        }
                         let saveLineData = {};
                         for (let j = 1; j < title.length; j++) {
                             let key = title[j];
                             let value = lineData[j];
+                            if (value === undefined) {
+                                value = "";
+                                this._addLog("[Error] 发现空单元格:" + itemSheet.name + "*" + itemSheet.sheet + " => (" + key + "," + (i + 1) + ")");
+                            }
                             saveLineData[key] = value;
                         }
                         sheetFormatData[lineData[0].toString()] = saveLineData;
@@ -298,10 +317,19 @@ Editor.Panel.extend({
                         let saveData1 = [];// 格式1:对应的为数组
                         for (let i = 2; i < excelData.length; i++) {
                             let lineData = excelData[i];
+                            if (lineData.length < title.length) {
+                                continue;
+                            } else if (lineData.length > title.length) {
+                                continue;
+                            }
+
                             let saveLineData = {};
                             for (let j = 0; j < title.length; j++) {
                                 let key = title[j];
                                 let value = lineData[j];
+                                if (value === undefined) {
+                                    value = "";
+                                }
                                 // this._addLog("" + value);
                                 saveLineData[key] = value;
                             }
@@ -312,10 +340,18 @@ Editor.Panel.extend({
                         let saveData2 = {};// 格式2:id作为索引
                         for (let i = 2; i < excelData.length; i++) {
                             let lineData = excelData[i];
+                            if (lineData.length < title.length) {
+                                continue;
+                            } else if (lineData.length > title.length) {
+                                continue;
+                            }
                             let saveLineData = {};
                             for (let j = 1; j < title.length; j++) {
                                 let key = title[j];
                                 let value = lineData[j];
+                                if (value === undefined) {
+                                    value = "";
+                                }
                                 // this._addLog("" + value);
                                 saveLineData[key] = value;
                             }
