@@ -137,6 +137,6 @@ module.exports={test:"100"}
 - 每个sheet列表条目都有一个选中项,如果勾选,则会加入到生成队列中,反之不会被生成,默认全部选中
 
 ## 插件反馈
-- 详细的说明文档:点击插件的**帮助按钮**直达
-- 如果使用过程中遇到任何问题,欢迎点击**QQ交谈**给我留言
+- 详细的说明文档:点击插件的[帮助按钮](https://github.com/tidys/CocosCreatorPlugins/tree/master/packages/excel-killer/README.md)直达
+- 如果使用过程中遇到任何问题,欢迎点击[QQ交谈](http://wpa.qq.com/msgrd?v=3&uin=774177933&site=qq&menu=yes)给我留言
 

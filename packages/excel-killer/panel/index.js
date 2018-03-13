@@ -87,7 +87,7 @@ Editor.Panel.extend({
                     }
                 },
                 onBtnClickHelpDoc(){
-                    let url = "https://github.com/tidys/CocosCreatorPlugins/tree/master/packages/excel-killer";
+                    let url = "https://github.com/tidys/CocosCreatorPlugins/tree/master/packages/excel-killer/README.md";
                     Electron.shell.openExternal(url);
                 },
                 _initPluginCfg() {
