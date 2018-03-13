@@ -1,5 +1,5 @@
 let fs = require('fire-fs');
-let packageName = "excel-fucker";
+let packageName = "excel-killer";
 
 module.exports = {
     init() {
