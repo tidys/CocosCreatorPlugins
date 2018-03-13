@@ -146,6 +146,14 @@ Editor.Panel.extend({
                     this.isFormatJsCode = !this.isFormatJsCode;
                     this._saveConfig();
                 },
+                onBtnClickOpenExcelRootPath(){
+                    if (fs.existsSync(this.excelRootPath)) {
+                        Electron.shell.showItemInFolder(this.excelRootPath);
+                        Electron.shell.beep();
+                    } else {
+                        this._addLog("目录不存在：" + this.excelRootPath);
+                    }
+                },
                 onBtnClickSelectExcelRootPath() {
                     let res = Editor.Dialog.openFile({
                         title: "选择Excel的根目录",
@@ -190,6 +198,7 @@ Editor.Panel.extend({
                         this.excelFileArr = excelFileArr;
                         // 组装显示的数据
                         let excelSheetArray = [];
+                        let sheetDuplicationChecker = {};//表单重名检测
                         for (let k in excelFileArr) {
                             let itemFullPath = excelFileArr[k];
                             // this._addLog("excel : " + itemFullPath);
@@ -204,7 +213,17 @@ Editor.Panel.extend({
                                     sheet: excelData[j].name
                                 };
                                 itemData.name = itemFullPath.substr(dir.length + 1, itemFullPath.length - dir.length);
-                                excelSheetArray.push(itemData);
+
+                                if (sheetDuplicationChecker[itemData.sheet]) {
+                                    //  重名sheet问题
+                                    this._addLog("[Error]出现了重名sheet: " + itemData.sheet);
+                                    this._addLog("[Sheet1]" + sheetDuplicationChecker[itemData.sheet].fullPath);
+                                    this._addLog("[Sheet2]" + itemFullPath);
+                                    this._addLog("请仔细检查Excel-Sheet!");
+                                } else {
+                                    sheetDuplicationChecker[itemData.sheet] = itemData;
+                                    excelSheetArray.push(itemData);
+                                }
                             }
                         }
                         this.excelArray = excelSheetArray;

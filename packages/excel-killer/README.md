@@ -4,6 +4,7 @@
 - excel转json
 - excel转js
 - excel转lua(后续支持)
+- ![](../../doc/excel-killer/scene.png)
 ## 格式转换说明
 #### excel
 ##### 支持的格式:
