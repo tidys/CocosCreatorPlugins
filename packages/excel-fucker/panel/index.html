@@ -77,8 +77,11 @@
             </div>
 
         </div>
-        <div class="layout horizontal center self-end">
-            <ui-button v-on:confirm="onBtnClickGen" class="self-end red">生成</ui-button>
+        <div class="layout horizontal center justified ">
+            <ui-button class="start-justified" v-on:confirm="onBtnClickTellMe"
+                       style="background: url('http://wpa.qq.com/pa?p=2:774177933:51');width: 79px;height: 25px;">
+            </ui-button>
+            <ui-button v-on:confirm="onBtnClickGen" class="end-justified red">生成</ui-button>
         </div>
     </div>
 </div>

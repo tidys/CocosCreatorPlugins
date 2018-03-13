@@ -43,6 +43,10 @@ Editor.Panel.extend({
                 excelFileArr: [],
             },
             methods: {
+                onBtnClickTellMe() {
+                    let url = "http://wpa.qq.com/msgrd?v=3&uin=774177933&site=qq&menu=yes";
+                    Electron.shell.openExternal(url);
+                },
                 _saveConfig() {
                     let data = {
                         excelRootPath: this.excelRootPath,
@@ -159,7 +163,7 @@ Editor.Panel.extend({
                         for (let k in allFileArr) {
                             let file = allFileArr[k];
                             let extName = path.extname(file);
-                            if (extName === ".xlsx") {
+                            if (extName === ".xlsx" || extName===".xls") {
                                 excelFileArr.push(file);
                             } else {
                                 console.log("不支持的文件类型: " + file);
@@ -399,7 +403,8 @@ Editor.Panel.extend({
                     this.checkJsonAllCfgFileExist();
                 },
 
-            }
+            },
+
         });
     },
 

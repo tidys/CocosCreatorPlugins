@@ -3,8 +3,11 @@
 插件实现了最基本的功能:
 - excel转json
 - excel转js
+- excel转lua(后续支持)
 ## 格式转换说明
-#### excel如下
+#### excel
+##### 支持的格式: *.xlsx, *.xls
+##### 内容格式如下
 - 第1行: 字段的索引key
 - 第2行: 字段的中文注释
 ##### 水果sheet:fruit
