@@ -8,6 +8,7 @@ let Electron = require('electron');
 let uglifyJs = Editor.require('packages://' + packageName + '/node_modules/uglify-js');
 let fsExtra = Editor.require('packages://' + packageName + '/node_modules/fs-extra');
 let jsonBeautifully = Editor.require('packages://' + packageName + '/node_modules/json-beautifully');
+var chokidar = Editor.require('packages://' + packageName + '/node_modules/chokidar');
 
 
 Editor.Panel.extend({
@@ -78,13 +79,27 @@ Editor.Panel.extend({
                     };
                     CfgUtil.saveCfgByData(data);
                 },
+                _watchDir(event, filePath) {
+                    console.log(event, filePath);
+                    let ext = path.extname(filePath);
+                    if (ext === ".xlsx" || ext === ".xls") {
+                        this._onAnalyzeExcelDirPath(this.excelRootPath);
+                    }
+                },
+                onBtnClickHelpDoc(){
+                    let url = "https://github.com/tidys/CocosCreatorPlugins/tree/master/packages/excel-killer";
+                    Electron.shell.openExternal(url);
+                },
                 _initPluginCfg() {
                     console.log("initCfg");
                     CfgUtil.initCfg(function (data) {
                         if (data) {
                             this.excelRootPath = data.excelRootPath || "";
                             if (fs.existsSync(this.excelRootPath)) {
-                                this._onAnalyzeExcelDirPath(this.excelRootPath);
+                                // this._onAnalyzeExcelDirPath(this.excelRootPath);
+                                chokidar.watch(this.excelRootPath).on('all', this._watchDir.bind(this));
+                            } else {
+
                             }
                             this.jsFileName = data.jsFileName || "GameJsCfg";
                             this.jsonAllCfgFileName = data.jsonAllFileName || "GameJsonCfg";
@@ -95,9 +110,9 @@ Editor.Panel.extend({
                             this.checkJsonAllCfgFileExist();
                         }
                     }.bind(this));
-                    this._initJsonSavePath();// 默认json路径
+                    this._initCfgSavePath();// 默认json路径
                 },
-                _initJsonSavePath() {
+                _initCfgSavePath() {
                     let projectPath = Editor.projectInfo.path;
                     let pluginResPath = path.join(projectPath, "plugin-resource");
                     if (!fs.existsSync(pluginResPath)) {
@@ -165,9 +180,12 @@ Editor.Panel.extend({
                     });
                     if (res !== -1) {
                         let dir = res[0];
-                        this.excelRootPath = dir;
-                        this._onAnalyzeExcelDirPath(dir);
-                        this._saveConfig();
+                        if (dir !== this.excelRootPath) {
+                            this.excelRootPath = dir;
+                            chokidar.watch(this.excelRootPath).on('all', this._watchDir.bind(this));
+                            // this._onAnalyzeExcelDirPath(dir);
+                            this._saveConfig();
+                        }
                     }
                 },
                 // 修改js配置文件

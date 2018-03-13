@@ -3,9 +3,14 @@
         <hr style="margin: 1px 0 1px 0">
         <div class="layout horizontal center justified">
             <h2 class="end-justified" style="margin: 1px 0 1px 0;color: #2feb21;">配置-Json</h2>
-            <ui-button class="end-justified" v-on:confirm="onBtnClickTellMe"
-                       style="background: url('http://wpa.qq.com/pa?p=2:774177933:51');width: 79px;height: 25px;">
-            </ui-button>
+            <div class="end-justified">
+                <ui-button v-on:confirm="onBtnClickTellMe"
+                           style="background: url('http://wpa.qq.com/pa?p=2:774177933:51');width: 79px;height: 25px;">
+                </ui-button>
+                <ui-button v-on:confirm="onBtnClickHelpDoc">
+                    帮助文档
+                </ui-button>
+            </div>
         </div>
         <ui-prop name="Json存放路径:">
             <ui-input class="flex-1" v-value="jsonSavePath" disabled></ui-input>
