@@ -77,8 +77,9 @@ Editor.Panel.extend({
                 localGamePackageUrl: "",
                 localGameProjectManifest: "",
                 localGameVersionManifest: "",
-                localGameProjectManifestUrl: "",//assets的url
-                localGameVersionManifestUrl: "",//
+                localGameProjectManifestUrl: "",//assets的project.manifest配置的url
+                localGameVersionManifestUrl: "",//assets的version.manifest配置的url
+
 
                 // 测试环境逻辑变量
                 testEnvLocal: true,
@@ -357,10 +358,39 @@ Editor.Panel.extend({
                     }.bind(this));
 
                 },
+                // 选择项目的manifest文件目录
+                selectProjectManifestDir() {
+                    let res = Editor.Dialog.openFile({
+                        title: "选择导入manifest的目录",
+                        defaultPath: path.join(Editor.projectInfo.path, 'assets'),
+                        properties: ['openDirectory'],
+                        callback: function (fileNames) {
+
+                        },
+                    });
+                    if (res !== -1) {
+                        let manifestFullPath = res[0];
+                        console.log(manifestFullPath);
+                        let url = Editor.assetdb.remote.fspathToUrl(manifestFullPath);
+                        this.localGameProjectManifestUrl = url;
+                        this.localGameVersionManifestUrl = url;
+                        this.importManifestToGame();
+                        this._addLog("导入完成,请检查项目目录:" + url);
+                    }
+                },
                 // 导入生成的manifest到游戏项目中
                 importManifestToGame() {
                     let projectFile = path.join(this.genManifestDir, "project.manifest");
                     let versionFile = path.join(this.genManifestDir, "version.manifest")
+                    if (!fs.existsSync(projectFile)) {
+                        this._addLog("文件不存在: " + projectFile);
+                        return;
+                    }
+
+                    if (!fs.existsSync(versionFile)) {
+                        this._addLog("文件不存在: " + versionFile);
+                        return;
+                    }
 
                     let strArr = this.localGameProjectManifestUrl.split("project.manifest");
                     let dir = strArr[0];

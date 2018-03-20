@@ -83,8 +83,23 @@
         </ui-section>
         <ui-section>
             <div class="header greenColor">当前游戏配置</div>
-            <div class="layout vertical">
-                <ui-prop name="项目热更配置文件(project.mainfest)">
+            <ui-prop name="热更配置(检测提示)" v-show="localGameProjectManifest.length===0||localGameProjectManifest===null">
+                <div class="flex-1 layout horizontal center">
+                    <span class="flex-2" style="color: #ff1500;">
+                        未发现manifest热更新配置文件,请生成一份后导入到项目
+                    </span>
+                    <!--<ui-input class="flex-2" placeholder="未发现manifest热更新配置文件,请生成一份后导入到项目">-->
+
+                    <!--</ui-input>-->
+                    <ui-button title="将生成的2个manifest文件导入到项目中" class="end-justified red"
+                               v-on:confirm="selectProjectManifestDir">
+                        导入
+                    </ui-button>
+                </div>
+            </ui-prop>
+
+            <div class="layout vertical" v-show="localGameProjectManifest.length>0">
+                <ui-prop name="热更配置(project.mainfest)">
                     <div class="flex-1 layout horizontal center">
                         <ui-input class="flex-1" disabled v-value="localGameProjectManifest"></ui-input>
                         <ui-button v-on:confirm="onOpenLocalGameManifestDir">
@@ -93,7 +108,7 @@
                         </ui-button>
                     </div>
                 </ui-prop>
-                <ui-prop name="项目热更配置文件(version.mainfest)">
+                <ui-prop name="热更配置(version.mainfest)">
                     <div class="flex-1 layout horizontal center">
                         <ui-input class="flex-1" disabled v-value="localGameVersionManifest"></ui-input>
                         <ui-button v-on:confirm="onOpenLocalGameManifestDir">
