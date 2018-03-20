@@ -965,6 +965,13 @@ Editor.Panel.extend({
                 },
                 onInPutUrlOver(event) {
                     let url = this.serverRootDir;
+                    if (url === "http://" || url === "https://" ||
+                        url === "http" || url === "https" ||
+                        url === "http:" || url === "https:"
+                    ) {
+                        return;
+                    }
+
                     let index1 = url.indexOf("http://");
                     let index2 = url.indexOf("https://");
                     if (index1 === -1 && index2 === -1) {
