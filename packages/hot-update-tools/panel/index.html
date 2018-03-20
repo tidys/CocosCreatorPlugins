@@ -232,6 +232,20 @@
             </div>
 
         </ui-section>
+        <ui-section folded>
+            <div class="header greenColor">帮助</div>
+            <div class="layout horizontal center self-end ">
+                <div class="self-end">
+                    <ui-button v-on:confirm="onBtnClickHelpDoc">
+                        GitHub文档
+                    </ui-button>
+                    <ui-button  v-on:confirm="onBtnClickTellMe"
+                                style="background: url('http://wpa.qq.com/pa?p=2:774177933:51');width: 77px;height: 25px;">
+                        QQ
+                    </ui-button>
+                </div>
+            </div>
+        </ui-section>
     </div>
 
 </div>
@@ -239,7 +253,7 @@
     <hr style="margin: 0 0 0 0 ;"/>
     <h2 style="margin: 0 0 0 0">日志:</h2>
     <textarea class="flex-1 " id="logTextArea" v-model="logView"
-              style="width: 100%; height: 100%; background: #252525;	color: #fd942b;	border-color: #fd942b;"></textarea>
+              style="width: 100%; height: 120px; background: #252525;	resize: none; color: #fd942b;	border-color: #fd942b;"></textarea>
 
 </div>
 

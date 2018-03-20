@@ -101,6 +101,14 @@ Editor.Panel.extend({
             },
             computed: {},
             methods: {
+                onBtnClickHelpDoc(){
+                    let url = "https://github.com/tidys/CocosCreatorPlugins/blob/master/packages/hot-update-tools/README.md";
+                    Electron.shell.openExternal(url);
+                },
+                onBtnClickTellMe(){
+                    let url = "http://wpa.qq.com/msgrd?v=3&uin=774177933&site=qq&menu=yes";
+                    Electron.shell.openExternal(url);
+                },
                 //////////////////////////////////阿里云环境/////////////////////////////////////////////////////
                 onBtnClickAliTest() {
                     let client = new OSS({
