@@ -281,6 +281,23 @@ Editor.Panel.extend({
                     });
                 },
 
+                _isVersionBig(versionA, versionB) {
+                    let verA = versionA.split('.');
+                    let numA = 0;
+                    for (let i = verA.length - 1, j = 0; i >= 0; i--, j++) {
+                        let num = parseInt(verA[i]);
+                        numA += num * Math.pow(10, j);
+                    }
+
+                    let verB = versionB.split('.');
+                    let numB = 0;
+                    for (let i = verB.length - 1, j = 0; i >= 0; i--, j++) {
+                        let num = parseInt(verB[i]);
+                        numB += num * Math.pow(10, j);
+                    }
+
+                    return numA >= numB;
+                },
                 _replaceIOS: function (cb) {
                     this._trackEvent('iOS begin');
 
@@ -298,22 +315,25 @@ Editor.Panel.extend({
                         this._trackEvent('iOS error2');
                         return;
                     }
-                    let ver = App.getVersion();
-                    console.log('ver: ' + ver);
-                    let newIconPath = Path.join(iconPath, IOSIconNamePattern);
-                    if (!Fs.existsSync(newIconPath)) {// creator1.7之后构建的工程
-                        let tmpPath = Path.join(iconPath, IOSIconAddDir);
-                        newIconPath = Path.join(tmpPath, IOSIconNamePattern);
+
+                    let newIconPath = null;
+                    let curVer = App.getVersion();
+                    let baseVer = "1.6.0";
+                    if (this._isVersionBig(curVer, baseVer)) {// 高版本,icon目录有变化
+                        console.log(curVer + ">=" + baseVer);
+                        newIconPath = Path.join(iconPath, IOSIconAddDir);
                         if (!Fs.existsSync(newIconPath)) {
                             let msg = `${newIconPath} is not a valid directory.`;
                             Editor.warn(msg);
                             cb(new Error(msg));
                             this._trackEvent('iOS error3');
                             return;
-                        } else {
-                            console.log("新版本的creator构建的ios项目,icon目录有变化!");
                         }
+                        newIconPath = Path.join(newIconPath, IOSIconNamePattern);
+                    } else {
+                        newIconPath = Path.join(iconPath, IOSIconNamePattern);
                     }
+
                     Globby(newIconPath, (err, paths) => {
                         Async.eachSeries(paths, (path, next) => {
                             this._resizePngToPath(this.pngPath, path, err => {
