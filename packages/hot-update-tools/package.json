@@ -16,7 +16,9 @@
     "type": "dockable",
     "title": "hotUpdateTools",
     "width": 900,
-    "height": 900
+    "height": 900,
+    "min-height": 400,
+    "min-width": 550
   },
   "dependencies": {
     "ali-oss": "^4.11.4",
