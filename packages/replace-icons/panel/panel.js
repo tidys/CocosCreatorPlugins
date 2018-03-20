@@ -3,6 +3,7 @@
 const Fs = require('fire-fs');
 const Path = require('path');
 const Electron = require('electron');
+const App = Electron.remote.app;
 const Async = require('async');
 const Globby = require('globby');
 
@@ -297,7 +298,8 @@ Editor.Panel.extend({
                         this._trackEvent('iOS error2');
                         return;
                     }
-
+                    let ver = App.getVersion();
+                    console.log('ver: ' + ver);
                     let newIconPath = Path.join(iconPath, IOSIconNamePattern);
                     if (!Fs.existsSync(newIconPath)) {// creator1.7之后构建的工程
                         let tmpPath = Path.join(iconPath, IOSIconAddDir);
