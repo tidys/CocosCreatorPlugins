@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+
+let yargs = require('yargs')
+let Server = require('../src/index.js');
+let argv = yargs
+    .option('d', {
+        alias: 'document',
+        demand: false,
+        type: 'string',
+        default: process.cwd(),
+        description: '静态文件根目录'
+    })
+    .option('o', {
+        alias: 'host',
+        demand: false,
+        type: 'string',
+        default: 'localhost',
+        description: '配置监听的主机'
+    })
+    .option('p', {
+        alias: 'port',
+        demand: false,
+        type: 'string',
+        default: '8080',
+        description: '配置监听的端口'
+    })
+    .usage('start-server [options]')
+    .example('server-start -d / -p 9090 -o localhost', '在本机的9090端口上监听客户端的请求')
+    .help('h')
+    .argv;
+
+let server = new Server(argv)
+server.start()

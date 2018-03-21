@@ -53,6 +53,8 @@ Editor.Panel.extend({
             init: function () {
             },
             data: {
+                testHttpUrl: null,// 测试环境http服务器地址
+
                 srcDirPath: "",
                 resDirPath: "",
                 projManifestPath: "",
@@ -101,11 +103,30 @@ Editor.Panel.extend({
             },
             computed: {},
             methods: {
-                onBtnClickHelpDoc(){
+                onBtnClickOpenTestHttpServer() {
+                    console.log("onBtnClickOpenTestHttpServer");
+                    let http = require('http');
+                    let port = 9800;
+                    http.createServer(function (request, response) {
+                        response.writeHead(200, {'Content-Type': 'text-plain'});
+                        response.end('Hello World\n');
+
+                    }).listen(port);
+                    this.testHttpUrl = "http://127.0.0.1:" + port;
+
+                },
+                onBtnClickTestHttp() {
+                    console.log("onBtnClickTestHttp");
+                    if (this.testHttpUrl) {
+                        Electron.shell.openExternal(this.testHttpUrl);
+                    }
+                },
+
+                onBtnClickHelpDoc() {
                     let url = "https://github.com/tidys/CocosCreatorPlugins/blob/master/packages/hot-update-tools/README.md";
                     Electron.shell.openExternal(url);
                 },
-                onBtnClickTellMe(){
+                onBtnClickTellMe() {
                     let url = "http://wpa.qq.com/msgrd?v=3&uin=774177933&site=qq&menu=yes";
                     Electron.shell.openExternal(url);
                 },
@@ -1204,14 +1225,25 @@ Editor.Panel.extend({
                 },
                 onCleanSimRemoteRes() {
                     let path = require("fire-path");
-                    let simPath = path.join(__dirname, "../cocos2d-x/simulator/win32");
-                    let remoteAsset = path.join(simPath, "remote-asset");
-                    if (!fs.existsSync(remoteAsset)) {
-                        console.log(remoteAsset);
-                        this._addLog("[清理热更缓存] 目录不存在: " + remoteAsset);
-                    } else {
-                        FileUtil.emptyDir(remoteAsset);
-                        this._addLog("[清理热更缓存] 清空目录 " + remoteAsset + " 成功.");
+                    let runPlatform = cc.sys.os;
+                    let remoteAsset = null;
+
+                    if (runPlatform === "Windows") {
+                        let simPath = path.join(__dirname, "../cocos2d-x/simulator/");
+                        remoteAsset = path.join(simPath, "win32/remote-asset");
+                    } else if (runPlatform === "OS X") {
+                        let simPath = path.join(__dirname, "../cocos2d-x/simulator/");
+                        remoteAsset = path.join(simPath, "mac/Simulator.app/Contents/Resources/remote-asset");
+                    }
+
+                    if (remoteAsset) {
+                        if (!fs.existsSync(remoteAsset)) {
+                            console.log(remoteAsset);
+                            this._addLog("[清理热更缓存] 目录不存在: " + remoteAsset);
+                        } else {
+                            FileUtil.emptyDir(remoteAsset);
+                            this._addLog("[清理热更缓存] 清空目录 " + remoteAsset + " 成功.");
+                        }
                     }
                 },
                 onOpenLocalGameManifestDir() {

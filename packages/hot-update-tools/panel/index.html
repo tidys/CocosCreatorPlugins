@@ -1,4 +1,4 @@
-<div id="view" class="scroll">
+<div id="view" class="scroll" xmlns:v-on="http://www.w3.org/1999/xhtml">
     <!--<div class="layout horizontal start-justified center">-->
     <!--<ui-select class="flex-3" v-on:change="onIpSelectChange" id="ipSelection">-->
 
@@ -11,6 +11,18 @@
     <!--</div>-->
     <div class="section" style>
         <!--focused 属性目前似乎有个bug,箭头图标不对-->
+        <ui-section style="display: none;">
+            <div class="header greenColor">Http服务</div>
+            <ui-prop name="访问网址">
+                <div class="flex-1" @mousedown="onBtnClickTestHttp">
+                    <ui-input disabled style="width: 100%;" v-value="testHttpUrl"></ui-input>
+                </div>
+                <ui-button @click="onBtnClickOpenTestHttpServer">
+                    开启Http服务
+                </ui-button>
+            </ui-prop>
+        </ui-section>
+
         <ui-section>
             <div class="header greenColor">生成Manifest配置</div>
             <div class="layout vertical start-justified">
@@ -232,6 +244,7 @@
             </div>
 
         </ui-section>
+
         <ui-section folded>
             <div class="header greenColor">帮助</div>
             <div class="layout horizontal center self-end ">
@@ -239,13 +252,14 @@
                     <ui-button v-on:confirm="onBtnClickHelpDoc">
                         GitHub文档
                     </ui-button>
-                    <ui-button  v-on:confirm="onBtnClickTellMe"
-                                style="background: url('http://wpa.qq.com/pa?p=2:774177933:51');width: 77px;height: 25px;">
+                    <ui-button v-on:confirm="onBtnClickTellMe"
+                               style="background: url('http://wpa.qq.com/pa?p=2:774177933:51');width: 77px;height: 25px;">
                         QQ
                     </ui-button>
                 </div>
             </div>
         </ui-section>
+
     </div>
 
 </div>
