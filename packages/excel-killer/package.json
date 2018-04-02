@@ -16,7 +16,7 @@
     "title": "excel-killer",
     "width": 500,
     "height": 700,
-    "min-height": 700,
+    "min-height": 600,
     "min-width": 500
   },
   "dependencies": {
