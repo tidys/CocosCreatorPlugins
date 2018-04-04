@@ -10,6 +10,9 @@
             </div>
         </div>
         <div class="layout vertical flex-1">
+            <ui-button v-on:confirm="onBtnClickTest">
+                Test
+            </ui-button>
             <ui-prop name="文件名:">
                 <div class="flex-1 layout horizontal  center">
                     <ui-input class="flex-1" v-on:blur="onUpdateSaveName" v-value="fileSaveName"></ui-input>
