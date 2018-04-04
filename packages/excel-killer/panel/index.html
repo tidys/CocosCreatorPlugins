@@ -58,10 +58,14 @@
         <ui-prop name="Excel文件路径:" tooltip="插件会循环遍历出目录下所有的excel文件">
             <div class="flex-1 layout horizontal center">
                 <ui-input placeholder="请选择Excel目录" disabled class="flex-1" v-value="excelRootPath"></ui-input>
+                <ui-button class="blue" v-on:confirm="onBtnClickSelectExcelRootPath">选择目录</ui-button>
                 <ui-button v-show="this.excelRootPath!==null && this.excelRootPath.length>0"
                            v-on:confirm="onBtnClickOpenExcelRootPath">打开目录
                 </ui-button>
-                <ui-button class="blue" v-on:confirm="onBtnClickSelectExcelRootPath">选择目录</ui-button>
+                <ui-button v-show="this.excelRootPath!==null && this.excelRootPath.length>0"
+                           v-on:confirm="onBtnClickFreshExcel">
+                    <i class="icon-arrows-cw"></i>
+                </ui-button>
             </div>
         </ui-prop>
 
@@ -89,13 +93,11 @@
             </div>
             <!--内容-->
             <div style="overflow: auto;overflow-x:hidden;height: 160px;">
-
                 <excel-item track-by="$index" v-for="(index,item) in excelArray"
                             v-bind:data="item"
                             v-bind:index="index">
                 </excel-item>
             </div>
-
         </div>
         <div class="layout horizontal center justified ">
             <h2 class="start-justified" style="margin: 1px 0 1px 0;color: #2feb21;"> 输出日志 </h2>

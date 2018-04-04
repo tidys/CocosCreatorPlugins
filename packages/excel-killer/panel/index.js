@@ -79,14 +79,19 @@ Editor.Panel.extend({
                     };
                     CfgUtil.saveCfgByData(data);
                 },
+                onBtnClickFreshExcel(){
+                    this._onAnalyzeExcelDirPath(this.excelRootPath);
+                },
                 _watchDir(event, filePath) {
+                    return;
+                    console.log("监控文件....");
                     console.log(event, filePath);
                     let ext = path.extname(filePath);
                     if (ext === ".xlsx" || ext === ".xls") {
                         this._onAnalyzeExcelDirPath(this.excelRootPath);
                     }
                 },
-                onBtnClickHelpDoc(){
+                onBtnClickHelpDoc() {
                     let url = "https://github.com/tidys/CocosCreatorPlugins/tree/master/packages/excel-killer/README.md";
                     Electron.shell.openExternal(url);
                 },
@@ -96,8 +101,15 @@ Editor.Panel.extend({
                         if (data) {
                             this.excelRootPath = data.excelRootPath || "";
                             if (fs.existsSync(this.excelRootPath)) {
-                                // this._onAnalyzeExcelDirPath(this.excelRootPath);
-                                chokidar.watch(this.excelRootPath).on('all', this._watchDir.bind(this));
+                                this._onAnalyzeExcelDirPath(this.excelRootPath);
+                                chokidar.watch(this.excelRootPath, {
+                                    usePolling: true,
+                                    // interval: 1000,
+                                    // awaitWriteFinish: {
+                                    //     stabilityThreshold: 2000,
+                                    //     pollInterval: 100
+                                    // },
+                                }).on('all', this._watchDir.bind(this));
                             } else {
 
                             }
@@ -183,7 +195,7 @@ Editor.Panel.extend({
                         if (dir !== this.excelRootPath) {
                             this.excelRootPath = dir;
                             chokidar.watch(this.excelRootPath).on('all', this._watchDir.bind(this));
-                            // this._onAnalyzeExcelDirPath(dir);
+                            this._onAnalyzeExcelDirPath(dir);
                             this._saveConfig();
                         }
                     }
