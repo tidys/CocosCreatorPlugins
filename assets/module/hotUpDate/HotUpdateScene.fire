@@ -45,7 +45,7 @@
     "_globalZOrder": 0,
     "_opacityModifyRGB": false,
     "groupIndex": 0,
-    "autoReleaseAssets": null
+    "autoReleaseAssets": false
   },
   {
     "__type__": "cc.Node",
@@ -866,10 +866,6 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "pressedSprite": {
-      "__uuid__": "268368df-9ef7-415b-b60d-2778f421f722"
-    },
-    "hoverSprite": null,
     "clickEvents": [
       {
         "__id__": 23
@@ -894,6 +890,14 @@
     "_N$normalSprite": {
       "__uuid__": "3354f348-d955-4fde-8283-9961cf5581ab"
     },
+    "_N$pressedSprite": {
+      "__uuid__": "268368df-9ef7-415b-b60d-2778f421f722"
+    },
+    "pressedSprite": {
+      "__uuid__": "268368df-9ef7-415b-b60d-2778f421f722"
+    },
+    "_N$hoverSprite": null,
+    "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 18

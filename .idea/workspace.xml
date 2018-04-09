@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77be2a0d-245c-4481-9db8-0f8f0c8c25fa" name="Default" comment="excel格式说明">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/excel-killer/test.xlsx" afterPath="$PROJECT_DIR$/doc/excel-killer/test.xlsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/hot-update-tools/package-lock.json" afterPath="$PROJECT_DIR$/packages/hot-update-tools/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/hot-update-tools/package.json" afterPath="$PROJECT_DIR$/packages/hot-update-tools/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/hot-update-tools/panel/index.html" afterPath="$PROJECT_DIR$/packages/hot-update-tools/panel/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/hot-update-tools/panel/index.js" afterPath="$PROJECT_DIR$/packages/hot-update-tools/panel/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/module/hotUpDate/HotUpdateScene.fire" afterPath="$PROJECT_DIR$/assets/module/hotUpDate/HotUpdateScene.fire" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/cocos-particle2d/panel/index.html" afterPath="$PROJECT_DIR$/packages/cocos-particle2d/panel/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/cocos-particle2d/panel/index.js" afterPath="$PROJECT_DIR$/packages/cocos-particle2d/panel/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,30 +23,29 @@
     <favorites_list name="CocosCreatorPlugins" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.3777403">
+    <splitter split-orientation="horizontal" split-proportion="0.53333336">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.html">
+          <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/packages/cocos-particle2d/panel/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="105">
-                  <caret line="13" column="43" lean-forward="true" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+                <state relative-caret-position="343">
+                  <caret line="28" column="18" lean-forward="false" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/packages/cocos-particle2d/panel/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="178">
+                  <caret line="17" column="72" lean-forward="false" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="72" />
                   <folding>
-                    <element signature="n#style#0;n#ui-section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#ui-input#0;n#div#0;n#ui-prop#0;n#ui-section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#ui-section#2;n#div#0;n#div#0;n#!!top" expanded="false" />
-                    <element signature="n#style#0;n#span#0;n#div#0;n#ui-prop#0;n#ui-section#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#ui-section#3;n#div#0;n#div#0;n#!!top" expanded="false" />
-                    <element signature="n#style#0;n#div#0;n#div#1;n#ui-section#3;n#div#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#ui-section#3;n#div#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#div#2;n#div#1;n#ui-section#3;n#div#0;n#div#0;n#!!top" expanded="false" />
-                    <element signature="n#div#3;n#div#1;n#ui-section#3;n#div#0;n#div#0;n#!!top" expanded="false" />
-                    <element signature="n#ui-section#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-                    <element signature="n#style#0;n#ui-button#1;n#div#0;n#div#1;n#ui-section#4;n#div#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#hr#0;n#div#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#h2#0;n#div#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#textarea#0;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#ui-section#4;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+                    <element signature="n#ui-section#5;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -55,22 +54,48 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.js">
+        <leaf>
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/packages/quick-preview/panel/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="159">
-                  <caret line="1236" column="21" lean-forward="true" selection-start-line="1236" selection-start-column="21" selection-end-line="1236" selection-end-column="21" />
+                <state relative-caret-position="292">
+                  <caret line="78" column="11" lean-forward="true" selection-start-line="78" selection-start-column="11" selection-end-line="78" selection-end-column="11" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="node-globals-stub.js" pinned="false" current-in-tab="false">
-            <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/javascript/nodejs/library/node-globals-stub.js">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/packages/excel-killer/panel/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="114">
-                  <caret line="303" column="4" lean-forward="false" selection-start-line="303" selection-start-column="4" selection-end-line="303" selection-end-column="4" />
+                <state relative-caret-position="198">
+                  <caret line="53" column="8" lean-forward="false" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+                  <folding>
+                    <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#textarea#0;n#div#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="165">
+                  <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/packages/excel-killer/panel/index.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -92,10 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sole.log(&quot;excel</find>
-      <find>jsSavePath</find>
-      <find>onBtnClickOpenJsonSavePath</find>
-      <find>,</find>
       <find>nodeXlsx</find>
       <find>onBtnClickGo4399Doc</find>
       <find>.xlsx</find>
@@ -122,6 +143,10 @@
       <find>onBtnClickTellMe</find>
       <find>ui-input</find>
       <find>清理热更缓存] 目录不</find>
+      <find>upath</find>
+      <find>greenColor</find>
+      <find>_watchDir</find>
+      <find>onUpdateSaveName</find>
     </findStrings>
     <replaceStrings>
       <replace>hotAddrSelect</replace>
@@ -140,11 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CocosCreatorInspector/test/src/index.html" />
-        <option value="$PROJECT_DIR$/CocosCreatorInspector/test/webpack.config.js" />
-        <option value="$PROJECT_DIR$/CocosCreatorInspector/src/index/App.vue" />
-        <option value="$PROJECT_DIR$/CocosCreatorInspector/buid.bat" />
-        <option value="$PROJECT_DIR$/CocosCreatorInspector/gulpfile.js" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/如何运行项目.md" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/.gitignore" />
         <option value="$PROJECT_DIR$/CocosCreatorInspector/src/popup/App.vue" />
@@ -181,16 +201,21 @@
         <option value="$PROJECT_DIR$/packages/excel-killer/main.js" />
         <option value="$PROJECT_DIR$/packages/excel-killer/panel/item/excelItem.js" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/packages/excel-killer/panel/index.html" />
-        <option value="$PROJECT_DIR$/packages/excel-killer/package.json" />
-        <option value="$PROJECT_DIR$/packages/excel-killer/panel/index.js" />
         <option value="$PROJECT_DIR$/packages/excel-killer/README.md" />
         <option value="$PROJECT_DIR$/packages/replace-icons/panel/panel.js" />
         <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/index.css" />
         <option value="$PROJECT_DIR$/packages/hot-update-tools/package.json" />
         <option value="$PROJECT_DIR$/packages/hot-update-tools/README.md" />
-        <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/index.html" />
         <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/index.js" />
+        <option value="$PROJECT_DIR$/packages/hot-update-tools/panel/index.html" />
+        <option value="$PROJECT_DIR$/packages/excel-killer/package.json" />
+        <option value="$PROJECT_DIR$/packages/excel-killer/panel/index.css" />
+        <option value="$PROJECT_DIR$/packages/excel-killer/panel/index.js" />
+        <option value="$PROJECT_DIR$/packages/excel-killer/panel/index.html" />
+        <option value="$PROJECT_DIR$/packages/cocos-particle2d/panel/index.css" />
+        <option value="$PROJECT_DIR$/packages/quick-preview/panel/scripts/module.js" />
+        <option value="$PROJECT_DIR$/packages/cocos-particle2d/panel/index.html" />
+        <option value="$PROJECT_DIR$/packages/cocos-particle2d/panel/index.js" />
       </list>
     </option>
   </component>
@@ -227,10 +252,10 @@
     <handled-path value="$PROJECT_DIR$/packages/excel-killer/node_modules" />
     <handled-path value="$PROJECT_DIR$/packages/hot-update-tools/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="278" />
-    <option name="y" value="11" />
-    <option name="width" value="1081" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="164" />
+    <option name="y" value="18" />
+    <option name="width" value="1032" />
     <option name="height" value="730" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -267,41 +292,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="native" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="cocos">
           <expand>
@@ -345,6 +335,92 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="cocos-particle2d" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="cocos-particle2d" type="462c0819:PsiDirectoryNode" />
+              <item name="panel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="excel-killer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="excel-killer" type="462c0819:PsiDirectoryNode" />
+              <item name="panel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="quick-preview" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="quick-preview" type="462c0819:PsiDirectoryNode" />
+              <item name="panel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="quick-preview" type="462c0819:PsiDirectoryNode" />
+              <item name="panel" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="quick-preview" type="462c0819:PsiDirectoryNode" />
+              <item name="panel" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="quick-preview" type="462c0819:PsiDirectoryNode" />
+              <item name="screenshot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CocosCreatorPlugins" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CocosCreatorPlugins" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="quick-preview" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -557,7 +633,11 @@
       <workItem from="1521471657121" duration="100000" />
       <workItem from="1521508042880" duration="20212000" />
       <workItem from="1521602571976" duration="19000" />
-      <workItem from="1521618626609" duration="5018000" />
+      <workItem from="1521618626609" duration="6753000" />
+      <workItem from="1521681352707" duration="3334000" />
+      <workItem from="1521767787706" duration="1838000" />
+      <workItem from="1522643360570" duration="7816000" />
+      <workItem from="1522803874453" duration="13472000" />
     </task>
     <task id="LOCAL-00001" summary="3">
       <created>1516002621240</created>
@@ -633,18 +713,18 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="512561000" />
+    <option name="totallyTimeSpent" value="540756000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="278" y="11" width="1081" height="730" extended-state="1" />
+    <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22509961" sideWeight="0.3808554" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22243528" sideWeight="0.6191446" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18096724" sideWeight="0.6191446" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277311" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3372681" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33895448" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35506243" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31871837" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -658,9 +738,9 @@
       <window_info id="NativeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5054096" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
     </layout>
@@ -693,7 +773,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/packages/excel-killer/panel/index.js</url>
+          <line>24</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="js.build_tools.gulp">
@@ -711,76 +799,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/module/bezier/MyUI.js" />
-    <entry file="file://$PROJECT_DIR$/assets/module/bezier/CustomAni.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/foobar/inspector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/module/customUI/MyTestUI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/plugin-bugly/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/plugin-bugly/panel/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8925">
-          <caret line="595" column="0" lean-forward="false" selection-start-line="595" selection-start-column="0" selection-end-line="595" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/4399原创平台SDK/参数.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/CommonIssue.md" />
-    <entry file="file://$PROJECT_DIR$/assets/module/4399/4399.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="9" lean-forward="false" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/plugin-4399-web-js-sdk/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/module/bezier/BezierScene.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="32" lean-forward="false" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/plugin-4399-web-js-sdk/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CocosCreatorInspector/src/popup/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -888,13 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/packages/excel-killer/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/packages/excel-killer/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
@@ -914,20 +925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/packages/excel-killer/panel/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="67" column="15" lean-forward="false" selection-start-line="67" selection-start-column="15" selection-end-line="68" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/excel-killer/panel/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="40" lean-forward="true" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
@@ -938,22 +935,6 @@
           <second_editor>
             <js_state />
           </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-351">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -969,7 +950,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="30" column="28" lean-forward="false" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -977,38 +957,168 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="303" column="4" lean-forward="false" selection-start-line="303" selection-start-column="4" selection-end-line="303" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1620">
+          <caret line="108" column="25" lean-forward="false" selection-start-line="108" selection-start-column="25" selection-end-line="108" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/excel-killer/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/excel-killer/panel/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="13" column="43" lean-forward="true" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+        <state relative-caret-position="345">
+          <caret line="35" column="48" lean-forward="false" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="48" />
           <folding>
-            <element signature="n#style#0;n#ui-section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ui-input#0;n#div#0;n#ui-prop#0;n#ui-section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#ui-section#2;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#ui-prop#0;n#ui-section#2;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#ui-section#3;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#ui-section#3;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#ui-section#3;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#div#2;n#div#1;n#ui-section#3;n#div#0;n#div#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#div#1;n#ui-section#3;n#div#0;n#div#0;n#!!top" expanded="false" />
             <element signature="n#ui-section#4;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#ui-button#1;n#div#0;n#div#1;n#ui-section#4;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#hr#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/packages/hot-update-tools/panel/index.js">
+    <entry file="file://$PROJECT_DIR$/packages/game-preview/panel/boot.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="1236" column="21" lean-forward="true" selection-start-line="1236" selection-start-column="21" selection-end-line="1236" selection-end-column="21" />
+        <state relative-caret-position="270">
+          <caret line="33" column="10" lean-forward="true" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/quick-preview/panel/res/splash.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/quick-preview/panel/scripts/boot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5549">
+          <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/quick-preview/panel/scripts/engine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/quick-preview/panel/scripts/module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="57" column="27" lean-forward="true" selection-start-line="57" selection-start-column="27" selection-end-line="57" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/quick-preview/panel/scripts/init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="227" column="38" lean-forward="false" selection-start-line="227" selection-start-column="38" selection-end-line="227" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/cocos-particle2d/panel/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/quick-preview/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="19" lean-forward="true" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/excel-killer/panel/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="535" column="9" lean-forward="true" selection-start-line="535" selection-start-column="9" selection-end-line="535" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/excel-killer/panel/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="53" column="8" lean-forward="false" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/cocos-particle2d/panel/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="17" column="72" lean-forward="false" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="72" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#ui-section#4;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#ui-section#5;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/cocos-particle2d/panel/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="28" column="18" lean-forward="false" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/quick-preview/panel/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="78" column="11" lean-forward="true" selection-start-line="78" selection-start-column="11" selection-end-line="78" selection-end-column="11" />
           <folding />
         </state>
       </provider>

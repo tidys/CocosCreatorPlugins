@@ -70,3 +70,5 @@ packages/bitmap-font/node_modules/
 packVersion/
 CocosCreatorInspector/bin/cc-inspector.crx
 plugin-resource/
+packages/quick-preview/
+packages/game-preview/
