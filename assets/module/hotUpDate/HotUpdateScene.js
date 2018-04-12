@@ -137,4 +137,11 @@ cc.Class({
             // cc.director.loadScene("TestGameScene");
         }.bind(this));
     },
+    onBtnClickReStart() {
+        if (cc.sys.isNative) {
+            cc.game.restart();
+        } else {
+            console.log("don't reStart");
+        }
+    }
 });

@@ -1,0 +1,8 @@
+.idea/*
+.settings/*
+target/*
+*.iml
+*.jar
+.project
+.classpath
+node_modules

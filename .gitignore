@@ -72,3 +72,5 @@ CocosCreatorInspector/bin/cc-inspector.crx
 plugin-resource/
 packages/quick-preview/
 packages/game-preview/
+packages/clean/
+packages/pack-scene-asset-master/

@@ -1,0 +1,49 @@
+<div id="view" class="scroll">
+    <div class="section">
+        <ui-section style="display: none;">
+            <div class="header greenColor">指定文件压缩</div>
+
+            <ui-prop name="压缩音频文件"
+                     v-on:drop="dropFile"
+                     v-on:dragover="drag"
+                     v-on:dragenter="drag"
+                     v-on:dragleave="drag">
+                <ui-input v-value="mp3Path" class="flex-1"
+                          placeholder="拖拽文件到这里">
+                </ui-input>
+                <ui-button v-show=" mp3Path && mp3Path.length > 0" v-on:confirm="onBtnCompress">压缩</ui-button>
+            </ui-prop>
+        </ui-section>
+
+        <ui-button v-on:confirm="onBtnClickGetProjectMusic">
+            刷新
+        </ui-button>
+        <ui-section>
+            <div class="header greenColor">项目文件压缩</div>
+            <!--<ui-prop name="操作">-->
+            <!--<ui-button>检索项目音频文件</ui-button>-->
+            <!--</ui-prop>-->
+            <!--表头-->
+            <div class="wrapper center layout horizontal">
+                <div class="box flex-1"> 序号</div>
+                <div class="box flex-3"> 文件</div>
+                <div class="box flex-1"> 压缩</div>
+            </div>
+
+            <!--内容 class="scroll" style="height: 400px;"-->
+            <div>
+                <mp3-item track-by="$index" v-for="(index,item) in mp3Array"
+                          v-bind:data="item"
+                          v-bind:index="index">
+                </mp3-item>
+            </div>
+
+        </ui-section>
+    </div>
+</div>
+<div style="width: 100%; height: 150px;margin: 0 0 0 0 ;">
+    <hr style="margin: 0 0 0 0 ;"/>
+    <h2 style="margin: 0 0 0 0">日志:</h2>
+    <textarea class="flex-1 " id="logTextArea" v-model="logView"
+              style="width: 100%; height: 120px; background: #252525;	resize: none; color: #fd942b;	border-color: #fd942b;"></textarea>
+</div>

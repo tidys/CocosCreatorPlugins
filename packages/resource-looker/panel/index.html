@@ -1,10 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div id="view" class="scroll">
+    <div class="section">
+        <ui-prop name="查找资源" tooltip="要查找的资源"
+                 style="height: 50px; display: flex;"
+                 v-on:drop="dropFile"
+                 v-on:dragover="drag"
+                 v-on:dragenter="drag"
+                 v-on:dragleave="drag">
+
+            <ui-asset type="raw-asset" v-value="findResName" class="flex-1">
+
+            </ui-asset>
+
+            <!--<ui-input class="flex-1" v-on:blur="onResNameChanged" v-value="findResName"-->
+            <!--placeholder="支持拖入要查找的资源"></ui-input>-->
+            <ui-button v-show="findResName && findResName.length>0" v-on:confirm="onBtnClickFindReferenceRes">查找
+            </ui-button>
+        </ui-prop>
+
+    </div>
+
+    <div class="layout vertical" style="height: 100%">
+
+        <ui-section>
+            <div class="header greenColor layout horizontal center">
+                <div>查找</div>
+            </div>
+            <div class="layout vertical"
+                 style="width:100%;height: 200px;background-color: #888888;
+        margin-left: 4px;margin-right: 4px;">
+                <div class="layout horizontal center flex-1" style="height: 20px;">
+                    <h4 style="margin:4px 0 4px 0" class="flex-2">Excel列表:</h4>
+                    <!--<h4 style="margin:4px 10px 4px 0" class="self-end">sheet[{{excelArray.length}}]-->
+                    <!--excel[{{excelFileArr.length}}]</h4>-->
+                </div>
+            </div>
+            test
+        </ui-section>
+
+
+        <!--&lt;!&ndash;表头&ndash;&gt;-->
+        <!--<div class="layout horizontal center"-->
+        <!--style="width: 100%;height: 20px;background-color: #fd942b;border-radius: 2px;">-->
+        <!--<div style="width: 20%">-->
+        <!--<ui-checkbox v-on:change="onBtnClickSelectSheet" checked></ui-checkbox>-->
+        <!--序号-->
+        <!--</div>-->
+        <!--<div style="width: 40%">-->
+        <!--Excel文件-->
+        <!--</div>-->
+        <!--<div style="width: 40%">-->
+        <!--工作表名称-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;内容&ndash;&gt;-->
+        <!--<div style="overflow: auto;overflow-x:hidden;height: 160px;">-->
+        <!--<excel-item track-by="$index" v-for="(index,item) in excelArray"-->
+        <!--v-bind:data="item"-->
+        <!--v-bind:index="index">-->
+        <!--</excel-item>-->
+        <!--</div>-->
+
+    </div>
+</div>
+<div style="width: 100%; height: 150px;margin: 0 0 0 0 ;">
+    <hr style="margin: 0 0 0 0 ;"/>
+    <h2 style="margin: 0 0 0 0">日志:</h2>
+    <textarea class="flex-1 " id="logTextArea" v-model="logView"
+              style="width: 100%; height: 120px; background: #252525;	resize: none; color: #fd942b;	border-color: #fd942b;"></textarea>
+</div>
