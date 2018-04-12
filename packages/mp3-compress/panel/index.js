@@ -133,7 +133,7 @@ Editor.Panel.extend({
                                 // 临时文件重命名
                                 let newNamePath = path.join(tempMp3Dir, fileName + '.mp3');
                                 fs.renameSync(tempMp3Path, newNamePath);
-                                this._addLog(`压缩成功: ${voiceFile} `);
+                                this._addLog(`压缩成功: ${voiceFileUrl} `);
 
                                 let fullFileName = fileName + '.mp3';
                                 let url = voiceFileUrl.substr(0, voiceFileUrl.length - fullFileName.length - 1);
