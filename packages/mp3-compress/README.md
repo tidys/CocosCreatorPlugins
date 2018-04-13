@@ -5,3 +5,13 @@
 项目中使用了lame
 - npm地址: https://www.npmjs.com/package/node-lame
 - sourceforge地址: http://lame.sourceforge.net/
+
+## 插件使用
+- 打开快捷键: Cmd/Ctrl + m
+- 目前插件只会对mp3进行压缩,所以建议项目使用mp3类型音频文件
+## 使用动态图
+![使用小视频](../../doc/mp3-Compress/插件使用.gif)
+## 压缩效果
+- [压缩前文件 9.79k](../../doc/mp3-Compress/testcase.mp3)
+- [压缩前文件 4.94k](../../doc/mp3-Compress/testcase-compress.mp3)
+

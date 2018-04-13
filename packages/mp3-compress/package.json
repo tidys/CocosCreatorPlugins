@@ -5,8 +5,10 @@
   "author": "Cocos Creator",
   "main": "main.js",
   "main-menu": {
-    "i18n:MAIN_MENU.package.title/mp3-compress": {
-      "message": "mp3-compress:open"
+    "i18n:MAIN_MENU.package.title/i18n:mp3-compress.title": {
+      "message": "mp3-compress:open",
+      "accelerator": "CmdOrCtrl+m"
+
     }
   },
   "panel": {

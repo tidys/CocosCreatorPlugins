@@ -64,6 +64,10 @@ Editor.Panel.extend({
                     this.logView += "[" + time.toLocaleString() + "]: " + str + "\n";
                     logListScrollToBottom();
                 },
+                onBtnClickCompressAll() {
+                    console.log("压缩整个项目音频文件");
+                    this._compressMp3(this.mp3Array);
+                },
                 // 检索项目中的声音文件mp3类型
                 onBtnClickGetProjectMusic() {
                     this.mp3Array = [];
@@ -80,7 +84,6 @@ Editor.Panel.extend({
                     console.log("onItemCompress");
                     // 进行压缩
                     this._compressMp3([data]);
-
                 },
                 _getLamePath() {
                     let lamePath = null;
@@ -92,6 +95,11 @@ Editor.Panel.extend({
                         lamePath = path.join(lameBasePath, 'lame');
                     }
                     return lamePath;
+                },
+                _getTempMp3Dir() {
+                    let userPath = Electron.remote.app.getPath('userData');
+                    let tempMp3Dir = path.join(userPath, "/mp3Compress");// 临时目录
+                    return tempMp3Dir;
                 },
                 _compressMp3(fileDataArray) {
                     // 设置lame路径
@@ -113,8 +121,7 @@ Editor.Panel.extend({
 
                             if (path.extname(voiceFile) === ".mp3") {
                                 // 检测临时缓存目录
-                                let userPath = Electron.remote.app.getPath('userData');
-                                let tempMp3Dir = path.join(userPath, "/mp3Compress");// 临时目录
+                                let tempMp3Dir = this._getTempMp3Dir();// 临时目录
                                 if (!fs.existsSync(tempMp3Dir)) {
                                     fs.mkdirSync(tempMp3Dir);
                                 }
@@ -125,11 +132,10 @@ Editor.Panel.extend({
                                 let tempMp3Path = path.join(tempMp3Dir, 'temp_' + fileName + '.mp3');
 
                                 // 压缩mp3
-                                let cmd = `${lamePath} -V 0 -q 0 -b 45 -B 80 --abr 64 ${voiceFile} ${tempMp3Path}`;
-                                // console.log("------------------------------1");
+                                let cmd = `${lamePath} -V 0 -q 0 -b 45 -B 80 --abr 64 "${voiceFile}" "${tempMp3Path}"`;
+                                console.log("------------------------------exec began" + i);
                                 yield child_process.execPromise(cmd);
-                                // console.log("------------------------------2");
-                                // fs.unlinkSync(voiceFile);
+                                console.log("------------------------------exec end" + i);
                                 // 临时文件重命名
                                 let newNamePath = path.join(tempMp3Dir, fileName + '.mp3');
                                 fs.renameSync(tempMp3Path, newNamePath);
@@ -141,6 +147,7 @@ Editor.Panel.extend({
                                 // 导入到项目原位置
                                 Editor.assetdb.import([newNamePath], url,
                                     function (err, results) {
+                                        console.log("11111111111111111");
                                         results.forEach(function (result) {
                                             console.log(result.path);
                                             // result.uuid
@@ -155,6 +162,11 @@ Editor.Panel.extend({
                                 console.log("不支持的文件类型:" + voiceFile);
                             }
                         }
+                        // TODO 删除临时目录的文件
+                        // let dir = this._getTempMp3Dir();// 临时目录
+                        // if (fs.existsSync(dir)) {
+                        //     fs.unlinkSync(dir);// 删除临时文件
+                        // }
                         this._addLog("处理完毕!");
                     }.bind(this));
 
@@ -186,7 +198,22 @@ Editor.Panel.extend({
     },
 
     messages: {
-        'mp3-compress:hello'(event) {
+        'mp3-compress:hello'(event, target) {
+            console.log("刷新文件列表");
+            // 检测变动的文件里面是否包含mp3
+            let b = false;
+            for (let i = 0; i < target.length; i++) {
+                let ext = require('fire-path').extname(target[i].path || target[i].destPath);
+                if (ext === '.mp3') {
+                    b = true;
+                    break;
+                }
+            }
+            if (b) {
+                window.plugin.onBtnClickGetProjectMusic();
+            } else {
+                console.log("未发现音频文件,无需刷新:");
+            }
         }
     }
 });
