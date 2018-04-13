@@ -7,7 +7,7 @@
   "main-menu": {
     "i18n:MAIN_MENU.package.title/i18n:mp3-compress.title": {
       "message": "mp3-compress:open",
-      "accelerator": "CmdOrCtrl+m"
+      "accelerator": "CmdOrCtrl+Shift+m"
 
     }
   },

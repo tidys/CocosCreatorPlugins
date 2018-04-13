@@ -15,3 +15,7 @@
 - [压缩前文件 9.79k](../../doc/mp3-Compress/testcase.mp3)
 - [压缩前文件 4.94k](../../doc/mp3-Compress/testcase-compress.mp3)
 
+## 帮助
+![权限问题](../../doc/mp3-Compress/mac.png)
+
+
