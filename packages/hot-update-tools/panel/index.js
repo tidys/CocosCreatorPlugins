@@ -384,8 +384,25 @@ Editor.Panel.extend({
                         }
                         this._initResourceBuild();
                         this.initLocalGameVersion();
+                        this._initLocalServerDir();
                     }.bind(this));
 
+                },
+                // 初始化本地server目录
+                _initLocalServerDir() {
+                    if (this.localServerPath && this.localServerPath.length > 0) {
+                        console.log("已经有本地server目录");
+                    } else {
+                        let zipDir = CfgUtil.getPackZipDir();
+                        if (!fs.existsSync(zipDir)) {
+                            fs.mkdirSync(zipDir);
+                        }
+                        let serverDir = path.join(zipDir, "server");
+                        if (!fs.existsSync(serverDir)) {
+                            fs.mkdirSync(serverDir);
+                        }
+                        this.localServerPath = serverDir;
+                    }
                 },
                 // 选择项目的manifest文件目录
                 selectProjectManifestDir() {
@@ -716,9 +733,15 @@ Editor.Panel.extend({
                 },
                 // 选择物理server路径
                 onSelectLocalServerPath(event) {
+                    let path = Editor.projectInfo.path;
+                    if (this.localServerPath && this.localServerPath.length > 0) {
+                        if (fs.existsSync(this.localServerPath)) {
+                            path = this.localServerPath;
+                        }
+                    }
                     let res = Editor.Dialog.openFile({
                         title: "选择本地测试服务器目录",
-                        defaultPath: Editor.projectInfo.path,
+                        defaultPath: path,
                         properties: ['openDirectory'],
                     });
                     if (res !== -1) {

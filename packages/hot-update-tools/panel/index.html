@@ -132,7 +132,12 @@
                 </ui-prop>
                 <ui-prop name="package url:">
                     <div class="flex-1 layout horizontal center">
-                        <h4 class="flex-2">{{localGamePackageUrl}}</h4>
+                        <h4 class="flex-2">
+                            {{localGamePackageUrl}}
+                        </h4>
+                        <a v-show="localGamePackageUrl&&localGamePackageUrl.length>0" href="{{localGamePackageUrl}}/version.manifest">
+                            验证version.mainfest
+                        </a>
                     </div>
                 </ui-prop>
                 <ui-prop name="游戏版本号:">
@@ -168,6 +173,9 @@
                     <ui-prop name="package url">
                         <div class="flex-1 layout horizontal center">
                             <h4 class="flex-2">{{serverPackageUrl}}</h4>
+                            <a v-show="serverPackageUrl&&serverPackageUrl.length>0" href="{{serverPackageUrl}}/version.manifest">
+                                验证version.manifest
+                            </a>
                         </div>
                     </ui-prop>
                     <ui-prop name="服务器版本">

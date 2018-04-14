@@ -7,7 +7,7 @@
   "main-menu": {
     "i18n:MAIN_MENU.project.title/i18n:hot-update-tools.title": {
       "icon": "icon.png",
-      "accelerator": "CmdOrCtrl+Shift+h",
+      "accelerator": "CmdOrCtrl+u",
       "message": "hot-update-tools:showPanel"
     }
   },
