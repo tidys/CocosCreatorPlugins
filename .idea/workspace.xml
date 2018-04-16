@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77be2a0d-245c-4481-9db8-0f8f0c8c25fa" name="Default" comment="excel格式说明">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/module/mp3Compress/testcase.mp3" afterPath="$PROJECT_DIR$/assets/module/mp3Compress/testcase.mp3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/module/mp3Compress/testcase.mp3.meta" afterPath="$PROJECT_DIR$/assets/module/mp3Compress/testcase.mp3.meta" />
-    </list>
+    <list default="true" id="77be2a0d-245c-4481-9db8-0f8f0c8c25fa" name="Default" comment="excel格式说明" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -193,9 +189,9 @@
     <handled-path value="$PROJECT_DIR$/packages/hot-update-tools/node_modules" />
     <handled-path value="$PROJECT_DIR$/packages/mp3-compress/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="313" />
-    <option name="y" value="142" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="115" />
+    <option name="y" value="41" />
     <option name="width" value="1096" />
     <option name="height" value="668" />
   </component>
@@ -519,7 +515,7 @@
       <workItem from="1523326355342" duration="11700000" />
       <workItem from="1523421703503" duration="27000" />
       <workItem from="1523432328717" duration="45962000" />
-      <workItem from="1523846213410" duration="239000" />
+      <workItem from="1523846213410" duration="386000" />
     </task>
     <task id="LOCAL-00001" summary="3">
       <created>1516002621240</created>
@@ -616,7 +612,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="600574000" />
+    <option name="totallyTimeSpent" value="600721000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -628,7 +624,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="313" y="142" width="1096" height="668" extended-state="1" />
+    <frame x="115" y="41" width="1096" height="668" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22509961" sideWeight="0.3808554" order="2" side_tool="true" content_ui="tabs" />
