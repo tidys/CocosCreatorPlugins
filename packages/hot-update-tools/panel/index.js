@@ -1145,13 +1145,24 @@ Editor.Panel.extend({
                 userLocalIP() {
                     let ip = "";
                     let os = require('os');
+                    let runPlatform = cc.sys.os;
                     let network = os.networkInterfaces();
-                    for (let i = 0; i < network.WLAN.length; i++) {
-                        let json = network.WLAN[i];
-                        if (json.family === 'IPv4') {
-                            ip = json.address;
+                    if (runPlatform === "Windows") {//win
+                        for (let i = 0; i < network.WLAN.length; i++) {
+                            let json = network.WLAN[i];
+                            if (json.family === 'IPv4') {
+                                ip = json.address;
+                            }
+                        }
+                    } else if (runPlatform === "OS X") {//mac
+                        for (let i = 0; i < network.en0.length; i++) {
+                            let item = network.en0[i];
+                            if (item.family === 'IPv4') {
+                                ip = item.address;
+                            }
                         }
                     }
+
                     console.log(ip);
                     if (ip.length > 0) {
                         this.serverRootDir = "http://" + ip;
