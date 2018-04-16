@@ -1155,12 +1155,19 @@ Editor.Panel.extend({
                             }
                         }
                     } else if (runPlatform === "OS X") {//mac
-                        for (let i = 0; i < network.en0.length; i++) {
-                            let item = network.en0[i];
-                            if (item.family === 'IPv4') {
-                                ip = item.address;
+                        let ipDate = null;
+                        if (network && network.en0) {
+                            ipDate = network.en0;
+                        }
+                        if (ipDate) {
+                            for (let i = 0; i < ipDate.length; i++) {
+                                let item = network.en0[i];
+                                if (item.family === 'IPv4') {
+                                    ip = item.address;
+                                }
                             }
                         }
+
                     }
 
                     console.log(ip);
