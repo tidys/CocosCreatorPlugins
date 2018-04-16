@@ -1122,13 +1122,23 @@ Editor.Panel.extend({
                 userLocalIP() {
                     let ip = "";
                     let os = require('os');
-                    let network = os.networkInterfaces();
-                    for (let i = 0; i < network.WLAN.length; i++) {
-                        let json = network.WLAN[i];
-                        if (json.family === 'IPv4') {
-                            ip = json.address;
-                        }
-                    }
+                    let ifaces = os.networkInterfaces();
+                    // for (let i = 0; i < network.WLAN.length; i++) {
+                    //     let json = network.WLAN[i];
+                    //     if (json.family === 'IPv4') {
+                    //         ip = json.address;
+                    //     }
+                    // }
+                    Object.keys(ifaces).forEach(function (ifname) {
+                        var alias = 0;
+                        ifaces[ifname].forEach(function (iface) {
+                            if ('IPv4' !== iface.family || iface.internal !== false) {
+                            // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
+                            return;
+                            }
+                            ip = iface.address
+                        });
+                    });
                     console.log(ip);
                     if (ip.length > 0) {
                         this.serverRootDir = "http://" + ip;
