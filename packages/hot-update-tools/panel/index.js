@@ -1146,47 +1146,39 @@ Editor.Panel.extend({
                     let ip = "";
                     let os = require('os');
                     let ifaces = os.networkInterfaces();
-                    // for (let i = 0; i < network.WLAN.length; i++) {
-                    //     let json = network.WLAN[i];
-                    //     if (json.family === 'IPv4') {
-                    //         ip = json.address;
-                    //     }
-                    // }
                     Object.keys(ifaces).forEach(function (ifname) {
-                        var alias = 0;
                         ifaces[ifname].forEach(function (iface) {
                             if ('IPv4' !== iface.family || iface.internal !== false) {
-                            // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
-                            return;
+                                // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
+                                return;
                             }
                             ip = iface.address
                         });
                     });
 
-                    let runPlatform = cc.sys.os;
-                    let network = os.networkInterfaces();
-                    if (runPlatform === "Windows") {//win
-                        for (let i = 0; i < network.WLAN.length; i++) {
-                            let json = network.WLAN[i];
-                            if (json.family === 'IPv4') {
-                                ip = json.address;
-                            }
-                        }
-                    } else if (runPlatform === "OS X") {//mac
-                        let ipDate = null;
-                        if (network && network.en0) {
-                            ipDate = network.en0;
-                        }
-                        if (ipDate) {
-                            for (let i = 0; i < ipDate.length; i++) {
-                                let item = network.en0[i];
-                                if (item.family === 'IPv4') {
-                                    ip = item.address;
-                                }
-                            }
-                        }
-
-                    }
+                    // let runPlatform = cc.sys.os;
+                    // let network = os.networkInterfaces();
+                    // if (runPlatform === "Windows") {//win
+                    //     for (let i = 0; i < network.WLAN.length; i++) {
+                    //         let json = network.WLAN[i];
+                    //         if (json.family === 'IPv4') {
+                    //             ip = json.address;
+                    //         }
+                    //     }
+                    // } else if (runPlatform === "OS X") {//mac
+                    //     let ipDate = null;
+                    //     if (network && network.en0) {
+                    //         ipDate = network.en0;
+                    //     }
+                    //     if (ipDate) {
+                    //         for (let i = 0; i < ipDate.length; i++) {
+                    //             let item = network.en0[i];
+                    //             if (item.family === 'IPv4') {
+                    //                 ip = item.address;
+                    //             }
+                    //         }
+                    //     }
+                    // }
 
                     console.log(ip);
                     if (ip.length > 0) {
