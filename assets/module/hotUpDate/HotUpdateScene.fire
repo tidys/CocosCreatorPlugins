@@ -806,7 +806,7 @@
     "_actualFontSize": 35,
     "_fontSize": 35,
     "_lineHeight": 40,
-    "_enableWrapText": false,
+    "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "5c944147-3b78-4e4d-9ebd-39e8b7784a51"
     },

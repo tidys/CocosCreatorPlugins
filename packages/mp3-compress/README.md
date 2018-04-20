@@ -15,3 +15,9 @@
 - [压缩前文件 9.79k](../../doc/mp3-Compress/testcase.mp3)
 - [压缩前文件 4.94k](../../doc/mp3-Compress/testcase-compress.mp3)
 
+## 帮助
+在mac平台下,执行lame需要运行权限,插件会自动授予权限,如果插件提示了权限问题,需要再次检查下lame的权限
+
+![权限问题](../../doc/mp3-Compress/mac.png)
+
+

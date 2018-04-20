@@ -10,9 +10,10 @@
 
 ## 2款收费插件,有需求的支持下呗
 - 字体瘦身
-    http://store.cocos.com/stuff/show/178910.html
+    - 购买链接: http://store.cocos.com/stuff/show/178910.html
 - BMFont位图字体生成工具
-    http://store.cocos.com/stuff/show/178913.html
+    - 购买链接: http://store.cocos.com/stuff/show/178913.html
+    - 帮助文档: [点击](doc/bitmap-font/README.md)
     
 # 福利代码
 项目中的代码是个人开发沉淀,希望对你有所帮助!     

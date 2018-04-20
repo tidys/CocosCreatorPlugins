@@ -9,11 +9,13 @@ let child_process = require('child_process');
 let mp3item = Editor.require('packages://' + packageName + '/panel/item/mp3item.js');
 
 // 同步执行exec
-child_process.execPromise = function (cmd, options) {
+child_process.execPromise = function (cmd, options, callback) {
     return new Promise(function (resolve, reject) {
         child_process.exec(cmd, options, function (err, stdout, stderr) {
             // console.log("执行完毕!");
             if (err) {
+                console.log(err);
+                callback && callback(stderr);
                 reject(err);
                 return;
             }
@@ -44,6 +46,7 @@ Editor.Panel.extend({
         window.plugin = new window.Vue({
             el: this.shadowRoot,
             created() {
+                this._getLamePath();
                 this.onBtnClickGetProjectMusic();
             },
             init() {
@@ -92,7 +95,15 @@ Editor.Panel.extend({
                     if (runPlatform === "Windows") {
                         lamePath = path.join(lameBasePath, 'lame.exe');
                     } else if (runPlatform === "OS X") {
+                        // 添加执行权限
                         lamePath = path.join(lameBasePath, 'lame');
+                        let cmd = "chmod u+x " + lamePath;
+                        child_process.exec(cmd, null, function (err) {
+                            if(err){
+                                console.log(err);
+                            }
+                            //console.log("添加执行权限成功");
+                        }.bind(this));
                     }
                     return lamePath;
                 },
@@ -134,7 +145,9 @@ Editor.Panel.extend({
                                 // 压缩mp3
                                 let cmd = `${lamePath} -V 0 -q 0 -b 45 -B 80 --abr 64 "${voiceFile}" "${tempMp3Path}"`;
                                 console.log("------------------------------exec began" + i);
-                                yield child_process.execPromise(cmd);
+                                yield child_process.execPromise(cmd, null, function (err) {
+                                    this._addLog("出现错误: \n" + err);
+                                }.bind(this));
                                 console.log("------------------------------exec end" + i);
                                 // 临时文件重命名
                                 let newNamePath = path.join(tempMp3Dir, fileName + '.mp3');
