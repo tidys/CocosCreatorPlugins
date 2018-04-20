@@ -1145,6 +1145,26 @@ Editor.Panel.extend({
                 userLocalIP() {
                     let ip = "";
                     let os = require('os');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     let runPlatform = cc.sys.os;
                     let network = os.networkInterfaces();
                     if (runPlatform === "Windows") {//win
