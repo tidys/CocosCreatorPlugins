@@ -1145,9 +1145,6 @@ Editor.Panel.extend({
                 userLocalIP() {
                     let ip = "";
                     let os = require('os');
-
-
-
                     let ifaces = os.networkInterfaces();
                     // for (let i = 0; i < network.WLAN.length; i++) {
                     //     let json = network.WLAN[i];
@@ -1165,22 +1162,6 @@ Editor.Panel.extend({
                             ip = iface.address
                         });
                     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     let runPlatform = cc.sys.os;
                     let network = os.networkInterfaces();
                     if (runPlatform === "Windows") {//win
