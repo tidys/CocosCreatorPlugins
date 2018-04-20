@@ -1186,6 +1186,15 @@ Editor.Panel.extend({
                         this.onInPutUrlOver(null);
                     }
                 },
+                onClickOpenVersionDir() {
+                    let zipDir = CfgUtil.getPackZipDir();
+                    if (!fs.existsSync(zipDir)) {
+                        this._addLog("目录不存在：" + zipDir);
+                        return;
+                    }
+                    Electron.shell.showItemInFolder(zipDir);
+                    Electron.shell.beep();
+                },
                 // 选择资源文件目录
                 onSelectSrcDir(event) {
                     let res = Editor.Dialog.openFile({

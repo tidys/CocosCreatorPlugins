@@ -1,5 +1,5 @@
-
-
+/*@import url(theme://globals/fontello.css);*/
+@import url('app://bower_components/fontawesome/css/font-awesome.min.css');
 h2 {
     color: #11ff00;
 }
