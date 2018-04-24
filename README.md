@@ -14,7 +14,25 @@
 - BMFont位图字体生成工具
     - 购买链接: http://store.cocos.com/stuff/show/178913.html
     - 帮助文档: [点击](doc/bitmap-font/README.md)
-    
+
+# 插件常见问题
+## 如何安装从其他地方获取的插件
+- 首先你需要确认插件源码是否包含以下最基本的2个文件
+    - package.json
+    - main.js
+- 将下载的插件文件存放在这样的一个目录: **项目目录/packages/插件名字/**
+- 如果插件代码没有问题的话,重启creator即可正确加载该插件
+
+
+## 如何修改插件快捷键
+每个插件的源代码都放在项目的packages目录下
+```json
+      "accelerator": "CmdOrCtrl+Shift+m"
+```
+如果在插件源码的package.json中定义了accelerator字段,那么插件的快捷键就会生效,如果设置的快捷键和系统快捷键有冲突,那么可以自行修改
+
+
+
 # 福利代码
 项目中的代码是个人开发沉淀,希望对你有所帮助!     
 - [Observer.js](assets/core/Observer.js)
