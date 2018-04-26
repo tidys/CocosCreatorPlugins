@@ -334,11 +334,11 @@ Editor.Panel.extend({
                         return;
                     }
 
-
                     let data = FS.readFileSync(buildCfg, 'utf-8');
                     let buildData = JSON.parse(data);
-                    let buildFullDir = PATH.join(projectPath, buildData.buildPath);
-
+                    let buildFullDir = buildData.buildPath;
+                    if (buildData.buildPath[0] === '.')
+                        buildFullDir = PATH.join(projectPath, buildData.buildPath);
 
                     let version = '1.4.3';
                     let buglyResPath = PATH.join(projectPath, 'packages/plugin-bugly/bugly/' + version);
