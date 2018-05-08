@@ -1,7 +1,7 @@
 {
   "appKey": "",
   "appSecret": "",
-  "encryptJs": true,
+  "encryptJs": false,
   "excludeScenes": [],
   "includeAnySDK": false,
   "includeSDKBox": false,
