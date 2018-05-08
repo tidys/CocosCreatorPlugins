@@ -247,8 +247,7 @@ Editor.Panel.extend({
                 },
 
                 onBtnCompress() {
-
-
+                    console.log("test");
                 },
                 dropFile(event) {
                     event.preventDefault();
