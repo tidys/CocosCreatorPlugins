@@ -8,7 +8,6 @@
     "i18n:MAIN_MENU.package.title/i18n:mp3-compress.title": {
       "message": "mp3-compress:open",
       "accelerator": "CmdOrCtrl+Shift+m"
-
     }
   },
   "panel": {
@@ -20,6 +19,9 @@
   },
   "dependencies": {
     "co": "^4.6.0",
+    "imagemin": "^5.3.1",
+    "imagemin-jpegtran": "^5.0.2",
+    "imagemin-pngquant": "^5.1.0",
     "lamejs": "^1.2.0"
   }
 }

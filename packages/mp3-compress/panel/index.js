@@ -7,6 +7,11 @@ let lameJs = Editor.require('packages://' + packageName + '/node_modules/lamejs'
 let co = Editor.require('packages://' + packageName + '/node_modules/co');
 let child_process = require('child_process');
 let mp3item = Editor.require('packages://' + packageName + '/panel/item/mp3item.js');
+let image_item = Editor.require('packages://' + packageName + '/panel/item/image-item.js');
+let imageMin = Editor.require('packages://' + packageName + '/node_modules/imagemin');
+let imageminPngquant = Editor.require('packages://' + packageName + '/node_modules/imagemin-pngquant');
+let imageminJpegtran = Editor.require('packages://' + packageName + '/node_modules/imagemin-jpegtran');
+
 
 // 同步执行exec
 child_process.execPromise = function (cmd, options, callback) {
@@ -43,6 +48,7 @@ Editor.Panel.extend({
             }, 10);
         };
         mp3item.init();
+        image_item.init();
         window.plugin = new window.Vue({
             el: this.shadowRoot,
             created() {
@@ -59,6 +65,7 @@ Editor.Panel.extend({
                 mp3Array: [
                     {uuid: "88a33018-0323-4c25-9b0c-c54f147f5dd8"},
                 ],
+                imageArray: [],
             },
             methods: {
                 _addLog(str) {
@@ -72,21 +79,57 @@ Editor.Panel.extend({
                     this._compressMp3(this.mp3Array);
                 },
                 // 检索项目中的声音文件mp3类型
-                onBtnClickGetProjectMusic() {
+                onBtnClickGetProjectMusic(event) {
+                    if (event) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
                     this.mp3Array = [];
-                    Editor.assetdb.queryAssets('db://assets/**\/*', 'audio-clip', function (err, results) {
+                    Editor.assetdb.queryAssets('db://assets/**\/*', ['audio-clip', 'texture'], function (err, results) {
                         results.forEach(function (result) {
                             let ext = path.extname(result.path);
                             if (ext === '.mp3') {
                                 this.mp3Array.push(result);
+                            } else if (ext === '.png' || ext === '.jpg') {
+                                this.imageArray.push(result);
                             }
                         }.bind(this));
                     }.bind(this));
                 },
-                onItemCompress(data) {
-                    console.log("onItemCompress");
+                onBtnClickGetProjectImage() {
+
+                },
+                onMusicItemCompress(data) {
                     // 进行压缩
+                    console.log("音频压缩");
                     this._compressMp3([data]);
+                },
+                onImageItemCompress(data) {
+                    console.log("图片压缩");
+                    let tmp = this._getTempMp3Dir();
+                    console.log(tmp);
+                    imageMin([data.path], tmp, {
+                        plugins: [
+                            imageminJpegtran(),
+                            imageminPngquant({quality: '65-80'})
+                        ]
+                    }).then(files => {
+                        // 导入到项目中
+                        console.log(files);
+
+                        // 导入到项目原位置
+                        Editor.assetdb.import([newNamePath], url,
+                            function (err, results) {
+                                results.forEach(function (result) {
+                                    console.log(result.path);
+                                    // result.uuid
+                                    // result.parentUuid
+                                    // result.url
+                                    // result.path
+                                    // result.type
+                                });
+                            }.bind(this));
+                    });
                 },
                 _getLamePath() {
                     let lamePath = null;
@@ -99,7 +142,7 @@ Editor.Panel.extend({
                         lamePath = path.join(lameBasePath, 'lame');
                         let cmd = "chmod u+x " + lamePath;
                         child_process.exec(cmd, null, function (err) {
-                            if(err){
+                            if (err) {
                                 console.log(err);
                             }
                             //console.log("添加执行权限成功");

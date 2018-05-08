@@ -16,7 +16,7 @@ module.exports = {
                     // console.log("on use: " + this.data.isUse);
                     // console.log("压缩");
                     // console.log(this.data);
-                    window.plugin.onItemCompress(this.data);
+                    window.plugin.onMusicItemCompress(this.data);
                 }
             },
             computed: {},

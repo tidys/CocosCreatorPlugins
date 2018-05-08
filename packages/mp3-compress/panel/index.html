@@ -16,7 +16,20 @@
         </ui-section>
 
         <ui-section>
-            <div class="header greenColor">项目文件压缩</div>
+            <div class="header">
+                <div class="greenColor">项目音频压缩</div>
+                <div class="wrapper layout center horizontal end-justified flex-1">
+                    <ui-button class='box tiny' v-on:confirm="onBtnClickGetProjectMusic">
+                        <i class="icon-arrows-cw"></i>
+                        刷新列表
+                    </ui-button>
+                    <ui-button class='box tiny' v-on:confirm="onBtnClickCompressAll">
+                        <i class="icon-ok"></i>
+                        压缩全部
+                    </ui-button>
+                </div>
+
+            </div>
             <div class="wrapper center layout horizontal">
                 <div class="box flex-1"> 序号</div>
                 <div class="box flex-3"> 文件</div>
@@ -34,21 +47,26 @@
         </ui-section>
 
 
+        <ui-section>
+            <div class="header greenColor"> 项目图片压缩</div>
+            <div class="wrapper center layout horizontal">
+                <div class="box flex-1"> 序号</div>
+                <div class="box flex-3"> 文件</div>
+                <div class="box flex-1"> 压缩</div>
+            </div>
 
+            <!--内容 class="scroll" style="height: 400px;"-->
+            <div>
+                <image-item track-by="$index" v-for="(index,item) in imageArray"
+                            v-bind:data="item"
+                            v-bind:index="index">
+                </image-item>
+            </div>
+        </ui-section>
     </div>
 
 </div>
-<hr style="margin:  5px 0 5px 0 ;"/>
-<div class="wrapper layout center horizontal end-justified">
-    <ui-button class='box' v-on:confirm="onBtnClickGetProjectMusic">
-        <i class="icon-arrows-cw"></i>
-        刷新列表
-    </ui-button>
-    <ui-button class='box' v-on:confirm="onBtnClickCompressAll">
-        <i class="icon-ok"></i>
-        压缩全部
-    </ui-button>
-</div>
+
 <div style="width: 100%; height: 150px;margin: 0 0 0 0 ;">
     <hr style="margin: 0 0 0 0 ;"/>
     <h2 style="margin: 0 0 0 0">日志:</h2>
