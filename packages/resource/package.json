@@ -1,0 +1,20 @@
+{
+  "name": "resource",
+  "version": "0.0.2",
+  "description": "Creator Resource Tools",
+  "author": "VisualSJ",
+  "main": "main.js",
+  "main-menu": {
+    "工具/Resource": {
+      "message": "resource:open"
+    }
+  },
+  "panel": {
+    "main": "panel/panel.js",
+    "type": "dockable",
+    "title": "Resource Tools",
+    "width": 500,
+    "height": 300,
+    "messages": []
+  }
+}

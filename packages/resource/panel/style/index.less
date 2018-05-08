@@ -1,0 +1,85 @@
+@import url('app://bower_components/fontawesome/css/font-awesome.min.css');
+
+:host {
+  display: flex;
+}
+
+#warp {
+  margin: 10px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  height: 50px;
+
+  ui-prop {
+    display: flex;
+    flex: 1;
+
+    ui-asset {
+      flex: 1;
+    }
+  }
+
+  i.fa {
+    margin: 6px 2px;
+    padding: 12px 6px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+}
+
+
+section {
+  flex: 1;
+  border-radius: 4px;
+  border: 1px solid #666;
+  padding: 10px;
+  overflow: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+
+  li {
+    padding: 4px 10px;
+    list-style: none;
+    display: flex;
+
+    border-bottom: 1px solid #666666;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    & > div {
+      padding: 4px 6px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .scene {
+      width: 120px;
+    }
+
+    .path {
+      flex: 1;
+    }
+
+    .controller {
+      width: 46px;
+
+      i {
+        margin: 0 2px;
+        padding: 0 4px;
+        cursor: pointer;
+      }
+    }
+  }
+}

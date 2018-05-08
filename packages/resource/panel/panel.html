@@ -1,0 +1,29 @@
+<div id="warp" class="warp">
+    <header>
+        <ui-prop name="目标资源">
+            <ui-asset v-value="uuid" type="raw-asset"></ui-asset>
+        </ui-prop>
+        <i class="fa fa-refresh" aria-hidden="true" title="刷新" @click="refresh"></i>
+        <i class="fa fa-info-circle" aria-hidden="true" title="拖入一个资源，查询所有场景内使用过这个资源的节点"></i>
+    </header>
+
+    <section>
+        <ul>
+            <li>
+                <div class="scene">场景</div>
+                <div class="path">路径</div>
+                <div class="controller"></div>
+            </li>
+            <li v-for="item in items">
+                <div class="scene" :title="item.scene">{{item.scene}}</div>
+                <div class="path" :title="item.path">{{item.path}}</div>
+                <div class="controller">
+                    <i class="fa fa-file" aria-hidden="true" title="场景资源" @click="jumpRes(item.uuid)"></i>
+                    <i class="fa fa-share" aria-hidden="true" title="跳转到节点" @click="jumpScene(item.uuid, item.nodeId)"></i>
+                    <!--<i class="fa fa-folder-open" aria-hidden="true"></i>-->
+                </div>
+            </li>
+        </ul>
+    </section>
+
+</div>

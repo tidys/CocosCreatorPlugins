@@ -1,0 +1,30 @@
+{
+  "name": "excel-killer",
+  "version": "0.0.1",
+  "description": "The package template for getting started.",
+  "author": "Cocos Creator",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.package.title/excel-killer": {
+      "accelerator": "CmdOrCtrl+Shift+j",
+      "message": "excel-killer:open"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "excel-killer",
+    "width": 500,
+    "height": 700,
+    "min-height": 600,
+    "min-width": 500
+  },
+  "dependencies": {
+    "chokidar": "^2.0.2",
+    "fs-extra": "^5.0.0",
+    "json-beautifully": "^1.0.3",
+    "node-xlsx": "^0.11.2",
+    "uglify-js": "^3.3.14",
+    "upath": "^1.0.4"
+  }
+}

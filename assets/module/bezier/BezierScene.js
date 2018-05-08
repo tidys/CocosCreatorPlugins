@@ -25,7 +25,7 @@ cc.Class({
         let windowSize = cc.view.getDesignResolutionSize();
         let bezierTo = cc.customBezierTo(5, bezier);
 
-        // let bezierTo = cc.bezierTo(5, bezier);
+        let bezierTo1 = cc.bezierTo(5, bezier);
 
         this.tipsLabel.string = "*";
         this.tipsLabel.node.setPosition(bezier[0]);

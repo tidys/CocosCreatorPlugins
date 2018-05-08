@@ -1,0 +1,25 @@
+{
+  "name": "mp3-compress",
+  "version": "0.0.1",
+  "description": "The package template for getting started.",
+  "author": "Cocos Creator",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.package.title/i18n:mp3-compress.title": {
+      "message": "mp3-compress:open",
+      "accelerator": "CmdOrCtrl+Shift+m"
+
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "mp3-compress",
+    "width": 400,
+    "height": 300
+  },
+  "dependencies": {
+    "co": "^4.6.0",
+    "lamejs": "^1.2.0"
+  }
+}

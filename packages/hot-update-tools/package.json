@@ -7,7 +7,7 @@
   "main-menu": {
     "i18n:MAIN_MENU.project.title/i18n:hot-update-tools.title": {
       "icon": "icon.png",
-      "accelerator": "CmdOrCtrl+h",
+      "accelerator": "CmdOrCtrl+u",
       "message": "hot-update-tools:showPanel"
     }
   },
@@ -16,13 +16,16 @@
     "type": "dockable",
     "title": "hotUpdateTools",
     "width": 900,
-    "height": 900
+    "height": 900,
+    "min-height": 400,
+    "min-width": 550
   },
   "dependencies": {
     "ali-oss": "^4.11.4",
     "co": "^4.6.0",
     "jquery": "^3.2.1",
     "jszip": "^3.1.5",
-    "nodemailer": "^4.4.1"
+    "nodemailer": "^4.4.1",
+    "static-server2": "^1.0.5"
   }
 }

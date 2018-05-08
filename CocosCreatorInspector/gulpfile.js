@@ -11,6 +11,12 @@ gulp.task("packageCrx", function () {
     return;
   }
   let dist = path.join(__dirname, "dist");
+  if (!fs.existsSync(dist)) {
+    console.log("打包目录不存在: " + dist);
+    console.log("发布失败!");
+    return;
+  }
+
   let exec = require('child_process').exec;
   let packageCmd = "chrome.exe --pack-extension=" + dist + " --pack-extension-key=" + pem;
   console.log("------------------------------------------------");
@@ -37,6 +43,7 @@ gulp.task("packageCrx", function () {
         }
       })
     } else {
+      console.log("文件不存在: " + file);
       console.log("发布失败!");
     }
   });

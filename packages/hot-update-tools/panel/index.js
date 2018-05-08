@@ -10,6 +10,7 @@ var FileUtil = Editor.require('packages://hot-update-tools/core/FileUtil.js');
 var Mail = Editor.require('packages://hot-update-tools/mail/Mail.js');
 var OSS = Editor.require('packages://hot-update-tools/node_modules/ali-oss');
 var CO = Editor.require('packages://hot-update-tools/node_modules/co');
+window.dc = Editor.require('packages://hot-update-tools/core/dcagent.js');
 
 Editor.Panel.extend({
     style: fs.readFileSync(Editor.url('packages://hot-update-tools/panel/index.css', 'utf8')) + "",
@@ -20,6 +21,11 @@ Editor.Panel.extend({
         testEnvSelect: '#testEnvSelect',
     },
     ready() {
+        window.dc.init({
+            appId: "C637D4988A27766D9B64D7391683B1C5F",
+            channel: cc.sys.os
+        });
+
         let logCtrl = this.$logTextArea;
         let logListScrollToBottom = function () {
             setTimeout(function () {
@@ -53,6 +59,8 @@ Editor.Panel.extend({
             init: function () {
             },
             data: {
+                testHttpUrl: null,// 测试环境http服务器地址
+
                 srcDirPath: "",
                 resDirPath: "",
                 projManifestPath: "",
@@ -77,8 +85,9 @@ Editor.Panel.extend({
                 localGamePackageUrl: "",
                 localGameProjectManifest: "",
                 localGameVersionManifest: "",
-                localGameProjectManifestUrl: "",//assets的url
-                localGameVersionManifestUrl: "",//
+                localGameProjectManifestUrl: "",//assets的project.manifest配置的url
+                localGameVersionManifestUrl: "",//assets的version.manifest配置的url
+
 
                 // 测试环境逻辑变量
                 testEnvLocal: true,
@@ -100,6 +109,33 @@ Editor.Panel.extend({
             },
             computed: {},
             methods: {
+                onBtnClickOpenTestHttpServer() {
+                    console.log("onBtnClickOpenTestHttpServer");
+                    let http = require('http');
+                    let port = 9800;
+                    http.createServer(function (request, response) {
+                        response.writeHead(200, {'Content-Type': 'text-plain'});
+                        response.end('Hello World\n');
+
+                    }).listen(port);
+                    this.testHttpUrl = "http://127.0.0.1:" + port;
+
+                },
+                onBtnClickTestHttp() {
+                    console.log("onBtnClickTestHttp");
+                    if (this.testHttpUrl) {
+                        Electron.shell.openExternal(this.testHttpUrl);
+                    }
+                },
+
+                onBtnClickHelpDoc() {
+                    let url = "https://github.com/tidys/CocosCreatorPlugins/blob/master/packages/hot-update-tools/README.md";
+                    Electron.shell.openExternal(url);
+                },
+                onBtnClickTellMe() {
+                    let url = "http://wpa.qq.com/msgrd?v=3&uin=774177933&site=qq&menu=yes";
+                    Electron.shell.openExternal(url);
+                },
                 //////////////////////////////////阿里云环境/////////////////////////////////////////////////////
                 onBtnClickAliTest() {
                     let client = new OSS({
@@ -354,13 +390,59 @@ Editor.Panel.extend({
                         }
                         this._initResourceBuild();
                         this.initLocalGameVersion();
+                        this._initLocalServerDir();
                     }.bind(this));
 
+                },
+                // 初始化本地server目录
+                _initLocalServerDir() {
+                    if (this.localServerPath && this.localServerPath.length > 0) {
+                        console.log("已经有本地server目录");
+                    } else {
+                        let zipDir = CfgUtil.getPackZipDir();
+                        if (!fs.existsSync(zipDir)) {
+                            fs.mkdirSync(zipDir);
+                        }
+                        let serverDir = path.join(zipDir, "server");
+                        if (!fs.existsSync(serverDir)) {
+                            fs.mkdirSync(serverDir);
+                        }
+                        this.localServerPath = serverDir;
+                    }
+                },
+                // 选择项目的manifest文件目录
+                selectProjectManifestDir() {
+                    let res = Editor.Dialog.openFile({
+                        title: "选择导入manifest的目录",
+                        defaultPath: path.join(Editor.projectInfo.path, 'assets'),
+                        properties: ['openDirectory'],
+                        callback: function (fileNames) {
+
+                        },
+                    });
+                    if (res !== -1) {
+                        let manifestFullPath = res[0];
+                        console.log(manifestFullPath);
+                        let url = Editor.assetdb.remote.fspathToUrl(manifestFullPath);
+                        this.localGameProjectManifestUrl = url;
+                        this.localGameVersionManifestUrl = url;
+                        this.importManifestToGame();
+                        this._addLog("导入完成,请检查项目目录:" + url);
+                    }
                 },
                 // 导入生成的manifest到游戏项目中
                 importManifestToGame() {
                     let projectFile = path.join(this.genManifestDir, "project.manifest");
                     let versionFile = path.join(this.genManifestDir, "version.manifest")
+                    if (!fs.existsSync(projectFile)) {
+                        this._addLog("文件不存在: " + projectFile);
+                        return;
+                    }
+
+                    if (!fs.existsSync(versionFile)) {
+                        this._addLog("文件不存在: " + versionFile);
+                        return;
+                    }
 
                     let strArr = this.localGameProjectManifestUrl.split("project.manifest");
                     let dir = strArr[0];
@@ -657,9 +739,15 @@ Editor.Panel.extend({
                 },
                 // 选择物理server路径
                 onSelectLocalServerPath(event) {
+                    let path = Editor.projectInfo.path;
+                    if (this.localServerPath && this.localServerPath.length > 0) {
+                        if (fs.existsSync(this.localServerPath)) {
+                            path = this.localServerPath;
+                        }
+                    }
                     let res = Editor.Dialog.openFile({
                         title: "选择本地测试服务器目录",
-                        defaultPath: Editor.projectInfo.path,
+                        defaultPath: path,
                         properties: ['openDirectory'],
                     });
                     if (res !== -1) {
@@ -965,6 +1053,13 @@ Editor.Panel.extend({
                 },
                 onInPutUrlOver(event) {
                     let url = this.serverRootDir;
+                    if (url === "http://" || url === "https://" ||
+                        url === "http" || url === "https" ||
+                        url === "http:" || url === "https:"
+                    ) {
+                        return;
+                    }
+
                     let index1 = url.indexOf("http://");
                     let index2 = url.indexOf("https://");
                     if (index1 === -1 && index2 === -1) {
@@ -1056,18 +1151,55 @@ Editor.Panel.extend({
                 userLocalIP() {
                     let ip = "";
                     let os = require('os');
-                    let network = os.networkInterfaces();
-                    for (let i = 0; i < network.WLAN.length; i++) {
-                        let json = network.WLAN[i];
-                        if (json.family === 'IPv4') {
-                            ip = json.address;
-                        }
-                    }
+                    let ifaces = os.networkInterfaces();
+                    Object.keys(ifaces).forEach(function (ifname) {
+                        ifaces[ifname].forEach(function (iface) {
+                            if ('IPv4' !== iface.family || iface.internal !== false) {
+                                // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
+                                return;
+                            }
+                            ip = iface.address
+                        });
+                    });
+
+                    // let runPlatform = cc.sys.os;
+                    // let network = os.networkInterfaces();
+                    // if (runPlatform === "Windows") {//win
+                    //     for (let i = 0; i < network.WLAN.length; i++) {
+                    //         let json = network.WLAN[i];
+                    //         if (json.family === 'IPv4') {
+                    //             ip = json.address;
+                    //         }
+                    //     }
+                    // } else if (runPlatform === "OS X") {//mac
+                    //     let ipDate = null;
+                    //     if (network && network.en0) {
+                    //         ipDate = network.en0;
+                    //     }
+                    //     if (ipDate) {
+                    //         for (let i = 0; i < ipDate.length; i++) {
+                    //             let item = network.en0[i];
+                    //             if (item.family === 'IPv4') {
+                    //                 ip = item.address;
+                    //             }
+                    //         }
+                    //     }
+                    // }
+
                     console.log(ip);
                     if (ip.length > 0) {
                         this.serverRootDir = "http://" + ip;
                         this.onInPutUrlOver(null);
                     }
+                },
+                onClickOpenVersionDir() {
+                    let zipDir = CfgUtil.getPackZipDir();
+                    if (!fs.existsSync(zipDir)) {
+                        this._addLog("目录不存在：" + zipDir);
+                        return;
+                    }
+                    Electron.shell.showItemInFolder(zipDir);
+                    Electron.shell.beep();
                 },
                 // 选择资源文件目录
                 onSelectSrcDir(event) {
@@ -1159,14 +1291,25 @@ Editor.Panel.extend({
                 },
                 onCleanSimRemoteRes() {
                     let path = require("fire-path");
-                    let simPath = path.join(__dirname, "../cocos2d-x/simulator/win32");
-                    let remoteAsset = path.join(simPath, "remote-asset");
-                    if (!fs.existsSync(remoteAsset)) {
-                        console.log(remoteAsset);
-                        this._addLog("[清理热更缓存] 目录不存在: " + remoteAsset);
-                    } else {
-                        FileUtil.emptyDir(remoteAsset);
-                        this._addLog("[清理热更缓存] 清空目录 " + remoteAsset + " 成功.");
+                    let runPlatform = cc.sys.os;
+                    let remoteAsset = null;
+
+                    if (runPlatform === "Windows") {
+                        let simPath = path.join(__dirname, "../cocos2d-x/simulator/");
+                        remoteAsset = path.join(simPath, "win32/remote-asset");
+                    } else if (runPlatform === "OS X") {
+                        let simPath = path.join(__dirname, "../cocos2d-x/simulator/");
+                        remoteAsset = path.join(simPath, "mac/Simulator.app/Contents/Resources/remote-asset");
+                    }
+
+                    if (remoteAsset) {
+                        if (!fs.existsSync(remoteAsset)) {
+                            console.log(remoteAsset);
+                            this._addLog("[清理热更缓存] 目录不存在: " + remoteAsset);
+                        } else {
+                            FileUtil.emptyDir(remoteAsset);
+                            this._addLog("[清理热更缓存] 清空目录 " + remoteAsset + " 成功.");
+                        }
                     }
                 },
                 onOpenLocalGameManifestDir() {

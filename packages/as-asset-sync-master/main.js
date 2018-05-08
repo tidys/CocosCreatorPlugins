@@ -3,6 +3,14 @@
 module.exports = {
     messages: {
         'editor:build-finished': function (event, target) {
+            // Editor.log("----------------------");
+            // Editor.log(target.platform);
+            if (target.platform === "android" /*|| target.platform === "ios"*/) {
+                Editor.log("[Sync Res] platform: " + target.platform);
+            } else {
+                Editor.log("[Sync Res] " + target.platform + " don't need sync res");
+                return;
+            }
             var fs = require("fire-fs");
             var path = require("fire-path");
             var fse = require('fs-extra');
