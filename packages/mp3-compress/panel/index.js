@@ -28,7 +28,19 @@ child_process.execPromise = function (cmd, options, callback) {
         })
     });
 };
-
+let importPromise = function (path, url, isShowProcess, callBack) {
+    return new Promise(function (resolve, reject) {
+        Editor.assetdb.import(path, url, isShowProcess, function (err, results) {
+            if (err) {
+                console.log(err);
+                reject(err);
+            }
+            callBack && callBack(results);
+            resolve();
+            return results;
+        })
+    });
+};
 Editor.Panel.extend({
 
     style: fs.readFileSync(Editor.url('packages://' + packageName + '/panel/index.css', 'utf8')) + "",
@@ -53,7 +65,7 @@ Editor.Panel.extend({
             el: this.shadowRoot,
             created() {
                 this._getLamePath();
-                this.onBtnClickGetProjectMusic();
+                this.onBtnClickGetProject();
             },
             init() {
             },
@@ -74,12 +86,16 @@ Editor.Panel.extend({
                     this.logView += "[" + time.toLocaleString() + "]: " + str + "\n";
                     logListScrollToBottom();
                 },
-                onBtnClickCompressAll() {
+                onBtnClickCompressAllMusic() {
                     console.log("压缩整个项目音频文件");
                     this._compressMp3(this.mp3Array);
                 },
+                onBtnClickCompressAllImage() {
+                    console.log("压缩整个项目图片文件");
+                    this._compressImage(this.imageArray);
+                },
                 // 检索项目中的声音文件mp3类型
-                onBtnClickGetProjectMusic(event) {
+                onBtnClickGetProject(event) {
                     if (event) {
                         event.preventDefault();
                         event.stopPropagation();
@@ -96,9 +112,6 @@ Editor.Panel.extend({
                         }.bind(this));
                     }.bind(this));
                 },
-                onBtnClickGetProjectImage() {
-
-                },
                 onMusicItemCompress(data) {
                     // 进行压缩
                     console.log("音频压缩");
@@ -106,30 +119,40 @@ Editor.Panel.extend({
                 },
                 onImageItemCompress(data) {
                     console.log("图片压缩");
+                    this._compressImage([data]);
+                },
+                _compressImage(dataArr) {
                     let tmp = this._getTempMp3Dir();
-                    console.log(tmp);
-                    imageMin([data.path], tmp, {
-                        plugins: [
-                            imageminJpegtran(),
-                            imageminPngquant({quality: '65-80'})
-                        ]
-                    }).then(files => {
-                        // 导入到项目中
-                        console.log(files);
+                    co(function* () {
+                        for (let i = 0; i < dataArr.length; i++) {
+                            let data = dataArr[i];
+                            // todo 对于图片格式的判断
+                            let files = yield imageMin([data.path], tmp, {
+                                plugins: [
+                                    imageminJpegtran(),
+                                    imageminPngquant({quality: '65-80'})
+                                ]
+                            });
+                            this._addLog("压缩成功:" + data.url);
+                            // 导入到项目原位置
+                            let newNamePath = files[0].path;
+                            let name = path.basename(newNamePath);
+                            let url = data.url.substr(0, data.url.length - name.length - 1);
 
-                        // 导入到项目原位置
-                        Editor.assetdb.import([newNamePath], url,
-                            function (err, results) {
+                            yield importPromise([newNamePath], url, true, function (results) {
                                 results.forEach(function (result) {
-                                    console.log(result.path);
-                                    // result.uuid
-                                    // result.parentUuid
-                                    // result.url
-                                    // result.path
-                                    // result.type
+                                    if (result.type === "texture") {
+                                        console.log("del: " + result.path);
+                                        if (fs.existsSync(newNamePath)) {
+                                            fs.unlinkSync(newNamePath);// 删除临时文件
+                                        }
+                                    }
                                 });
                             }.bind(this));
-                    });
+
+                        }
+                    }.bind(this));
+                    this._addLog("压缩完毕!");
                 },
                 _getLamePath() {
                     let lamePath = null;
@@ -201,16 +224,17 @@ Editor.Panel.extend({
                                 let url = voiceFileUrl.substr(0, voiceFileUrl.length - fullFileName.length - 1);
 
                                 // 导入到项目原位置
-                                Editor.assetdb.import([newNamePath], url,
-                                    function (err, results) {
-                                        console.log("11111111111111111");
+                                yield  importPromise([newNamePath], url, true,
+                                    function (results) {
                                         results.forEach(function (result) {
-                                            console.log(result.path);
-                                            // result.uuid
-                                            // result.parentUuid
-                                            // result.url
-                                            // result.path
-                                            // result.type
+                                            //   删除临时目录的文件
+                                            // console.log("type: " + result.type);
+                                            if (result.type = "audio-clip") {
+                                                console.log("del: " + result.path);
+                                                if (fs.existsSync(newNamePath)) {
+                                                    fs.unlinkSync(newNamePath);// 删除临时文件
+                                                }
+                                            }
                                         });
                                     }.bind(this));
 
@@ -218,14 +242,8 @@ Editor.Panel.extend({
                                 console.log("不支持的文件类型:" + voiceFile);
                             }
                         }
-                        // TODO 删除临时目录的文件
-                        // let dir = this._getTempMp3Dir();// 临时目录
-                        // if (fs.existsSync(dir)) {
-                        //     fs.unlinkSync(dir);// 删除临时文件
-                        // }
                         this._addLog("处理完毕!");
                     }.bind(this));
-
                 },
 
                 onBtnCompress() {
@@ -266,7 +284,7 @@ Editor.Panel.extend({
                 }
             }
             if (b) {
-                window.plugin.onBtnClickGetProjectMusic();
+                window.plugin.onBtnClickGetProject();
             } else {
                 console.log("未发现音频文件,无需刷新:");
             }
