@@ -1,5 +1,5 @@
 let fs = require('fire-fs');
-let packageName = "mp3-compress";
+let packageName = "res-compress";
 
 module.exports = {
     init() {

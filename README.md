@@ -6,7 +6,7 @@
 [Cocos-Creator-Inspector](CocosCreatorInspector/README.md)  
 [Excel工具](packages/excel-killer/README.md)    
 [贝塞尔编辑工具](packages/bezier/README.md)      
-[音频压缩工具](packages/mp3-compress/README.md)     
+[音频压缩工具](packages/res-compress/README.md)     
 
 ## 2款收费插件,有需求的支持下呗
 - 字体瘦身

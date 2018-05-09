@@ -1,25 +1,26 @@
 {
-  "name": "mp3-compress",
+  "name": "res-compress",
   "version": "0.0.1",
   "description": "The package template for getting started.",
   "author": "Cocos Creator",
   "main": "main.js",
   "main-menu": {
-    "i18n:MAIN_MENU.package.title/i18n:mp3-compress.title": {
-      "message": "mp3-compress:open",
+    "i18n:MAIN_MENU.package.title/i18n:res-compress.title": {
+      "message": "res-compress:open",
       "accelerator": "CmdOrCtrl+Shift+m"
     }
   },
   "panel": {
     "main": "panel/index.js",
     "type": "dockable",
-    "title": "mp3-compress",
+    "title": "res-compress",
     "width": 400,
     "height": 300
   },
   "dependencies": {
     "co": "^4.6.0",
     "imagemin": "^5.3.1",
+    "imagemin-jpeg-recompress": "^5.1.0",
     "imagemin-jpegtran": "^5.0.2",
     "imagemin-pngquant": "^5.1.0",
     "lamejs": "^1.2.0"

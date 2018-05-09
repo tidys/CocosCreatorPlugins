@@ -12,8 +12,17 @@
 ## 使用动态图
 ![使用小视频](../../doc/mp3-Compress/插件使用.gif)
 ## 压缩效果
+### mp3
 - [压缩前文件 9.79k](../../doc/mp3-Compress/testcase.mp3)
 - [压缩前文件 4.94k](../../doc/mp3-Compress/testcase-compress.mp3)
+
+### jpg
+- [压缩前jpg 1.08M](../../doc/mp3-Compress/test.jpg)
+- [压缩前jpg 360k](../../doc/mp3-Compress/test-compress.jpg)
+
+### png
+- [压缩前jpg 57.3k](../../doc/mp3-Compress/test.png)
+- [压缩前jpg 12.6k](../../doc/mp3-Compress/test-compress.png)
 
 ## 帮助
 在mac平台下,执行lame需要运行权限,插件会自动授予权限,如果插件提示了权限问题,需要再次检查下lame的权限

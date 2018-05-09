@@ -1,4 +1,4 @@
-let packageName = "mp3-compress";
+let packageName = "res-compress";
 let fs = require('fire-fs');
 let path = require('fire-path');
 let Electron = require('electron');
@@ -11,6 +11,7 @@ let image_item = Editor.require('packages://' + packageName + '/panel/item/image
 let imageMin = Editor.require('packages://' + packageName + '/node_modules/imagemin');
 let imageminPngquant = Editor.require('packages://' + packageName + '/node_modules/imagemin-pngquant');
 let imageminJpegtran = Editor.require('packages://' + packageName + '/node_modules/imagemin-jpegtran');
+let imageminJpegRecompress = Editor.require('packages://' + packageName + '/node_modules/imagemin-jpeg-recompress');
 
 
 // 同步执行exec
@@ -41,6 +42,20 @@ let importPromise = function (path, url, isShowProcess, callBack) {
         })
     });
 };
+let queryAssetsPromise = function (url, type, callBack) {
+    return new Promise(function (resolve, reject) {
+        Editor.assetdb.queryAssets(url, type, function (err, results) {
+            if (err) {
+                console.log(err);
+                reject(err);
+            }
+            callBack && callBack(results);
+            resolve();
+            return results;
+        })
+    })
+};
+
 Editor.Panel.extend({
 
     style: fs.readFileSync(Editor.url('packages://' + packageName + '/panel/index.css', 'utf8')) + "",
@@ -101,7 +116,25 @@ Editor.Panel.extend({
                         event.stopPropagation();
                     }
                     this.mp3Array = [];
+                    this.imageArray = [];
+                    // co(function* () {
+                    //     console.log("11");
+                    //     yield queryAssetsPromise('db://assets/**\/*', ['audio-clip', 'texture'], function (results) {
+                    //         results.forEach(function (result) {
+                    //             let ext = path.extname(result.path);
+                    //             if (ext === '.mp3') {
+                    //                 this.mp3Array.push(result);
+                    //             } else if (ext === '.png' || ext === '.jpg') {
+                    //                 this.imageArray.push(result);
+                    //             }
+                    //         }.bind(this));
+                    //         console.log("222");
+                    //     }.bind(this));
+                    // }.bind(this));
+                    // return;
                     Editor.assetdb.queryAssets('db://assets/**\/*', ['audio-clip', 'texture'], function (err, results) {
+                        this.mp3Array = [];
+                        this.imageArray = [];
                         results.forEach(function (result) {
                             let ext = path.extname(result.path);
                             if (ext === '.mp3') {
@@ -129,11 +162,20 @@ Editor.Panel.extend({
                             // todo 对于图片格式的判断
                             let files = yield imageMin([data.path], tmp, {
                                 plugins: [
+                                    imageminJpegRecompress({
+                                        accurate: true,//高精度模式
+                                        quality: "high",//图像质量:low, medium, high and veryhigh;
+                                        method: "smallfry",//网格优化:mpe, ssim, ms-ssim and smallfry;
+                                        min: 70,//最低质量
+                                        loops: 0,//循环尝试次数, 默认为6;
+                                        progressive: false,//基线优化
+                                        subsample: "default"//子采样:default, disable;
+                                    }),
                                     imageminJpegtran(),
                                     imageminPngquant({quality: '65-80'})
                                 ]
                             });
-                            this._addLog("压缩成功:" + data.url);
+                            this._addLog("压缩成功 [" + (i + 1) + "/" + dataArr.length + "]:" + data.url);
                             // 导入到项目原位置
                             let newNamePath = files[0].path;
                             let name = path.basename(newNamePath);
@@ -151,12 +193,12 @@ Editor.Panel.extend({
                             }.bind(this));
 
                         }
+                        this._addLog("压缩完毕!");
                     }.bind(this));
-                    this._addLog("压缩完毕!");
                 },
                 _getLamePath() {
                     let lamePath = null;
-                    let lameBasePath = path.join(Editor.projectInfo.path, "packages/mp3-compress/file");
+                    let lameBasePath = path.join(Editor.projectInfo.path, "packages/res-compress/file");
                     let runPlatform = cc.sys.os;
                     if (runPlatform === "Windows") {
                         lamePath = path.join(lameBasePath, 'lame.exe');
@@ -218,7 +260,7 @@ Editor.Panel.extend({
                                 // 临时文件重命名
                                 let newNamePath = path.join(tempMp3Dir, fileName + '.mp3');
                                 fs.renameSync(tempMp3Path, newNamePath);
-                                this._addLog(`压缩成功: ${voiceFileUrl} `);
+                                this._addLog(`压缩成功 [${(i + 1)}/${fileDataArray.length}] : ${voiceFileUrl} `);
 
                                 let fullFileName = fileName + '.mp3';
                                 let url = voiceFileUrl.substr(0, voiceFileUrl.length - fullFileName.length - 1);
@@ -248,6 +290,8 @@ Editor.Panel.extend({
 
                 onBtnCompress() {
                     console.log("test");
+                    this.onBtnClickGetProject(null);
+                    this.onBtnClickGetProject(null);
                 },
                 dropFile(event) {
                     event.preventDefault();
@@ -271,13 +315,13 @@ Editor.Panel.extend({
     },
 
     messages: {
-        'mp3-compress:hello'(event, target) {
+        'res-compress:hello'(event, target) {
             console.log("刷新文件列表");
             // 检测变动的文件里面是否包含mp3
             let b = false;
             for (let i = 0; i < target.length; i++) {
                 let ext = require('fire-path').extname(target[i].path || target[i].destPath);
-                if (ext === '.mp3') {
+                if (ext === '.mp3' || ext === ".png" || ext === ".jpg") {
                     b = true;
                     break;
                 }
@@ -285,7 +329,7 @@ Editor.Panel.extend({
             if (b) {
                 window.plugin.onBtnClickGetProject();
             } else {
-                console.log("未发现音频文件,无需刷新:");
+                // console.log("未发现音频文件,无需刷新:");
             }
         }
     }
