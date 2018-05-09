@@ -150,10 +150,10 @@ Editor.Panel.extend({
                 },
                 _sortArr(arr) {
                     arr.sort(function (a, b) {
-                        let pathA = a.url;
-                        let pathB = b.url;
-                        let extA = path.basename(pathA);
-                        let extB = path.basename(pathB);
+                        let pathA = a.path;
+                        let pathB = b.path;
+                        let extA = path.basename(pathA).toLowerCase();
+                        let extB = path.basename(pathB).toLowerCase();
                         let numA = extA.charCodeAt(0);
                         let numB = extB.charCodeAt(0);
                         return numA - numB;
