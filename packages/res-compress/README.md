@@ -17,15 +17,15 @@
 ## 压缩效果
 ### mp3
 - [压缩前文件 9.79k](../../doc/res-Compress/testcase.mp3)
-- [压缩前文件 4.94k](../../doc/res-Compress/testcase-compress.mp3)
+- [压缩后文件 4.94k](../../doc/res-Compress/testcase-compress.mp3)
 
 ### jpg
 - [压缩前jpg 1.08M](../../doc/res-Compress/test.jpg)
-- [压缩前jpg 360k](../../doc/res-Compress/test-compress.jpg)
+- [压缩后jpg 360k](../../doc/res-Compress/test-compress.jpg)
 
 ### png
 - [压缩前jpg 57.3k](../../doc/res-Compress/test.png)
-- [压缩前jpg 12.6k](../../doc/res-Compress/test-compress.png)
+- [压缩后jpg 12.6k](../../doc/res-Compress/test-compress.png)
 
 ## 帮助
 在mac平台下,执行lame需要运行权限,插件会自动授予权限,如果插件提示了权限问题,需要再次检查下lame的权限
