@@ -1,16 +1,19 @@
 # 插件说明
-在保证mp3音频文件质量的前提下,对mp3文件进行瘦身,减小mp3文件体积的大小
+插件提供了对mp3,png,jpg资源的压缩功能,在保证文件质量的前提下,对文件进行瘦身,减小文件体积的大小
 
 ## 其他说明
-项目中使用了lame
-- npm地址: https://www.npmjs.com/package/node-lame
-- sourceforge地址: http://lame.sourceforge.net/
+- 项目中压缩mp3使用了lame
+    - npm地址: https://www.npmjs.com/package/node-lame
+    - sourceforge地址: http://lame.sourceforge.net/
+- 项目中压缩图片使用了**imageMin**
 
 ## 插件使用
 - 打开快捷键: Cmd/Ctrl + m
-- 目前插件只会对mp3进行压缩,所以建议项目使用mp3类型音频文件
+- 音频文件: 目前插件只会对mp3进行压缩,所以建议项目使用mp3类型音频文件
+
 ## 使用动态图
 ![使用小视频](../../doc/mp3-Compress/插件使用.gif)
+
 ## 压缩效果
 ### mp3
 - [压缩前文件 9.79k](../../doc/mp3-Compress/testcase.mp3)
