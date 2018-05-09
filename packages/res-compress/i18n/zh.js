@@ -1,3 +1,3 @@
 module.exports={
-    title:'音频压缩',
+    title:'资源压缩',
 };
