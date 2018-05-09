@@ -143,7 +143,21 @@ Editor.Panel.extend({
                                 this.imageArray.push(result);
                             }
                         }.bind(this));
+                        // 按照字母排序
+                        this._sortArr(this.mp3Array);
+                        this._sortArr(this.imageArray);
                     }.bind(this));
+                },
+                _sortArr(arr) {
+                    arr.sort(function (a, b) {
+                        let pathA = a.url;
+                        let pathB = b.url;
+                        let extA = path.basename(pathA);
+                        let extB = path.basename(pathB);
+                        let numA = extA.charCodeAt(0);
+                        let numB = extB.charCodeAt(0);
+                        return numA - numB;
+                    })
                 },
                 onMusicItemCompress(data) {
                     // 进行压缩
