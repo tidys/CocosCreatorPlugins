@@ -8,7 +8,7 @@
   "inlineSpriteFrames": false,
   "inlineSpriteFrames_native": true,
   "jailbreakPlatform": false,
-  "md5Cache": false,
+  "md5Cache": true,
   "mergeStartScene": false,
   "oauthLoginServer": "",
   "optimizeHotUpdate": false,
@@ -23,6 +23,6 @@
   "renderMode": "0",
   "startScene": "96626ae2-1e44-4cf1-89de-79010176575f",
   "title": "helloWorld",
-  "webOrientation": "auto",
+  "webOrientation": "portrait",
   "xxteaKey": "3c44c5ef-1b08-4a"
 }
