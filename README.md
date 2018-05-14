@@ -11,9 +11,10 @@
 ## 2款收费插件,有需求的支持下呗
 - 字体瘦身
     - 购买链接: http://store.cocos.com/stuff/show/178910.html
+    - 帮助文档: [点击查看](doc/ttf/README.md)
 - BMFont位图字体生成工具
     - 购买链接: http://store.cocos.com/stuff/show/178913.html
-    - 帮助文档: [点击](doc/bitmap-font/README.md)
+    - 帮助文档: [点击查看](doc/bitmap-font/README.md)
 
 # 插件常见问题
 ## 如何安装从其他地方获取的插件
