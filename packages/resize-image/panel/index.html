@@ -17,7 +17,12 @@
             <option value="3">12.9寸</option>
         </ui-select>
     </ui-prop>
-    <ui-button class="green flex-1" v-on:confirm="onBtnClickResize">裁切</ui-button>
+
+    <div class="layout horizontal flex-1">
+        <div class="flex-1 self-end">
+            <ui-button class="green flex-2 self-end" v-on:confirm="onBtnClickResize">裁切</ui-button>
+        </div>
+    </div>
 
 
 </div>

@@ -12,7 +12,7 @@ Editor.Panel.extend({
         window.plugin = new window.Vue({
             el: this.shadowRoot,
             created() {
-
+                this.onSelectChange({detail: {value: "1"}});
             },
             init() {
             },
@@ -25,6 +25,28 @@ Editor.Panel.extend({
             methods: {
                 onBtnClickResize() {
                     console.log("resize");
+                    if (!this.imgPath) {
+                        console.log("没有添加图片");
+                        return;
+                    }
+
+                    if (this.sizeWidth === 0 || this.sizeHeight === 0) {
+                        console.log("图片宽高有问题");
+                        return;
+                    }
+
+                    let sharpPath = Editor.url('unpack://utils/sharp');
+                    let sharp = require(sharpPath);
+                    let des = "C:\\Users\\cocos dev\\Desktop\\image";
+                    des =path.join(des,"ts.png");
+                    sharp(this.imgPath).resize(this.sizeWidth, this.sizeHeight).toFile(des, (err, info) => {
+                        if (err) {
+                            // Editor.warn("error:"+err);
+                            console.log("error:" + err);
+                        }
+                    });
+
+
                 },
                 onSelectChange(event) {
                     let value = event.detail.value;
@@ -35,6 +57,8 @@ Editor.Panel.extend({
                         this._setSize(1242, 2208);
                     } else if (value === "3") {// 2048*2732
                         this._setSize(2048, 2732);
+                    } else {
+                        console.log("未发现该配置!");
                     }
                 },
                 _setSize(width, height) {
@@ -66,8 +90,7 @@ Editor.Panel.extend({
                         properties: ['openFile'],
                     });
                     if (res !== -1) {
-                        this.serverRootDir = res[0];
-                        this._saveConfig();
+                        this.imgPath = res[0];
                     }
                 },
 
