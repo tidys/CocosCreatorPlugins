@@ -13,12 +13,12 @@ module.exports = {
   messages: {
     'open' () {
       // open entry panel registered in package.json
-      Editor.Panel.open('replace-web-splash');
+      Editor.Panel.open('resize-image');
     },
     'say-hello' () {
       Editor.log('Hello World!');
       // send ipc message to panel
-      Editor.Ipc.sendToPanel('replace-web-splash', 'replace-web-splash:hello');
+      Editor.Ipc.sendToPanel('resize-image', 'resize-image:hello');
     },
     'clicked' () {
       Editor.log('Button clicked!');

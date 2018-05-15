@@ -1,0 +1,23 @@
+<div xmlns:v-bind="http://www.w3.org/1999/xhtml">
+    <ui-prop name="文件路径">
+        <ui-input class="flex-1" v-value="imgPath" disabled></ui-input>
+        <ui-button v-on:confirm="onBtnClickSelectPicture">选择</ui-button>
+    </ui-prop>
+    <ui-prop name="裁切尺寸">
+        <h3>宽:</h3>
+        <ui-input class="flex-1" v-value="sizeWidth"></ui-input>
+        <h3>高:</h3>
+        <ui-input class="flex-1" v-value="sizeHeight"></ui-input>
+        <ui-checkbox v-bind:checked="isLandSpace" v-on:change="onChangeLandSpace">
+            竖屏
+        </ui-checkbox>
+        <ui-select v-on:change="onSelectChange">
+            <option value="1">5.8寸</option>
+            <option value="2">5.5寸</option>
+            <option value="3">12.9寸</option>
+        </ui-select>
+    </ui-prop>
+    <ui-button class="green flex-1" v-on:confirm="onBtnClickResize">裁切</ui-button>
+
+
+</div>
