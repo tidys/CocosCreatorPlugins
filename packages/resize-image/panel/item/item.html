@@ -1,0 +1,37 @@
+<div class="root" xmlns:v-on="http://www.w3.org/1999/xhtml"
+     v-on:mouseover="onMouseOver"
+     v-on:mouseout="onMouseOut"
+>
+    <div class="wrapper layout horizontal center">
+        <div class="box flex-1">
+            <h4 style="width: 100%;margin: 0 0 0 0" align="center">
+                {{index+1}}
+            </h4>
+        </div>
+        <div class="box flex-3" style="display: block;"> {{data.path}}</div>
+
+        <!--<div class="box flex-1 center">-->
+        <!--<h4 style="width: 100%;margin: 0 0 0 0" align="center">-->
+        <!--{{data.imageWidth}}*{{data.imageHeight}}-->
+        <!--</h4>-->
+        <!--</div>-->
+        <!--<div class="box flex-1"-->
+        <!--style="display: table-cell;vertical-align: middle;text-align: center;">-->
+        <!--<image v-bind:src="data.image"-->
+        <!--style="width: 40px;height: 40px;object-fit: contain;">-->
+
+        <!--</image>-->
+        <!--</div>-->
+        <!--<div class="box flex-1 charBg">-->
+        <!--<ui-input v-value="data.char" v-on:blur="onInputChar" style="margin: 4px 4px 4px 4px"></ui-input>-->
+
+        <!--</div>-->
+        <div class="box layout horizontal flex-1">
+            <ui-button v-on:confirm="onClickBtnDel" class="flex-2">
+                <i class="icon-trash-empty"></i>
+                <!--删除-->
+            </ui-button>
+        </div>
+
+    </div>
+</div>

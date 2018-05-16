@@ -1,31 +1,82 @@
 <div xmlns:v-bind="http://www.w3.org/1999/xhtml">
-    <ui-prop name="文件路径">
-        <ui-input class="flex-1" v-value="imgPath" disabled></ui-input>
-        <ui-button v-on:confirm="onBtnClickSelectPicture">选择</ui-button>
-        <ui-button class="green" v-on:confirm="onBtnClickOpenDir">打开</ui-button>
-        <ui-button class="red" v-on:confirm="onBtnClickCleanTmpDir">清空目录</ui-button>
+
+    <ui-prop name="裁切尺寸:">
+        <h3 style="margin-top: 10px;">宽:</h3>
+        <ui-input class="flex-2" v-value="sizeWidth"></ui-input>
+        <h3 style="margin-top: 10px;">高:</h3>
+        <ui-input class="flex-2" v-value="sizeHeight"></ui-input>
 
     </ui-prop>
-    <ui-prop name="裁切尺寸">
-        <h3>宽:</h3>
-        <ui-input class="flex-1" v-value="sizeWidth"></ui-input>
-        <h3>高:</h3>
-        <ui-input class="flex-1" v-value="sizeHeight"></ui-input>
+    <ui-prop name="常用推荐:">
         <ui-checkbox v-bind:checked="isLandSpace" v-on:change="onChangeLandSpace">
             竖屏
         </ui-checkbox>
-        <ui-select v-on:change="onSelectChange">
+        <ui-select v-on:change="onSelectChange" class="flex-1">
             <option value="1">5.8寸</option>
             <option value="2">5.5寸</option>
             <option value="3">12.9寸</option>
         </ui-select>
     </ui-prop>
 
-    <div class="layout horizontal flex-1">
-        <div class="flex-1 self-end">
-            <ui-button class="green flex-2 self-end" v-on:confirm="onBtnClickResize">裁切</ui-button>
-        </div>
+
+</div>
+<hr style="margin: 0 0 0 0 ;"/>
+
+
+<div class="wrapper center layout horizontal"
+     style="margin-left: 15px; margin-right: 25px;"
+>
+    <div class="box flex-1">
+        <h4 style="width: 100%;margin: 0 0 0 0" align="center"> 序号</h4>
+    </div>
+    <div class="box flex-3" style="display: block;">
+        <h4 style="width: 100%;margin: 0 0 0 0" align="left"> 本地文件路径</h4>
+    </div>
+    <div class="box flex-1 layout horizontal">
+        <h4 style="width: 100%;margin: 0 0 0 0" align="center"> 操作</h4>
+    </div>
+</div>
+
+<div id="view" class="scroll">
+    <div class="section" id="section">
+        <ui-box-container class="shadow height-limited"
+                          style="height: auto; min-height: 200px;"
+                          id="container"
+                          v-on:drop="dropFile($event)"
+                          v-on:dragover="drag($event)"
+                          v-on:dragenter="drag($event)"
+                          v-on:dragleave="drag($event)">
+            <h1 v-if="resizeImageArray && resizeImageArray.length===0"
+                style="width: 100%;height: auto; margin: 0;line-height: 200px;" align="center"
+            >
+                拖拽图片到这里
+            </h1>
+
+            <image-item v-if="resizeImageArray && resizeImageArray.length>0" track-by="$index"
+                        v-for="(index,imageItem) in resizeImageArray" v-bind:data="imageItem"
+                        v-bind:index="index">
+            </image-item>
+        </ui-box-container>
+
     </div>
 
+</div>
 
+<ui-prop name="常用操作:">
+    <ui-input class="flex-1" v-value="imgPath" disabled style="display: none;"></ui-input>
+    <ui-button class="blue" v-on:confirm="onBtnClickSelectPicture">添加图片</ui-button>
+    <ui-button class="green flex-1" v-on:confirm="onBtnClickOpenDir">打开生成目录</ui-button>
+    <ui-button class="red" v-on:confirm="onBtnClickCleanTmpDir">清空目录</ui-button>
+
+</ui-prop>
+
+<hr style="margin: 0 0 0 0 ;"/>
+<ui-button class="green " v-on:confirm="onBtnClickResize">裁切</ui-button>
+<hr style="margin: 0 0 0 0 ;"/>
+
+<div style="width: 100%; height: 150px;margin: 0 0 0 0 ;">
+    <hr style="margin: 0 0 0 0 ;"/>
+    <h2 style="margin: 0 0 0 0">日志:</h2>
+    <textarea class="flex-1 " id="logTextArea" v-model="logView"
+              style="width: 100%; height: 120px; background: #252525;	resize: none; color: #fd942b;	border-color: #fd942b;"></textarea>
 </div>
