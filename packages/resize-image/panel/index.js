@@ -52,7 +52,9 @@ Editor.Panel.extend({
                 sizeWidth: 0,
                 isLandSpace: false,// 默认竖屏
 
-                resizeImageArray: [{path: "test"}],
+                resizeImageArray: [
+                    // {path: "test"}
+                ],
             },
             methods: {
                 _addLog(str) {
@@ -159,7 +161,7 @@ Editor.Panel.extend({
 
                     sharp(imgPath).resize(this.sizeWidth, this.sizeHeight).toFile(desFilePath, function (err, info) {
                         if (err) {
-                            this._addLog("裁剪失败!");
+                            this._addLog("裁剪失败!" + imgPath);
                             // Editor.warn("error:"+err);
                             console.log("error:" + err);
                             console.log("info: " + info);
@@ -169,6 +171,7 @@ Editor.Panel.extend({
                     }.bind(this));
                 },
                 onBtnClickResize() {
+                    this.logView = "";
                     console.log("resize");
                     if (this.sizeWidth === 0 || this.sizeHeight === 0) {
                         this._addLog("裁切图片宽高设置有问题!");
@@ -222,7 +225,12 @@ Editor.Panel.extend({
                         properties: ['openFile'],
                     });
                     if (res !== -1) {
-                        this.imgPath = res[0];
+                        let filePath = res[0];
+                        if (this._isSameFileExist(filePath)) {
+                            console.log("已经存在该图片: " + filePath);
+                        } else {
+                            this.resizeImageArray.push({path: filePath});
+                        }
                     }
                 },
 
