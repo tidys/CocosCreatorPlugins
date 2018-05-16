@@ -1,4 +1,5 @@
 let packageName = "resize-image";
+let Electron = require('electron');
 let fs = require("fire-fs");
 let path = require('fire-path');
 Editor.Panel.extend({
@@ -23,6 +24,35 @@ Editor.Panel.extend({
                 isLandSpace: false,// 默认竖屏
             },
             methods: {
+                _getTempDir() {
+                    let userPath = Electron.remote.app.getPath('userData');
+                    return path.join(userPath, "/resizeImage");// 临时目录
+                },
+                onBtnClickOpenDir() {
+                    let openDir = null;
+
+                    let tmpDir = this._getTempDir();
+                    let pixDir = path.join(tmpDir, this.sizeWidth + "x" + this.sizeHeight);
+                    if (fs.existsSync(pixDir)) {
+                        openDir = pixDir;
+                    } else if (fs.existsSync(tmpDir)) {
+                        openDir = tmpDir;
+                    }
+                    if (openDir) {
+                        Electron.shell.showItemInFolder(openDir);
+                        Electron.shell.beep();
+                    } else {
+                        console.log("目录错误: " + openDir);
+                    }
+                },
+                onBtnClickCleanTmpDir() {
+                    let rimraf = require('rimraf');
+                    let dir = this._getTempDir();
+                    if (fs.existsSync(dir)) {
+                        rimraf.sync(dir);
+                        console.log("清空目录成功: " + dir);
+                    }
+                },
                 onBtnClickResize() {
                     console.log("resize");
                     if (!this.imgPath) {
@@ -37,16 +67,27 @@ Editor.Panel.extend({
 
                     let sharpPath = Editor.url('unpack://utils/sharp');
                     let sharp = require(sharpPath);
-                    let des = "C:\\Users\\cocos dev\\Desktop\\image";
-                    des =path.join(des,"ts.png");
-                    sharp(this.imgPath).resize(this.sizeWidth, this.sizeHeight).toFile(des, (err, info) => {
+
+                    // 创建相应尺寸的目录
+                    let desDir = this._getTempDir();
+                    if (!fs.existsSync(desDir)) {
+                        fs.mkdirSync(desDir);
+                    }
+                    let pixDir = path.join(desDir, this.sizeWidth + "x" + this.sizeHeight);
+                    if (!fs.existsSync(pixDir)) {
+                        fs.mkdirSync(pixDir);
+                    }
+                    let fileName = path.basename(this.imgPath);
+                    let desFilePath = path.join(pixDir, fileName);
+
+                    sharp(this.imgPath).resize(this.sizeWidth, this.sizeHeight).toFile(desFilePath, (err, info) => {
                         if (err) {
                             // Editor.warn("error:"+err);
                             console.log("error:" + err);
+                            console.log("info: " + info);
+
                         }
                     });
-
-
                 },
                 onSelectChange(event) {
                     let value = event.detail.value;

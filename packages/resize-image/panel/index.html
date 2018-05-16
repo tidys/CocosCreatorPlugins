@@ -2,6 +2,9 @@
     <ui-prop name="文件路径">
         <ui-input class="flex-1" v-value="imgPath" disabled></ui-input>
         <ui-button v-on:confirm="onBtnClickSelectPicture">选择</ui-button>
+        <ui-button class="green" v-on:confirm="onBtnClickOpenDir">打开</ui-button>
+        <ui-button class="red" v-on:confirm="onBtnClickCleanTmpDir">清空目录</ui-button>
+
     </ui-prop>
     <ui-prop name="裁切尺寸">
         <h3>宽:</h3>
