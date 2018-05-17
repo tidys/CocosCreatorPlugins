@@ -3,6 +3,8 @@
 本工具仅仅是对官方的热更新方案的一个可视化解决方案,可以帮助你快速生成project.manifest和version.manifest文件,并且提供了本地测试的一些常用操作
 使用前请移步官方热更新教程 https://github.com/cocos-creator/tutorial-hot-update
 
+## 热更新例子
+- 等待更新。。。
 
 ## 使用说明
 - 菜单位置: 项目 => 热更新工具(Ctrl+u)
