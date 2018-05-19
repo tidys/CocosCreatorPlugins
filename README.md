@@ -6,14 +6,15 @@
 [Cocos-Creator-Inspector](CocosCreatorInspector/README.md)  
 [Excel工具](packages/excel-killer/README.md)    
 [贝塞尔编辑工具](packages/bezier/README.md)      
-[音频压缩工具](packages/mp3-compress/README.md)     
+[资源压缩工具](packages/res-compress/README.md)     
 
 ## 2款收费插件,有需求的支持下呗
 - 字体瘦身
     - 购买链接: http://store.cocos.com/stuff/show/178910.html
+    - 帮助文档: [点击查看](doc/ttf/README.md)
 - BMFont位图字体生成工具
     - 购买链接: http://store.cocos.com/stuff/show/178913.html
-    - 帮助文档: [点击](doc/bitmap-font/README.md)
+    - 帮助文档: [点击查看](doc/bitmap-font/README.md)
 
 # 插件常见问题
 ## 如何安装从其他地方获取的插件
@@ -31,7 +32,8 @@
 ```
 如果在插件源码的package.json中定义了accelerator字段,那么插件的快捷键就会生效,如果设置的快捷键和系统快捷键有冲突,那么可以自行修改
 
-
+## 如何手动安装插件
+[点击查看](doc/installPlugin.md)
 
 # 福利代码
 项目中的代码是个人开发沉淀,希望对你有所帮助!     

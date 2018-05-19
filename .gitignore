@@ -76,3 +76,4 @@ packages/clean/
 packages/pack-scene-asset-master/
 packages/pngquant/
 .idea/workspace.xml
+.idea/

@@ -1,0 +1,17 @@
+<div class="wrapper center layout horizontal"
+     style="height: 40px;
+     background-color: #252525;"
+     onmouseover="this.style.backgroundColor='#505050'"
+     onmouseout="this.style.backgroundColor='#252525'"
+>
+    <div class="box flex-1"> {{index+1}}</div>
+    <div class="box flex-3 layout horizontal center">
+        <ui-asset readonly type="sprite-frame" v-value="data.uuid" class="flex-1">
+        </ui-asset>
+        <!--file {{data.file}}-->
+    </div>
+    <div class="box flex-1 layout horizontal center ">
+        <ui-button class="small" v-on:confirm="onBtnClickCompress"><i class="icon-play"></i></ui-button>
+        <!--<ui-button class="tiny" v-on:confirm="onBtnClickCompress">压缩</ui-button>-->
+    </div>
+</div>
