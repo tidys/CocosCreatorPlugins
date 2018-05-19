@@ -42,9 +42,13 @@ Editor.Panel.extend({
                 excelRootPath: null,
 
                 isMergeJson: false,
+                isExportJson: false,// 是否导出Json
+                isExportJs: false,// 是否导出Js
                 isFormatJson: false,// 是否格式化Json
-                jsonSavePath: null,//json文件存放目录
+                isExportClient: false,// 是否导出客户端
+                isExportServer: false,// 是否导出服务端
                 isJsonAllCfgFileExist: false,// 是否单一配置文件存在
+                jsonSavePath: null,// json保存文件夹路径
                 jsonAllCfgFileName: null,// json配置文件名
 
                 jsSavePath: null,// 插件资源目录
@@ -76,10 +80,14 @@ Editor.Panel.extend({
                         isMergeJson: this.isMergeJson,
                         isFormatJsCode: this.isFormatJsCode,
                         isFormatJson: this.isFormatJson,
+                        isExportJson: this.isExportJson,
+                        isExportJs: this.isExportJs,
+                        isExportClient: this.isExportClient,
+                        isExportServer: this.isExportServer,
                     };
                     CfgUtil.saveCfgByData(data);
                 },
-                onBtnClickFreshExcel(){
+                onBtnClickFreshExcel() {
                     this._onAnalyzeExcelDirPath(this.excelRootPath);
                 },
                 _watchDir(event, filePath) {
@@ -118,6 +126,10 @@ Editor.Panel.extend({
                             this.isMergeJson = data.isMergeJson;
                             this.isFormatJsCode = data.isFormatJsCode;
                             this.isFormatJson = data.isFormatJson;
+                            this.isExportJson = data.isExportJson;
+                            this.isExportJs = data.isExportJs;
+                            this.isExportClient = data.isExportClient;
+                            this.isExportServer = data.isExportServer;
                             this.checkJsFileExist();
                             this.checkJsonAllCfgFileExist();
                         }
@@ -130,17 +142,18 @@ Editor.Panel.extend({
                     if (!fs.existsSync(pluginResPath)) {
                         fs.mkdirSync(pluginResPath);
                     }
-                    let jsonSavePath = path.join(pluginResPath, "json");
-                    if (!fs.existsSync(jsonSavePath)) {
-                        fs.mkdirSync(jsonSavePath);
-                    }
-                    this.jsonSavePath = jsonSavePath;
 
-                    let jsSavePath = path.join(pluginResPath, "js");
-                    if (!fs.existsSync(jsSavePath)) {
-                        fs.mkdirSync(jsSavePath);
+                    let pluginResPath1 = path.join(pluginResPath, "json");
+                    if (!fs.existsSync(pluginResPath1)) {
+                        fs.mkdirSync(pluginResPath1);
                     }
-                    this.jsSavePath = jsSavePath;
+                    this.jsonSavePath = pluginResPath1;
+
+                    let pluginResPath2 = path.join(pluginResPath, "js");
+                    if (!fs.existsSync(pluginResPath2)) {
+                        fs.mkdirSync(pluginResPath2);
+                    }
+                    this.jsSavePath = pluginResPath2;
                 },
                 onBtnClickFormatJson() {
                     this.isFormatJson = !this.isFormatJson;
@@ -154,19 +167,24 @@ Editor.Panel.extend({
                 },
                 // 打开合并的json
                 onBtnClickJsonAllCfgFile() {
-                    let saveFileFullPath = path.join(this.jsonSavePath, this.jsonAllCfgFileName + ".json");
-                    if (fs.existsSync(saveFileFullPath)) {
-                        Electron.shell.openItem(saveFileFullPath);
+                    let saveFileFullPath1 = path.join(this.jsonSavePath, 'c', this.jsonAllCfgFileName + ".json");
+                    let saveFileFullPath2 = path.join(this.jsonSavePath, 's', this.jsonAllCfgFileName + ".json");
+                    if (fs.existsSync(saveFileFullPath1)) {
+                        Electron.shell.openItem(saveFileFullPath1);
+                        Electron.shell.beep();
+                    } else if (fs.existsSync(saveFileFullPath2)) {
+                        Electron.shell.openItem(saveFileFullPath2);
                         Electron.shell.beep();
                     } else {
                         // this._addLog("目录不存在：" + this.resourceRootDir);
-                        this._addLog("目录不存在:" + saveFileFullPath);
+                        this._addLog("目录不存在:" + saveFileFullPath1 + ' or:' + saveFileFullPath2);
                         return;
                     }
                 },
                 checkJsonAllCfgFileExist() {
-                    let saveFileFullPath = path.join(this.jsonSavePath, this.jsonAllCfgFileName + ".json");
-                    if (fs.existsSync(saveFileFullPath)) {
+                    let saveFileFullPath1 = path.join(this.jsonSavePath, 'c', this.jsonAllCfgFileName + ".json");
+                    let saveFileFullPath2 = path.join(this.jsonSavePath, 's', this.jsonAllCfgFileName + ".json");
+                    if (fs.existsSync(saveFileFullPath1) || fs.existsSync(saveFileFullPath2)) {
                         this.isJsonAllCfgFileExist = true;
                     } else {
                         this.isJsonAllCfgFileExist = false;
@@ -206,6 +224,22 @@ Editor.Panel.extend({
                 },
                 // 修改json配置文件
                 onJsonAllCfgFileChanged() {
+                    this._saveConfig();
+                },
+                onBtnClickIsExportJson() {
+                    this.isExportJson = !this.isExportJson;
+                    this._saveConfig();
+                },
+                onBtnClickIsExportJs() {
+                    this.isExportJs = !this.isExportJs;
+                    this._saveConfig();
+                },
+                onBtnClickExportClient() {
+                    this.isExportClient = !this.isExportClient;
+                    this._saveConfig();
+                },
+                onBtnClickExportServer() {
+                    this.isExportServer = !this.isExportServer;
                     this._saveConfig();
                 },
                 // 查找出目录下的所有excel文件
@@ -296,26 +330,41 @@ Editor.Panel.extend({
                     }
                 },
                 onBtnClickOpenJsonSavePath() {
-                    if (fs.existsSync(this.jsonSavePath)) {
-                        Electron.shell.showItemInFolder(this.jsonSavePath);
+                    let saveFileFullPath1 = path.join(this.jsonSavePath, 'c');
+                    let saveFileFullPath2 = path.join(this.jsonSavePath, 's');
+                    if (fs.existsSync(saveFileFullPath1)) {
+                        Electron.shell.openItem(saveFileFullPath1);
+                        Electron.shell.beep();
+                    } else if (fs.existsSync(saveFileFullPath2)) {
+                        Electron.shell.openItem(saveFileFullPath2);
                         Electron.shell.beep();
                     } else {
-                        this._addLog("目录不存在：" + this.jsonSavePath);
+                        // this._addLog("目录不存在：" + this.resourceRootDir);
+                        this._addLog("目录不存在:" + saveFileFullPath1 + ' or:' + saveFileFullPath2);
+                        return;
                     }
                 },
                 onBtnClickOpenJsSavePath() {
-                    if (fs.existsSync(this.jsSavePath)) {
-                        Electron.shell.showItemInFolder(this.jsSavePath);
+                    let saveFileFullPath1 = path.join(this.jsSavePath, 'c');
+                    let saveFileFullPath2 = path.join(this.jsSavePath, 's');
+                    if (fs.existsSync(saveFileFullPath1)) {
+                        Electron.shell.openItem(saveFileFullPath1);
+                        Electron.shell.beep();
+                    } else if (fs.existsSync(saveFileFullPath2)) {
+                        Electron.shell.openItem(saveFileFullPath2);
                         Electron.shell.beep();
                     } else {
-                        this._addLog("目录不存在：" + this.jsSavePath);
+                        // this._addLog("目录不存在：" + this.resourceRootDir);
+                        this._addLog("目录不存在:" + saveFileFullPath1 + ' or:' + saveFileFullPath2);
+                        return;
                     }
                 },
-                _getJavaScriptSaveData(excelData, itemSheet) {
+                _getJavaScriptSaveData(excelData, itemSheet, isClient) {
                     let title = excelData[0];
                     let desc = excelData[1];
+                    let target = excelData[2];
                     let sheetFormatData = {};
-                    for (let i = 2; i < excelData.length; i++) {
+                    for (let i = 3; i < excelData.length; i++) {
                         let lineData = excelData[i];
                         if (lineData.length === 0) {
                             // 空行直接跳过
@@ -330,27 +379,46 @@ Editor.Panel.extend({
                             }
                         }
                         let saveLineData = {};
+                        let canExport = false;
                         for (let j = 1; j < title.length; j++) {
-                            let key = title[j];
-                            let value = lineData[j];
-                            if (value === undefined) {
-                                value = "";
-                                this._addLog("[Error] 发现空单元格:" + itemSheet.name + "*" + itemSheet.sheet + " => (" + key + "," + (i + 1) + ")");
+                            canExport = false;
+                            if (isClient && target[j].indexOf('c') !== -1) {
+                                canExport = true;
+                            } else if (!isClient && target[j].indexOf('s') !== -1) {
+                                canExport = true;
                             }
-                            saveLineData[key] = value;
+                            if (canExport) {
+                                let key = title[j];
+                                let value = lineData[j];
+                                if (value === undefined) {
+                                    value = "";
+                                    this._addLog("[Error] 发现空单元格:" + itemSheet.name + "*" + itemSheet.sheet + " => (" + key + "," + (i + 1) + ")");
+                                }
+                                saveLineData[key] = value;
+                            }
                         }
-                        sheetFormatData[lineData[0].toString()] = saveLineData;
+
+                        canExport = false;
+                        if (isClient && target[0].indexOf('c') !== -1) {
+                            canExport = true;
+                        } else if (!isClient && target[0].indexOf('s') !== -1) {
+                            canExport = true;
+                        }
+                        if (canExport) {
+                            sheetFormatData[lineData[0].toString()] = saveLineData;
+                        }
                     }
                     return sheetFormatData;
                 },
-                _getJsonSaveData(excelData, itemSheet) {
+                _getJsonSaveData(excelData, itemSheet, isClient) {
                     let title = excelData[0];
                     let desc = excelData[1];
+                    let target = excelData[2];
                     let ret = null;
                     let useFormat1 = false;
                     if (useFormat1) {
                         let saveData1 = [];// 格式1:对应的为数组
-                        for (let i = 2; i < excelData.length; i++) {
+                        for (let i = 3; i < excelData.length; i++) {
                             let lineData = excelData[i];
                             if (lineData.length < title.length) {
                                 continue;
@@ -359,38 +427,75 @@ Editor.Panel.extend({
                             }
 
                             let saveLineData = {};
+                            let canExport = false;
                             for (let j = 0; j < title.length; j++) {
-                                let key = title[j];
-                                let value = lineData[j];
-                                if (value === undefined) {
-                                    value = "";
+                                canExport = false;
+                                if (isClient && target[j].indexOf('c') !== -1) {
+                                    canExport = true;
+                                } else if (!isClient && target[j].indexOf('s') !== -1) {
+                                    canExport = true;
                                 }
-                                // this._addLog("" + value);
-                                saveLineData[key] = value;
+                                if (canExport) {
+                                    let key = title[j];
+                                    let value = lineData[j];
+                                    if (value === undefined) {
+                                        value = "";
+                                    }
+                                    // this._addLog("" + value);
+                                    saveLineData[key] = value;
+                                }
                             }
-                            saveData1.push(saveLineData);
+
+                            canExport = false;
+                            if (isClient && target[0].indexOf('c') !== -1) {
+                                canExport = true;
+                            } else if (!isClient && target[0].indexOf('s') !== -1) {
+                                canExport = true;
+                            }
+                            if (canExport) {
+                                saveData1.push(saveLineData);
+                            }
                         }
                         ret = saveData1;
                     } else {
                         let saveData2 = {};// 格式2:id作为索引
-                        for (let i = 2; i < excelData.length; i++) {
+                        for (let i = 3; i < excelData.length; i++) {
                             let lineData = excelData[i];
                             if (lineData.length < title.length) {
                                 continue;
                             } else if (lineData.length > title.length) {
                                 continue;
                             }
+
                             let saveLineData = {};
+                            let canExport = false;
                             for (let j = 1; j < title.length; j++) {
-                                let key = title[j];
-                                let value = lineData[j];
-                                if (value === undefined) {
-                                    value = "";
+                                canExport = false;
+                                if (isClient && target[j].indexOf('c') !== -1) {
+                                    canExport = true;
+                                } else if (!isClient && target[j].indexOf('s') !== -1) {
+                                    canExport = true;
                                 }
-                                // this._addLog("" + value);
-                                saveLineData[key] = value;
+                                if (canExport) {
+                                    let key = title[j];
+                                    let value = lineData[j];
+                                    if (value === undefined) {
+                                        value = "";
+                                    }
+                                    // this._addLog("" + value);
+                                    saveLineData[key] = value;
+                                }
                             }
-                            saveData2[lineData[0].toString()] = saveLineData;
+
+                            canExport = false;
+                            if (isClient && target[0].indexOf('c') !== -1) {
+                                canExport = true;
+                            } else if (!isClient && target[0].indexOf('s') !== -1) {
+                                canExport = true;
+                            }
+                            if (canExport) {
+                                saveData2[lineData[0].toString()] = saveLineData;
+                            }
                         }
                         ret = saveData2;
                     }
@@ -398,18 +503,25 @@ Editor.Panel.extend({
                 },
                 // 打开生成的js配置文件
                 onBtnClickOpenJsFile() {
-                    let saveFileFullPath = path.join(this.jsSavePath, this.jsFileName + ".js");
-                    if (fs.existsSync(saveFileFullPath)) {
-                        Electron.shell.openItem(saveFileFullPath);
+                    let saveFileFullPath1 = path.join(this.jsSavePath, 'c', this.jsFileName + ".js");
+                    let saveFileFullPath2 = path.join(this.jsSavePath, 's', this.jsFileName + ".js");
+                    if (fs.existsSync(saveFileFullPath1)) {
+                        Electron.shell.openItem(saveFileFullPath1);
+                        Electron.shell.beep();
+                    } else if (fs.existsSync(saveFileFullPath2)) {
+                        Electron.shell.openItem(saveFileFullPath2);
                         Electron.shell.beep();
                     } else {
-                        this._addLog("目录不存在：" + this.saveFileFullPath);
+                        // this._addLog("目录不存在：" + this.resourceRootDir);
+                        this._addLog("目录不存在:" + saveFileFullPath1 + ' or:' + saveFileFullPath2);
+                        return;
                     }
                 },
                 // 检测js配置文件是否存在
                 checkJsFileExist() {
-                    let saveFileFullPath = path.join(this.jsSavePath, this.jsFileName + ".js");
-                    if (fs.existsSync(saveFileFullPath)) {
+                    let saveFileFullPath1 = path.join(this.jsSavePath, 'c', this.jsFileName + ".js");
+                    let saveFileFullPath2 = path.join(this.jsSavePath, 's', this.jsFileName + ".js");
+                    if (fs.existsSync(saveFileFullPath1) || fs.existsSync(saveFileFullPath2)) {
                         this.isJsFileExist = true;
                     } else {
                         this.isJsFileExist = false;
@@ -438,10 +550,20 @@ Editor.Panel.extend({
 
                     this.logView = "";
                     // 删除老的配置
-                    fsExtra.emptyDirSync(this.jsonSavePath);
-                    fsExtra.emptyDirSync(this.jsSavePath);
-                    let jsSaveData = {};// 保存的js数据
-                    let jsonAllSaveData = {};// 保存的json数据
+                    let jsonSavePath1 = path.join(this.jsonSavePath, 'c');
+                    let jsonSavePath2 = path.join(this.jsonSavePath, 's');
+                    fsExtra.emptyDirSync(jsonSavePath1);
+                    fsExtra.emptyDirSync(jsonSavePath2);
+
+                    let jsSavePath1 = path.join(this.jsSavePath, 'c');
+                    let jsSavePath2 = path.join(this.jsSavePath, 's');
+                    fsExtra.emptyDirSync(jsSavePath1);
+                    fsExtra.emptyDirSync(jsSavePath2);
+
+                    let jsSaveDataClient = {};// 保存客户端的js数据
+                    let jsSaveDataServer = {};// 保存服务端的js数据
+                    let jsonAllSaveDataClient = {};// 保存客户端的json数据
+                    let jsonAllSaveDataServer = {};// 保存服务端的json数据
                     for (let k in this.excelArray) {
                         let itemSheet = this.excelArray[k];
                         if (itemSheet.isUse) {
@@ -453,30 +575,49 @@ Editor.Panel.extend({
                                 }
                             }
                             if (sheetData) {
-                                if (sheetData.length > 2) {
-                                    // 保存为json
-                                    let jsonSaveData = this._getJsonSaveData(sheetData, itemSheet);
-                                    if (this.isMergeJson) {
-                                        jsonAllSaveData[itemSheet.sheet] = jsonSaveData;
-                                    } else {
-                                        let saveStr = JSON.stringify(jsonSaveData);
-                                        if (this.isFormatJson) {// 格式化json
-                                            saveStr = jsonBeautifully(saveStr);
-                                        }
-                                        let saveFileFullPath = path.join(this.jsonSavePath, itemSheet.sheet + ".json");
-                                        fs.writeFileSync(saveFileFullPath, saveStr);
-                                        this._addLog("[Json]:" + saveFileFullPath);
+                                if (sheetData.length > 3) {
+                                    if (this.isExportJson) {
+                                        // 保存为json
+                                        let writeFileJson = function (pathSave, isClient) {
+                                            let jsonSaveData = this._getJsonSaveData(sheetData, itemSheet, isClient);
+                                            if (Object.keys(jsonSaveData).length > 0) {
+                                                if (this.isMergeJson) {
+                                                    jsonAllSaveDataClient[itemSheet.sheet] = jsonSaveData;
+                                                } else {
+                                                    let saveStr = JSON.stringify(jsonSaveData);
+                                                    if (this.isFormatJson) {// 格式化json
+                                                        saveStr = jsonBeautifully(saveStr);
+                                                    }
+                                                    if (!fs.existsSync(pathSave)) {
+                                                        fs.mkdirSync(pathSave);
+                                                    }
+                                                    let saveFileFullPath = path.join(pathSave, itemSheet.sheet + ".json");
+                                                    fs.writeFileSync(saveFileFullPath, saveStr);
+                                                    this._addLog("[Json]:" + saveFileFullPath);
+                                                }
+                                            }
+                                        }.bind(this);
+                                        if (this.isExportClient) writeFileJson(jsonSavePath1, true);
+                                        if (this.isExportServer) writeFileJson(jsonSavePath2, false);
                                     }
-                                    // 保存为js
-                                    let sheetJsData = this._getJavaScriptSaveData(sheetData, itemSheet);
-                                    // 检测重复问题
-                                    if (jsSaveData[itemSheet.sheet] === undefined) {
-                                        jsSaveData[itemSheet.sheet] = sheetJsData;
-                                    } else {
-                                        this._addLog("发现重名sheet:" + itemSheet.name + "(" + itemSheet.sheet + ")");
+                                    if (this.isExportJs) {
+                                        // 保存为js
+                                        let writeFileJs = function (jsSaveData, isClient) {
+                                            let sheetJsData = this._getJavaScriptSaveData(sheetData, itemSheet, isClient);
+                                            if (Object.keys(sheetJsData).length > 0) {
+                                                // 检测重复问题
+                                                if (jsSaveData[itemSheet.sheet] === undefined) {
+                                                    jsSaveData[itemSheet.sheet] = sheetJsData;
+                                                } else {
+                                                    this._addLog("发现重名sheet:" + itemSheet.name + "(" + itemSheet.sheet + ")");
+                                                }
+                                            }
+                                        }.bind(this);
+                                        if (this.isExportClient) writeFileJs(jsSaveDataClient, true);
+                                        if (this.isExportServer) writeFileJs(jsSaveDataServer, false);
                                     }
                                 } else {
-                                    this._addLog("行数低于2行,无效sheet:" + itemSheet.sheet);
+                                    this._addLog("行数低于3行,无效sheet:" + itemSheet.sheet);
                                 }
                             } else {
                                 this._addLog("未发现数据");
@@ -487,45 +628,56 @@ Editor.Panel.extend({
                         }
                     }
                     // =====================>>>>  保存json文件   <<<=================================
-                    if (this.isMergeJson) {
-                        let saveFileFullPath = path.join(this.jsonSavePath, this.jsonAllCfgFileName + ".json");
-                        let str = JSON.stringify(jsonAllSaveData);
-                        if (this.isFormatJson) {
-                            str = jsonBeautifully(str);
-                        }
-                        fs.writeFileSync(saveFileFullPath, str);
-                        this._addLog("[Json]:" + saveFileFullPath);
+                    if (this.isExportJson && this.isMergeJson) {
+                        let writeFile = function (data, pathSave) {
+                            let str = JSON.stringify(data);
+                            if (this.isFormatJson) {
+                                str = jsonBeautifully(str);
+                            }
+                            let saveFileFullPath = path.join(pathSave, this.jsonAllCfgFileName + ".json");
+                            fs.writeFileSync(saveFileFullPath, str);
+                            this._addLog("[Json]:" + saveFileFullPath);
+                        }.bind(this);
+                        if (this.isExportClient) writeFile(jsonAllSaveDataClient, jsonSavePath1);
+                        if (this.isExportServer) writeFile(jsonAllSaveDataServer, jsonSavePath2);
+                        this.checkJsonAllCfgFileExist();
                     }
                     // =====================>>>>  保存js文件   <<<=================================
-                    // TODO 保证key的顺序一致性
-                    let saveFileFullPath = path.join(this.jsSavePath, this.jsFileName + ".js");
-                    let saveStr = "module.exports = " + JSON.stringify(jsSaveData) + ";";
-                    if (this.isFormatJsCode) {// 保存为格式化代码
-                        let ast = uglifyJs.parse(saveStr);
-                        let ret = uglifyJs.minify(ast, {
-                            output: {
-                                beautify: true,//如果希望得到格式化的输出，传入true
-                                indent_start: 0,//（仅当beautify为true时有效） - 初始缩进空格
-                                indent_level: 4,//（仅当beautify为true时有效） - 缩进级别，空格数量
+                    if (this.isExportJs) {
+                        let writeFileJs = function (saveFileFullPath, jsSaveData) {
+                            // TODO 保证key的顺序一致性
+                            let saveStr = "module.exports = " + JSON.stringify(jsSaveData) + ";";
+                            if (this.isFormatJsCode) {// 保存为格式化代码
+                                let ast = uglifyJs.parse(saveStr);
+                                let ret = uglifyJs.minify(ast, {
+                                    output: {
+                                        beautify: true,//如果希望得到格式化的输出，传入true
+                                        indent_start: 0,//（仅当beautify为true时有效） - 初始缩进空格
+                                        indent_level: 4,//（仅当beautify为true时有效） - 缩进级别，空格数量
+                                    }
+                                });
+                                if (ret.error) {
+                                    this._addLog('error: ' + ret.error.message);
+                                } else if (ret.code) {
+                                    fs.writeFileSync(saveFileFullPath, ret.code);
+                                    this._addLog("[JavaScript]" + saveFileFullPath);
+                                } else {
+                                    this._addLog(JSON.stringify(ret));
+                                }
+                            } else {// 保存为单行代码
+                                fs.writeFileSync(saveFileFullPath, saveStr);
+                                this._addLog("[JavaScript]" + saveFileFullPath);
                             }
-                        });
-                        if (ret.error) {
-                            this._addLog('error: ' + ret.error.message);
-                        } else if (ret.code) {
-                            fs.writeFileSync(saveFileFullPath, ret.code);
-                            this._addLog("[JavaScript]" + saveFileFullPath);
-                        } else {
-                            this._addLog(JSON.stringify(ret));
-                        }
-                    } else {// 保存为单行代码
-                        fs.writeFileSync(saveFileFullPath, saveStr);
-                        this._addLog("[JavaScript]" + saveFileFullPath);
-                    }
-                    this._addLog("全部转换完成!");
-                    this.checkJsFileExist();
-                    this.checkJsonAllCfgFileExist();
-                },
+                        }.bind(this);
 
+                        if (this.isExportClient) writeFileJs(path.join(jsSavePath1, this.jsFileName + ".js"), jsSaveDataClient);
+                        if (this.isExportServer) writeFileJs(path.join(jsSavePath2, this.jsFileName + ".js"), jsSaveDataServer);
+
+                        this.checkJsFileExist();
+                    }
+
+                    this._addLog("全部转换完成!");
+                },
             },
 
         });

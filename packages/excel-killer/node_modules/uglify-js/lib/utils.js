@@ -45,27 +45,25 @@
 
 function characters(str) {
     return str.split("");
-};
+}
 
 function member(name, array) {
     return array.indexOf(name) >= 0;
-};
+}
 
 function find_if(func, array) {
     for (var i = 0, n = array.length; i < n; ++i) {
-        if (func(array[i]))
-            return array[i];
+        if (func(array[i])) return array[i];
     }
-};
+}
 
 function repeat_string(str, i) {
     if (i <= 0) return "";
     if (i == 1) return str;
     var d = repeat_string(str, i >> 1);
     d += d;
-    if (i & 1) d += str;
-    return d;
-};
+    return i & 1 ? d + str : d;
+}
 
 function configure_error_stack(fn) {
     Object.defineProperty(fn.prototype, "stack", {
@@ -84,27 +82,23 @@ function configure_error_stack(fn) {
 function DefaultsError(msg, defs) {
     this.message = msg;
     this.defs = defs;
-};
+}
 DefaultsError.prototype = Object.create(Error.prototype);
 DefaultsError.prototype.constructor = DefaultsError;
 DefaultsError.prototype.name = "DefaultsError";
 configure_error_stack(DefaultsError);
 
-DefaultsError.croak = function(msg, defs) {
-    throw new DefaultsError(msg, defs);
-};
-
 function defaults(args, defs, croak) {
-    if (args === true)
-        args = {};
+    if (args === true) args = {};
     var ret = args || {};
-    if (croak) for (var i in ret) if (HOP(ret, i) && !HOP(defs, i))
-        DefaultsError.croak("`" + i + "` is not a supported option", defs);
+    if (croak) for (var i in ret) if (HOP(ret, i) && !HOP(defs, i)) {
+        throw new DefaultsError("`" + i + "` is not a supported option", defs);
+    }
     for (var i in defs) if (HOP(defs, i)) {
         ret[i] = (args && HOP(args, i)) ? args[i] : defs[i];
     }
     return ret;
-};
+}
 
 function merge(obj, ext) {
     var count = 0;
@@ -113,7 +107,7 @@ function merge(obj, ext) {
         count++;
     }
     return count;
-};
+}
 
 function noop() {}
 function return_false() { return false; }
@@ -145,7 +139,7 @@ var MAP = (function(){
             }
             return is_last;
         };
-        if (a instanceof Array) {
+        if (Array.isArray(a)) {
             if (backwards) {
                 for (i = a.length; --i >= 0;) if (doit()) break;
                 ret.reverse();
@@ -172,101 +166,40 @@ var MAP = (function(){
 function push_uniq(array, el) {
     if (array.indexOf(el) < 0)
         array.push(el);
-};
+}
 
 function string_template(text, props) {
     return text.replace(/\{(.+?)\}/g, function(str, p){
         return props && props[p];
     });
-};
+}
 
 function remove(array, el) {
     for (var i = array.length; --i >= 0;) {
         if (array[i] === el) array.splice(i, 1);
     }
-};
+}
 
-function mergeSort(array, cmp) {
-    if (array.length < 2) return array.slice();
-    function merge(a, b) {
-        var r = [], ai = 0, bi = 0, i = 0;
-        while (ai < a.length && bi < b.length) {
-            cmp(a[ai], b[bi]) <= 0
-                ? r[i++] = a[ai++]
-                : r[i++] = b[bi++];
-        }
-        if (ai < a.length) r.push.apply(r, a.slice(ai));
-        if (bi < b.length) r.push.apply(r, b.slice(bi));
-        return r;
-    };
-    function _ms(a) {
-        if (a.length <= 1)
-            return a;
-        var m = Math.floor(a.length / 2), left = a.slice(0, m), right = a.slice(m);
-        left = _ms(left);
-        right = _ms(right);
-        return merge(left, right);
-    };
-    return _ms(array);
-};
-
-// this function is taken from Acorn [1], written by Marijn Haverbeke
-// [1] https://github.com/marijnh/acorn
 function makePredicate(words) {
-    if (!(words instanceof Array)) words = words.split(" ");
-    var f = "", cats = [];
-    out: for (var i = 0; i < words.length; ++i) {
-        for (var j = 0; j < cats.length; ++j)
-            if (cats[j][0].length == words[i].length) {
-                cats[j].push(words[i]);
-                continue out;
-            }
-        cats.push([words[i]]);
-    }
-    function quote(word) {
-        return JSON.stringify(word).replace(/[\u2028\u2029]/g, function(s) {
-            switch (s) {
-                case "\u2028": return "\\u2028";
-                case "\u2029": return "\\u2029";
-            }
-            return s;
-        });
-    }
-    function compareTo(arr) {
-        if (arr.length == 1) return f += "return str === " + quote(arr[0]) + ";";
-        f += "switch(str){";
-        for (var i = 0; i < arr.length; ++i) f += "case " + quote(arr[i]) + ":";
-        f += "return true}return false;";
-    }
-    // When there are more than three length categories, an outer
-    // switch first dispatches on the lengths, to save on comparisons.
-    if (cats.length > 3) {
-        cats.sort(function(a, b) {return b.length - a.length;});
-        f += "switch(str.length){";
-        for (var i = 0; i < cats.length; ++i) {
-            var cat = cats[i];
-            f += "case " + cat[0].length + ":";
-            compareTo(cat);
-        }
-        f += "}";
-        // Otherwise, simply generate a flat `switch` statement.
-    } else {
-        compareTo(words);
-    }
-    return new Function("str", f);
-};
+    if (!Array.isArray(words)) words = words.split(" ");
+    var map = Object.create(null);
+    words.forEach(function(word) {
+        map[word] = true;
+    });
+    return map;
+}
 
 function all(array, predicate) {
     for (var i = array.length; --i >= 0;)
         if (!predicate(array[i]))
             return false;
     return true;
-};
+}
 
 function Dictionary() {
     this._values = Object.create(null);
     this._size = 0;
-};
+}
 Dictionary.prototype = {
     set: function(key, val) {
         if (!this.has(key)) ++this._size;
@@ -327,20 +260,22 @@ function HOP(obj, prop) {
 // a statement.
 function first_in_statement(stack) {
     var node = stack.parent(-1);
-    for (var i = 0, p; p = stack.parent(i); i++) {
-        if (p instanceof AST_Statement && p.body === node)
-            return true;
-        if ((p instanceof AST_Sequence      && p.expressions[0] === node) ||
-            (p.TYPE == "Call"               && p.expression === node ) ||
-            (p instanceof AST_Dot           && p.expression === node ) ||
-            (p instanceof AST_Sub           && p.expression === node ) ||
-            (p instanceof AST_Conditional   && p.condition === node  ) ||
-            (p instanceof AST_Binary        && p.left === node       ) ||
-            (p instanceof AST_UnaryPostfix  && p.expression === node ))
-        {
-            node = p;
-        } else {
-            return false;
+    for (var i = 0, p; p = stack.parent(i++); node = p) {
+        if (p.TYPE == "Call") {
+            if (p.expression === node) continue;
+        } else if (p instanceof AST_Binary) {
+            if (p.left === node) continue;
+        } else if (p instanceof AST_Conditional) {
+            if (p.condition === node) continue;
+        } else if (p instanceof AST_PropAccess) {
+            if (p.expression === node) continue;
+        } else if (p instanceof AST_Sequence) {
+            if (p.expressions[0] === node) continue;
+        } else if (p instanceof AST_Statement) {
+            return p.body === node;
+        } else if (p instanceof AST_UnaryPostfix) {
+            if (p.expression === node) continue;
         }
+        return false;
     }
 }

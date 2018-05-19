@@ -1,3 +1,6 @@
+<script src="item/excelItem.js"></script>
+<script src="../core/CfgUtil.js"></script>
+<script src="../main.js"></script>
 <div class="layout vertical" style="height: 100%">
     <div class="layout vertical start-justified">
         <ui-section>
@@ -99,6 +102,30 @@
                 </excel-item>
             </div>
         </div>
+
+        <hr style="margin: 1px 0 1px 0">
+        <h2 style="margin: 1px 0 1px 0;color: #2feb21;">配置-导出配置与导出目标</h2>
+
+        <ui-prop name="是否导出json" tooltip=" [√]勾选,将导出json
+                                            [×]未勾选,将不导出json">
+            <ui-checkbox v-bind:checked="isExportJson" v-on:change="onBtnClickIsExportJson"></ui-checkbox>
+        </ui-prop>
+
+        <ui-prop name="是否导出js" tooltip=" [√]勾选,将导出js
+                                            [×]未勾选,将不导出js">
+            <ui-checkbox v-bind:checked="isExportJs" v-on:change="onBtnClickIsExportJs"></ui-checkbox>
+        </ui-prop>
+
+        <ui-prop name="客户端" tooltip=" [√]勾选,将导出包含有c字段的列
+                                            [×]未勾选,将不导出包含有c字段的列">
+            <ui-checkbox v-bind:checked="isExportClient" v-on:change="onBtnClickExportClient"></ui-checkbox>
+        </ui-prop>
+
+        <ui-prop name="服务端" tooltip=" [√]勾选,将导出包含有s字段的列
+                                            [×]未勾选,将不导出包含有s字段的列">
+            <ui-checkbox v-bind:checked="isExportServer" v-on:change="onBtnClickExportServer"></ui-checkbox>
+        </ui-prop>
+
         <div class="layout horizontal center justified ">
             <h2 class="start-justified" style="margin: 1px 0 1px 0;color: #2feb21;"> 输出日志 </h2>
             <ui-button v-on:confirm="onBtnClickGen" class="end-justified red">生成</ui-button>
