@@ -20,11 +20,11 @@
     "min-width": 500
   },
   "dependencies": {
-    "chokidar": "^2.0.2",
+    "chokidar": "^2.0.3",
     "fs-extra": "^5.0.0",
     "json-beautifully": "^1.0.3",
     "node-xlsx": "^0.11.2",
-    "uglify-js": "^3.3.14",
-    "upath": "^1.0.4"
+    "uglify-js": "^3.3.25",
+    "upath": "^1.1.0"
   }
 }
