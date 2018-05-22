@@ -1,0 +1,39 @@
+{
+  "extends": "eslint:recommended",
+  "rules": {
+    "comma-dangle": 0,
+    "no-console": 0,
+    "no-constant-condition": 0,
+    "quotes": ["warn", "single"],
+    "semi": 1
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "mocha": true
+  },
+  "plugins": [
+  ],
+  "globals": {
+    "tap": false,
+    "unused": false,
+    "Editor": false,
+    "Helper": false,
+    "Vue": false,
+    "Polymer": false,
+    "expect": false,
+    "sinon": false,
+    "assert": false,
+    "_Scene": false,
+    "cc": false,
+    "CC_EDITOR": false,
+    "CC_TEST": false
+  }
+}
