@@ -537,12 +537,12 @@ Editor.Panel.extend({
                     }
 
                     if (this.isMergeJson) {
-                        if (this.jsonAllCfgFileName.length <= 0) {
+                        if (!this.jsonAllCfgFileName || this.jsonAllCfgFileName.length <= 0) {
                             this._addLog("请输入要保存的json文件名!");
                             return;
                         }
                     }
-                    if (this.jsFileName.length <= 0) {
+                    if (!this.jsFileName || this.jsFileName.length <= 0) {
                         this._addLog("请输入要保存的js文件名!");
                         return;
                     }
