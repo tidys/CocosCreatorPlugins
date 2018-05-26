@@ -9,6 +9,10 @@ module.exports = {
         isMergeJson: null,
         isFormatJsCode: null,
         isFormatJson: null,
+        isExportJson: null,
+        isExportJs: null,
+        isExportClient: null,
+        isExportServer: null,
     },
     initCfg(cb) {
         let configFilePath = this._getAppCfgPath();
@@ -35,8 +39,13 @@ module.exports = {
         this.cfgData.jsFileName = data.jsFileName;
         this.cfgData.jsonAllFileName = data.jsonAllFileName;
         this.cfgData.isMergeJson = data.isMergeJson;
+        this.cfgData.isMergeJavaScript = data.isMergeJavaScript;
         this.cfgData.isFormatJsCode = data.isFormatJsCode;
         this.cfgData.isFormatJson = data.isFormatJson;
+        this.cfgData.isExportJson = data.isExportJson;
+        this.cfgData.isExportJs = data.isExportJs;
+        this.cfgData.isExportClient = data.isExportClient;
+        this.cfgData.isExportServer = data.isExportServer;
         this._save();
     },
     _save() {

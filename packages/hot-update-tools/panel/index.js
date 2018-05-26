@@ -1122,6 +1122,7 @@ Editor.Panel.extend({
                     }
                 },
                 _isUrlAvilable(url, callback) {
+                    // todo 支持https
                     let http = require("http");
                     try {
                         http.get(url, function (res) {

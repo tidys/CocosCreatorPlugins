@@ -15,16 +15,20 @@
     "type": "dockable",
     "title": "excel-killer",
     "width": 500,
-    "height": 700,
-    "min-height": 600,
+    "height": 800,
+    "min-height": 800,
     "min-width": 500
   },
+  "engines": {
+    "node": "~8.4.0",
+    "npm": "~5.5.1"
+  },
   "dependencies": {
-    "chokidar": "^2.0.2",
+    "chokidar": "~2.0.2",
     "fs-extra": "^5.0.0",
     "json-beautifully": "^1.0.3",
-    "node-xlsx": "^0.11.2",
-    "uglify-js": "^3.3.14",
-    "upath": "^1.0.4"
+    "node-xlsx": "~0.11.2",
+    "uglify-js": "~3.3.14",
+    "upath": "~1.0.4"
   }
 }

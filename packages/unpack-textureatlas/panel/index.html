@@ -1,0 +1,40 @@
+<div id="view" class="scroll">
+    <div class="section">
+        <ui-section>
+            <div class="header">
+                <div class="greenColor">项目Plist</div>
+                <div class="wrapper layout center horizontal end-justified flex-1">
+                    <ui-button class='box tiny' v-on:confirm="onBtnClickRefreshProject">
+                        <i class="icon-arrows-cw"></i>
+                        刷新列表
+                    </ui-button>
+                    <ui-button class='box tiny' v-on:confirm="onBtnClickDealAllPlist">
+                        <i class="icon-ok"></i>
+                        拆分全部
+                    </ui-button>
+                </div>
+
+            </div>
+            <div class="wrapper center layout horizontal">
+                <div class="box flex-1"> 序号</div>
+                <div class="box flex-3"> 文件</div>
+                <div class="box flex-1"> 拆分</div>
+            </div>
+
+            <!--内容 class="scroll" style="height: 400px;"-->
+            <div>
+                <item track-by="$index" v-for="(index,item) in itemArray"
+                          v-bind:data="item"
+                          v-bind:index="index">
+                </item>
+            </div>
+        </ui-section>
+    </div>
+</div>
+
+<div style="width: 100%; height: 150px;margin: 0 0 0 0 ;">
+    <hr style="margin: 0 0 0 0 ;"/>
+    <h2 style="margin: 0 0 0 0">日志:</h2>
+    <textarea class="flex-1 " id="logTextArea" v-model="logView"
+              style="width: 100%; height: 120px; background: #252525;	resize: none; color: #fd942b;	border-color: #fd942b;"></textarea>
+</div>
