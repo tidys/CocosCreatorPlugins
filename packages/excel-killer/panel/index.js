@@ -164,11 +164,11 @@ Editor.Panel.extend({
                 },
                 // 初始化client-server目录
                 _initCSDir(saveDir) {
-                    let clientDir = path.join(saveDir, 'c');
+                    let clientDir = path.join(saveDir, dirClientName);
                     if (!fs.existsSync(clientDir)) {
                         fs.mkdirSync(clientDir);
                     }
-                    let serverDir = path.join(saveDir, 's');
+                    let serverDir = path.join(saveDir, dirServerName);
                     if (!fs.existsSync(serverDir)) {
                         fs.mkdirSync(serverDir);
                     }
@@ -189,8 +189,8 @@ Editor.Panel.extend({
                 },
                 // 打开合并的json
                 onBtnClickJsonAllCfgFile() {
-                    let saveFileFullPath1 = path.join(this.jsonSavePath, 'c', this.jsonAllCfgFileName + ".json");
-                    let saveFileFullPath2 = path.join(this.jsonSavePath, 's', this.jsonAllCfgFileName + ".json");
+                    let saveFileFullPath1 = path.join(this.jsonSavePath, dirClientName, this.jsonAllCfgFileName + ".json");
+                    let saveFileFullPath2 = path.join(this.jsonSavePath, dirServerName, this.jsonAllCfgFileName + ".json");
                     if (fs.existsSync(saveFileFullPath1)) {
                         Electron.shell.openItem(saveFileFullPath1);
                         Electron.shell.beep();
@@ -204,8 +204,8 @@ Editor.Panel.extend({
                     }
                 },
                 checkJsonAllCfgFileExist() {
-                    let saveFileFullPath1 = path.join(this.jsonSavePath, 'c', this.jsonAllCfgFileName + ".json");
-                    let saveFileFullPath2 = path.join(this.jsonSavePath, 's', this.jsonAllCfgFileName + ".json");
+                    let saveFileFullPath1 = path.join(this.jsonSavePath, dirClientName, this.jsonAllCfgFileName + ".json");
+                    let saveFileFullPath2 = path.join(this.jsonSavePath, dirServerName, this.jsonAllCfgFileName + ".json");
                     if (fs.existsSync(saveFileFullPath1) || fs.existsSync(saveFileFullPath2)) {
                         this.isJsonAllCfgFileExist = true;
                     } else {
@@ -352,8 +352,8 @@ Editor.Panel.extend({
                     }
                 },
                 onBtnClickOpenJsonSavePath() {
-                    let saveFileFullPath1 = path.join(this.jsonSavePath, 'c');
-                    let saveFileFullPath2 = path.join(this.jsonSavePath, 's');
+                    let saveFileFullPath1 = path.join(this.jsonSavePath, dirClientName);
+                    let saveFileFullPath2 = path.join(this.jsonSavePath, dirServerName);
                     if (fs.existsSync(saveFileFullPath1)) {
                         Electron.shell.openItem(saveFileFullPath1);
                         Electron.shell.beep();
@@ -367,8 +367,8 @@ Editor.Panel.extend({
                     }
                 },
                 onBtnClickOpenJsSavePath() {
-                    let saveFileFullPath1 = path.join(this.jsSavePath, 'c');
-                    let saveFileFullPath2 = path.join(this.jsSavePath, 's');
+                    let saveFileFullPath1 = path.join(this.jsSavePath, dirClientName);
+                    let saveFileFullPath2 = path.join(this.jsSavePath, dirServerName);
                     if (fs.existsSync(saveFileFullPath1)) {
                         Electron.shell.openItem(saveFileFullPath1);
                         Electron.shell.beep();
@@ -525,8 +525,8 @@ Editor.Panel.extend({
                 },
                 // 打开生成的js配置文件
                 onBtnClickOpenJsFile() {
-                    let saveFileFullPath1 = path.join(this.jsSavePath, 'c', this.jsFileName + ".js");
-                    let saveFileFullPath2 = path.join(this.jsSavePath, 's', this.jsFileName + ".js");
+                    let saveFileFullPath1 = path.join(this.jsSavePath, dirClientName, this.jsFileName + ".js");
+                    let saveFileFullPath2 = path.join(this.jsSavePath, dirServerName, this.jsFileName + ".js");
                     if (fs.existsSync(saveFileFullPath1)) {
                         Electron.shell.openItem(saveFileFullPath1);
                         Electron.shell.beep();
@@ -540,8 +540,8 @@ Editor.Panel.extend({
                 },
                 // 检测js配置文件是否存在
                 checkJsFileExist() {
-                    let saveFileFullPath1 = path.join(this.jsSavePath, 'c', this.jsFileName + ".js");
-                    let saveFileFullPath2 = path.join(this.jsSavePath, 's', this.jsFileName + ".js");
+                    let saveFileFullPath1 = path.join(this.jsSavePath, dirClientName, this.jsFileName + ".js");
+                    let saveFileFullPath2 = path.join(this.jsSavePath, dirServerName, this.jsFileName + ".js");
                     if (fs.existsSync(saveFileFullPath1) || fs.existsSync(saveFileFullPath2)) {
                         this.isJsFileExist = true;
                     } else {
@@ -571,13 +571,13 @@ Editor.Panel.extend({
 
                     this.logView = "";
                     // 删除老的配置
-                    let jsonSavePath1 = path.join(this.jsonSavePath, 'c');
-                    let jsonSavePath2 = path.join(this.jsonSavePath, 's');
+                    let jsonSavePath1 = path.join(this.jsonSavePath, dirClientName);
+                    let jsonSavePath2 = path.join(this.jsonSavePath, dirServerName);
                     fsExtra.emptyDirSync(jsonSavePath1);
                     fsExtra.emptyDirSync(jsonSavePath2);
 
-                    let jsSavePath1 = path.join(this.jsSavePath, 'c');
-                    let jsSavePath2 = path.join(this.jsSavePath, 's');
+                    let jsSavePath1 = path.join(this.jsSavePath, dirClientName);
+                    let jsSavePath2 = path.join(this.jsSavePath, dirServerName);
                     fsExtra.emptyDirSync(jsSavePath1);
                     fsExtra.emptyDirSync(jsSavePath2);
 
