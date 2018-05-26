@@ -15,8 +15,8 @@
     "type": "dockable",
     "title": "excel-killer",
     "width": 500,
-    "height": 700,
-    "min-height": 600,
+    "height": 800,
+    "min-height": 800,
     "min-width": 500
   },
   "engines": {

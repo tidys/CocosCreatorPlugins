@@ -1,58 +1,12 @@
 
-
 h2 {
     color: #11ff00;
 }
-.greenColor{
+
+.greenColor {
     color: #11ff00;
 }
-.wrapper{
-    position: relative;
-    flex: 1;
-    background: #333;
-    margin-bottom: 5px;
-}
 
-h2 {
-    color: #f90;
-}
-
-.wrapper {
-    position: relative;
-    flex: 1;
-    background: #333;
-    margin-bottom: 5px;
-}
-
-.wrapper:last-child {
-    margin-bottom: 0px;
-}
-
-.wrapper > .box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 3px 10px;
-    box-sizing: border-box;
-    width: 60px;
-    height: 30px;
-    margin: 5px;
-
-    font-weight: bold;
-    background: #666;
-
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.wrapper.horizontal > .box:not(:last-child) {
-    margin-right: 0px;
-}
-
-.wrapper.vertical > .box:not(:last-child) {
-    margin-bottom: 0px;
-}
 :host {
     display: flex;
     flex-direction: column;
@@ -69,6 +23,11 @@ h3 {
     align-items: center;
 
     padding: 10px;
+}
+
+.excelBoard {
+    margin-left: 15px;
+    margin-right: 2px;
 }
 
 #view {

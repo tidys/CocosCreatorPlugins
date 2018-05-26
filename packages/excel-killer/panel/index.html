@@ -34,7 +34,6 @@
 
             </ui-prop>
         </ui-section>
-
         <ui-section>
             <div class="header greenColor">配置-JavaScript</div>
             <!--<hr style="margin: 1px 0 1px 0">-->
@@ -62,66 +61,47 @@
                 </ui-checkbox>
             </ui-prop>
             <ui-prop name="导出目标" tooltip=" 客户端[c字段] * 服务器[s字段]">
-                <ui-checkbox class="flex-1" v-bind:checked="isExportClient" v-on:change="onBtnClickExportClient">客户端
+                <ui-checkbox class="flex-1" v-bind:checked="isExportClient" v-on:change="onBtnClickExportClient">客户端*[c字段]
                 </ui-checkbox>
-                <ui-checkbox class="flex-1" v-bind:checked="isExportServer" v-on:change="onBtnClickExportServer">服务端
+                <ui-checkbox class="flex-1" v-bind:checked="isExportServer" v-on:change="onBtnClickExportServer">服务端*[s字段]
                 </ui-checkbox>
             </ui-prop>
         </ui-section>
-        <hr style="margin: 1px 0 1px 0">
-        <h2 style="margin: 1px 0 1px 0;color: #2feb21;">配置-Excel</h2>
-        <ui-prop name="Excel文件路径:" tooltip="插件会循环遍历出目录下所有的excel文件">
-            <div class="flex-1 layout horizontal center">
-                <ui-input placeholder="请选择Excel目录" disabled class="flex-1" v-value="excelRootPath"></ui-input>
-                <ui-button class="blue" v-on:confirm="onBtnClickSelectExcelRootPath">选择目录</ui-button>
-                <ui-button v-show="this.excelRootPath!==null && this.excelRootPath.length>0"
-                           v-on:confirm="onBtnClickOpenExcelRootPath">打开目录
-                </ui-button>
-                <ui-button v-show="this.excelRootPath!==null && this.excelRootPath.length>0"
-                           v-on:confirm="onBtnClickFreshExcel">
-                    <i class="icon-arrows-cw"></i>
-                </ui-button>
-            </div>
-        </ui-prop>
-
-
-
-        <div class="layout vertical"
-             style="width:100%;height: 200px;background-color: #888888;
-         margin-left: 4px;margin-right: 4px;">
-            <div class="layout horizontal center flex-1" style="height: 20px;">
-                <h4 style="margin:4px 0 4px 0" class="flex-2">Excel列表:</h4>
-                <h4 style="margin:4px 10px 4px 0" class="self-end">sheet[{{excelArray.length}}]
-                    excel[{{excelFileArr.length}}]</h4>
-            </div>
-            <!--表头-->
-            <div class="layout horizontal center"
-                 style="width: 100%;height: 20px;background-color: #fd942b;border-radius: 2px;">
-                <div style="width: 20%">
-                    <ui-checkbox v-on:change="onBtnClickSelectSheet" checked></ui-checkbox>
-                    序号
+        <ui-section>
+            <div class="header greenColor">配置-Excel</div>
+            <ui-prop name="Excel文件路径:" tooltip="插件会循环遍历出目录下所有的excel文件">
+                <div class="flex-1 layout horizontal center">
+                    <ui-input placeholder="请选择Excel目录" disabled class="flex-1" v-value="excelRootPath"></ui-input>
+                    <ui-button class="blue" v-on:confirm="onBtnClickSelectExcelRootPath">选择目录</ui-button>
+                    <ui-button v-show="this.excelRootPath!==null && this.excelRootPath.length>0"
+                               v-on:confirm="onBtnClickOpenExcelRootPath">打开目录
+                    </ui-button>
+                    <ui-button v-show="this.excelRootPath!==null && this.excelRootPath.length>0"
+                               v-on:confirm="onBtnClickFreshExcel">
+                        <i class="icon-arrows-cw"></i>
+                    </ui-button>
                 </div>
-                <div style="width: 40%">
-                    Excel文件
+            </ui-prop>
+
+            <div class="wrapper center layout horizontal excelBoard">
+                <div class="box flex-1">
+                    <ui-checkbox v-on:change="onBtnClickSelectSheet" checked>序号</ui-checkbox>
                 </div>
-                <div style="width: 40%">
-                    工作表名称
-                </div>
+                <div class="box flex-3"> Excel文件</div>
+                <div class="box flex-3"> 工作表名称</div>
             </div>
-            <!--内容-->
-            <div style="overflow: auto;overflow-x:hidden;height: 160px;">
+            <div class="excelBoard" style="height: 100px;">
                 <excel-item track-by="$index" v-for="(index,item) in excelArray"
                             v-bind:data="item"
                             v-bind:index="index">
                 </excel-item>
             </div>
-        </div>
-
+            <div class="wrapper layout horizontal center justified">
+                <span class="end-justified">统计: sheet[{{excelArray.length}}]
+                    excel[{{excelFileArr.length}}]</span>
+            </div>
+        </ui-section>
         <hr style="margin: 1px 0 1px 0">
-
-
-
-
         <div class="layout horizontal center justified ">
             <h2 class="start-justified" style="margin: 1px 0 1px 0;color: #2feb21;"> 输出日志 </h2>
             <ui-button v-on:confirm="onBtnClickGen" class="end-justified red">生成</ui-button>
