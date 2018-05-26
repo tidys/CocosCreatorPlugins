@@ -39,6 +39,7 @@ module.exports = {
         this.cfgData.jsFileName = data.jsFileName;
         this.cfgData.jsonAllFileName = data.jsonAllFileName;
         this.cfgData.isMergeJson = data.isMergeJson;
+        this.cfgData.isMergeJavaScript = data.isMergeJavaScript;
         this.cfgData.isFormatJsCode = data.isFormatJsCode;
         this.cfgData.isFormatJson = data.isFormatJson;
         this.cfgData.isExportJson = data.isExportJson;

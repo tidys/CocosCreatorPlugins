@@ -8,8 +8,10 @@ let Electron = require('electron');
 let uglifyJs = Editor.require('packages://' + packageName + '/node_modules/uglify-js');
 let fsExtra = Editor.require('packages://' + packageName + '/node_modules/fs-extra');
 let jsonBeautifully = Editor.require('packages://' + packageName + '/node_modules/json-beautifully');
-var chokidar = Editor.require('packages://' + packageName + '/node_modules/chokidar');
+let chokidar = Editor.require('packages://' + packageName + '/node_modules/chokidar');
 
+let dirClientName = "client";
+let dirServerName = "server";
 
 Editor.Panel.extend({
     style: fs.readFileSync(Editor.url('packages://' + packageName + '/panel/index.css', 'utf8')) + "",
@@ -42,6 +44,7 @@ Editor.Panel.extend({
                 excelRootPath: null,
 
                 isMergeJson: false,
+                isMergeJavaScript: false,
                 isExportJson: false,// 是否导出Json
                 isExportJs: false,// 是否导出Js
                 isFormatJson: false,// 是否格式化Json
@@ -78,6 +81,7 @@ Editor.Panel.extend({
                         jsFileName: this.jsFileName,
                         jsonAllFileName: this.jsonAllCfgFileName,
                         isMergeJson: this.isMergeJson,
+                        isMergeJavaScript: this.isMergeJavaScript,
                         isFormatJsCode: this.isFormatJsCode,
                         isFormatJson: this.isFormatJson,
                         isExportJson: this.isExportJson,
@@ -124,6 +128,7 @@ Editor.Panel.extend({
                             this.jsFileName = data.jsFileName || "GameJsCfg";
                             this.jsonAllCfgFileName = data.jsonAllFileName || "GameJsonCfg";
                             this.isMergeJson = data.isMergeJson;
+                            this.isMergeJavaScript = data.isMergeJavaScript;
                             this.isFormatJsCode = data.isFormatJsCode;
                             this.isFormatJson = data.isFormatJson;
                             this.isExportJson = data.isExportJson;
@@ -148,12 +153,25 @@ Editor.Panel.extend({
                         fs.mkdirSync(pluginResPath1);
                     }
                     this.jsonSavePath = pluginResPath1;
+                    this._initCSDir(this.jsonSavePath);
 
                     let pluginResPath2 = path.join(pluginResPath, "js");
                     if (!fs.existsSync(pluginResPath2)) {
                         fs.mkdirSync(pluginResPath2);
                     }
                     this.jsSavePath = pluginResPath2;
+                    this._initCSDir(this.jsSavePath);
+                },
+                // 初始化client-server目录
+                _initCSDir(saveDir) {
+                    let clientDir = path.join(saveDir, 'c');
+                    if (!fs.existsSync(clientDir)) {
+                        fs.mkdirSync(clientDir);
+                    }
+                    let serverDir = path.join(saveDir, 's');
+                    if (!fs.existsSync(serverDir)) {
+                        fs.mkdirSync(serverDir);
+                    }
                 },
                 onBtnClickFormatJson() {
                     this.isFormatJson = !this.isFormatJson;
@@ -164,6 +182,10 @@ Editor.Panel.extend({
                     this.isMergeJson = !this.isMergeJson;
                     this._saveConfig();
 
+                },
+                onBtnClickMergeJavaScript() {
+                    this.isMergeJavaScript = !this.isMergeJavaScript;
+                    this._saveConfig();
                 },
                 // 打开合并的json
                 onBtnClickJsonAllCfgFile() {
@@ -514,7 +536,6 @@ Editor.Panel.extend({
                     } else {
                         // this._addLog("目录不存在：" + this.resourceRootDir);
                         this._addLog("目录不存在:" + saveFileFullPath1 + ' or:' + saveFileFullPath2);
-                        return;
                     }
                 },
                 // 检测js配置文件是否存在
@@ -560,10 +581,12 @@ Editor.Panel.extend({
                     fsExtra.emptyDirSync(jsSavePath1);
                     fsExtra.emptyDirSync(jsSavePath2);
 
-                    let jsSaveDataClient = {};// 保存客户端的js数据
-                    let jsSaveDataServer = {};// 保存服务端的js数据
                     let jsonAllSaveDataClient = {};// 保存客户端的json数据
                     let jsonAllSaveDataServer = {};// 保存服务端的json数据
+
+                    let jsAllSaveDataClient = {};// 保存客户端的js数据
+                    let jsAllSaveDataServer = {};// 保存服务端的js数据
+
                     for (let k in this.excelArray) {
                         let itemSheet = this.excelArray[k];
                         if (itemSheet.isUse) {
@@ -582,18 +605,24 @@ Editor.Panel.extend({
                                             let jsonSaveData = this._getJsonSaveData(sheetData, itemSheet, isClient);
                                             if (Object.keys(jsonSaveData).length > 0) {
                                                 if (this.isMergeJson) {
-                                                    jsonAllSaveDataClient[itemSheet.sheet] = jsonSaveData;
+                                                    if (isClient) {
+                                                        // 检测重复问题
+                                                        if (jsonAllSaveDataClient[itemSheet.sheet] === undefined) {
+                                                            jsonAllSaveDataClient[itemSheet.sheet] = jsonSaveData;
+                                                        } else {
+                                                            this._addLog("发现重名sheet:" + itemSheet.name + "(" + itemSheet.sheet + ")");
+                                                        }
+                                                    } else {
+                                                        // 检测重复问题
+                                                        if (jsonAllSaveDataServer[itemSheet.sheet] === undefined) {
+                                                            jsonAllSaveDataServer[itemSheet.sheet] = jsonSaveData;
+                                                        } else {
+                                                            this._addLog("发现重名sheet:" + itemSheet.name + "(" + itemSheet.sheet + ")");
+                                                        }
+                                                    }
                                                 } else {
-                                                    let saveStr = JSON.stringify(jsonSaveData);
-                                                    if (this.isFormatJson) {// 格式化json
-                                                        saveStr = jsonBeautifully(saveStr);
-                                                    }
-                                                    if (!fs.existsSync(pathSave)) {
-                                                        fs.mkdirSync(pathSave);
-                                                    }
                                                     let saveFileFullPath = path.join(pathSave, itemSheet.sheet + ".json");
-                                                    fs.writeFileSync(saveFileFullPath, saveStr);
-                                                    this._addLog("[Json]:" + saveFileFullPath);
+                                                    this._onSaveJsonCfgFile(jsonSaveData, saveFileFullPath);
                                                 }
                                             }
                                         }.bind(this);
@@ -602,19 +631,34 @@ Editor.Panel.extend({
                                     }
                                     if (this.isExportJs) {
                                         // 保存为js
-                                        let writeFileJs = function (jsSaveData, isClient) {
+                                        let writeFileJs = function (savePath, isClient) {
                                             let sheetJsData = this._getJavaScriptSaveData(sheetData, itemSheet, isClient);
                                             if (Object.keys(sheetJsData).length > 0) {
-                                                // 检测重复问题
-                                                if (jsSaveData[itemSheet.sheet] === undefined) {
-                                                    jsSaveData[itemSheet.sheet] = sheetJsData;
+                                                if (this.isMergeJavaScript) {
+                                                    if (isClient) {
+                                                        // 检测重复问题
+                                                        if (jsAllSaveDataClient[itemSheet.sheet] === undefined) {
+                                                            jsAllSaveDataClient[itemSheet.sheet] = sheetJsData;
+                                                        } else {
+                                                            this._addLog("发现重名sheet:" + itemSheet.name + "(" + itemSheet.sheet + ")");
+                                                        }
+                                                    } else {
+                                                        // 检测重复问题
+                                                        if (jsAllSaveDataServer[itemSheet.sheet] === undefined) {
+                                                            jsAllSaveDataServer[itemSheet.sheet] = sheetJsData;
+                                                        } else {
+                                                            this._addLog("发现重名sheet:" + itemSheet.name + "(" + itemSheet.sheet + ")");
+                                                        }
+                                                    }
                                                 } else {
-                                                    this._addLog("发现重名sheet:" + itemSheet.name + "(" + itemSheet.sheet + ")");
+                                                    // 保存js配置
+                                                    let fileNameFullPath = path.join(savePath, itemSheet.sheet + ".js");
+                                                    this._onSaveJavaScriptCfgFile(fileNameFullPath, sheetJsData);
                                                 }
                                             }
                                         }.bind(this);
-                                        if (this.isExportClient) writeFileJs(jsSaveDataClient, true);
-                                        if (this.isExportServer) writeFileJs(jsSaveDataServer, false);
+                                        if (this.isExportClient) writeFileJs(jsSavePath1, true);
+                                        if (this.isExportServer) writeFileJs(jsSavePath2, false);
                                     }
                                 } else {
                                     this._addLog("行数低于3行,无效sheet:" + itemSheet.sheet);
@@ -627,57 +671,67 @@ Editor.Panel.extend({
                             console.log("忽略配置: " + itemSheet.fullPath + ' - ' + itemSheet.sheet);
                         }
                     }
-                    // =====================>>>>  保存json文件   <<<=================================
+                    // =====================>>>>  合并json文件   <<<=================================
                     if (this.isExportJson && this.isMergeJson) {
-                        let writeFile = function (data, pathSave) {
-                            let str = JSON.stringify(data);
-                            if (this.isFormatJson) {
-                                str = jsonBeautifully(str);
-                            }
-                            let saveFileFullPath = path.join(pathSave, this.jsonAllCfgFileName + ".json");
-                            fs.writeFileSync(saveFileFullPath, str);
-                            this._addLog("[Json]:" + saveFileFullPath);
-                        }.bind(this);
-                        if (this.isExportClient) writeFile(jsonAllSaveDataClient, jsonSavePath1);
-                        if (this.isExportServer) writeFile(jsonAllSaveDataServer, jsonSavePath2);
+                        if (this.isExportClient) {
+                            let saveFileFullPath = path.join(jsonSavePath1, this.jsonAllCfgFileName + ".json");
+                            this._onSaveJsonCfgFile(jsonAllSaveDataClient, saveFileFullPath);
+                        }
+                        if (this.isExportServer) {
+                            let saveFileFullPath = path.join(jsonSavePath2, this.jsonAllCfgFileName + ".json");
+                            this._onSaveJsonCfgFile(jsonAllSaveDataServer, saveFileFullPath);
+                        }
                         this.checkJsonAllCfgFileExist();
                     }
-                    // =====================>>>>  保存js文件   <<<=================================
-                    if (this.isExportJs) {
-                        let writeFileJs = function (saveFileFullPath, jsSaveData) {
-                            // TODO 保证key的顺序一致性
-                            let saveStr = "module.exports = " + JSON.stringify(jsSaveData) + ";";
-                            if (this.isFormatJsCode) {// 保存为格式化代码
-                                let ast = uglifyJs.parse(saveStr);
-                                let ret = uglifyJs.minify(ast, {
-                                    output: {
-                                        beautify: true,//如果希望得到格式化的输出，传入true
-                                        indent_start: 0,//（仅当beautify为true时有效） - 初始缩进空格
-                                        indent_level: 4,//（仅当beautify为true时有效） - 缩进级别，空格数量
-                                    }
-                                });
-                                if (ret.error) {
-                                    this._addLog('error: ' + ret.error.message);
-                                } else if (ret.code) {
-                                    fs.writeFileSync(saveFileFullPath, ret.code);
-                                    this._addLog("[JavaScript]" + saveFileFullPath);
-                                } else {
-                                    this._addLog(JSON.stringify(ret));
-                                }
-                            } else {// 保存为单行代码
-                                fs.writeFileSync(saveFileFullPath, saveStr);
-                                this._addLog("[JavaScript]" + saveFileFullPath);
-                            }
-                        }.bind(this);
-
-                        if (this.isExportClient) writeFileJs(path.join(jsSavePath1, this.jsFileName + ".js"), jsSaveDataClient);
-                        if (this.isExportServer) writeFileJs(path.join(jsSavePath2, this.jsFileName + ".js"), jsSaveDataServer);
+                    // =====================>>>>  合并js文件   <<<=================================
+                    if (this.isExportJs && this.isMergeJavaScript) {
+                        if (this.isExportClient) {
+                            this._onSaveJavaScriptCfgFile(path.join(jsSavePath1, this.jsFileName + ".js"), jsAllSaveDataClient);
+                        }
+                        if (this.isExportServer) {
+                            this._onSaveJavaScriptCfgFile(path.join(jsSavePath2, this.jsFileName + ".js"), jsAllSaveDataServer);
+                        }
 
                         this.checkJsFileExist();
                     }
 
                     this._addLog("全部转换完成!");
                 },
+                // 保存为json配置
+                _onSaveJsonCfgFile(data, saveFileFullPath) {
+                    let str = JSON.stringify(data);
+                    if (this.isFormatJson) {
+                        str = jsonBeautifully(str);
+                    }
+                    fs.writeFileSync(saveFileFullPath, str);
+                    this._addLog("[Json]:" + saveFileFullPath);
+                },
+                // 保存为js配置
+                _onSaveJavaScriptCfgFile(saveFileFullPath, jsSaveData) {
+                    // TODO 保证key的顺序一致性
+                    let saveStr = "module.exports = " + JSON.stringify(jsSaveData) + ";";
+                    if (this.isFormatJsCode) {// 保存为格式化代码
+                        let ast = uglifyJs.parse(saveStr);
+                        let ret = uglifyJs.minify(ast, {
+                            output: {
+                                beautify: true,//如果希望得到格式化的输出，传入true
+                                indent_start: 0,//（仅当beautify为true时有效） - 初始缩进空格
+                                indent_level: 4,//（仅当beautify为true时有效） - 缩进级别，空格数量
+                            }
+                        });
+                        if (ret.error) {
+                            this._addLog('error: ' + ret.error.message);
+                        } else if (ret.code) {
+                            fs.writeFileSync(saveFileFullPath, ret.code);
+                            this._addLog("[JavaScript]" + saveFileFullPath);
+                        } else {
+                            this._addLog(JSON.stringify(ret));
+                        }
+                    } else {// 保存为单行代码
+                        fs.writeFileSync(saveFileFullPath, saveStr);
+                        this._addLog("[JavaScript]" + saveFileFullPath);
+                    }
+                }
             },
 
         });
