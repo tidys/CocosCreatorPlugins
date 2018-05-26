@@ -1,13 +1,22 @@
 "use strict";
+let packageName = "foobar";
+let fs = require("fire-fs");
+let path = require('fire-path');
+
+
 Vue.component('foobar-inspector', {
-    template: `
-        <ui-prop v-prop="target.foo"></ui-prop>
-        <ui-prop v-prop="target.bar"></ui-prop>
-    `,
+    style: fs.readFileSync(Editor.url('packages://' + packageName + '/inspector.css'), 'utf8') + "",
+    template: fs.readFileSync(Editor.url('packages://' + packageName + '/inspector.html'), 'utf8') + "",
+
     props: {
         target: {
             twoWay: true,
             type: Object,
+        }
+    },
+    methods: {
+        onBtnClickTest() {
+            Editor.log('test');
         }
     }
 });
