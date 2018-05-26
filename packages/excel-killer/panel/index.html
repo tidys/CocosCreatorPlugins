@@ -61,14 +61,29 @@
                 </ui-checkbox>
             </ui-prop>
             <ui-prop name="导出目标" tooltip=" 客户端[c字段] * 服务器[s字段]">
-                <ui-checkbox class="flex-1" v-bind:checked="isExportClient" v-on:change="onBtnClickExportClient">客户端*[c字段]
+                <ui-checkbox class="flex-1" v-bind:checked="isExportClient" v-on:change="onBtnClickExportClient">
+                    客户端*[c字段]
                 </ui-checkbox>
-                <ui-checkbox class="flex-1" v-bind:checked="isExportServer" v-on:change="onBtnClickExportServer">服务端*[s字段]
+                <ui-checkbox class="flex-1" v-bind:checked="isExportServer" v-on:change="onBtnClickExportServer">
+                    服务端*[s字段]
                 </ui-checkbox>
             </ui-prop>
         </ui-section>
         <ui-section>
-            <div class="header greenColor">配置-Excel</div>
+            <div class="header greenColor">
+                <div class="greenColor">
+                    配置-Excel
+                </div>
+                <div class="wrapper layout center horizontal end-justified flex-1">
+                    <ui-button class='box tiny' >
+                         <h3 class="end-justified blue" style="color:#e5e9f2">统计: sheet[{{excelArray.length}}]
+                    excel[{{excelFileArr.length}}]</h3>
+                    </ui-button>
+
+                </div>
+            </div>
+
+
             <ui-prop name="Excel文件路径:" tooltip="插件会循环遍历出目录下所有的excel文件">
                 <div class="flex-1 layout horizontal center">
                     <ui-input placeholder="请选择Excel目录" disabled class="flex-1" v-value="excelRootPath"></ui-input>
@@ -90,15 +105,19 @@
                 <div class="box flex-3"> Excel文件</div>
                 <div class="box flex-3"> 工作表名称</div>
             </div>
-            <div class="excelBoard" style="height: 100px;">
-                <excel-item track-by="$index" v-for="(index,item) in excelArray"
-                            v-bind:data="item"
-                            v-bind:index="index">
-                </excel-item>
-            </div>
-            <div class="wrapper layout horizontal center justified">
-                <span class="end-justified">统计: sheet[{{excelArray.length}}]
-                    excel[{{excelFileArr.length}}]</span>
+            <div class="" style="height: 200px;margin-left: 0px; margin-right: 0px;">
+                <div id="view" class="scroll" style="padding-right: 0px;padding-bottom: 0px;height: 200px;">
+                    <div class="section" id="section" style="margin-bottom: 0px; padding-bottom: 0px;">
+                        <ui-box-container class="shadow height-limited"
+                                          style="height: auto; min-height: 200px;"
+                                          id="container">
+                            <excel-item track-by="$index" v-for="(index,item) in excelArray"
+                                        v-bind:data="item"
+                                        v-bind:index="index">
+                            </excel-item>
+                        </ui-box-container>
+                    </div>
+                </div>
             </div>
         </ui-section>
         <hr style="margin: 1px 0 1px 0">
