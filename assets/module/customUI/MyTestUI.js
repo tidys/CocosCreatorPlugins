@@ -4,7 +4,13 @@ cc.Class({
         inspector: "packages://foobar/inspector.js",
     },
     properties: {
-        foo: 'Foo',
+        foo: {
+            default: "foo",
+            type: cc.String,
+            notify() {
+                console.log("change");
+            },
+        },
         bar: 'Bar'
     }
 });
