@@ -22,9 +22,7 @@ module.exports = {
             let Path = require("fire-path");
 
             Editor.log("[HotUpdateTools] build platform:" + target.platform);
-            if (target.platform === "web-mobile" || target.platform === "web-desktop") {
-                Editor.log("[HotUpdateTools] don't need update main.js");
-            } else {
+            if (target.platform === "win32" || target.platform === "android" || target.platform === "ios" || target.platform === "mac") {
                 let root = Path.normalize(target.dest);
                 let url = Path.join(root, "main.js");
                 Fs.readFile(url, "utf8", function (err, data) {
@@ -54,6 +52,8 @@ module.exports = {
                         Editor.log("[HotUpdateTools] SearchPath updated in built main.js for hot update");
                     });
                 });
+            } else {
+                Editor.log("[HotUpdateTools] don't need update main.js, platform: " + target.platform);
             }
             let time = new Date().getTime();
             // 通知panel更新时间
