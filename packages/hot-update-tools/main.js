@@ -22,7 +22,7 @@ module.exports = {
             let Path = require("fire-path");
 
             Editor.log("[HotUpdateTools] build platform:" + target.platform);
-            if (target.platform === "web-mobile" || target.platform === "web-desktop") {
+            if (target.platform === "web-mobile" || target.platform === "web-desktop" || target.platform === "wechatgame") {
                 Editor.log("[HotUpdateTools] don't need update main.js");
             } else {
                 let root = Path.normalize(target.dest);
