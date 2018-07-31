@@ -78,3 +78,5 @@ packages/pngquant/
 .idea/workspace.xml
 .idea/
 packages/excel-killer/node_modules/
+packages/behaviortree-editor
+packages/processon-statemachine
