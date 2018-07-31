@@ -21,18 +21,6 @@ let packageDir = function (rootPath, zip) {
     }
 };
 
-let hello = function () {
-    console.log("hello");
-};
-
-gulp.task('test', function () {
-    hello();
-});
-
-gulp.task('default', function () {
-
-});
-
 // 打包插件
 gulp.task('打包插件', function () {
     let pluginDirName = 'avgmaker';// 插件名字
@@ -148,15 +136,21 @@ gulp.task('打包插件', function () {
             fse.removeSync(pluginTmpPath);
             // 在文件夹中展示打包文件
             let exec = require('child_process').exec;
-            let cmd = "open " + pluginOutPath;
-            console.log('开始执行命令: ' + cmd);
-            exec(cmd, function (error, stdout, stderr) {
-                if (error) {
-                    console.log(stderr);
-                    return;
-                }
-                console.log(stdout);
-            }.bind(this));
+
+            let platform = require('os').platform();
+            if (platform === 'darwin') {
+                let cmd = "open " + pluginOutPath;
+                console.log('开始执行命令: ' + cmd);
+                exec(cmd, function (error, stdout, stderr) {
+                    if (error) {
+                        console.log(stderr);
+                        return;
+                    }
+                    console.log(stdout);
+                }.bind(this));
+            } else if (platform === 'win32') {
+                // todo win
+            }
         }.bind(this))
         .on('error', function () {
             console.log('打包失败: ' + zipFilePath);

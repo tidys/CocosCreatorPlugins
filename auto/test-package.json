@@ -1,0 +1,23 @@
+{
+  "name":"test-plugin",
+  "version":"0.0.1",
+  "description":"test-plugin",
+  "author":"xuyanfeng",
+  "main":"main.js",
+  "main-menu":{
+    "TEST/初始化面板":{
+      "message":"test-plugin:init-panel"
+    },
+    "TEST/测试面板":{
+      "del": true,
+      "message":"test-plugin:open-test"
+    }
+  },
+  "panel":{
+    "main":"panel/index.js",
+    "type":"dockable",
+    "title":"主界面",
+    "width":400,
+    "height":300
+  }
+}
