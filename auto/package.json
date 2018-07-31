@@ -1,0 +1,24 @@
+{
+  "name": "avg-ck",
+  "version": "1.0.0",
+  "description": "Hello world new project template.",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://git.ck/avgmaker/avgmaker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^7.0.0",
+    "gulp": "^3.9.1",
+    "json-beautifully": "^1.0.3",
+    "jszip": "^3.1.5"
+  }
+}

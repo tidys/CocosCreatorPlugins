@@ -80,3 +80,4 @@ packages/pngquant/
 packages/excel-killer/node_modules/
 packages/behaviortree-editor
 packages/processon-statemachine
+auto/node_modules
