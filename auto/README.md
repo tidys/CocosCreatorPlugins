@@ -16,8 +16,8 @@ npm i
 ```
 打包后的package.json将删除这个菜单
 
-示例插件配置文件
-![](test-package.json)
+
+[示例插件配置文件](test-package.json)
 
 从配置中可以看到
 ```json
@@ -38,10 +38,10 @@ npm i
 于是,该task就应运而生,把这部分机械的文件拷贝工作交给task来处理,这样,只需要把runtime-resource当做正常的assets来进行开发维护进行了,需要注意的是,要保证所有的runtime-resource要保证在一个目录下,而且名字要和配置中的path一直,如图所示:
 
 package.json的配置    
-![](res/package.png)
+![cfg1](res/package.png)
 
 assets的配置    
-![](res/assets.png)
+![cfg2](res/assets.png)
 
 ### 最终插件打包后的目录结构
 - 插件压缩包根目录
