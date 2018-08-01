@@ -3,7 +3,7 @@
 1. BMFont
 2. Glyph Designer2（Mac+Win32）
 3. bmGlyph（Mac 68元）
-
+4. ShoeBox 的位图功能
 作者本身仅仅使用过BMFont,不得不吐槽下这个工具的交互,导入图片,指定ANSCII码,每次制作BMFont字体都特别麻烦
 
 所以插件本身就是在简化指定ANSCII码的操作,并简单的和creator进行了工作流整合,插件功能比较薄弱,但是能简单满足制作bmfont的一些需求,后续功能追加还需要时间去打磨完善.
