@@ -478,7 +478,8 @@ Editor.Panel.extend({
                     // });
                 },
                 initLocalGameVersion() {
-                    Editor.assetdb.queryAssets('db://assets/**\/*', "raw-asset", function (err, results) {
+                    // TODO 在creator1.10以上变成了asset
+                    Editor.assetdb.queryAssets('db://assets/**\/*', "asset", function (err, results) {
                         let versionCfg = "";
                         let projectCfg = "";
                         results.forEach(function (result) {
