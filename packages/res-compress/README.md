@@ -5,7 +5,7 @@
 - 项目中压缩mp3使用了lame
     - npm地址: https://www.npmjs.com/package/node-lame
     - sourceforge地址: http://lame.sourceforge.net/
-- 项目中压缩图片使用了**imageMin**
+- 项目中压缩图片使用了[imageMin](https://github.com/imagemin/imagemin#readme)
 
 ## 插件使用
 - 打开快捷键: Cmd/Ctrl + m
@@ -30,6 +30,6 @@
 ## 帮助
 在mac平台下,执行lame需要运行权限,插件会自动授予权限,如果插件提示了权限问题,需要再次检查下lame的权限
 
-![权限问题](../../doc/res-Compress/mac.png)
+![权限问题](../../doc/res-Compress/mac.png) 
 
 
