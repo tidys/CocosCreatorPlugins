@@ -48,7 +48,7 @@
                     <div class="flex-1 layout horizontal center">
                         <ui-select class="flex-2" style="width: auto" id="hotAddressSelect"
                                    v-on:change="onChangeSelectHotAddress">
-                            <option v-for="(index, address) in hotAddressArray" v-bind:value="address">
+                            <option v-for="(index, address) in hotAddressArray" v-value="address">
                                 {{'['+index+'] ' +address}}
                             </option>
                         </ui-select>

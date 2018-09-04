@@ -81,3 +81,5 @@ packages/excel-killer/node_modules/
 packages/behaviortree-editor
 packages/processon-statemachine
 auto/node_modules
+packages/qiniu/node_modules
+settings

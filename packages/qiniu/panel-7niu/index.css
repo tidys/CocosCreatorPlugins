@@ -1,0 +1,41 @@
+.file-container {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100%;
+    flex: 1;
+
+    border-radius: 3px;
+    border: 1px solid #666666;
+    padding: 5px;
+    background: #333333;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 8px 2px rgba(0, 0, 0, .2);
+    /*position: absolute;*/
+    /*top: 30px;*/
+    /*bottom: 0px;*/
+}
+
+.file-list {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.file-item {
+
+}
+
+.file-item:hover {
+    color: #eeede2;
+    background-color: #a29494;
+}
+
+.back-btn {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.back-btn:hover{
+    color: #aaaaaa;
+    cursor: pointer;
+}

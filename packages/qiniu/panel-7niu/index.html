@@ -1,0 +1,71 @@
+<div v-if="!isLogin">
+    <div>
+
+        <h2 style="margin-left: 10px;">7牛云存储
+            <a href="https://portal.qiniu.com/user/key">ak&sk</a>
+        </h2>
+        <ui-prop name="accessKey" type="string" v-value="accessKey" @change="onChangeAccessKey"></ui-prop>
+
+        <ui-prop name="secretKey" type="string" v-value="secretKey" @change="onChangeSecretKey"></ui-prop>
+        <ui-prop name="存储区域">
+            <ui-select v-el:area_select class="flex-1" v-value="storageArea" @change="onChangeStorageArea">
+                <option v-for="item in storageAreaArray" v-value="item.url">{{item.name}}</option>
+            </ui-select>
+        </ui-prop>
+        <ui-prop name="bucket" tooltip="存储空间目前仅支持华东地区" type="string" v-value="bucket"
+                 @change="onChangeBucket"></ui-prop>
+        <div class="layout horizontal center center-justified" style="margin-top: 30px">
+            <ui-button @confirm="onBtnClickLogin">登录</ui-button>
+            <ui-button @confirm="onButtonTest" v-if="false">测试</ui-button>
+        </div>
+        <div class="layout horizontal center">
+            <span class="flex-1" style="text-align: center; margin-top: 20px; color: red;">{{tips}}</span>
+        </div>
+    </div>
+    <ui-loader v-show="loginMask">
+
+    </ui-loader>
+</div>
+<div v-if="isLogin" class="file-list">
+    <div class="layout horizontal center">
+        <div  @click="onBtnClickReturn" class="back-btn">
+            <svg t="1534495994946" class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+                 xmlns="http://www.w3.org/2000/svg" p-id="2191" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 width="20"
+                 height="20">
+                <defs>
+                    <style type="text/css"></style>
+                </defs>
+                <path d="M638.238123 372.44764c-55.902194 0-19.446911-94.093005-19.446911-94.093005l-0.12075 0.134053c16.712637-38.926568 9.251711-85.760223-22.531156-117.54309-41.661865-41.632189-109.202121-41.632189-150.888546 0L167.746492 438.451914c-19.993357 20.006659-31.228235 47.134507-31.228235 75.426877 0 28.30158 11.234879 55.43045 31.228235 75.461669l277.503245 277.499152c20.844747 20.812001 48.15372 31.224142 75.452459 31.224142 27.28646 0 54.614875-10.412141 75.436086-31.224142 31.762401-31.757285 39.231513-78.503958 22.594601-117.418246l0.057305 0.071631c0 0-36.45426-94.155427 19.447934-94.155427l126.925784 2.717901c67.400063 9.377578 125.729539-44.567032 125.729539-144.163377l0 0c0-96.717785-63.396889-152.390759-125.728516-144.029324L638.238123 372.44764zM765.162884 366.695636"
+                      p-id="2192"></path>
+            </svg>
+        </div>
+        <h4>文件列表
+            <span style="color: #ff7f00">
+            {{getFileListInfo()}}
+            </span>
+        </h4>
+        <div class="layout horizontal center end-justified flex-1">
+            <ui-button @confirm="onBtnClickGetInfo" v-if="false">获取信息</ui-button>
+
+            <ui-button @confirm="onBtnClickRefresh">刷新</ui-button>
+            <ui-button @confirm="onBtnClickUpload" v-el:btn_upload>上传
+                <span style="color: #5efb12">
+            {{uploadBtnStr}}
+            </span>
+            </ui-button>
+            <ui-button @confirm="onBtnClickClean" v-el:btn_clean>清空
+                <span style="color: red">
+                {{cleanBtnStr}}
+            </span>
+            </ui-button>
+        </div>
+
+
+    </div>
+    <div class="file-container">
+        <file-item v-for="item in fileItems" :data="item">
+
+        </file-item>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+  "name": "qiniu",
+  "version": "0.0.1",
+  "description": "The package template for getting started.",
+  "author": "Cocos Creator",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.package.title/7牛云存储": {
+      "message": "qiniu:open"
+    }
+  },
+  "panel": {
+    "main": "panel-7niu/index.js",
+    "type": "dockable",
+    "title": "qiniu",
+    "width": 400,
+    "height": 300,
+    "min-height": 300
+  },
+  "dependencies": {
+    "qn": "^1.3.0"
+  }
+}
