@@ -55,7 +55,7 @@ Editor.Panel.extend({
                 jsonAllCfgFileName: null,// json配置文件名
 
                 jsSavePath: null,// 插件资源目录
-                jsFileName: null,//js配置文件名
+                jsFileName: null,//js配置合并为一个文件的文件名
                 isJsFileExist: false,
                 isFormatJsCode: false,
                 excelArray: [],
@@ -137,6 +137,9 @@ Editor.Panel.extend({
                             this.isExportServer = data.isExportServer;
                             this.checkJsFileExist();
                             this.checkJsonAllCfgFileExist();
+                        } else {
+                            this.jsFileName = "GameJsCfg";
+                            this.jsonAllCfgFileName = "GameJsonCfg";
                         }
                     }.bind(this));
                     this._initCfgSavePath();// 默认json路径
@@ -344,6 +347,11 @@ Editor.Panel.extend({
                             }
                         }
                     }
+                },
+                onStopTouchEvent(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    // console.log("dragOver");
                 },
                 onBtnClickSelectSheet(event) {
                     let b = event.currentTarget.value;
@@ -563,8 +571,20 @@ Editor.Panel.extend({
                             return;
                         }
                     }
-                    if (!this.jsFileName || this.jsFileName.length <= 0) {
-                        this._addLog("请输入要保存的js文件名!");
+                    if (this.isMergeJavaScript) {
+                        if (!this.jsFileName || this.jsFileName.length <= 0) {
+                            this._addLog("请输入要保存的js文件名!");
+                            return;
+                        }
+                    }
+                    // TODO
+                    if(this.isExportServer===false && this.isExportClient===false){
+                        this._addLog("请选择要导出的目标!");
+                        return;
+                    }
+
+                    if(this.isExportJson ===false && this.isExportJs===false){
+                        this._addLog("请选择要导出的类型!");
                         return;
                     }
 

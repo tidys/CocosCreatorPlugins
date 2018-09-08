@@ -5,10 +5,10 @@
                 <div>配置-Json</div>
                 <div class=" flex-1 ">
                     <div class="  layout horizontal  center end-justified">
-                        <ui-button v-on:confirm="onBtnClickTellMe" class="box"
+                        <ui-button v-on:confirm="onBtnClickTellMe" class="box" @click="onStopTouchEvent"
                                    style="background: url('http://wpa.qq.com/pa?p=2:774177933:51');width: 79px;height: 25px;">
                         </ui-button>
-                        <ui-button v-on:confirm="onBtnClickHelpDoc" class="box">
+                        <ui-button v-on:confirm="onBtnClickHelpDoc" class="box" @click="onStopTouchEvent">
                             帮助文档
                         </ui-button>
                     </div>
@@ -78,7 +78,7 @@
                     配置-Excel
                 </div>
                 <div class="wrapper layout center horizontal end-justified flex-1">
-                    <ui-button class='box tiny' >
+                    <ui-button class='box tiny' @click="onStopTouchEvent">
                          <h3 class="end-justified blue" style="color:#e5e9f2">统计: sheet[{{excelArray.length}}]
                     excel[{{excelFileArr.length}}]</h3>
                     </ui-button>
@@ -115,8 +115,8 @@
                                           style="height: auto; min-height: 200px;"
                                           id="container">
                             <excel-item track-by="$index" v-for="(index,item) in excelArray"
-                                        v-bind:data="item"
-                                        v-bind:index="index">
+                                        :data="item"
+                                        :index="index">
                             </excel-item>
                         </ui-box-container>
                     </div>
