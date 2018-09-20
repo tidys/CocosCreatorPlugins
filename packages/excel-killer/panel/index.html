@@ -1,134 +1,158 @@
-<div class="layout vertical" style="height: 100%">
-    <div class="layout vertical start-justified">
-        <ui-section>
-            <div class="header greenColor layout horizontal center">
-                <div>配置-Json</div>
-                <div class=" flex-1 ">
-                    <div class="  layout horizontal  center end-justified">
-                        <ui-button v-on:confirm="onBtnClickTellMe" class="box" @click="onStopTouchEvent"
-                                   style="background: url('http://wpa.qq.com/pa?p=2:774177933:51');width: 79px;height: 25px;">
-                        </ui-button>
-                        <ui-button v-on:confirm="onBtnClickHelpDoc" class="box" @click="onStopTouchEvent">
-                            帮助文档
-                        </ui-button>
-                    </div>
-                </div>
-            </div>
-            <ui-prop name="Json存放路径:">
-                <ui-input class="flex-1" v-value="jsonSavePath" disabled></ui-input>
-                <ui-button class="green" v-on:confirm="onBtnClickOpenJsonSavePath">打开</ui-button>
-            </ui-prop>
+<div class="layout vertical fit">
+    <div class="layout vertical flex-1">
 
-            <ui-prop name="合并所有Json"
-                     tooltip="  [√]勾选,所有的配置将合并为一个json文件
+        <div id="view-root" class="scroll">
+            <div class="section">
+                <ui-section>
+                    <div class="header greenColor layout horizontal center">
+                        <div>配置-Json</div>
+                        <div class=" flex-1 ">
+                            <div class="  layout horizontal  center end-justified">
+                                <ui-button v-on:confirm="onBtnClickTellMe" class="box" @click="onStopTouchEvent"
+                                           style="background: url('http://wpa.qq.com/pa?p=2:774177933:51');width: 79px;height: 25px;">
+                                </ui-button>
+                                <ui-button v-on:confirm="onBtnClickHelpDoc" class="box" @click="onStopTouchEvent">
+                                    帮助文档
+                                </ui-button>
+                            </div>
+                        </div>
+                    </div>
+                    <ui-prop name="合并所有Json"
+                             tooltip="  [√]勾选,所有的配置将合并为一个json文件
                             [×]未勾选,每个sheet对应一个json文件">
-                <ui-checkbox v-bind:checked="isMergeJson" v-on:change="onBtnClickMergeJson"></ui-checkbox>
-                <ui-input class="flex-1" v-on:blur="onJsonAllCfgFileChanged" v-value="jsonAllCfgFileName"
-                          v-show="isMergeJson" placeholder="请输入json配置文件名"></ui-input>
-                <ui-button v-show="isJsonAllCfgFileExist && isMergeJson" v-on:confirm="onBtnClickJsonAllCfgFile">打开
-                </ui-button>
-            </ui-prop>
-            <ui-prop name="Json格式化" tooltip=" [√]勾选,json将格式化后保存
+                        <ui-checkbox v-bind:checked="isMergeJson" v-on:change="onBtnClickMergeJson"></ui-checkbox>
+                        <ui-input class="flex-1" v-on:blur="onJsonAllCfgFileChanged" v-value="jsonAllCfgFileName"
+                                  v-show="isMergeJson" placeholder="请输入json配置文件名"></ui-input>
+                        <ui-button v-show="isJsonAllCfgFileExist && isMergeJson"
+                                   v-on:confirm="onBtnClickJsonAllCfgFile">打开
+                        </ui-button>
+                    </ui-prop>
+                    <ui-prop name="Json格式化" tooltip=" [√]勾选,json将格式化后保存
                                             [×]未勾选,json将保存为单行文件">
-                <ui-checkbox v-bind:checked="isFormatJson" v-on:change="onBtnClickFormatJson"></ui-checkbox>
+                        <ui-checkbox v-bind:checked="isFormatJson" v-on:change="onBtnClickFormatJson"></ui-checkbox>
 
-            </ui-prop>
-        </ui-section>
-        <ui-section>
-            <div class="header greenColor">配置-JavaScript</div>
-            <!--<hr style="margin: 1px 0 1px 0">-->
-            <!--<h2 style="margin: 1px 0 1px 0;color: #2feb21;">配置-JavaScript</h2>-->
-            <ui-prop name="Js存放路径:">
-                <ui-input class="flex-1" v-value="jsSavePath" disabled></ui-input>
-                <ui-button class="green" v-on:confirm="onBtnClickOpenJsSavePath">打开</ui-button>
-            </ui-prop>
-            <ui-prop name="合并所有Js"
-                     tooltip="  [√]勾选,所有的配置将合并为一个js文件
-                            [×]未勾选,每个sheet对应一个js文件">
-                <ui-checkbox v-bind:checked="isMergeJavaScript" v-on:change="onBtnClickMergeJavaScript"></ui-checkbox>
-                <ui-input class="flex-1" v-on:blur="onJsFileNameChanged" v-value="jsFileName"
-                          v-show="isMergeJavaScript" placeholder="请输入javaScript文件名"></ui-input>
-                <ui-button v-on:confirm="onBtnClickOpenJsFile" v-show="isJsFileExist && isMergeJavaScript">打开</ui-button>
-            </ui-prop>
-            <ui-prop name="代码格式化" tooltip=" [√]勾选,js将格式化后保存文件
-                                            [×]未勾选,js将保存为单行文件">
-                <ui-checkbox v-bind:checked="isFormatJsCode" v-on:change="onBtnClickFormatJsCode"></ui-checkbox>
-            </ui-prop>
-        </ui-section>
-        <ui-section>
-            <div class="header greenColor">配置-导出</div>
-            <ui-prop name="导出类型" tooltip="配置文件的格式">
-                <ui-checkbox class="flex-1" v-bind:checked="isExportJson" v-on:change="onBtnClickIsExportJson">Json配置
-                </ui-checkbox>
-                <ui-checkbox class="flex-1" v-bind:checked="isExportJs" v-on:change="onBtnClickIsExportJs">JavaScript配置
-                </ui-checkbox>
-            </ui-prop>
-            <ui-prop name="导出目标" tooltip=" 客户端[c字段] * 服务器[s字段]">
-                <ui-checkbox class="flex-1" v-bind:checked="isExportClient" v-on:change="onBtnClickExportClient">
-                    客户端*[c字段]
-                </ui-checkbox>
-                <ui-checkbox class="flex-1" v-bind:checked="isExportServer" v-on:change="onBtnClickExportServer">
-                    服务端*[s字段]
-                </ui-checkbox>
-            </ui-prop>
-        </ui-section>
-        <ui-section>
-            <div class="header greenColor">
-                <div class="greenColor">
-                    配置-Excel
-                </div>
-                <div class="wrapper layout center horizontal end-justified flex-1">
-                    <ui-button class='box tiny' @click="onStopTouchEvent">
-                         <h3 class="end-justified blue" style="color:#e5e9f2">统计: sheet[{{excelArray.length}}]
-                    excel[{{excelFileArr.length}}]</h3>
-                    </ui-button>
-
-                </div>
-            </div>
-
-
-            <ui-prop name="Excel文件路径:" tooltip="插件会循环遍历出目录下所有的excel文件">
-                <div class="flex-1 layout horizontal center">
-                    <ui-input placeholder="请选择Excel目录" disabled class="flex-1" v-value="excelRootPath"></ui-input>
-                    <ui-button class="blue" v-on:confirm="onBtnClickSelectExcelRootPath">选择目录</ui-button>
-                    <ui-button v-show="this.excelRootPath!==null && this.excelRootPath.length>0"
-                               v-on:confirm="onBtnClickOpenExcelRootPath">打开目录
-                    </ui-button>
-                    <ui-button v-show="this.excelRootPath!==null && this.excelRootPath.length>0"
-                               v-on:confirm="onBtnClickFreshExcel">
-                        <i class="icon-arrows-cw"></i>
-                    </ui-button>
-                </div>
-            </ui-prop>
-
-            <div class="wrapper center layout horizontal excelBoard">
-                <div class="box flex-1">
-                    <ui-checkbox v-on:change="onBtnClickSelectSheet" checked>序号</ui-checkbox>
-                </div>
-                <div class="box flex-3"> Excel文件</div>
-                <div class="box flex-3"> 工作表名称</div>
-            </div>
-            <div class="" style="height: 200px;margin-left: 0px; margin-right: 0px;">
-                <div id="view" class="scroll" style="padding-right: 0px;padding-bottom: 0px;height: 200px;">
-                    <div class="section" id="section" style="margin-bottom: 0px; padding-bottom: 0px;">
-                        <ui-box-container class="shadow height-limited"
-                                          style="height: auto; min-height: 200px;"
-                                          id="container">
-                            <excel-item track-by="$index" v-for="(index,item) in excelArray"
-                                        :data="item"
-                                        :index="index">
-                            </excel-item>
-                        </ui-box-container>
+                    </ui-prop>
+                    <ui-prop name="Json存放路径:">
+                        <ui-input class="flex-1" v-value="jsonSavePath" disabled></ui-input>
+                        <ui-button class="green" v-on:confirm="onBtnClickOpenJsonSavePath">打开</ui-button>
+                    </ui-prop>
+                    <ui-prop name="导入项目路径" tooltip="将生产的json配置导入到项目中">
+                        <ui-input class="flex-1" readonly v-value="importProjectCfgPath"></ui-input>
+                        <ui-button @confirm="onBtnClickSelectProjectJsonCfgPath">选择</ui-button>
+                    </ui-prop>
+                    <div class="layout horizontal end-justified">
+                        <ui-button @confirm="onBtnClickImportProjectJsonCfg_Server" class="red">导入服务端配置</ui-button>
+                        <ui-button @confirm="onBtnClickImportProjectJsonCfg_Client" class="red">导入客户端配置</ui-button>
                     </div>
-                </div>
+                </ui-section>
+                <ui-section>
+                    <div class="header greenColor">配置-JavaScript</div>
+                    <!--<hr style="margin: 1px 0 1px 0">-->
+                    <!--<h2 style="margin: 1px 0 1px 0;color: #2feb21;">配置-JavaScript</h2>-->
+                    <ui-prop name="Js存放路径:">
+                        <ui-input class="flex-1" v-value="jsSavePath" disabled></ui-input>
+                        <ui-button class="green" v-on:confirm="onBtnClickOpenJsSavePath">打开</ui-button>
+                    </ui-prop>
+                    <ui-prop name="合并所有Js"
+                             tooltip="  [√]勾选,所有的配置将合并为一个js文件
+                            [×]未勾选,每个sheet对应一个js文件">
+                        <ui-checkbox v-bind:checked="isMergeJavaScript"
+                                     v-on:change="onBtnClickMergeJavaScript"></ui-checkbox>
+                        <ui-input class="flex-1" v-on:blur="onJsFileNameChanged" v-value="jsFileName"
+                                  v-show="isMergeJavaScript" placeholder="请输入javaScript文件名"></ui-input>
+                        <ui-button v-on:confirm="onBtnClickOpenJsFile" v-show="isJsFileExist && isMergeJavaScript">打开
+                        </ui-button>
+                    </ui-prop>
+                    <ui-prop name="代码格式化" tooltip=" [√]勾选,js将格式化后保存文件
+                                            [×]未勾选,js将保存为单行文件">
+                        <ui-checkbox v-bind:checked="isFormatJsCode" v-on:change="onBtnClickFormatJsCode"></ui-checkbox>
+                    </ui-prop>
+                </ui-section>
+                <ui-section>
+                    <div class="header greenColor">配置-导出</div>
+                    <ui-prop name="导出类型" tooltip="配置文件的格式">
+                        <ui-checkbox class="flex-1" v-bind:checked="isExportJson" v-on:change="onBtnClickIsExportJson">
+                            Json配置
+                        </ui-checkbox>
+                        <ui-checkbox class="flex-1" v-bind:checked="isExportJs" v-on:change="onBtnClickIsExportJs">
+                            JavaScript配置
+                        </ui-checkbox>
+                    </ui-prop>
+                    <ui-prop name="导出目标" tooltip=" 客户端[c字段] * 服务器[s字段]">
+                        <ui-checkbox class="flex-1" v-bind:checked="isExportClient"
+                                     v-on:change="onBtnClickExportClient">
+                            客户端*[c字段]
+                        </ui-checkbox>
+                        <ui-checkbox class="flex-1" v-bind:checked="isExportServer"
+                                     v-on:change="onBtnClickExportServer">
+                            服务端*[s字段]
+                        </ui-checkbox>
+                    </ui-prop>
+                </ui-section>
+
+
+                <ui-section>
+                    <div class="header greenColor">
+                        <div class="greenColor">
+                            配置-Excel
+                        </div>
+                        <div class="wrapper layout center horizontal end-justified flex-1">
+                            <h4 @click="onStopTouchEvent" class="end-justified blue" style="color:#e5e9f2">统计:
+                                sheet[{{excelArray.length}}]
+                                excel[{{excelFileArr.length}}]</h4>
+                        </div>
+                    </div>
+
+
+                    <ui-prop name="Excel文件路径:" tooltip="插件会循环遍历出目录下所有的excel文件">
+                        <div class="flex-1 layout horizontal center">
+                            <ui-input placeholder="请选择Excel目录" disabled class="flex-1"
+                                      v-value="excelRootPath"></ui-input>
+                            <ui-button class="blue" v-on:confirm="onBtnClickSelectExcelRootPath">选择目录</ui-button>
+                            <ui-button v-show="this.excelRootPath!==null && this.excelRootPath.length>0"
+                                       v-on:confirm="onBtnClickOpenExcelRootPath">打开目录
+                            </ui-button>
+                            <ui-button v-show="this.excelRootPath!==null && this.excelRootPath.length>0"
+                                       v-on:confirm="onBtnClickFreshExcel">
+                                <i class="icon-arrows-cw"></i>
+                            </ui-button>
+                        </div>
+                    </ui-prop>
+
+                    <div class="wrapper center layout horizontal excelBoard">
+                        <div class="box flex-1">
+                            <ui-checkbox v-on:change="onBtnClickSelectSheet" checked>序号</ui-checkbox>
+                        </div>
+                        <div class="box flex-3"> Excel文件</div>
+                        <div class="box flex-3"> 工作表名称</div>
+                    </div>
+                    <div class="" style="height: 200px;margin-left: 0px; margin-right: 0px;">
+                        <div id="view" class="scroll" style="padding-right: 0px;padding-bottom: 0px;height: 200px;">
+                            <div class="section" id="section" style="margin-bottom: 0px; padding-bottom: 0px;">
+                                <ui-box-container class="shadow height-limited"
+                                                  style="height: auto; min-height: 200px;"
+                                                  id="container">
+                                    <excel-item track-by="$index" v-for="(index,item) in excelArray"
+                                                :data="item"
+                                                :index="index">
+                                    </excel-item>
+                                </ui-box-container>
+                            </div>
+                        </div>
+                    </div>
+                </ui-section>
             </div>
-        </ui-section>
+        </div>
+
+
         <hr style="margin: 1px 0 1px 0">
         <div class="layout horizontal center justified ">
             <h2 class="start-justified" style="margin: 1px 0 1px 0;color: #2feb21;"> 输出日志 </h2>
             <ui-button v-on:confirm="onBtnClickGen" class="end-justified red">生成</ui-button>
         </div>
     </div>
-    <textarea class="flex-1 " id="logTextArea" v-model="logView"
-              style="width: 100%; height: 100%; background: #252525;	color: #fd942b;	border-color: #fd942b;"></textarea>
+    <div>
+        <textarea class="flex-1 log" id="logTextArea" v-model="logView">
+        </textarea>
+    </div>
 </div>

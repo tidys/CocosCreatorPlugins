@@ -30,6 +30,16 @@ h3 {
     margin-right: 18px;
 }
 
+#view-root {
+    flex: 1;
+
+    padding: 10px;
+    padding-top: 0px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 #view {
     flex: 1;
 
@@ -63,5 +73,13 @@ div.group {
 
 span {
     margin-right: 0.25em;
+}
+
+.log {
+    width: 100%;
+    height: 150px;
+    background: #252525;
+    color: #fd942b;
+    border-color: #fd942b;
 }
 

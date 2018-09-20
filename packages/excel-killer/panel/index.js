@@ -9,6 +9,8 @@ let uglifyJs = Editor.require('packages://' + packageName + '/node_modules/uglif
 let fsExtra = Editor.require('packages://' + packageName + '/node_modules/fs-extra');
 let jsonBeautifully = Editor.require('packages://' + packageName + '/node_modules/json-beautifully');
 let chokidar = Editor.require('packages://' + packageName + '/node_modules/chokidar');
+const Globby = require('globby');
+
 
 let dirClientName = "client";
 let dirServerName = "server";
@@ -32,7 +34,7 @@ Editor.Panel.extend({
 
 
         excelItem.init();
-        window.plugin = new window.Vue({
+        this.plugin = new window.Vue({
             el: this.shadowRoot,
             created() {
                 this._initPluginCfg();
@@ -60,8 +62,67 @@ Editor.Panel.extend({
                 isFormatJsCode: false,
                 excelArray: [],
                 excelFileArr: [],
+
+
+                importProjectCfgPath: null,
             },
             methods: {
+                ////////////////////////////导入到项目////////////////////////////////////////////
+                onBtnClickSelectProjectJsonCfgPath() {
+                    let res = Editor.Dialog.openFile({
+                        title: "选择项目配置存放目录",
+                        defaultPath: path.join(Editor.projectInfo.path, "assets"),
+                        properties: ['openDirectory'],
+                    });
+                    if (res !== -1) {
+                        let dir = res[0];
+                        if (dir !== this.importProjectCfgPath) {
+                            this.importProjectCfgPath = dir;
+                            this._saveConfig();
+                        }
+                    }
+                },
+                onBtnClickImportProjectJsonCfg_Server() {
+                    this._importJsonCfg("server");
+                },
+                onBtnClickImportProjectJsonCfg_Client() {
+                    this._importJsonCfg("client");
+                },
+                _importJsonCfg(typeDir) {
+                    if (!this.isExportJson) {
+                        this._addLog("[Warning] 您未勾选导出Json配置,可能导入的配置时上个版本的!");
+                    }
+                    let importPath = Editor.assetdb.remote.fspathToUrl(this.importProjectCfgPath);
+                    if (importPath.indexOf("db://assets") >= 0) {
+
+                        // 检索所有的json配置
+                        let clientDir = path.join(this.jsonSavePath, typeDir);
+                        if (!fs.existsSync(clientDir)) {
+                            this._addLog("配置目录不存在:" + clientDir);
+                            return;
+                        }
+                        let pattern = path.join(clientDir, '**/*.json');
+                        let files = Globby.sync(pattern)
+                        this._addLog("一共导入文件数量: " + files.length);
+                        for (let i = 0; i < files.length; i++) {
+
+                        }
+                        Editor.assetdb.import(files, importPath,
+                            function (err, results) {
+                                results.forEach(function (result) {
+                                    console.log(result.path);
+                                    // result.uuid
+                                    // result.parentUuid
+                                    // result.url
+                                    // result.path
+                                    // result.type
+                                });
+                            }.bind(this));
+                    } else {
+                        this._addLog("非项目路径,无法导入 : " + this.importProjectCfgPath);
+                    }
+                },
+                ////////////////////////////////////////////////////////////////////////
                 _addLog(str) {
                     let time = new Date();
                     // this.logView = "[" + time.toLocaleString() + "]: " + str + "\n" + this.logView;
@@ -88,6 +149,7 @@ Editor.Panel.extend({
                         isExportJs: this.isExportJs,
                         isExportClient: this.isExportClient,
                         isExportServer: this.isExportServer,
+                        importProjectCfgPath: this.importProjectCfgPath,
                     };
                     CfgUtil.saveCfgByData(data);
                 },
@@ -127,14 +189,15 @@ Editor.Panel.extend({
                             }
                             this.jsFileName = data.jsFileName || "GameJsCfg";
                             this.jsonAllCfgFileName = data.jsonAllFileName || "GameJsonCfg";
-                            this.isMergeJson = data.isMergeJson;
-                            this.isMergeJavaScript = data.isMergeJavaScript;
-                            this.isFormatJsCode = data.isFormatJsCode;
-                            this.isFormatJson = data.isFormatJson;
-                            this.isExportJson = data.isExportJson;
-                            this.isExportJs = data.isExportJs;
-                            this.isExportClient = data.isExportClient;
-                            this.isExportServer = data.isExportServer;
+                            this.isMergeJson = data.isMergeJson || false;
+                            this.isMergeJavaScript = data.isMergeJavaScript || false;
+                            this.isFormatJsCode = data.isFormatJsCode || false;
+                            this.isFormatJson = data.isFormatJson || false;
+                            this.isExportJson = data.isExportJson || false;
+                            this.isExportJs = data.isExportJs || false;
+                            this.isExportClient = data.isExportClient || false;
+                            this.isExportServer = data.isExportServer || false;
+                            this.importProjectCfgPath = data.importProjectCfgPath || null;
                             this.checkJsFileExist();
                             this.checkJsonAllCfgFileExist();
                         } else {
@@ -269,6 +332,8 @@ Editor.Panel.extend({
                 },
                 // 查找出目录下的所有excel文件
                 _onAnalyzeExcelDirPath(dir) {
+                    let self = this;
+
                     // let dir = path.normalize("D:\\proj\\CocosCreatorPlugins\\doc\\excel-killer");
                     if (dir) {
                         // 查找json文件
@@ -338,7 +403,7 @@ Editor.Panel.extend({
                                 } else if (info.isFile()) {
                                     let headStr = item.substr(0, 2);
                                     if (headStr === "~$") {
-                                        window.plugin._addLog("检索到excel产生的临时文件:" + itemFullPath);
+                                        self._addLog("检索到excel产生的临时文件:" + itemFullPath);
                                     } else {
                                         allFileArr.push(itemFullPath);
                                     }
@@ -491,19 +556,21 @@ Editor.Panel.extend({
                         let saveData2 = {};// 格式2:id作为索引
                         for (let i = 3; i < excelData.length; i++) {
                             let lineData = excelData[i];
-                            if (lineData.length < title.length) {
-                                continue;
-                            } else if (lineData.length > title.length) {
+                            if (lineData.length !== title.length) {
+                                this._addLog(`配置表头和配置数据不匹配:${itemSheet.name} - ${itemSheet.sheet} : 第${i}行`);
+                                this._addLog("跳过改行数据");
                                 continue;
                             }
 
                             let saveLineData = {};
                             let canExport = false;
-                            for (let j = 1; j < title.length; j++) {
+
+                            // todo 将ID字段也加入到data中
+                            for (let j = 0; j < title.length; j++) {
                                 canExport = false;
-                                if (isClient && target[j].indexOf('c') !== -1) {
+                                if (isClient && target[j] && target[j].indexOf('c') !== -1) {
                                     canExport = true;
-                                } else if (!isClient && target[j].indexOf('s') !== -1) {
+                                } else if (!isClient && target[j] && target[j].indexOf('s') !== -1) {
                                     canExport = true;
                                 }
                                 if (canExport) {
@@ -518,9 +585,9 @@ Editor.Panel.extend({
                             }
 
                             canExport = false;
-                            if (isClient && target[0].indexOf('c') !== -1) {
+                            if (isClient && target[0] && target[0].indexOf('c') !== -1) {
                                 canExport = true;
-                            } else if (!isClient && target[0].indexOf('s') !== -1) {
+                            } else if (!isClient && target[0] && target[0].indexOf('s') !== -1) {
                                 canExport = true;
                             }
                             if (canExport) {
@@ -578,12 +645,12 @@ Editor.Panel.extend({
                         }
                     }
                     // TODO
-                    if(this.isExportServer===false && this.isExportClient===false){
+                    if (this.isExportServer === false && this.isExportClient === false) {
                         this._addLog("请选择要导出的目标!");
                         return;
                     }
 
-                    if(this.isExportJson ===false && this.isExportJs===false){
+                    if (this.isExportJson === false && this.isExportJs === false) {
                         this._addLog("请选择要导出的类型!");
                         return;
                     }

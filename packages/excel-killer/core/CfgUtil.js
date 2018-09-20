@@ -46,6 +46,7 @@ module.exports = {
         this.cfgData.isExportJs = data.isExportJs;
         this.cfgData.isExportClient = data.isExportClient;
         this.cfgData.isExportServer = data.isExportServer;
+        this.cfgData.importProjectCfgPath = data.importProjectCfgPath;
         this._save();
     },
     _save() {
