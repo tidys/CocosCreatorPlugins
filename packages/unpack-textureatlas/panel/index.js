@@ -145,7 +145,7 @@ Editor.Panel.extend({
                                     let isRotated = spriteFrameObj.rotated;
                                     let originalSize = cc.size(spriteFrameObj.rawWidth, spriteFrameObj.rawHeight);
                                     let rect = cc.rect(spriteFrameObj.trimX, spriteFrameObj.trimY, spriteFrameObj.width, spriteFrameObj.height);
-                                    let offset = cc.p(spriteFrameObj.offsetX, spriteFrameObj.offsetY);
+                                    let offset = cc.v2(spriteFrameObj.offsetX, spriteFrameObj.offsetY);
 
                                     let trimmedLeft = offset.x + (originalSize.width - rect.width) / 2;
                                     let trimmedRight = (originalSize.width - rect.width) / 2 - offset.x;
