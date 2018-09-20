@@ -89,6 +89,11 @@ Editor.Panel.extend({
                     this._importJsonCfg("client");
                 },
                 _importJsonCfg(typeDir) {
+                    if (!fs.existsSync(this.importProjectCfgPath)) {
+                        this._addLog("导入项目路径不存在:" + this.importProjectCfgPath);
+                        return;
+                    }
+
                     if (!this.isExportJson) {
                         this._addLog("[Warning] 您未勾选导出Json配置,可能导入的配置时上个版本的!");
                     }
