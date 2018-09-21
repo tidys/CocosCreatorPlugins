@@ -471,10 +471,10 @@ Editor.Panel.extend({
                             continue;
                         } else {
                             if (lineData.length < title.length) {
-                                this._addLog("[Error] 发现第" + i + "行缺少字段,跳过改行数据配置.");
+                                this._addLog("[Error] 发现第" + i + "行缺少字段,跳过该行数据配置.");
                                 continue;
                             } else if (lineData.length > title.length) {
-                                this._addLog("[Error] 发现第" + i + "行多余字段,跳过改行数据配置.");
+                                this._addLog("[Error] 发现第" + i + "行多余字段,跳过该行数据配置.");
                                 continue;
                             }
                         }
@@ -562,8 +562,8 @@ Editor.Panel.extend({
                         for (let i = 3; i < excelData.length; i++) {
                             let lineData = excelData[i];
                             if (lineData.length !== title.length) {
-                                this._addLog(`配置表头和配置数据不匹配:${itemSheet.name} - ${itemSheet.sheet} : 第${i}行`);
-                                this._addLog("跳过改行数据");
+                                this._addLog(`配置表头和配置数据不匹配:${itemSheet.name} - ${itemSheet.sheet} : 第${i + 1}行`);
+                                this._addLog("跳过该行数据");
                                 continue;
                             }
 
