@@ -1,0 +1,94 @@
+
+<html>
+  <head>
+    <link rel="icon" href="app/editor/static/preview-templates/favicon.ico"/>
+    <meta charset="utf-8"/>
+    <title></title>
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <link rel="stylesheet" href="res/style.css"/>
+  </head>
+  <body>
+    <div class="toolbar">
+      <div class="item">
+        <select id="opts-device">
+          <option value="0">Default</option>
+        </select>
+      </div>
+      <div class="item">
+        <button id="btn-rotate">Rotate</button>
+      </div>
+      <div class="item">
+        <select id="opts-render-mode">
+          <option value="0">WebGL</option>
+          <option value="1">Canvas</option>
+        </select>
+      </div><span style="font-size: small;" class="item">Debug Mode:</span>
+      <div class="item">
+        <select id="opts-debug-mode">
+          <option value="0">None</option>
+          <option value="1">Info</option>
+          <option value="2">Warn</option>
+          <option value="3">Error</option>
+          <option value="4">Info For Web Page</option>
+          <option value="5">Warn For Web Page</option>
+          <option value="6">Error For Web Page</option>
+        </select>
+      </div>
+      <div class="item">
+        <button id="btn-show-fps">Show FPS</button>
+      </div>
+      <div class="item"><span style="font-size: small;" class="item">FPS:</span>
+        <input id="input-set-fps" type="number"/>
+      </div>
+      <div style="margin-right: 0px;" class="item">
+        <button id="btn-pause">Pause</button>
+      </div>
+      <div class="item">
+        <button id="btn-reload" style="margin-right: 0px;">Reload</button>
+      </div>
+      <div class="item">
+        <button id="btn-step" style="display: none;">Step</button>
+      </div>
+    </div>
+    <div id="content" class="content">
+      <div id="GameDiv" class="wrapper">
+        <canvas id="GameCanvas"></canvas>
+        <div id="splash">
+          <div class="progress-bar stripes"><span></span></div>
+        </div>
+        <div id="bulletin">
+          <div id="sceneIsEmpty" class="inner"></div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      _Settings = {};
+      _Settings.CCSettings = 'http://localhost:7456/settings.js';
+      _Settings.libraryPath = 'http://localhost:7456/res/import';
+      _Settings.rawAssetsBase = 'http://localhost:7456/res/raw-';
+      _Settings['preview-scene.json'] = 'http://localhost:7456/preview-scene.json';
+      _Settings.appPath = '/Applications/CocosCreator.app/Contents/Resources/app.asar';
+      _Settings.assetPath = '/Users/xyf/Documents/project/CocosCreatorPlugins/assets';
+      _Settings.projectPath = '/Users/xyf/Documents/project/CocosCreatorPlugins';
+      _Settings.tmpScriptPath = '/Users/xyf/Documents/project/CocosCreatorPlugins/temp/cc-inspector-scripts';
+      
+    </script>
+    <script type="text/javascript">
+      window.CC_DEV = true;
+      
+      require('./scripts/module');
+      require('/Applications/CocosCreator.app/Contents/Resources/engine');
+      require('./scripts/init');
+      
+    </script>
+    <script type="text/javascript" charset="utf-8" src="scripts/boot.js"></script>
+  </body>
+</html>

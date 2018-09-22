@@ -1,0 +1,230 @@
+body {
+    cursor: default;
+    color: #888;
+    background-color: #333;
+
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-direction: column;
+    flex-direction: column;
+
+    height: 100%;    /* for firefox */
+    width: 100%;
+
+    position: absolute;
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+}
+
+/* Remove spin of input type number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+body, canvas, div {
+    outline: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#splash {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: #171717 url(./splash.png) no-repeat center;
+    background-size: 40%;
+}
+
+#GameDiv {
+    visibility: hidden;
+}
+
+.content {
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-justify-content: center;
+    justify-content: center;
+
+    -webkit-align-items: center;
+    align-items: center;
+
+    -webkit-flex-direction: column;
+    flex-direction: column;
+
+    -webkit-flex: auto;
+    flex: auto;
+
+    overflow: auto;
+}
+
+.wrapper {
+    position: relative;
+
+    border: 1px solid #444;
+    background: #222;
+}
+
+.toolbar {
+    /*position: absolute;*/
+    /*left: 10px;*/
+    /*top: 10px;*/
+    min-height: 27px;
+    padding: 4px 0px 4px 10px;
+
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-align-items: center;
+    align-items: center;
+
+    -webkit-flex-direction: row;
+    flex-direction: row;
+
+    z-index: 999;
+}
+
+.toolbar * {
+    font-size: 12px;
+    font-family: /* https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/ */    
+                 -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+                 "Helvetica Neue", sans-serif;
+}
+
+.toolbar .item {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.toolbar select {
+    height: 25px;
+    padding: 0px 8px;
+
+    box-shadow: none;
+    background-image: none;
+
+    border: 1px solid #171717;
+    background: #444;
+    color: #aaa;
+}
+
+.toolbar select:focus {
+    outline: none;
+    /* border: 1px solid #09f; */
+}
+
+.toolbar button {
+    border: 1px solid #171717;
+    border-radius: 2px;
+    text-align: center;
+    padding: 4px 8px;
+
+    cursor: pointer;
+    color: #bdbdbd;
+    font-weight: bold;
+
+    background-image: linear-gradient(#5a5a5a, #444);
+}
+
+.toolbar button.checked {
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+    color: #09f;
+    background-image: linear-gradient(#333, #222);
+}
+
+.toolbar button:focus {
+    outline: none;
+}
+
+.toolbar button:active {
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+    color: #888;
+    background-image: linear-gradient(#333, #222);
+}
+
+.toolbar input {
+    width: 41px;
+    height: 24px;
+    padding: 4px 4px;
+    box-shadow: inset 0px 0px 2px 1px rgba(0,0,0,0.3);
+    border: 1px solid #171717;
+    background: #444;
+    color: #aaa;
+}
+
+@media screen and (max-width: 760px) {
+    .toolbar {
+        display: none;
+    }
+
+    .wrapper {
+        border: 0px;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+#bulletin {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: none;
+}
+
+#bulletin .inner {
+    position: relative;
+    left: -50%;
+    top: -50%;
+    display: none;
+}
+
+.progress-bar {
+    background-color: #1a1a1a;
+    position: absolute;
+    left: 25%;
+    top: 80%;
+    height: 15px;
+    padding: 5px;
+    width: 50%;
+    /*margin: 0 -175px;         */
+    border-radius: 5px;
+    box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;           
+}
+
+.progress-bar span {
+    display: block;
+    height: 100%;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+    transition: width .4s ease-in-out; 
+    background-color: #34c2e3;    
+}
+
+.stripes span {
+    background-size: 30px 30px;
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
+                        transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+                        transparent 75%, transparent);            
+    
+    animation: animate-stripes 1s linear infinite;             
+}
+
+@keyframes animate-stripes {
+    0% {background-position: 0 0;} 100% {background-position: 60px 0;}
+}
