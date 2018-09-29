@@ -4,9 +4,10 @@
 [Bugly插件](packages/plugin-bugly/README.md)   
 [4399原创平台SDK插件](packages/plugin-4399-web-js-sdk/README.md)    
 [Cocos-Creator-Inspector](CocosCreatorInspector/README.md)  
-[Excel工具](packages/excel-killer/README.md)    
+[Excel-Killer工具](packages/excel-killer/README.md)    
 [贝塞尔编辑工具](packages/bezier/README.md)      
-[资源压缩工具](packages/res-compress/README.md)     
+[资源压缩工具](packages/res-compress/README.md)         
+[cc-inspector+](doc/cc-inspector-v2/index.md)    
 
 ## 2款收费插件,有需求的支持下呗
 - 字体瘦身
