@@ -40,8 +40,21 @@
 
 ## 常见问题
 
-- 小灯泡一直灰色怎么办?   
+### 小灯泡一直灰色怎么办?   
 小灯泡灰色的意思就是没有发现正在运行的游戏,此时你需要运行你的游戏即可.
+
+### cc-inspector+和cc-inspector的区别有哪些?
+**cc-inspector+** 是[cc-inspector](../../../CocosCreatorPlugins/README.md)的升级版本,具体区别如下:
+
+| 功能            |        cc-inspector  |   cc-inspector+       |
+| --------        |     --------         | --------             |
+| 运行环境         | chrome内核浏览器      |     cocos creator     |
+| 插件类型         | chrome插件           |     cocos creator 插件 |
+| 是否需要自行安装  | 是                   |     否                 |
+| 第一次发布时间 | 2017/11   |     2018/10    |
+| 是否迭代       | 否    |     是    |
+| 技术细节      | 遵守chrome插件开发规范 |遵守creator插件开发规范|
+
 
 ## 更多功能
 - 局域网联机查看节点树: 没错,即使你游戏运行在手机上,同样可以查看节点树情况
