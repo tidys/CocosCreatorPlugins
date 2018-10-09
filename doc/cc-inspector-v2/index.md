@@ -44,7 +44,7 @@
 小灯泡灰色的意思就是没有发现正在运行的游戏,此时你需要运行你的游戏即可.
 
 ### cc-inspector+和cc-inspector的区别有哪些?
-**cc-inspector+** 是[cc-inspector](../../../CocosCreatorPlugins/README.md)的升级版本,具体区别如下:
+**cc-inspector+** 是[cc-inspector](https://github.com/tidys/CocosCreatorPlugins/tree/master/CocosCreatorInspector)的升级版本,具体区别如下:
 
 | 功能            |        cc-inspector  |   cc-inspector+       |
 | --------        |     --------         | --------             |
