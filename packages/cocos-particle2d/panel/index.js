@@ -7,7 +7,7 @@ Editor.Panel.extend({
     $: {},
 
     ready() {
-        new window.Vue({
+        this.plugin = new window.Vue({
             el: this.shadowRoot,
             created() {
 
