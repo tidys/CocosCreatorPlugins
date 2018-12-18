@@ -1,0 +1,14 @@
+<div class="layout horizontal center"
+     @mouseover="onMouseOver"
+     @mouseout="onMouseOut">
+    <div class="flex-1">
+        <ui-checkbox v-on:change="onBtnClickSelectItem" checked></ui-checkbox>
+        {{index}}
+    </div>
+    <div class="flex-2">
+        {{data.name}}
+    </div>
+    <div class="flex-2">
+        {{data.path}}
+    </div>
+</div>
