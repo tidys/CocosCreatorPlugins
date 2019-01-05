@@ -1,4 +1,4 @@
-module.exports = {
+let ObserverMgr = {
     obsArray: {},
     // 注册事件
     // func 为函数
@@ -80,3 +80,4 @@ module.exports = {
         }
     },
 }
+cc.ObserverMgr = module.exports = ObserverMgr;

@@ -1,14 +1,17 @@
-let ObserverMgr = require("ObserverMgr");
-cc.Class({
+let Observer = cc.Class({
     extends: cc.Component,
 
     _initMsg() {
         let list = this._getMsgList();
-        for (let k = 0; k < list.length; k++) {
-            let msg = list[k];
-            ObserverMgr.addEventListener(msg, this._onMsg, this);
+        if (list) {
+            for (let k = 0; k < list.length; k++) {
+                let msg = list[k];
+                cc.ObserverMgr.addEventListener(msg, this._onMsg, this);
+            }
         }
-        ObserverMgr.addEventListener(GameMsgGlobal.Net.MsgErr, this._onErrorDeal, this);
+    },
+    ctor() {
+        this._initMsg();
     },
     onLoad() {
     },
@@ -25,11 +28,6 @@ cc.Class({
     _onError(msg, code, data) {
 
     },
-    // [子类继承接口]网络 重新/第一次 打开
-    _onNetOpen() {
-
-    },
-
     //处理错误数据
     _onErrorDeal(errorMsgString, data) {
         let msgString = data[0];
@@ -38,7 +36,7 @@ cc.Class({
         this._onError(msgString, errorCode, errorData);
     },
     onDisable() {
-        ObserverMgr.removeEventListenerWithObject(this);
+        cc.ObserverMgr.removeEventListenerWithObject(this);
     },
     onEnable() {
         // TODO next version register event method
@@ -46,6 +44,7 @@ cc.Class({
         // this._initMsg();
     },
     onDestroy() {
-        ObserverMgr.removeEventListenerWithObject(this);
+        cc.ObserverMgr.removeEventListenerWithObject(this);
     },
 });
+cc.Observer = module.exports = Observer;
