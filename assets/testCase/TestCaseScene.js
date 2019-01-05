@@ -1,6 +1,6 @@
 let TestCaseModule = require("TestCaseModule");
 cc.Class({
-    extends: cc.Observer,
+    extends: require('Observer'),
 
     properties: {
         testPrefab: cc.Prefab,
