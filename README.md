@@ -38,7 +38,7 @@
 
 # 福利代码
 项目中的代码是个人开发沉淀,希望对你有所帮助!     
-- [Observer.js](assets/core/Observer.js)
-- [ObserverMgr.js](assets/core/ObserverMgr.js)    
+- [Observer.js](assets/subpack/core/Observer.js)
+- [ObserverMgr.js](assets/subpack/core/ObserverMgr.js)    
 # 支持一下呗
 ![](CocosCreatorInspector/src/assets/images/money.jpg)
