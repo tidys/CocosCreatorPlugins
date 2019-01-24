@@ -1,10 +1,36 @@
 const gulp = require('gulp');
+
 const fs = require('fs');
 const fse = require('fs-extra');
 const path = require('path');
 const jszip = require('jszip');
 const jsBeautifully = require('json-beautifully');
 const packagePluginUtil = require('./packagePluginUtil');
+const protobuf = require("protobufjs");
+const ChildProcess = require("child_process");
+
+gulp.task("同步Excel-Killer代码", function () {
+    const plugin_excel_killer = "/Users/xyf/Documents/project/CocosCreatorPlugins/packages/excel-killer";
+    let packagesRootDir = path.join(__dirname, "packages/");
+    if (!fs.existsSync(packagesRootDir)) {
+        console.log("不存在插件目录:" + packagesRootDir);
+        return;
+    }
+
+    let excel_killer_dir = path.join(packagesRootDir, "excel-killer");
+    if (!fs.existsSync(excel_killer_dir)) {
+        console.log("不存在插件目录: " + excel_killer_dir);
+        fs.mkdirSync(excel_killer_dir);
+    }
+    let opt = {
+        filter: function (a, b, c) {
+            debugger;
+        }
+    };
+    fse.copySync(plugin_excel_killer, excel_killer_dir);
+    console.log("同步插件完成!");
+});
+
 
 // 打包目录
 let packageDir = function (rootPath, zip) {
@@ -156,3 +182,38 @@ gulp.task('打包插件', function () {
             console.log('打包失败: ' + zipFilePath);
         }.bind(this));
 });
+
+gulp.task("发布Proto", function () {
+    // let protobufCli = require("protobufjs/cli");
+    // let pbjs = protobufCli.pbjs.main;
+    // pbjs({}, function () {
+    //
+    // });
+
+    let protoDir = path.join(__dirname, "../assets/subpack/module/proto/proto.js");
+    let protoSource = path.join(__dirname, "proto/*.proto");
+    let cmd = `pbjs -t static-module -w commonjs -m true -o ${protoDir} ${protoSource}`;
+    console.log("cmd: " + cmd);
+    let exec = ChildProcess.exec(cmd, function (error, stdout, stderror) {
+        if (error) {
+            console.log(stderror);
+        } else {
+            console.log(stdout);
+        }
+    });
+    exec.stdout.on('data', function (data) {
+        console.log(data);
+
+    });
+    exec.stderr.on('data', function (data) {
+        console.log(data);
+    });
+    exec.on('close', function (code) {
+        console.log("执行完毕");
+
+    });
+
+    let server = path.join(__dirname, "../server/proto/proto.js");
+    let cmd1 = `pbjs -t static-module -w commonjs -m true -o ${server} ${protoSource}`;
+    ChildProcess.exec(cmd1)
+})
