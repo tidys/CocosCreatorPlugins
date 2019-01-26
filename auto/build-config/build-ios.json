@@ -1,0 +1,32 @@
+{
+  "title": "helloWorld",
+  "platform": "ios",
+  "startScene": "91dae730-0763-412c-93bb-e3f80ef9ee3e",
+  "packageName": "org.cocos2d.helloworld",
+  "debug": true,
+  "sourceMaps": true,
+  "buildPath": "build",
+  "zipCompressJs": false,
+  "template": "default",
+  "encryptJs": false,
+  "xxteaKey": "3c44c5ef-1b08-4a",
+  "excludeScenes": [],
+  "fb-instant-games": {},
+  "includeAnySDK": false,
+  "includeSDKBox": false,
+  "inlineSpriteFrames": false,
+  "inlineSpriteFrames_native": true,
+  "jailbreakPlatform": false,
+  "md5Cache": false,
+  "mergeStartScene": false,
+  "oauthLoginServer": "",
+  "optimizeHotUpdate": false,
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "webOrientation": "portrait",
+  "autoCompile": false
+}
