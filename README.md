@@ -8,6 +8,8 @@
 [贝塞尔编辑工具](packages/bezier/README.md)      
 [资源压缩工具](packages/res-compress/README.md)         
 [cc-inspector+](doc/cc-inspector-v2/index.md)    
+## 克隆慢？
+[解决办法](clone.md)
 
 ## 2款收费插件,有需求的支持下呗
 - 字体瘦身
