@@ -12,6 +12,10 @@ cc.Class({
     },
 
     start() {
+
+
+    },
+    _loadAllSubpack(){
         if (CC_BUILD) {
             console.log("build 环境");
             this._loadSubPackages(['subpack'], function () {
@@ -21,7 +25,6 @@ cc.Class({
             console.log("dev 环境");
             this.completion();
         }
-
     },
     _loadSubPackages(subs, cb) {
         let loadFunc = function (sub, cb) {
@@ -44,6 +47,8 @@ cc.Class({
         cc.director.preloadScene("ImageEncryption", function () {
             cc.director.loadScene("ImageEncryption");
         });
-    }
-    // update (dt) {},
+    },
+    onClick(){
+        this._loadAllSubpack();
+    },
 });

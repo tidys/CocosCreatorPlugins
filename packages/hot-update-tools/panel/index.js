@@ -1,16 +1,17 @@
 "use strict";
 window.packageRoot = 'packages://hot-update-tools/';
 
-var fs = require('fire-fs');
-var path = require('fire-path');
-var Electron = require('electron');
-var {remote} = require('electron');
-var CfgUtil = Editor.require('packages://hot-update-tools/core/CfgUtil.js');
-var FileUtil = Editor.require('packages://hot-update-tools/core/FileUtil.js');
-var Mail = Editor.require('packages://hot-update-tools/mail/Mail.js');
-var OSS = Editor.require('packages://hot-update-tools/node_modules/ali-oss');
-var CO = Editor.require('packages://hot-update-tools/node_modules/co');
-window.dc = Editor.require('packages://hot-update-tools/core/dcagent.js');
+const fs = require('fire-fs');
+const path = require('fire-path');
+const Electron = require('electron');
+const {remote} = require('electron');
+const CfgUtil = Editor.require('packages://hot-update-tools/core/CfgUtil.js');
+const FileUtil = Editor.require('packages://hot-update-tools/core/FileUtil.js');
+const Mail = Editor.require('packages://hot-update-tools/mail/Mail.js');
+const OSS = Editor.require('packages://hot-update-tools/node_modules/ali-oss');
+const CO = Editor.require('packages://hot-update-tools/node_modules/co');
+const CocosAnalytics = Editor.require('packages://hot-update-tools/core/cocosAnalytics.min.js');
+const GoogleAnalytics = Editor.require('packages://hot-update-tools/core/GoogleAnalytics.js');
 
 Editor.Panel.extend({
     style: fs.readFileSync(Editor.url('packages://hot-update-tools/panel/index.css', 'utf8')) + "",
@@ -21,10 +22,16 @@ Editor.Panel.extend({
         testEnvSelect: '#testEnvSelect',
     },
     ready() {
-        window.dc.init({
-            appId: "C637D4988A27766D9B64D7391683B1C5F",
-            channel: cc.sys.os
-        });
+
+        // CocosAnalytics.init({
+        //     appId: "607133879",
+        //     appSecret: "",// 不知道在哪里找
+        //     channel: cc.sys.os,
+        //     version: "",
+        // });
+        // CocosAnalytics.enableDebug(true);
+        GoogleAnalytics.init();
+        GoogleAnalytics.eventOpen();
 
         let logCtrl = this.$logTextArea;
         let logListScrollToBottom = function () {
@@ -109,6 +116,9 @@ Editor.Panel.extend({
             },
             computed: {},
             methods: {
+                // 测试
+                onTest() {
+                },
                 onBtnClickOpenTestHttpServer() {
                     console.log("onBtnClickOpenTestHttpServer");
                     let http = require('http');
@@ -129,10 +139,12 @@ Editor.Panel.extend({
                 },
 
                 onBtnClickHelpDoc() {
-                    let url = "https://github.com/tidys/CocosCreatorPlugins/blob/master/packages/hot-update-tools/README.md";
+                    GoogleAnalytics.eventDoc();
+                    let url = "https://tidys.github.io/plugin-docs-oneself/docs/hot-update-tools/";
                     Electron.shell.openExternal(url);
                 },
                 onBtnClickTellMe() {
+                    GoogleAnalytics.eventQQ();
                     let url = "http://wpa.qq.com/msgrd?v=3&uin=774177933&site=qq&menu=yes";
                     Electron.shell.openExternal(url);
                 },
@@ -198,10 +210,6 @@ Editor.Panel.extend({
                     return false;
                 },
                 ///////////////////////////////////////////////////////////////////////////////////////
-                // 测试
-                onTest() {
-
-                },
                 onBtnClickPackVersion() {
                     this._packageVersion();
                 },
@@ -277,6 +285,7 @@ Editor.Panel.extend({
                 },
                 onChangeSelectHotAddress(event) {
                     console.log("change");
+                    GoogleAnalytics.eventCustom("ChangeSelectHotAddress");
                     this.isShowUseAddrBtn = true;
                     this.isShowDelAddrBtn = true;
                     this._updateShowUseAddrBtn();
@@ -604,6 +613,7 @@ Editor.Panel.extend({
                     }
                 },
                 onClickGenCfg(event) {
+                    GoogleAnalytics.eventCustom("GenManifest");
                     // 检查是否需要构建项目
                     let times = CfgUtil.getBuildTimeGenTime();
                     let genTime = times.genTime;
@@ -688,8 +698,7 @@ Editor.Panel.extend({
                             stat = fs.statSync(subpath);
                             if (stat.isDirectory()) {
                                 readDir(subpath, obj);
-                            }
-                            else if (stat.isFile()) {
+                            } else if (stat.isFile()) {
                                 // Size in Bytes
                                 size = stat['size'];
                                 // let crypto = require('crypto');
@@ -759,6 +768,7 @@ Editor.Panel.extend({
                 },
                 // 拷贝文件到测试服务器
                 onCopyFileToLocalServer() {
+                    GoogleAnalytics.eventCustom("copyFileToLocalServer");
                     // 检查要拷贝的目录情况
                     if (!fs.existsSync(this.localServerPath)) {
                         this._addLog("本地测试服务器目录不存在:" + this.localServerPath);
@@ -1151,6 +1161,7 @@ Editor.Panel.extend({
                     }
                 },
                 userLocalIP() {
+                    GoogleAnalytics.eventCustom("useLocalIP");
                     let ip = "";
                     let os = require('os');
                     let ifaces = os.networkInterfaces();

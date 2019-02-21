@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-
+const globby = require('globby');
 const fs = require('fs');
 const fse = require('fs-extra');
 const path = require('path');
@@ -123,7 +123,6 @@ let packagePlugin = function (pluginDirName) {
 
 
     // 压缩js
-    const globby = require('globby');
     let pattern1 = pluginTmpPath + "/**/*.js";
     let exclude = "!" + pluginTmpPath + "/node_modules/**/*";
     let paths = globby.sync([pattern1, exclude]);
@@ -171,6 +170,9 @@ let packagePlugin = function (pluginDirName) {
         // todo win
     }
 };
+gulp.task("发布插件: hot-update-tools", function () {
+    packagePlugin('hot-update-tools');
+});
 
 
 gulp.task("发布cc-inspector插件", function () {
