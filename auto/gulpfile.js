@@ -1,15 +1,12 @@
-const gulp = require('gulp');
-const globby = require('globby');
-const fs = require('fs');
+const gulp = require("gulp");
+const uglifyES = require('uglify-es');
+const fs = require("fs");
 const fse = require('fs-extra');
 const path = require('path');
-const jszip = require('jszip');
-const jsBeautifully = require('json-beautifully');
-const packagePluginUtil = require('./packagePluginUtil');
-const protobuf = require("protobufjs");
-const ChildProcess = require("child_process");
-const uglifyES = require('uglify-es');
 const htmlMinifier = require('html-minifier');
+const jsBeautifully = require('json-beautifully');
+const globby = require('globby');
+const jszip = require('jszip');
 
 let compressCode = function (jsFile, isMin) {
     if (fs.existsSync(jsFile)) {
@@ -44,8 +41,25 @@ let compressCode = function (jsFile, isMin) {
     }
 };
 
+let packageDir = function (rootPath, zip) {
+    let dir = fs.readdirSync(rootPath);
+    for (let i = 0; i < dir.length; i++) {
+        let itemDir = dir[i];
+        let itemFullPath = path.join(rootPath, itemDir);
+        let stat = fs.statSync(itemFullPath);
+        if (stat.isFile()) {
+            zip.file(itemDir, fs.readFileSync(itemFullPath));
+        } else if (stat.isDirectory()) {
+            packageDir(itemFullPath, zip.folder(itemDir));
+        }
+    }
+};
+// dontCopyFile 不拷贝的文件
+// dontMinJs  不压缩的JS代码
+let packagePlugin = function (pluginDirName, dontCopyFile, dontMinJs) {
+    dontCopyFile = dontCopyFile === undefined ? [] : dontCopyFile;
+    dontMinJs = dontMinJs === undefined ? [] : dontMinJs;
 
-let packagePlugin = function (pluginDirName) {
     let projectRootPath = path.join(__dirname, "../");// 项目根目录
     let projectPackagePath = path.join(projectRootPath, 'packages');// 项目插件根目录
     let pluginOutPath = path.join(projectRootPath, 'out');// 插件输出目录
@@ -67,12 +81,67 @@ let packagePlugin = function (pluginDirName) {
     }
     // 清空临时目录
     fse.emptyDirSync(pluginTmpPath);
+    // 补全路径
+    let dontCopyFileArray = [];
+
+    dontCopyFile.map(function (item) {
+        let full = path.join(packageDirPath, item);
+        let b = fs.existsSync(full);
+        if (b) {
+            dontCopyFileArray.push(full)
+        } else {
+            console.log("无效的过滤项: " + item);
+        }
+    });
+
+
     // 可以在第三个参数,过滤掉不需要拷贝的文件
     // filter <Function>: Function to filter copied files. Return true to include, false to exclude.
-    fse.copySync(packageDirPath, pluginTmpPath);
+    fse.copySync(packageDirPath, pluginTmpPath, function (file, dest) {
+        let isInclude = true;
+        let state = fs.statSync(file);
+        if (state.isDirectory()) {
+            // 文件夹,判断是否有这个文件夹
+            for (let i = 0; i < dontCopyFileArray.length; i++) {
+                let itemFile = dontCopyFileArray[i];
+                if (fs.statSync(itemFile).isDirectory() && itemFile === file) {
+                    isInclude = false;
+                    break;
+                }
+            }
+        } else if (state.isFile()) {
+            // 文件 判断是否包含在文件夹内
+            for (let i = 0; i < dontCopyFileArray.length; i++) {
+                let itemFile = dontCopyFileArray[i];
+                if (fs.statSync(itemFile).isDirectory()) {
+                    if (file.indexOf(itemFile) === -1) {
+                    } else {
+                        isInclude = false;
+                        break;
+                    }
+                } else if (fs.statSync(itemFile).isFile()) {
+                    if (itemFile === file) {
+                        isInclude = false;
+                        break;
+                    }
+                }
+            }
+        } else {
+            debugger;
+        }
+        if (!isInclude) {
+            if (fs.statSync(file).isFile()) {
+                console.log("⚠️[过滤] 文件: " + file);
+            } else if (fs.statSync(file).isDirectory()) {
+                console.log("⚠️[过滤] 目录: " + file);
+            }
+        }
+        return isInclude;
+        // let relative = path.relative(file, packageDirPath);
+    });
+
     console.log("✅[拷贝] 拷贝插件到输出目录成功: " + pluginTmpPath);
     // 删除掉package-lock.json
-    debugger
     let delFiles = ["package-lock.json", "README.md"];
     for (let i = 0; i < delFiles.length; i++) {
         let packageLocalFilePath = path.join(pluginTmpPath, delFiles[i]);
@@ -97,9 +166,9 @@ let packagePlugin = function (pluginDirName) {
             let item = menus[key];
             if (item && item.del) {
                 delete menus[key];
+                console.log("✅[丢弃] 无用menus: " + key);
             }
         }
-        console.log("✅[丢弃] 无用menus");
     }
     // 删除dependencies
     let dependencies = json['dependencies'];
@@ -121,11 +190,23 @@ let packagePlugin = function (pluginDirName) {
 
     console.log('✅[修改] 写入新的临时配置package.json完毕!');
 
-
     // 压缩js
-    let pattern1 = pluginTmpPath + "/**/*.js";
     let exclude = "!" + pluginTmpPath + "/node_modules/**/*";
-    let paths = globby.sync([pattern1, exclude]);
+    let options = [
+        pluginTmpPath + "/**/*.js",
+        exclude,
+    ];
+    for (let i = 0; i < dontMinJs.length; i++) {
+        let item = dontMinJs[i];
+        let fullUrl = path.join(pluginTmpPath, item);
+        if (fs.existsSync(fullUrl)) {
+            options.push(`!${fullUrl}`);
+            console.log("⚠️[压缩配置] 新增禁止压缩配置: " + item);
+        } else {
+            console.log("⚠️[压缩配置] 无效的禁止压缩配置: " + item);
+        }
+    }
+    let paths = globby.sync(options);
     for (let i = 0; i < paths.length; i++) {
         let item = paths[i];
         let b = compressCode(item, false);
@@ -153,12 +234,39 @@ let packagePlugin = function (pluginDirName) {
         fs.writeFileSync(item, minifyData);
         console.log(`✅[压缩] 成功(HTML)[${i + 1}/${paths1.length}]: ${item}`);
     }
-    // 在文件夹中展示打包文件
+    // 打包文件
+    let zip = new jszip();
+    packageDir(pluginTmpPath, zip.folder(pluginDirName));
+    let zipFilePath = path.join(pluginOutPath, `${pluginDirName}.zip`);
+    debugger
+    if (fs.existsSync(zipFilePath)) {
+        fs.unlinkSync(zipFilePath);
+        console.log("⚠️[删除] 旧版本压缩包: " + zipFilePath);
+    }
+    zip.generateNodeStream({
+        type: 'nodebuffer',
+        streamFiles: true,
+        compression: "DEFLATE",
+        compressionOptions: {
+            level: 9
+        }
+    })
+        .pipe(fs.createWriteStream(zipFilePath))
+        .on("finish", function () {
+            showFileInExplore(pluginOutPath);
+        })
+        .on('error', function () {
+            console.log("❌[打包]失败: ");
+        });
+};
+
+// 在文件夹中展示打包文件
+function showFileInExplore(showPath) {
     let exec = require('child_process').exec;
     let platform = require('os').platform();
     if (platform === 'darwin') {
-        let cmd = "open " + pluginOutPath;
-        console.log('开始执行命令: ' + cmd);
+        let cmd = "open " + showPath;
+        console.log('😂[CMD] ' + cmd);
         exec(cmd, function (error, stdout, stderr) {
             if (error) {
                 console.log(stderr);
@@ -169,9 +277,12 @@ let packagePlugin = function (pluginDirName) {
     } else if (platform === 'win32') {
         // todo win
     }
-};
+}
+
 gulp.task("发布插件: hot-update-tools", function () {
-    packagePlugin('hot-update-tools');
+    packagePlugin('hot-update-tools',
+        ["CommonIssue.md", "UPDATE.md","test"],
+        ["core/cocosAnalytics.min.js"]);
 });
 
 
@@ -229,8 +340,6 @@ gulp.task("同步Excel-Killer代码", function () {
     console.log("同步插件完成!");
 });
 
-
- 
 
 gulp.task("发布Proto", function () {
     // let protobufCli = require("protobufjs/cli");
