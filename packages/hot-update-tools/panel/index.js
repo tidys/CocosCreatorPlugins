@@ -488,14 +488,15 @@ Editor.Panel.extend({
                 },
                 initLocalGameVersion() {
                     // TODO 在creator1.10以上变成了asset
-                    Editor.assetdb.queryAssets('db://assets/**\/*', "asset", function (err, results) {
+                    // 直接匹配文件名,不再匹配字符串
+                    Editor.assetdb.queryAssets('db://assets/**\/*', null, function (err, results) {
                         let versionCfg = "";
                         let projectCfg = "";
                         results.forEach(function (result) {
-                            if (result.path.indexOf("version.manifest") !== -1) {
+                            if (path.basename(result.path) === "version.manifest") {
                                 versionCfg = result.path;
                                 this.localGameVersionManifestUrl = result.url;
-                            } else if (result.path.indexOf("project.manifest") !== -1) {
+                            } else if (path.basename(result.path) === "project.manifest") {
                                 projectCfg = result.path;
                                 this.localGameProjectManifestUrl = result.url;
                             }
