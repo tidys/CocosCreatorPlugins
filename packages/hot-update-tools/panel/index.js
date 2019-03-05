@@ -137,7 +137,11 @@ Editor.Panel.extend({
                         Electron.shell.openExternal(this.testHttpUrl);
                     }
                 },
-
+                onStopTouchEvent(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    // console.log("dragOver");
+                },
                 onBtnClickHelpDoc() {
                     GoogleAnalytics.eventDoc();
                     let url = "https://tidys.github.io/plugin-docs-oneself/docs/hot-update-tools/";

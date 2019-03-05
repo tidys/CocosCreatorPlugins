@@ -26,13 +26,13 @@
         </ui-section>
 
         <ui-section>
-            <div class="header greenColor">生成Manifest配置
+            <div class="header greenColor" >生成Manifest配置
                 <div class="layout horizontal flex-1 center self-end end-justified">
                     <div class="self-end">
-                        <ui-button v-on:confirm="onBtnClickHelpDoc">
+                        <ui-button v-on:confirm="onBtnClickHelpDoc" @click="onStopTouchEvent">
                             GitHub文档
                         </ui-button>
-                        <ui-button v-on:confirm="onBtnClickTellMe"
+                        <ui-button v-on:confirm="onBtnClickTellMe" @click="onStopTouchEvent"
                                    style="background: url('http://wpa.qq.com/pa?p=2:774177933:51');width: 77px;height: 25px;">
                             QQ
                         </ui-button>
