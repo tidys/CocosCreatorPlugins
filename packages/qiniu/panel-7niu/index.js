@@ -136,7 +136,9 @@ Editor.Panel.extend({
                         this.uploadBtnStr = `(${results.length}/${total})`;
                         if (results.length > 0) {
                             let item = results[0];
-                            let uploadKey = path.relative(rootDir, item);
+                            // 文件key包含根目录名
+                            let parentDir = path.dirname(rootDir);
+                            let uploadKey = path.relative(parentDir, item);
 
                             this.client.uploadFile(item, {
                                 key: uploadKey
