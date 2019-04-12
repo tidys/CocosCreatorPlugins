@@ -1,5 +1,3 @@
-<ui-button v-on:confirm="onTest" v-show="false">测试</ui-button>
-
 <div id="view" class="scroll" xmlns:v-on="http://www.w3.org/1999/xhtml">
     <!--<div class="layout horizontal start-justified center">-->
     <!--<ui-select class="flex-3" v-on:change="onIpSelectChange" id="ipSelection">-->
@@ -13,20 +11,8 @@
     <!--</div>-->
     <div class="section" style>
         <!--focused 属性目前似乎有个bug,箭头图标不对-->
-        <ui-section style="display: none;">
-            <div class="header greenColor">Http服务</div>
-            <ui-prop name="访问网址">
-                <div class="flex-1" @mousedown="onBtnClickTestHttp">
-                    <ui-input disabled style="width: 100%;" v-value="testHttpUrl"></ui-input>
-                </div>
-                <ui-button @click="onBtnClickOpenTestHttpServer">
-                    开启Http服务
-                </ui-button>
-            </ui-prop>
-        </ui-section>
-
         <ui-section>
-            <div class="header greenColor" >生成Manifest配置
+            <div class="header greenColor">生成Manifest配置
                 <div class="layout horizontal flex-1 center self-end end-justified">
                     <div class="self-end">
                         <ui-button v-on:confirm="onBtnClickHelpDoc" @click="onStopTouchEvent">
@@ -174,6 +160,36 @@
             </div>
 
         </ui-section>
+        <!-----------------------------------Http静态文件服务----------------------------------->
+        <ui-section>
+            <div class="header greenColor">Http静态文件服务</div>
+            <ui-prop name="文件目录">
+                <ui-input readonly class="flex-1" v-value="staticFileDir"></ui-input>
+                <ui-button @confirm="onBtnClickSelectHttpDir">...</ui-button>
+                <ui-button class="blue" v-on:confirm="onBtnClickHttpDir">
+                    <i class="fa fa-folder-open"></i>
+                </ui-button>
+            </ui-prop>
+            <ui-prop name="访问URL">
+                <div class="layout horizontal flex-1 end-justified center-center">
+                    <div class="flex-1">
+                        <a v-show="staticFileUrl!==null" href="{{staticFileUrl}}">
+                            <span>{{staticFileUrl}}</span>
+                        </a>
+                        <span v-show="staticFileUrl===null">--</span>
+                    </div>
+                    <ui-button class="green" v-show="staticFileServer===null" @confirm="onBtnClickOpenStaticFileServer">
+                        开启服务
+                    </ui-button>
+                    <ui-button v-show="false" class="red" v-show="staticFileServer!==null"
+                               @confirm="onBtnClickCloseStaticFileServer">
+                        关闭服务
+                    </ui-button>
+                </div>
+            </ui-prop>
+        </ui-section>
+
+
         <ui-section>
             <div class="header greenColor">测试环境</div>
             <div class="layout vertical">
@@ -271,7 +287,6 @@
             </div>
 
         </ui-section>
-
 
 
     </div>
