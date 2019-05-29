@@ -1,0 +1,40 @@
+{
+  "name": "psd-convert-to-node",
+  "version": "0.0.1",
+  "description": "将有层级的psd文件挂载到同名场景中的节点下",
+  "author": "Yu Peng",
+  "main": "main.js",
+  "main-menu": {
+    "Packages/PSD2Node": {
+      "message": "psd-convert-to-node:open-panel"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "Simple Panel",
+    "width": 800,
+    "height": 600
+  },
+  "scene-script": "convert.js",
+  "dependencies": {
+    "@types/node": "^11.13.5",
+    "@types/pngjs": "^3.3.2",
+    "lodash": "^4.17.11",
+    "math.gl": "^2.3.1",
+    "pngjs": "^3.4.0",
+    "typescript": "^3.4.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "devDependencies": {
+    "prettier": "^1.17.0",
+    "tslint": "^5.16.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-plugin-prettier": "^2.0.1"
+  }
+}
