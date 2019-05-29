@@ -405,9 +405,9 @@ class ImageElement extends Element {
           image.type = cc.Sprite.Type.SLICED;
           image.spriteFrame.insetTop = 20;
           image.spriteFrame.insetBottom = 20;
-          // @ts-ignore
+
           image.spriteFrame._refreshTexture(image.spriteFrame._texture);
-          // @ts-ignore
+
           image.spriteFrame._calculateSlicedUV();
         }
         */

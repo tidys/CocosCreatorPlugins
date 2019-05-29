@@ -1,0 +1,30 @@
+<!--<script type="text/javascript" src="../lib/psd.js">-->
+    <!--console.log('psd.js ok!');-->
+    <!--Editor.log('psd.js ok!');-->
+<!--</script>-->
+<div>
+    <ui-prop name="布局文件的完整路径" auto-height tooltip="">
+        <ui-input v-value="psdFile" class="flex-1" readonly
+                  placeholder="baum2中输出的布局文件的全局路径。。例：C:\Sample.psd.baum2\Sample.layout.txt">
+        </ui-input>
+        <ui-button class="blue" @confirm="onBtnClickSelectPSDFile">...</ui-button>
+    </ui-prop>
+
+    <ui-prop name="PNG文件夹">
+        <ui-input class="flex-1" v-value="pngDir" readonly
+                  placeholder="baum2中输出的PNG文件的文件夹路径。例：C:\Sample.psd.baum2\Sample">
+
+        </ui-input>
+        <ui-button class="blue" @confirm="onBtnClickSelectPngDir">...</ui-button>
+    </ui-prop>
+
+    <div class="layout horizontal end-justified">
+        <ui-button class="green">转换</ui-button>
+    </div>
+    <h2>注意:</h2>
+    <h3>・使用的字体文件，请手动存放到<b style="color:black;">db://assets/resources/font/</b></h3>
+    <div v-if="saveName">
+        <h3>・Png图片保存位置: <b style="color:black;">db://assets/Texture/{{saveName}}</b></h3>
+        <h3>・生成的prefab保存位置<b style="color:black;">db://assets/Prefab/{{saveName}}.prefab</b></h3>
+    </div>
+</div>

@@ -207,7 +207,7 @@ class Renderer {
                 sf.insetBottom = slicedTexture.Boarder.Bottom;
                 sf.insetLeft = slicedTexture.Boarder.Left;
                 sf.insetRight = slicedTexture.Boarder.Right;
-                // @ts-ignore
+
                 sf._calculateSlicedUV();
             }
             // let device: Device;
@@ -227,7 +227,7 @@ class Renderer {
                 gl.UNSIGNED_BYTE,
                 pixelrgba
               );
-      
+
               for (let i = 0; i < pixelnum; i++) {
                 let red = pixelrgba[i * 4];
                 let green = pixelrgba[i * 4 + 1];

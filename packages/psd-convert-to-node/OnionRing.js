@@ -1,8 +1,9 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", {value: true});
 const fs = require("fs");
 const PNGBrowser = require("pngjs/browser");
 const Path = require("path");
+
 class Boarder {
     constructor(left, bottom, right, top, xStart, xEnd, yStart, yEnd, skipX, skipY) {
         this.Left = left;
@@ -21,14 +22,18 @@ class Boarder {
             this.skipX = skipX;
     }
 }
+
 exports.Boarder = Boarder;
+
 class SlicedTexture {
     constructor(texture, boarder) {
         this.Texture = texture;
         this.Boarder = boarder;
     }
 }
+
 exports.SlicedTexture = SlicedTexture;
+
 class Texture2D {
     constructor(fullpath, height = null) {
         let width;
@@ -43,6 +48,7 @@ class Texture2D {
             this.GetPixels();
         }
     }
+
     SetPixels(data) {
         this.png.data = Buffer.from(data);
         this.png.height = this.height;
@@ -50,6 +56,7 @@ class Texture2D {
         let buffer = PNGBrowser.PNG.sync.write(this.png);
         fs.writeFileSync(this.fullpath, buffer);
     }
+
     GetPixels() {
         let png = Helper.GetPixels(this.fullpath);
         this.png = png;
@@ -59,7 +66,9 @@ class Texture2D {
         this.name = Path.basename(this.fullpath, Path.extname(this.fullpath));
     }
 }
+
 exports.Texture2D = Texture2D;
+
 class Helper {
     static GetPixels(fullpath) {
         let pngdata = fs.readFileSync(fullpath);
@@ -67,7 +76,9 @@ class Helper {
         return png;
     }
 }
+
 exports.Helper = Helper;
+
 class TextureSlicer {
     constructor(refTexture, getPixels) {
         this.texture = refTexture;
@@ -98,9 +109,9 @@ class TextureSlicer {
                     }
                     pixels[idx / 4] =
                         alpha * a * 255 * 255 +
-                            red * a * 255 +
-                            green * a +
-                            Math.floor((blue * a) / 255);
+                        red * a * 255 +
+                        green * a +
+                        Math.floor((blue * a) / 255);
                 }
                 /* console.log(
                   red + "," + green + "," + blue + "," + alpha + "=>" + pixels[idx / 4]
@@ -109,6 +120,7 @@ class TextureSlicer {
         }
         this.pixels = pixels;
     }
+
     static Slice(texture, fullpath) {
         // SlicedTexture
         if (texture instanceof Texture2D === false) {
@@ -118,6 +130,7 @@ class TextureSlicer {
         let slicer = new TextureSlicer(texture, pixels);
         return slicer.Slice(pixels);
     }
+
     static GetBoarder(texture, fullpath) {
         // SlicedTexture
         if (texture instanceof Texture2D === false) {
@@ -127,9 +140,11 @@ class TextureSlicer {
         let slicer = new TextureSlicer(texture, pixels);
         return slicer.GetBoarder();
     }
+
     ToHashCode() {
         return 0;
     }
+
     static CalcLine(list) {
         let start = 0;
         let end = 0;
@@ -161,6 +176,7 @@ class TextureSlicer {
         }
         return [start, end];
     }
+
     CreateHashListX(aMax, bMax) {
         let hashList = new Array(aMax);
         for (let a = 0; a < aMax; ++a) {
@@ -172,6 +188,7 @@ class TextureSlicer {
         }
         return hashList;
     }
+
     CreateHashListY(aMax, bMax) {
         let hashList = new Array(aMax);
         for (let a = 0; a < aMax; ++a) {
@@ -183,6 +200,7 @@ class TextureSlicer {
         }
         return hashList;
     }
+
     GetBoarder() {
         let xStart;
         let xEnd;
@@ -222,11 +240,13 @@ class TextureSlicer {
         }
         return new Boarder(left, bottom, right, top, xStart, xEnd, yStart, yEnd, skipX, skipY);
     }
+
     Slice(originalPixels) {
         let newboarder = this.GetBoarder();
         let output = this.GenerateSlicedTexture(newboarder.xStart, newboarder.xEnd, newboarder.yStart, newboarder.yEnd, originalPixels);
         return new SlicedTexture(output, newboarder);
     }
+
     GenerateSlicedTexture(xStart, xEnd, yStart, yEnd, originalPixels) {
         let outputWidth = this.width - (xEnd - xStart);
         let outputHeight = this.height - (yEnd - yStart);
@@ -261,10 +281,12 @@ class TextureSlicer {
         output.SetPixels(outputPixels);
         return output;
     }
+
     Get(x, y) {
         return this.pixels[y * this.width + x];
     }
 }
+
 TextureSlicer.SafetyMargin = 2;
 TextureSlicer.Margin = 2;
 exports.TextureSlicer = TextureSlicer;
