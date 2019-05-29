@@ -1,30 +1,30 @@
 "use strict";
 window.packageRoot = 'packages://hot-update-tools/';
 
-var fs = require('fire-fs');
-var path = require('fire-path');
-var Electron = require('electron');
-var {remote} = require('electron');
-var CfgUtil = Editor.require('packages://hot-update-tools/core/CfgUtil.js');
-var FileUtil = Editor.require('packages://hot-update-tools/core/FileUtil.js');
-var Mail = Editor.require('packages://hot-update-tools/mail/Mail.js');
-var OSS = Editor.require('packages://hot-update-tools/node_modules/ali-oss');
-var CO = Editor.require('packages://hot-update-tools/node_modules/co');
-window.dc = Editor.require('packages://hot-update-tools/core/dcagent.js');
+const fs = require('fire-fs');
+const path = require('fire-path');
+const Electron = require('electron');
+const {remote} = require('electron');
+const CfgUtil = Editor.require('packages://hot-update-tools/core/CfgUtil.js');
+const FileUtil = Editor.require('packages://hot-update-tools/core/FileUtil.js');
+const Mail = Editor.require('packages://hot-update-tools/mail/Mail.js');
+const OSS = Editor.require('packages://hot-update-tools/node_modules/ali-oss');
+const CO = Editor.require('packages://hot-update-tools/node_modules/co');
+const CocosAnalytics = Editor.require('packages://hot-update-tools/core/cocosAnalytics.min.js');
+const GoogleAnalytics = Editor.require('packages://hot-update-tools/core/GoogleAnalytics.js');
+const Express = require("express");
 
 Editor.Panel.extend({
-    style: fs.readFileSync(Editor.url('packages://hot-update-tools/panel/index.css', 'utf8')) + "",
-    template: fs.readFileSync(Editor.url('packages://hot-update-tools/panel/index.html', 'utf8')) + "",
+    style: fs.readFileSync(Editor.url('packages://hot-update-tools/panel/index.css'), 'utf8'),
+    template: fs.readFileSync(Editor.url('packages://hot-update-tools/panel/index.html'), 'utf8'),
     $: {
         logTextArea: '#logTextArea',
         hotAddressSelect: '#hotAddressSelect',
         testEnvSelect: '#testEnvSelect',
     },
     ready() {
-        window.dc.init({
-            appId: "C637D4988A27766D9B64D7391683B1C5F",
-            channel: cc.sys.os
-        });
+        GoogleAnalytics.init();
+        GoogleAnalytics.eventOpen();
 
         let logCtrl = this.$logTextArea;
         let logListScrollToBottom = function () {
@@ -55,10 +55,23 @@ Editor.Panel.extend({
             el: this.shadowRoot,
             created: function () {
                 this._initPluginCfg();
+
+
+                Editor.Profile.load("profile://project/hot-update-tools.json", function (error, profile) {
+                    if (error) {
+                        Editor.log(error);
+                    } else {
+                        this.profile = profile;
+                        this.staticFileDir = profile.data.staticFileDir;
+                    }
+                }.bind(this))
+
             },
             init: function () {
             },
             data: {
+                profile: null,
+
                 testHttpUrl: null,// 测试环境http服务器地址
 
                 srcDirPath: "",
@@ -106,11 +119,54 @@ Editor.Panel.extend({
                 emailPeopleArray: [
                     "xu_yanfeng@126.com",
                 ],
+
+                staticFileServer: null,
+                staticFileDir: null,
+                staticFileUrl: null,
             },
             computed: {},
             methods: {
-                onBtnClickOpenTestHttpServer() {
-                    console.log("onBtnClickOpenTestHttpServer");
+                // 检测port是否被占用
+                _getAvailableNetPort(port, callback) {
+                    console.log("检测端口是否被占用: " + port);
+                    let net = require('net');
+                    // tcp使用端口0表示系统分配端口
+                    let server = net.createServer().listen(port);
+                    server.on('listening', function () {
+                        server.once('close', function () {
+                            callback && callback(port);
+                        });
+                        server.close();
+                    }.bind(this));
+                    server.on('error', function (err) {
+                        this._getAvailableNetPort(port + 1, callback);
+                    }.bind(this));
+                },
+                onBtnClickHttpDir() {
+                    let dir = this.staticFileDir;
+                    if (dir && fs.existsSync(dir)) {
+                        Electron.shell.showItemInFolder(dir);
+                        Electron.shell.beep();
+                        // Electron.shell.openExternal(this.testHttpUrl);
+                    }
+                },
+                onBtnClickOpenStaticFileServer(event) {
+                    if (fs.existsSync(this.staticFileDir)) {
+                        this._getAvailableNetPort(5520, function (serverPort) {
+                            let app = Express();
+                            app.use(Express.static(this.staticFileDir));
+                            app.listen(serverPort);
+                            this.staticFileServer = app;
+                            let ip = this._getLocalIP();
+                            this.staticFileUrl = `http://${ip}:${serverPort}/`;
+                            this._addLog(`Http文件服务开启: ${this.staticFileUrl}`);
+                        }.bind(this));
+                    } else {
+                        this.staticFileServer = null;
+                        this.staticFileUrl = null;
+                        this._addLog(`[文件服务] 目录不存在:${this.staticFileDir}`);
+                    }
+                    return;
                     let http = require('http');
                     let port = 9800;
                     http.createServer(function (request, response) {
@@ -119,20 +175,53 @@ Editor.Panel.extend({
 
                     }).listen(port);
                     this.testHttpUrl = "http://127.0.0.1:" + port;
-
                 },
-                onBtnClickTestHttp() {
-                    console.log("onBtnClickTestHttp");
-                    if (this.testHttpUrl) {
-                        Electron.shell.openExternal(this.testHttpUrl);
+                onBtnClickCloseStaticFileServer(event) {
+                    if (this.staticFileServer) {
+                        debugger
+                        delete this.staticFileServer;
+                        this.staticFileServer = null;
+                        this.staticFileUrl = null;
+                    }
+                },
+                onBtnClickSelectHttpDir() {
+                    let selectPath = [
+                        this.staticFileDir,
+                        path.join(Editor.projectInfo.path, 'build'),
+                        Editor.projectInfo.path
+                    ];
+                    for (let i = 0; i < selectPath.length; i++) {
+                        let item = selectPath[i];
+                        if (item && fs.existsSync(item)) {
+                            selectPath = item;
+                            break;
+                        }
+                    }
+
+                    let res = Editor.Dialog.openFile({
+                        title: "选择目录",
+                        defaultPath: selectPath,
+                        properties: ['openDirectory'],
+                    });
+                    if (res !== -1) {
+                        this.staticFileDir = res[0];
+                        this.profile.data.staticFileDir = this.staticFileDir;
+                        this.profile.save();
                     }
                 },
 
+                onStopTouchEvent(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    // console.log("dragOver");
+                },
                 onBtnClickHelpDoc() {
-                    let url = "https://github.com/tidys/CocosCreatorPlugins/blob/master/packages/hot-update-tools/README.md";
+                    GoogleAnalytics.eventDoc();
+                    let url = "https://tidys.github.io/plugin-docs-oneself/docs/hot-update-tools/";
                     Electron.shell.openExternal(url);
                 },
                 onBtnClickTellMe() {
+                    GoogleAnalytics.eventQQ();
                     let url = "http://wpa.qq.com/msgrd?v=3&uin=774177933&site=qq&menu=yes";
                     Electron.shell.openExternal(url);
                 },
@@ -198,10 +287,6 @@ Editor.Panel.extend({
                     return false;
                 },
                 ///////////////////////////////////////////////////////////////////////////////////////
-                // 测试
-                onTest() {
-
-                },
                 onBtnClickPackVersion() {
                     this._packageVersion();
                 },
@@ -277,6 +362,7 @@ Editor.Panel.extend({
                 },
                 onChangeSelectHotAddress(event) {
                     console.log("change");
+                    GoogleAnalytics.eventCustom("ChangeSelectHotAddress");
                     this.isShowUseAddrBtn = true;
                     this.isShowDelAddrBtn = true;
                     this._updateShowUseAddrBtn();
@@ -479,14 +565,15 @@ Editor.Panel.extend({
                 },
                 initLocalGameVersion() {
                     // TODO 在creator1.10以上变成了asset
-                    Editor.assetdb.queryAssets('db://assets/**\/*', "asset", function (err, results) {
+                    // 直接匹配文件名,不再匹配字符串
+                    Editor.assetdb.queryAssets('db://assets/**\/*', null, function (err, results) {
                         let versionCfg = "";
                         let projectCfg = "";
                         results.forEach(function (result) {
-                            if (result.path.indexOf("version.manifest") !== -1) {
+                            if (path.basename(result.path) === "version.manifest") {
                                 versionCfg = result.path;
                                 this.localGameVersionManifestUrl = result.url;
-                            } else if (result.path.indexOf("project.manifest") !== -1) {
+                            } else if (path.basename(result.path) === "project.manifest") {
                                 projectCfg = result.path;
                                 this.localGameProjectManifestUrl = result.url;
                             }
@@ -604,6 +691,7 @@ Editor.Panel.extend({
                     }
                 },
                 onClickGenCfg(event) {
+                    GoogleAnalytics.eventCustom("GenManifest");
                     // 检查是否需要构建项目
                     let times = CfgUtil.getBuildTimeGenTime();
                     let genTime = times.genTime;
@@ -688,8 +776,7 @@ Editor.Panel.extend({
                             stat = fs.statSync(subpath);
                             if (stat.isDirectory()) {
                                 readDir(subpath, obj);
-                            }
-                            else if (stat.isFile()) {
+                            } else if (stat.isFile()) {
                                 // Size in Bytes
                                 size = stat['size'];
                                 // let crypto = require('crypto');
@@ -759,6 +846,7 @@ Editor.Panel.extend({
                 },
                 // 拷贝文件到测试服务器
                 onCopyFileToLocalServer() {
+                    GoogleAnalytics.eventCustom("copyFileToLocalServer");
                     // 检查要拷贝的目录情况
                     if (!fs.existsSync(this.localServerPath)) {
                         this._addLog("本地测试服务器目录不存在:" + this.localServerPath);
@@ -1150,7 +1238,7 @@ Editor.Panel.extend({
                         this._addLog("未填写参数");
                     }
                 },
-                userLocalIP() {
+                _getLocalIP() {
                     let ip = "";
                     let os = require('os');
                     let ifaces = os.networkInterfaces();
@@ -1188,7 +1276,12 @@ Editor.Panel.extend({
                     //     }
                     // }
 
-                    console.log(ip);
+                    return ip;
+                },
+                userLocalIP() {
+                    GoogleAnalytics.eventCustom("useLocalIP");
+                    let ip = this._getLocalIP();
+
                     if (ip.length > 0) {
                         this.serverRootDir = "http://" + ip;
                         this.onInPutUrlOver(null);

@@ -5,9 +5,11 @@
 [4399原创平台SDK插件](packages/plugin-4399-web-js-sdk/README.md)    
 [Cocos-Creator-Inspector](CocosCreatorInspector/README.md)  
 [Excel-Killer工具](packages/excel-killer/README.md)    
-[贝塞尔编辑工具](packages/bezier/README.md)      
+[贝塞尔编辑工具<有待开发>](packages/bezier/README.md)      
 [资源压缩工具](packages/res-compress/README.md)         
 [cc-inspector+](doc/cc-inspector-v2/index.md)    
+## 克隆慢？
+[解决办法](Clone.md)
 
 ## 2款收费插件,有需求的支持下呗
 - 字体瘦身
@@ -38,7 +40,7 @@
 
 # 福利代码
 项目中的代码是个人开发沉淀,希望对你有所帮助!     
-- [Observer.js](assets/core/Observer.js)
-- [ObserverMgr.js](assets/core/ObserverMgr.js)    
+- [Observer.js](assets/subpack/core/Observer.js)
+- [ObserverMgr.js](assets/subpack/core/ObserverMgr.js)    
 # 支持一下呗
 ![](CocosCreatorInspector/src/assets/images/money.jpg)

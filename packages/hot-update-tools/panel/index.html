@@ -11,25 +11,24 @@
     <!--</div>-->
     <div class="section" style>
         <!--focused 属性目前似乎有个bug,箭头图标不对-->
-        <ui-section style="display: none;">
-            <div class="header greenColor">Http服务</div>
-            <ui-prop name="访问网址">
-                <div class="flex-1" @mousedown="onBtnClickTestHttp">
-                    <ui-input disabled style="width: 100%;" v-value="testHttpUrl"></ui-input>
-                </div>
-                <ui-button @click="onBtnClickOpenTestHttpServer">
-                    开启Http服务
-                </ui-button>
-            </ui-prop>
-        </ui-section>
-
         <ui-section>
-            <div class="header greenColor">生成Manifest配置</div>
+            <div class="header greenColor">生成Manifest配置
+                <div class="layout horizontal flex-1 center self-end end-justified">
+                    <div class="self-end">
+                        <ui-button v-on:confirm="onBtnClickHelpDoc" @click="onStopTouchEvent">
+                            GitHub文档
+                        </ui-button>
+                        <ui-button v-on:confirm="onBtnClickTellMe" @click="onStopTouchEvent"
+                                   style="background: url('http://wpa.qq.com/pa?p=2:774177933:51');width: 77px;height: 25px;">
+                            QQ
+                        </ui-button>
+                    </div>
+                </div>
+            </div>
             <div class="layout vertical start-justified">
                 <ui-prop name="版本号">
                     <div class="flex-1 layout horizontal center">
                         <ui-input class="flex-1" v-on:blur="onInputVersionOver" v-value="version"></ui-input>
-                        <!--<ui-button v-on:confirm="onTest">测试</ui-button>-->
                     </div>
                 </ui-prop>
 
@@ -139,7 +138,8 @@
                         <h4 class="flex-2">
                             {{localGamePackageUrl}}
                         </h4>
-                        <a v-show="localGamePackageUrl&&localGamePackageUrl.length>0" href="{{localGamePackageUrl}}/version.manifest">
+                        <a v-show="localGamePackageUrl&&localGamePackageUrl.length>0"
+                           href="{{localGamePackageUrl}}/version.manifest">
                             验证version.mainfest
                         </a>
                     </div>
@@ -160,6 +160,36 @@
             </div>
 
         </ui-section>
+        <!-----------------------------------Http静态文件服务----------------------------------->
+        <ui-section>
+            <div class="header greenColor">Http静态文件服务</div>
+            <ui-prop name="文件目录">
+                <ui-input readonly class="flex-1" v-value="staticFileDir"></ui-input>
+                <ui-button @confirm="onBtnClickSelectHttpDir">...</ui-button>
+                <ui-button class="blue" v-on:confirm="onBtnClickHttpDir">
+                    <i class="fa fa-folder-open"></i>
+                </ui-button>
+            </ui-prop>
+            <ui-prop name="访问URL">
+                <div class="layout horizontal flex-1 end-justified center-center">
+                    <div class="flex-1">
+                        <a v-show="staticFileUrl!==null" href="{{staticFileUrl}}">
+                            <span>{{staticFileUrl}}</span>
+                        </a>
+                        <span v-show="staticFileUrl===null">--</span>
+                    </div>
+                    <ui-button class="green" v-show="staticFileServer===null" @confirm="onBtnClickOpenStaticFileServer">
+                        开启服务
+                    </ui-button>
+                    <ui-button v-show="false" class="red" v-show="staticFileServer!==null"
+                               @confirm="onBtnClickCloseStaticFileServer">
+                        关闭服务
+                    </ui-button>
+                </div>
+            </ui-prop>
+        </ui-section>
+
+
         <ui-section>
             <div class="header greenColor">测试环境</div>
             <div class="layout vertical">
@@ -177,7 +207,8 @@
                     <ui-prop name="package url">
                         <div class="flex-1 layout horizontal center">
                             <h4 class="flex-2">{{serverPackageUrl}}</h4>
-                            <a v-show="serverPackageUrl&&serverPackageUrl.length>0" href="{{serverPackageUrl}}/version.manifest">
+                            <a v-show="serverPackageUrl&&serverPackageUrl.length>0"
+                               href="{{serverPackageUrl}}/version.manifest">
                                 验证version.manifest
                             </a>
                         </div>
@@ -257,20 +288,6 @@
 
         </ui-section>
 
-        <ui-section folded>
-            <div class="header greenColor">帮助</div>
-            <div class="layout horizontal center self-end ">
-                <div class="self-end">
-                    <ui-button v-on:confirm="onBtnClickHelpDoc">
-                        GitHub文档
-                    </ui-button>
-                    <ui-button v-on:confirm="onBtnClickTellMe"
-                               style="background: url('http://wpa.qq.com/pa?p=2:774177933:51');width: 77px;height: 25px;">
-                        QQ
-                    </ui-button>
-                </div>
-            </div>
-        </ui-section>
 
     </div>
 

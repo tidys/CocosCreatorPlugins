@@ -84,4 +84,6 @@ auto/node_modules
 packages/qiniu/node_modules
 settings
 cc-inspector-v2.1.zip
-packages/psd-convert-to-node/node_modules
+node_modules
+out
+test.meta

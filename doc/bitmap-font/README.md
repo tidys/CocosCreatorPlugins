@@ -1,3 +1,8 @@
+# 注意
+插件小王子的所有插件文档已经汇总到一个地方： https://tidys.github.io/plugin-docs-oneself/docs/bitmap-font/    
+新版本的文档更加完善！
+
+
 # 说明
 游戏开发中经常会碰到制作BMFont字体的需求,市面上有很多专门的工具都在解决这个问题
 1. BMFont
