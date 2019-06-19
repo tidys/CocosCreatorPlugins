@@ -481,6 +481,10 @@ Editor.Panel.extend({
                         let saveLineData = {};
                         let canExport = false;
                         for (let j = 1; j < title.length; j++) {
+                            if (!title[j]) {
+                                // 遇到空列直接break，后续的数据不处理
+                                break;
+                            }
                             canExport = false;
                             if (isClient && target[j].indexOf('c') !== -1) {
                                 canExport = true;
@@ -529,6 +533,10 @@ Editor.Panel.extend({
                             let saveLineData = {};
                             let canExport = false;
                             for (let j = 0; j < title.length; j++) {
+                                if (!title[j]) {
+                                    // 遇到空列直接break，后续的数据不处理
+                                    break;
+                                }
                                 canExport = false;
                                 if (isClient && target[j].indexOf('c') !== -1) {
                                     canExport = true;
@@ -572,6 +580,10 @@ Editor.Panel.extend({
 
                             // todo 将ID字段也加入到data中
                             for (let j = 0; j < title.length; j++) {
+                                if (!title[j]) {
+                                    // 遇到空列直接break，后续的数据不处理
+                                    break;
+                                }
                                 canExport = false;
                                 if (isClient && target[j] && target[j].indexOf('c') !== -1) {
                                     canExport = true;
