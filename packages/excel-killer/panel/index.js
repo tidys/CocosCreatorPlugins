@@ -481,10 +481,6 @@ Editor.Panel.extend({
                         let saveLineData = {};
                         let canExport = false;
                         for (let j = 1; j < title.length; j++) {
-                            if (!title[j]) {
-                                // 遇到空列直接break，后续的数据不处理
-                                break;
-                            }
                             canExport = false;
                             if (isClient && target[j].indexOf('c') !== -1) {
                                 canExport = true;
@@ -533,10 +529,6 @@ Editor.Panel.extend({
                             let saveLineData = {};
                             let canExport = false;
                             for (let j = 0; j < title.length; j++) {
-                                if (!title[j]) {
-                                    // 遇到空列直接break，后续的数据不处理
-                                    break;
-                                }
                                 canExport = false;
                                 if (isClient && target[j].indexOf('c') !== -1) {
                                     canExport = true;
@@ -580,10 +572,6 @@ Editor.Panel.extend({
 
                             // todo 将ID字段也加入到data中
                             for (let j = 0; j < title.length; j++) {
-                                if (!title[j]) {
-                                    // 遇到空列直接break，后续的数据不处理
-                                    break;
-                                }
                                 canExport = false;
                                 if (isClient && target[j] && target[j].indexOf('c') !== -1) {
                                     canExport = true;
@@ -801,18 +789,9 @@ Editor.Panel.extend({
 
                     this._addLog("全部转换完成!");
                 },
-                // 处理数组和字典数据：使用node-xlsx parse后数组/字典都是字符串，"[]","{}"，去除掉双引号即可
-                _dealArrayAndMap(data) {
-                    let s = JSON.stringify(data);
-                    s = s.replace(/\:\"\[/g, ":[");
-                    s = s.replace(/\]\"/g, "]");
-                    s = s.replace(/\:\"\{/g, ":{");
-                    s = s.replace(/\}\"/g, "}");
-                    return s;
-                },
                 // 保存为json配置
                 _onSaveJsonCfgFile(data, saveFileFullPath) {
-                    let str = this._dealArrayAndMap(data);
+                    let str = JSON.stringify(data);
                     if (this.isFormatJson) {
                         str = jsonBeautifully(str);
                     }
@@ -821,9 +800,8 @@ Editor.Panel.extend({
                 },
                 // 保存为js配置
                 _onSaveJavaScriptCfgFile(saveFileFullPath, jsSaveData) {
-                    let str = this._dealArrayAndMap(jsSaveData);
                     // TODO 保证key的顺序一致性
-                    let saveStr = "module.exports = " + str + ";";
+                    let saveStr = "module.exports = " + JSON.stringify(jsSaveData) + ";";
                     if (this.isFormatJsCode) {// 保存为格式化代码
                         let ast = uglifyJs.parse(saveStr);
                         let ret = uglifyJs.minify(ast, {
