@@ -5,9 +5,7 @@ let CfgUtil = Editor.require('packages://' + packageName + '/core/CfgUtil.js');
 let excelItem = Editor.require('packages://' + packageName + '/panel/item/excelItem.js');
 let nodeXlsx = Editor.require('packages://' + packageName + '/node_modules/node-xlsx');
 let Electron = require('electron');
-let uglifyJs = Editor.require('packages://' + packageName + '/node_modules/uglify-js');
 let fsExtra = Editor.require('packages://' + packageName + '/node_modules/fs-extra');
-let jsonBeautifully = Editor.require('packages://' + packageName + '/node_modules/json-beautifully');
 let chokidar = Editor.require('packages://' + packageName + '/node_modules/chokidar');
 const Globby = require('globby');
 
@@ -1075,9 +1073,13 @@ Editor.Panel.extend({
                 },
                 // 保存为json配置
                 _onSaveJsonCfgFile(data, saveFileFullPath) {
-                    let str = JSON.stringify(data);
+                    let str = ''
                     if (this.isFormatJson) {
-                        str = jsonBeautifully(str);
+                        str = JSON.stringify(data, null, '\t');
+                    }
+                    else
+                    {
+                        str = JSON.stringify(data);
                     }
                     fs.writeFileSync(saveFileFullPath, str);
                     this._addLog("[Json]:" + saveFileFullPath);
@@ -1085,28 +1087,15 @@ Editor.Panel.extend({
                 // 保存为js配置
                 _onSaveJavaScriptCfgFile(saveFileFullPath, jsSaveData) {
                     // TODO 保证key的顺序一致性
-                    let saveStr = "module.exports = " + JSON.stringify(jsSaveData) + ";";
+                    let saveStr = "module.exports = ";
                     if (this.isFormatJsCode) {// 保存为格式化代码
-                        let ast = uglifyJs.parse(saveStr);
-                        let ret = uglifyJs.minify(ast, {
-                            output: {
-                                beautify: true,//如果希望得到格式化的输出，传入true
-                                indent_start: 0,//（仅当beautify为true时有效） - 初始缩进空格
-                                indent_level: 4,//（仅当beautify为true时有效） - 缩进级别，空格数量
-                            }
-                        });
-                        if (ret.error) {
-                            this._addLog('error: ' + ret.error.message);
-                        } else if (ret.code) {
-                            fs.writeFileSync(saveFileFullPath, ret.code);
-                            this._addLog("[JavaScript]" + saveFileFullPath);
-                        } else {
-                            this._addLog(JSON.stringify(ret));
-                        }
+                        saveStr = saveStr + JSON.stringify(jsSaveData, null, '\t') + ";";
                     } else {// 保存为单行代码
-                        fs.writeFileSync(saveFileFullPath, saveStr);
-                        this._addLog("[JavaScript]" + saveFileFullPath);
+                        saveStr = saveStr + JSON.stringify(jsSaveData) + ";";
                     }
+
+                    fs.writeFileSync(saveFileFullPath, saveStr);
+                    this._addLog("[JavaScript]" + saveFileFullPath);
                 }
             },
 
