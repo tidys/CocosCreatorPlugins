@@ -5,7 +5,7 @@
   "author": "xu_yanfeng",
   "main": "main.js",
   "main-menu": {
-    "i18n:MAIN_MENU.package.title//PSD2Node": {
+    "i18n:MAIN_MENU.package.title/PSD2Node": {
       "message": "psd-convert-to-node:open-panel"
     }
   },

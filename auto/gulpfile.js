@@ -290,9 +290,10 @@ gulp.task("发布插件: hot-update-tools", function () {
 });
 
 
-gulp.task("发布cc-inspector插件", function () {
-    packagePlugin('cc-inspector');
+gulp.task("发布excel-killer插件", function () {
+    packagePlugin('excel-killer');
 });
+
 
 gulp.task("调试主进程", function () {
     let Path = require("path");
