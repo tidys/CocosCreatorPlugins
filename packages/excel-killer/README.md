@@ -21,16 +21,18 @@
 - 第1行: 字段的索引key,这个是不能重复的,想必这个肯定是常识吧!
 - 第2行: 字段的中文注释
 - 第3行: 字段的导出目标: 包含有 c 字符的代表导出到client目标，包含有 s字符代表导出到Server目标，一个表格，前端后端公用 :)
+- 第4行：(by @我是一只傻狍子) 字段的导出规则，已支持 Number, String, Array[Number|String], Array[Array[Array|String]], Array[Object{"key1":Number|String|Array[Number|String], ..."keyN"}], Object{"key1":Number|String|Array[Number|String], ..."keyN"} (注意:一定是英文的引号,不是中文的! 详见 Test.xlsx 测试用例)
 - 尽量不要出现空Sheet,当然插件会自动跳过该Sheet
 - 尽量不要出现空行,空单元格,当然插件也做了这方面的优化,空单元格统一处理为空字符串,空行直接跳过
 ##### 水果sheet:fruit
-|id| fruit        | cost      |   num    |
-|:----: | :----:    | -----:  | :----: |
-|编号| 水果        | 价格    |  数量  |
-|cs| cs        | cs    |  cs  |
-|1| 香蕉        | 1      |   5    |
-|2| 苹果        | 1      |   6    |
-|3| 草莓        | 1      |   7    |
+|id| fruit        | cost      |   num    |  all |
+|:----: | :----:    | -----:  | :----: | :----: |
+|编号| 水果        | 价格    |  数量  | 总览 |
+|cs| cs        | cs    |  cs  |     cs      |
+|Number|String|Number|Number    |   Object{"id":Number,"fruit":String,"cost":Number,"num":Number}|
+|1| 香蕉        | 1      |   5    | 1,香蕉,1,5 |
+|2| 苹果        | 1      |   6    | 2,苹果,1,6 |
+|3| 草莓        | 1      |   7    | 3,草莓,1,7 |
 ##### 人类sheet:man
 |id| name        | age         |
 |:----: | :----:    | -----:    |
@@ -45,9 +47,9 @@
 ```javascript
 module.export = {
         fruit: {
-            1: {fruit: "香蕉", cost: 1, num: 5},
-            2: {fruit: "苹果", cost: 1, num: 6},
-            3: {fruit: "草莓", cost: 1, num: 7}
+            1: {fruit: "香蕉", cost: 1, num: 5, all: { id: 1, fruit: "香蕉", cost: 1, num: 5 }},
+            2: {fruit: "苹果", cost: 1, num: 6, all: { id: 2, fruit: "苹果", cost: 1, num: 6 }},
+            3: {fruit: "草莓", cost: 1, num: 7, all: { id: 3, fruit: "草莓", cost: 1, num: 7 }}
         },
         man: {
             1: {name: "小明", age: 10},
@@ -61,9 +63,9 @@ module.export = {
 > fruit.json
 ```json
 {
-    "1": {"fruit": "香蕉", "cost": 1, "num": 5},
-    "2": {"fruit": "苹果", "cost": 1, "num": 6},
-    "3": {"fruit": "草莓", "cost": 1, "num": 7}
+    "1": {"fruit": "香蕉", "cost": 1, "num": 5, "all": { "id": 1, "fruit": "香蕉", "cost": 1, "num": 5 }},
+    "2": {"fruit": "苹果", "cost": 1, "num": 6, "all": { "id": 2, "fruit": "苹果", "cost": 1, "num": 6 }},
+    "3": {"fruit": "草莓", "cost": 1, "num": 7, "all": { "id": 2, "fruit": "苹果", "cost": 1, "num": 7 }}
 }
 ```
 > man.json
@@ -78,9 +80,9 @@ module.export = {
 ```json
 {
     "fruit": {
-        "1": {"fruit": "香蕉", "cost": 1, "num": 5},
-        "2": {"fruit": "苹果", "cost": 1, "num": 6},
-        "3": {"fruit": "草莓", "cost": 1, "num": 7}
+        "1": {"fruit": "香蕉", "cost": 1, "num": 5, "all": { "id": 1, "fruit": "香蕉", "cost": 1, "num": 5 }},
+        "2": {"fruit": "苹果", "cost": 1, "num": 6, "all": { "id": 2, "fruit": "苹果", "cost": 1, "num": 6 }},
+        "3": {"fruit": "草莓", "cost": 1, "num": 7, "all": { "id": 2, "fruit": "苹果", "cost": 1, "num": 7 }}
     },
     "man": {
         "1": {"name": "小明", "age": 10},
@@ -142,4 +144,3 @@ module.exports={test:"100"}
 ## 插件反馈
 - 详细的说明文档:点击插件的[帮助按钮](https://github.com/tidys/CocosCreatorPlugins/tree/master/packages/excel-killer/README.md)直达
 - 如果使用过程中遇到任何问题,欢迎点击[QQ交谈](http://wpa.qq.com/msgrd?v=3&uin=774177933&site=qq&menu=yes)给我留言
-

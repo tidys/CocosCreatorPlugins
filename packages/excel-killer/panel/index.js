@@ -5,9 +5,7 @@ let CfgUtil = Editor.require('packages://' + packageName + '/core/CfgUtil.js');
 let excelItem = Editor.require('packages://' + packageName + '/panel/item/excelItem.js');
 let nodeXlsx = Editor.require('packages://' + packageName + '/node_modules/node-xlsx');
 let Electron = require('electron');
-let uglifyJs = Editor.require('packages://' + packageName + '/node_modules/uglify-js');
 let fsExtra = Editor.require('packages://' + packageName + '/node_modules/fs-extra');
-let jsonBeautifully = Editor.require('packages://' + packageName + '/node_modules/json-beautifully');
 let chokidar = Editor.require('packages://' + packageName + '/node_modules/chokidar');
 const Globby = require('globby');
 
@@ -459,12 +457,14 @@ Editor.Panel.extend({
                         return;
                     }
                 },
+
                 _getJavaScriptSaveData(excelData, itemSheet, isClient) {
                     let title = excelData[0];
                     let desc = excelData[1];
                     let target = excelData[2];
+                    let ruleText = excelData[3];
                     let sheetFormatData = {};
-                    for (let i = 3; i < excelData.length; i++) {
+                    for (let i = 4; i < excelData.length; i++) {
                         let lineData = excelData[i];
                         if (lineData.length === 0) {
                             // 空行直接跳过
@@ -487,13 +487,35 @@ Editor.Panel.extend({
                             } else if (!isClient && target[j].indexOf('s') !== -1) {
                                 canExport = true;
                             }
+
                             if (canExport) {
                                 let key = title[j];
+                                let rule = '';
+
+                                if (typeof ruleText[j] === 'string')
+                                {
+                                    rule = ruleText[j].trim();
+                                }
+                                else
+                                {
+                                    this._addLog(`[exception] ${j + 1}列规则文本异常，请检查`);
+                                    continue;
+                                }
+
+                                if (key === 'Empty' || rule === 'Empty') {
+                                    continue;
+                                }
+
                                 let value = lineData[j];
                                 if (value === undefined) {
                                     value = "";
                                     this._addLog("[Error] 发现空单元格:" + itemSheet.name + "*" + itemSheet.sheet + " => (" + key + "," + (i + 1) + ")");
                                 }
+
+                                if (value) {
+                                    value = this.cutString(rule, value);
+                                }
+
                                 saveLineData[key] = value;
                             }
                         }
@@ -510,15 +532,18 @@ Editor.Panel.extend({
                     }
                     return sheetFormatData;
                 },
+
                 _getJsonSaveData(excelData, itemSheet, isClient) {
                     let title = excelData[0];
                     let desc = excelData[1];
                     let target = excelData[2];
+                    let ruleText = excelData[3];
                     let ret = null;
+
                     let useFormat1 = false;
                     if (useFormat1) {
                         let saveData1 = [];// 格式1:对应的为数组
-                        for (let i = 3; i < excelData.length; i++) {
+                        for (let i = 4; i < excelData.length; i++) {
                             let lineData = excelData[i];
                             if (lineData.length < title.length) {
                                 continue;
@@ -535,12 +560,24 @@ Editor.Panel.extend({
                                 } else if (!isClient && target[j].indexOf('s') !== -1) {
                                     canExport = true;
                                 }
+
                                 if (canExport) {
                                     let key = title[j];
+
+                                    let rule = ruleText[j].trim();
+                                    if (key === 'Empty' || rule === 'Empty') {
+                                        continue;
+                                    }
+
                                     let value = lineData[j];
                                     if (value === undefined) {
                                         value = "";
                                     }
+
+                                    if (value) {
+                                        value = this.cutString(rule, value);
+                                    }
+
                                     // this._addLog("" + value);
                                     saveLineData[key] = value;
                                 }
@@ -559,7 +596,7 @@ Editor.Panel.extend({
                         ret = saveData1;
                     } else {
                         let saveData2 = {};// 格式2:id作为索引
-                        for (let i = 3; i < excelData.length; i++) {
+                        for (let i = 4; i < excelData.length; i++) {
                             let lineData = excelData[i];
                             if (lineData.length !== title.length) {
                                 this._addLog(`配置表头和配置数据不匹配:${itemSheet.name} - ${itemSheet.sheet} : 第${i + 1}行`);
@@ -578,12 +615,24 @@ Editor.Panel.extend({
                                 } else if (!isClient && target[j] && target[j].indexOf('s') !== -1) {
                                     canExport = true;
                                 }
+
                                 if (canExport) {
                                     let key = title[j];
+
+                                    let rule = ruleText[j].trim();
+                                    if (key === 'Empty' || rule === 'Empty') {
+                                        continue;
+                                    }
+
                                     let value = lineData[j];
                                     if (value === undefined) {
                                         value = "";
                                     }
+
+                                    if (value) {
+                                        value = this.cutString(rule, value);
+                                    }
+
                                     // this._addLog("" + value);
                                     saveLineData[key] = value;
                                 }
@@ -603,6 +652,239 @@ Editor.Panel.extend({
                     }
                     return ret;
                 },
+
+                /**
+                 * 切割字符串数据
+                 * @param {string} rule 规则字符串
+                 * @param {string} text 数据字符串
+                 */
+                cutString(rule, text) {
+                    let result = null;
+
+                    if (typeof text == 'string') {
+                        text = text.trim();
+                        text = text.replace(/\n|\r/g, '');
+
+                        if (text[text.length - 1].search(/;|,/) != -1) {
+                            text = text.slice(0, text.length - 1);
+                        }
+                        else if (text[0].search(/;|,/) != -1) {
+                            text = text.slice(1, text.length);
+                        }
+                    }
+
+                    // {1,2};{3,4}
+                    // {1,[2;3]};{4,[5,6]}
+                    // {1,2,[String;String]};{3,4,[String;String]}
+                    // {1,2,String};{3,4,String}
+                    if (rule.search(/Array\[Object\{[a-zA-Z0-9\[\]:,"]*\}\]/) != -1) {
+                        result = [];
+
+                        // 替换数据中的字符串为 “String” 形式
+                        if (rule.search(/String/) != -1) {
+                            let stringData = text.match(/[^(\[|\]|;|:)|\{|\}|,]+/g);
+                            let noneDuplicates = [];
+                            let noNumberReg = /^\d+(\.\d+)?$/
+                            for (let value of stringData) {
+                                if (!noNumberReg.test(value)) {
+                                    noneDuplicates.push(value);
+                                }
+                            }
+
+                            for (let value of noneDuplicates) {
+                                let notHead = text.search(eval(`/^[${value}]/`)) == -1
+                                let searchReg = new RegExp(notHead ? `[^(")]${value}{1}[;|\\]|,|}]` : `^${value}{1}[;|\\]|,|}]`);
+                                let index = text.search(searchReg);
+
+                                if (index != -1) {
+                                    index = index + (notHead ? 1 : 0);
+                                    text = text.slice(0, index) + `"${value}"` + text.slice(index + value.length, text.length);
+                                }
+                            }
+                        }
+
+                        let array = null;
+                        let insideRult = rule.match(/Object\{[a-zA-Z0-9\[\]:,"]*\}/)
+
+                        if (insideRult[0].indexOf('Array') == -1) {
+                            let textArray = text.split(';');
+                            array = [];
+                            for (let item of textArray) {
+                                array.push(`{${item}}`);
+                            }
+                        }
+                        else {
+                            array = text.match(/{[^({|})]*}/g);
+                        }
+
+                        let dataArray = [];
+                        array.forEach(
+                            (item) => {
+                                let element = item.replace(/\{/g, '[');
+                                element = element.replace(/\}/g, ']');
+                                element = element.replace(/;/g, ',');
+                                element = JSON.parse(element);
+
+                                dataArray.push(element);
+                            }
+                        );
+
+                        let keys = [];
+                        let reg = /"([a-zA-Z0-9]*)":/g;
+                        let test = reg.exec(rule);
+
+                        while (test) {
+                            let key = test[0].replace(/(:|\")/g, '');
+                            keys.push(key);
+
+                            test = reg.exec(rule);
+                        }
+
+                        for (let i = 0; i < dataArray.length; ++i) {
+                            let obj = {};
+                            let data = dataArray[i];
+
+                            let index = 0;
+                            for (let key of keys) {
+                                obj[key] = data[index];
+                                index++;
+                            }
+
+                            result.push(obj);
+                        }
+                    }
+                    // [1;2];[3;4]
+                    // [1;2]
+                    else if (rule.search(/Array\[Array\[Number\]\]/) === 0 || rule.search(/Array\[Number\]/) === 0) {
+                        let str = `[${text}]`;
+                        str = str.replace(/;/g, ',');
+                        result = JSON.parse(str);
+                    }
+                    // String;String
+                    else if (rule.search(/Array\[String\]/) === 0) {
+                        let newText = '';
+
+                        let textArray = text.match(/[^(\[|\]|;)]+/g);
+                        let index = 0;
+                        let edge = textArray.length;
+
+                        for (let subString of textArray) {
+                            newText = `${newText}"${subString}"`;
+                            index++;
+
+                            if (index == edge) {
+                                break;
+                            }
+
+                            newText += ',';
+                        }
+
+                        newText = `[${newText}]`;
+                        newText = newText.replace(/;/g, ',');
+
+                        try {
+                            result = JSON.parse(newText);
+                        }
+                        catch (exception) {
+                            debugger;
+                        }
+                    }
+                    // [String;String];[String;String]
+                    else if (rule.search(/Array\[Array\[String\]\]/) === 0) {
+                        result = [];
+
+                        let array = text.match(/\[[^(\[|\])]*\]/g);
+
+                        for (let item of array) {
+                            let textArray = item.match(/[^(\[|\]|;)]+/g);
+                            let newText = '';
+                            let index = 0;
+                            let edge = textArray.length - 1;
+                            for (let subString of textArray) {
+                                newText = `${newText}"${subString}"`;
+                                index++;
+
+                                if (index == edge) {
+                                    break;
+                                }
+
+                                newText += ',';
+                            }
+
+                            newText = `[${newText}]`;
+
+                            let json = JSON.parse(newText);
+                            result.push(json);
+                        }
+
+                    }
+                    else if (rule.search(/Object\{[a-zA-Z0-9\[\]:,"]*\}/) === 0) {
+                        result = {};
+
+                        if (rule.search(/String/) != -1) {
+                            let stringData = text.match(/[^(\[|\]|;|:)|\{|\}|,]+/g);
+                            let noneDuplicates = [];
+                            let noNumberReg = /^\d+(\.\d+)?$/
+                            for (let value of stringData) {
+                                if (!noNumberReg.test(value)) {
+                                    noneDuplicates.push(value);
+                                }
+                            }
+
+                            for (let value of noneDuplicates) {
+                                let notHead = text.search(eval(`/^[${value}]/`)) == -1
+                                let searchReg = new RegExp(notHead ? `[^(")]${value}{1}[;|\\]|,|}]` : `^${value}{1}[;|\\]|,|}]`);
+                                let index = text.search(searchReg);
+
+                                if (index != -1) {
+
+                                    index = index + (notHead ? 1 : 0);
+                                    text = text.slice(0, index) + `"${value}"` + text.slice(index + value.length, text.length);
+                                }
+                            }
+                        }
+
+                        let keys = [];
+                        let reg = /"([a-zA-Z0-9]*)":/g;
+                        let test = reg.exec(rule);
+
+                        while (test) {
+                            let key = test[0].replace(/(:|\")/g, '');
+                            keys.push(key);
+
+                            test = reg.exec(rule);
+                        }
+
+                        let str = `[${text}]`;
+                        str = str.replace(/;/g, ',');
+
+                        let json = null
+                        try {
+                            json = JSON.parse(str);
+                        }
+                        catch (e) {
+                            debugger;
+                        }
+
+                        let index = 0;
+                        for (let key of keys) {
+                            result[key] = json[index];
+                            index++;
+                        }
+
+                    }
+                    // 1
+                    else if (rule.search('Number') === 0) {
+                        result = Number(text);
+                    }
+                    // String
+                    else if (rule.search('String') === 0) {
+                        result = text;
+                    }
+
+                    return result;
+                },
+
                 // 打开生成的js配置文件
                 onBtnClickOpenJsFile() {
                     let saveFileFullPath1 = path.join(this.jsSavePath, dirClientName, this.jsFileName + ".js");
@@ -791,9 +1073,13 @@ Editor.Panel.extend({
                 },
                 // 保存为json配置
                 _onSaveJsonCfgFile(data, saveFileFullPath) {
-                    let str = JSON.stringify(data);
+                    let str = ''
                     if (this.isFormatJson) {
-                        str = jsonBeautifully(str);
+                        str = JSON.stringify(data, null, '\t');
+                    }
+                    else
+                    {
+                        str = JSON.stringify(data);
                     }
                     fs.writeFileSync(saveFileFullPath, str);
                     this._addLog("[Json]:" + saveFileFullPath);
@@ -801,28 +1087,15 @@ Editor.Panel.extend({
                 // 保存为js配置
                 _onSaveJavaScriptCfgFile(saveFileFullPath, jsSaveData) {
                     // TODO 保证key的顺序一致性
-                    let saveStr = "module.exports = " + JSON.stringify(jsSaveData) + ";";
+                    let saveStr = "module.exports = ";
                     if (this.isFormatJsCode) {// 保存为格式化代码
-                        let ast = uglifyJs.parse(saveStr);
-                        let ret = uglifyJs.minify(ast, {
-                            output: {
-                                beautify: true,//如果希望得到格式化的输出，传入true
-                                indent_start: 0,//（仅当beautify为true时有效） - 初始缩进空格
-                                indent_level: 4,//（仅当beautify为true时有效） - 缩进级别，空格数量
-                            }
-                        });
-                        if (ret.error) {
-                            this._addLog('error: ' + ret.error.message);
-                        } else if (ret.code) {
-                            fs.writeFileSync(saveFileFullPath, ret.code);
-                            this._addLog("[JavaScript]" + saveFileFullPath);
-                        } else {
-                            this._addLog(JSON.stringify(ret));
-                        }
+                        saveStr = saveStr + JSON.stringify(jsSaveData, null, '\t') + ";";
                     } else {// 保存为单行代码
-                        fs.writeFileSync(saveFileFullPath, saveStr);
-                        this._addLog("[JavaScript]" + saveFileFullPath);
+                        saveStr = saveStr + JSON.stringify(jsSaveData) + ";";
                     }
+
+                    fs.writeFileSync(saveFileFullPath, saveStr);
+                    this._addLog("[JavaScript]" + saveFileFullPath);
                 }
             },
 
