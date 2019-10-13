@@ -1,0 +1,28 @@
+{
+  "name": "amazing-ui",
+  "version": "0.0.1",
+  "description": "The package template for getting started.",
+  "author": "Cocos Creator",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.package.title/amazing-ui/open": {
+      "message": "amazing-ui:open"
+    },
+    "i18n:MAIN_MENU.package.title/amazing-ui/hello": {
+      "message": "amazing-ui:say-hello"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "amazing-ui",
+    "width": 400,
+    "height": 300
+  },
+  "dependencies": {
+    "@types/node": "^12.6.8",
+    "rete": "^1.4.1-rc.1",
+    "rete-connection-plugin": "^0.8.1",
+    "rete-vue-render-plugin": "^0.4.0"
+  }
+}
