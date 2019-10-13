@@ -21,7 +21,7 @@
 - 第1行: 字段的索引key,这个是不能重复的,想必这个肯定是常识吧!
 - 第2行: 字段的中文注释
 - 第3行: 字段的导出目标: 包含有 c 字符的代表导出到client目标，包含有 s字符代表导出到Server目标，一个表格，前端后端公用 :)
-- 第4行：(by @我是一只傻狍子) 字段的导出规则，已支持 Number, String, Array[Number|String], Array[Array[Array|String]], Array[Object{"key1":Number|String|Array[Number|String], ..."keyN"}], Object{"key1":Number|String|Array[Number|String], ..."keyN"} (详见 Test.xlsx 测试用例)
+- 第4行：(by @我是一只傻狍子) 字段的导出规则，已支持 Number, String, Array[Number|String], Array[Array[Array|String]], Array[Object{"key1":Number|String|Array[Number|String], ..."keyN"}], Object{"key1":Number|String|Array[Number|String], ..."keyN"} (注意:一定是英文的引号,不是中文的! 详见 Test.xlsx 测试用例)
 - 尽量不要出现空Sheet,当然插件会自动跳过该Sheet
 - 尽量不要出现空行,空单元格,当然插件也做了这方面的优化,空单元格统一处理为空字符串,空行直接跳过
 ##### 水果sheet:fruit

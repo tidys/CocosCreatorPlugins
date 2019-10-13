@@ -172,7 +172,7 @@ module.exports = {
             let folder = await assetdbCreateAsync('db://assets/testfolder');
             let folderuuidafter = await assetdbQueryUuidByUrlAsync('db://assets/testfolder');
             */
-        // @ts-ignore
+
         /*
             Editor.assetdb.import([fullpath], 'db://assets', null, function ( err, results ) {
                 results.forEach(function ( result ) {
@@ -192,7 +192,7 @@ module.exports = {
             });
             */
         /*
-            
+
             console.log('obj.name:', obj.name, ',parentNode name:', parentNode.name);
             */
         // parentNode.addChild(node);
@@ -213,7 +213,7 @@ module.exports = {
                     cc.error(err);
                     throw new Error("loading error");
                 }
-                 
+
                 sprite.spriteFrame = spriteFrame;
             });
             */
@@ -252,7 +252,7 @@ module.exports = {
         let creator = new BaumPrefabCreator.PrefabCreator(pngFolder, fontRootPath, layoutPath, prefabUrl);
         let go = await creator.Create();
         if (!mountNode) {
-            // @ts-ignore
+
             Editor.error(`没有找到要挂载到的节点:${mountName},本次操作被取消`);
         }
         else {
@@ -274,7 +274,7 @@ module.exports = {
         }
         return;
         /*
-        // @ts-ignore
+
         let layout = JSON.parse(fs.readFileSync(layoutPath));
         let layoutUrl = "db://assets/Texture/" + layout["root"]["name"];
         // レイアウト位置情報ファイルの置き場所が作られているかをチェック(作られている場合、uuidが付与されているので、uuidがnullなら、まだ作られていないことを意味する)
@@ -284,13 +284,13 @@ module.exports = {
           let layoutFolder = await assetdbCreateAsync(layoutUrl);
           console.log(layoutFolder);
         }
-    
+
         let pngList = fs.readdirSync(pngFolder);
         let list = argsList[0];
         let elements = layout.root.elements;
-    
+
         let reverse = argsList[2];
-        // @ts-ignore
+
         Editor.log("mount node name:", mountName);
         console.log("list:", list);
         console.log("elements:", elements);
