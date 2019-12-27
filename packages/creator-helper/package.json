@@ -16,9 +16,5 @@
     "title": "creator-helper",
     "width": 400,
     "height": 300
-  },
-  "profiles": {
-    "docs": "http://docs.cocos.com/creator/manual/zh/",
-    "forum": "http://forum.cocos.com/c/Creator"
   }
 }
