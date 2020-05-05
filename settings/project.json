@@ -9,7 +9,10 @@
   "excluded-modules": [
     "Geom Utils",
     "3D",
-    "3D Primitive"
+    "3D Primitive",
+    "3D Physics/cannon.js",
+    "3D Physics/Builtin",
+    "3D Particle"
   ],
   "fit-height": true,
   "fit-width": true,
