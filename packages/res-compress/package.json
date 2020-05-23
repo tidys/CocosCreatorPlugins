@@ -18,14 +18,7 @@
     "width": 400,
     "height": 300
   },
-  "dependencies": {
-    "co": "4.6.0",
-    "imagemin": "5.3.1",
-    "imagemin-pngquant": "5.1.0",
-    "lamejs": "1.2.0",
-    "pngquant": "^3.0.0"
-  },
-  "dependencies11": {
+  "dependencies-": {
     "co": "4.6.0",
     "imagemin": "5.3.1",
     "imagemin-jpeg-recompress": "5.1.0",
