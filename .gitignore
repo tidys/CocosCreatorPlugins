@@ -87,4 +87,3 @@ cc-inspector-v2.1.zip
 node_modules
 out
 test.meta
-!packages/res-compress/node_modules/pngquant-bin
