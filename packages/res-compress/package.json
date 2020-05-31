@@ -19,7 +19,6 @@
     "height": 300
   },
   "dependencies": {
-    "imagemin": "^7.0.1",
     "is-jpg": "^2.0.0",
     "is-png": "^2.0.0"
   }
