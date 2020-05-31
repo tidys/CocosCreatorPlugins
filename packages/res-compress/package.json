@@ -18,9 +18,6 @@
     "width": 400,
     "height": 300
   },
-  "dependencies-": {
-    "lamejs": "1.2.0"
-  },
   "dependencies": {
     "imagemin": "^7.0.1",
     "is-jpg": "^2.0.0",
