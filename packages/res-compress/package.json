@@ -13,7 +13,7 @@
   "panel": {
     "main": "panel/index.js",
     "type": "dockable",
-    "title": "res-compress",
+    "title": "资源压缩",
     "engineSupport": true,
     "width": 400,
     "height": 300
