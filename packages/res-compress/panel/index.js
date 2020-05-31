@@ -166,7 +166,7 @@ Editor.Panel.extend({
                         if (IsPng(Fs.readFileSync(file))) {
                             // 参数文档： https://pngquant.org/
                             let quality = '65-80'; // 图像质量
-                            cmd = `${Tools.pngquant} --transbug --force 256 --output '${output}' --quality ${quality} '${file}'`;
+                            cmd = `${Tools.pngquant} --transbug --force 256 --output "${output}" --quality ${quality} "${file}"`;
                         }
                     } else if (ext === '.jpeg' || ext === '.jpg') {
                         const IsJpg = Editor.require('packages://res-compress/node_modules/is-jpg')
@@ -181,7 +181,7 @@ Editor.Panel.extend({
                             //     subsample: "default"//子采样:default, disable;
                             // };
                             // 参数文档： https://linux.die.net/man/1/jpegtran
-                            cmd = `${Tools.jpegtran} -copy none -optimize -perfect -progressive -outfile '${output}' ${file}`;
+                            cmd = `${Tools.jpegtran} -copy none -optimize -perfect -progressive -outfile "${output}" "${file}"`;
                         }
                     }
                     if (cmd) {
