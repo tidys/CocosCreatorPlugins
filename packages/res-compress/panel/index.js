@@ -1,16 +1,12 @@
-let packageName = "res-compress";
-let Fs = require('fire-fs');
-let Path = require('fire-path');
-let Electron = require('electron');
-let Tools = Editor.require('packages://res-compress/tools/tools.js');
-let child_process = require('child_process');
-let mp3item = Editor.require('packages://res-compress/panel/item/mp3item.js');
-let image_item = Editor.require('packages://res-compress/panel/item/image-item.js');
-let imageMin = Editor.require('packages://res-compress/node_modules/imagemin');
-let imageminPngquant = Editor.require('packages://res-compress/node_modules/imagemin-pngquant');
-let imageminJpegtran = Editor.require('packages://res-compress/node_modules/imagemin-jpegtran');
-let imageminJpegRecompress = Editor.require('packages://res-compress/node_modules/imagemin-jpeg-recompress');
+const Fs = require('fire-fs');
+const FsExtra = require('fs-extra');
+const Path = require('fire-path');
+const Electron = require('electron');
+const Tools = Editor.require('packages://res-compress/tools/tools.js');
+const child_process = require('child_process');
 
+Editor.require('packages://res-compress/panel/item/mp3item.js')();
+Editor.require('packages://res-compress/panel/item/image-item.js')();
 
 // 同步执行exec
 child_process.execPromise = function (cmd, options, callback) {
@@ -71,13 +67,19 @@ Editor.Panel.extend({
                 logCtrl.scrollTop = logCtrl.scrollHeight;
             }, 10);
         };
-        mp3item.init();
-        image_item.init();
         plugin = new window.Vue({
             el: this.shadowRoot,
             created () {
                 Tools.init();
                 this.onBtnClickGetProject();
+                const Msg = Editor.require('packages://res-compress/panel/msg.js');
+
+                this.$root.$on(Msg.CompressImage, (data) => {
+                    this._compressImage([data]);
+                });
+                this.$root.$on(Msg.CompressAudio, (data) => {
+                    this._compressMp3([data])
+                })
             },
             init () {
             },
@@ -92,6 +94,9 @@ Editor.Panel.extend({
                     let time = new Date();
                     this.logView += `[${time.toLocaleString()}]: ${str}\n`;
                     logListScrollToBottom();
+                },
+                stopPropagation (event) {
+                    event.stopPropagation();
                 },
                 onBtnClickCompressAllMusic () {
                     console.log("压缩整个项目音频文件");
@@ -151,89 +156,76 @@ Editor.Panel.extend({
                         return numA - numB;
                     })
                 },
-                onMusicItemCompress (data) {
-                    // 进行压缩
-                    console.log("音频压缩");
-                    this._compressMp3([data]);
-                },
-                onImageItemCompress (data) {
-                    console.log("图片压缩");
-                    this._compressImage([data]);
+                async _compressImageItem (file) {
+                    let tmp = this._getTempDir();
+                    let ext = Path.extname(file);
+                    let output = Path.join(tmp, Path.basename(file));
+                    let cmd = null;
+                    if (ext === '.png') {
+                        const IsPng = Editor.require('packages://res-compress/node_modules/is-png')
+                        if (IsPng(Fs.readFileSync(file))) {
+                            // 参数文档： https://pngquant.org/
+                            let quality = '65-80'; // 图像质量
+                            cmd = `${Tools.pngquant} --transbug --force 256 --output '${output}' --quality ${quality} '${file}'`;
+                        }
+                    } else if (ext === '.jpeg' || ext === '.jpg') {
+                        const IsJpg = Editor.require('packages://res-compress/node_modules/is-jpg')
+                        if (IsJpg(Fs.readFileSync(file))) {
+                            // let imageminJpegRecompress = {
+                            //     accurate: true,//高精度模式
+                            //     quality: "high",//图像质量:low, medium, high and veryhigh;
+                            //     method: "smallfry",//网格优化:mpe, ssim, ms-ssim and smallfry;
+                            //     min: 70,//最低质量
+                            //     loops: 0,//循环尝试次数, 默认为6;
+                            //     progressive: false,//基线优化
+                            //     subsample: "default"//子采样:default, disable;
+                            // };
+                            // 参数文档： https://linux.die.net/man/1/jpegtran
+                            cmd = `${Tools.jpegtran} -copy none -optimize -perfect -progressive -outfile '${output}' ${file}`;
+                        }
+                    }
+                    if (cmd) {
+                        await child_process.execPromise(cmd);
+                        return output;
+                    } else {
+                        return null;
+                    }
                 },
                 _compressImage (dataArr) {
                     (async () => {
-                        let tmp = this._getTempMp3Dir();
                         for (let i = 0; i < dataArr.length; i++) {
                             let data = dataArr[i];
-                            // todo 对于图片格式的判断
-                            let files = await imageMin([data.path], tmp, {
-                                plugins: [
-                                    imageminJpegRecompress({
-                                        accurate: true,//高精度模式
-                                        quality: "high",//图像质量:low, medium, high and veryhigh;
-                                        method: "smallfry",//网格优化:mpe, ssim, ms-ssim and smallfry;
-                                        min: 70,//最低质量
-                                        loops: 0,//循环尝试次数, 默认为6;
-                                        progressive: false,//基线优化
-                                        subsample: "default"//子采样:default, disable;
-                                    }),
-                                    imageminJpegtran(),
-                                    imageminPngquant({ quality: '65-80' })
-                                ]
-                            });
-                            this._addLog("压缩成功 [" + (i + 1) + "/" + dataArr.length + "]:" + data.url);
-                            // 导入到项目原位置
-                            let newNamePath = files[0].path;
-                            let name = Path.basename(newNamePath);
-                            let url = data.url.substr(0, data.url.length - name.length - 1);
-
-                            await importPromise([newNamePath], url, true, (results) => {
-                                results.forEach(function (result) {
-                                    if (result.type === "texture") {
-                                        console.log("del: " + result.path);
-                                        if (Fs.existsSync(newNamePath)) {
-                                            Fs.unlinkSync(newNamePath);// 删除临时文件
+                            let file = await this._compressImageItem(data.path);
+                            if (file) {
+                                this._addLog(`压缩成功 [${(i + 1)}/${dataArr.length}]: ${data.url}`);
+                                // 导入到项目原位置
+                                let name = Path.basename(file);
+                                let url = data.url.substr(0, data.url.length - name.length - 1);
+                                await importPromise([file], url, true, (results) => {
+                                    results.forEach(function (result) {
+                                        if (result.type === "texture") {
+                                            console.log("del: " + result.path);
+                                            if (Fs.existsSync(file)) {
+                                                Fs.unlinkSync(file);// 删除临时文件
+                                            }
                                         }
-                                    }
+                                    });
                                 });
-                            });
-
+                            } else {
+                                this._addLog(`图片压缩失败：${data.path}`)
+                            }
                         }
                         this._addLog("压缩完毕!");
                     })();
                 },
-                _getLamePath () {
-                    let lamePath = null;
-                    let lameBasePath = Editor.url('packages://res-compress/tools');
-                    if (process.platform === "darwin") {
-                        // 添加执行权限
-                        lamePath = Path.join(lameBasePath, 'lame');
-                        let cmd = "chmod u+x " + lamePath;
-                        child_process.exec(cmd, null, (err) => {
-                            if (err) {
-                                console.log(err);
-                            }
-                            //console.log("添加执行权限成功");
-                        });
-                    } else {
-                        lamePath = Path.join(lameBasePath, 'lame.exe');
-                    }
-                    return lamePath;
-                },
 
-                _getTempMp3Dir () {
+                _getTempDir () {
                     let userPath = Electron.remote.app.getPath('userData');
-                    let tempMp3Dir = Path.join(userPath, "/mp3Compress");// 临时目录
+                    let tempMp3Dir = Path.join(userPath, "/mp3Compress");
+                    FsExtra.ensureDirSync(tempMp3Dir)
                     return tempMp3Dir;
                 },
                 _compressMp3 (fileDataArray) {
-                    // 设置lame路径
-                    let lamePath = Tools.lame;
-                    if (!Fs.existsSync(lamePath)) {
-                        this._addLog("文件不存在: " + lamePath);
-                        return;
-                    }
-                    console.log("压缩");
                     (async () => {
                         // 处理要压缩的音频文件
                         for (let i = 0; i < fileDataArray.length; i++) {
@@ -245,24 +237,17 @@ Editor.Panel.extend({
                             }
 
                             if (Path.extname(voiceFile) === ".mp3") {
-                                // 检测临时缓存目录
-                                let tempMp3Dir = this._getTempMp3Dir();// 临时目录
-                                if (!Fs.existsSync(tempMp3Dir)) {
-                                    Fs.mkdirSync(tempMp3Dir);
-                                }
-                                console.log("mp3目录: " + tempMp3Dir);
+                                let tempMp3Dir = this._getTempDir();// 临时目录
                                 let dir = Path.dirname(voiceFile);
                                 let arr = voiceFile.split('.');
                                 let fileName = arr[0].substr(dir.length + 1, arr[0].length - dir.length);
                                 let tempMp3Path = Path.join(tempMp3Dir, 'temp_' + fileName + '.mp3');
 
                                 // 压缩mp3
-                                let cmd = `${lamePath} -V 0 -q 0 -b 45 -B 80 --abr 64 "${voiceFile}" "${tempMp3Path}"`;
-                                console.log("------------------------------exec began" + i);
-                                await child_process.execPromise(cmd, null, function (err) {
+                                let cmd = `${Tools.lame} -V 0 -q 0 -b 45 -B 80 --abr 64 "${voiceFile}" "${tempMp3Path}"`;
+                                await child_process.execPromise(cmd, null, (err) => {
                                     this._addLog("出现错误: \n" + err);
-                                }.bind(this));
-                                console.log("------------------------------exec end" + i);
+                                });
                                 // 临时文件重命名
                                 let newNamePath = Path.join(tempMp3Dir, fileName + '.mp3');
                                 Fs.renameSync(tempMp3Path, newNamePath);
