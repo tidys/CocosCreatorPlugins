@@ -19,7 +19,7 @@
         <ui-section>
             <div class="header">
                 <div class="greenColor">项目音频压缩</div>
-                <div class="wrapper layout center horizontal end-justified flex-1">
+                <div class="wrapper layout center horizontal end-justified flex-1" @click="stopPropagation">
                     <ui-button class='box tiny' v-on:confirm="onBtnClickGetProject">
                         <i class="icon-arrows-cw"></i>
                         刷新列表
@@ -49,9 +49,9 @@
 
 
         <ui-section>
-            <div class="header  ">
+            <div class="header">
                 <div class="greenColor">项目图片压缩</div>
-                <div class="wrapper layout center horizontal end-justified flex-1">
+                <div class="wrapper layout center horizontal end-justified flex-1" @click="stopPropagation">
                     <ui-button class='box tiny' v-on:confirm="onBtnClickGetProject">
                         <i class="icon-arrows-cw"></i>
                         刷新列表

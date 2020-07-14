@@ -1,27 +1,15 @@
 'use strict';
 
 module.exports = {
-    load() {
-        // execute when package loaded
+    load () {
     },
 
-    unload() {
-        // execute when package unloaded
+    unload () {
     },
 
-    // register your ipc messages here
     messages: {
-        'open'() {
-            // open entry panel registered in package.json
+        'open' () {
             Editor.Panel.open('res-compress');
-        },
-        'say-hello'() {
-            Editor.log('Hello World!');
-            // send ipc message to panel
-            Editor.Ipc.sendToPanel('res-compress', 'res-compress:hello');
-        },
-        'clicked'() {
-            Editor.log('Button clicked!');
         },
         // 文件移动
         'asset-db:assets-moved': function (event, target) {
@@ -38,6 +26,5 @@ module.exports = {
             // Editor.log('[Mp3Compress] 文件创建,刷新列表!');
             Editor.Ipc.sendToPanel('res-compress', 'res-compress:hello', target);
         },
-
     },
 };

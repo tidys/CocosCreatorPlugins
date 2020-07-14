@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "93be6f15-d0b5-4b7d-882d-f69641058cc2",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 175,
+  "height": 52,
   "platformSettings": {},
   "subMetas": {
     "btn_green": {
@@ -16,11 +18,11 @@
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
-      "offsetX": 0,
+      "offsetX": -0.5,
       "offsetY": 0,
       "trimX": 0,
       "trimY": 0,
-      "width": 175,
+      "width": 174,
       "height": 52,
       "rawWidth": 175,
       "rawHeight": 52,

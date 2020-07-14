@@ -13,6 +13,9 @@
   "contourBleed": true,
   "paddingBleed": true,
   "filterUnused": true,
+  "packable": false,
+  "premultiplyAlpha": false,
+  "filterMode": "bilinear",
   "platformSettings": {},
   "subMetas": {}
 }
