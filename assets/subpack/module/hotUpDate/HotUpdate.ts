@@ -1,9 +1,3 @@
-export class ProgressInfo {
-    public file
-    public byte;
-    public msg = '';
-}
-
 export class HotOptions {
     OnVersionInfo: Function;
     OnUpdateFailed: Function;
@@ -16,7 +10,6 @@ class Hot {
     _assetsMgr: jsb.AssetsManager;
     _checkListener: null;
     _options: HotOptions;
-    private manifestUrl: cc.Asset;
 
     setOptions(opt: HotOptions) {
         this._options = opt;
@@ -28,9 +21,15 @@ class Hot {
 
     // 检查更新
     checkUpdate() {
-        debugger
+        if (!this._assetsMgr) {
+            console.log('error')
+            return;
+        }
+
+
         if (this._assetsMgr.getState() === jsb.AssetsManager.State.UNINITED) {
-            this._initManifest();
+            cc.error('未初始化')
+            return;
         }
         if (!this._assetsMgr.getLocalManifest().isLoaded()) {
             console.log('加载本地 manifest 失败 ...');
@@ -78,16 +77,16 @@ class Hot {
         }
     }
 
-    _initManifest() {
+    _initManifest(manifest) {
         if (this._assetsMgr.getState() === jsb.AssetsManager.State.UNINITED) {
-            let url = this._getManifestUrl();
+            let url = this._getManifestUrl(manifest);
             this._assetsMgr.loadLocalManifest(url);
             return null;
         }
     }
 
-    _getManifestUrl() {
-        let url = this.manifestUrl.nativeUrl;
+    _getManifestUrl(manifest) {
+        let url = manifest.nativeUrl;
         if (cc.loader.md5Pipe) {
             url = cc.loader.md5Pipe.transformURL(url)
         }
@@ -219,19 +218,18 @@ class Hot {
     }
 
     // ------------------------------初始化------------------------------
-    init(manifestUrl: cc.Asset) {
+    init(manifest: cc.Asset) {
         if (!cc.sys.isNative) {
             return;
         }
+        let url = this._getManifestUrl(manifest);
         this.showSearchPath();
-        this.manifestUrl = manifestUrl;
-        this._initManifest();
         let storagePath = ((jsb.fileUtils ? jsb.fileUtils.getWritablePath() : '/') + 'remote-asset');
         console.log('热更新资源存放路径 : ' + storagePath);
-        console.log('本地 manifest 路径 : ' + manifestUrl);
+        console.log('本地 manifest 路径 : ' + url);
         // this.removeTempDir(storagePath);
-        let url = this._getManifestUrl();
         this._assetsMgr = new jsb.AssetsManager(url, storagePath);
+        this._initManifest(manifest);
         console.log('[HotUpdate] local packageUrl:' + this._assetsMgr.getLocalManifest().getPackageUrl());
         console.log('[HotUpdate] project.manifest remote url:' + this._assetsMgr.getLocalManifest().getManifestFileUrl());
         console.log('[HotUpdate] version.manifest remote url:' + this._assetsMgr.getLocalManifest().getVersionFileUrl());

@@ -1,4 +1,4 @@
-import {ProgressInfo, HotOptions} from "./HotUpdate";
+import {HotOptions} from "./HotUpdate";
 import HotUpdate from './HotUpdate'
 import * as DialogMgr from "../../core/ui/DialogMgr";
 
