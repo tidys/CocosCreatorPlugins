@@ -1,13 +1,13 @@
 import {ProgressInfo, HotOptions} from "./HotUpdate";
 import HotUpdate from './HotUpdate'
-import DialogMgr from "../../core/ui/DialogMgr";
+import * as DialogMgr from "../../core/ui/DialogMgr";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class NewClass extends cc.Component {
     @property({displayName: 'project.manifest', type: cc.Asset,})
-    manifest: string = null;
+    manifest: cc.Asset = null;
 
     @property({displayName: '版本号', type: cc.Label,})
     versionLabel: cc.Label = null;
@@ -37,69 +37,51 @@ export default class NewClass extends cc.Component {
             // GameLocalStorage.setVersion(data.curVer, data.newVersion);
             this._updateVersionView(data.curVer, data.newVersion);
         };
-        options.OnUpdateProgress = (data: ProgressInfo) => {
-            console.log('[update]: 进度=' + data.file);
-            this.updateProgress.progress = data.file;
-            // data.msg;
+        options.OnUpdateProgress = (event: jsb.EventAssetsManager) => {
+            let bytes = event.getDownloadedBytes() + '/' + event.getTotalBytes();
+            let files = event.getDownloadedFiles() + '/' + event.getTotalFiles();
+
+            let file = event.getPercentByFile().toFixed(2);
+            let byte = event.getPercent().toFixed(2);
+            let msg = event.getMessage();
+
+            console.log('[update]: 进度=' + file);
+            this.updateProgress.progress = parseFloat(file);
             this.tipsLabel.string = '正在更新中,请耐心等待';
-            console.log(data.msg);
+            console.log(msg);
         };
         options.OnNeedUpdateVersion = (data) => {
-            if (data === jsb.EventAssetsManager.NEW_VERSION_FOUND) {
-                this._onShowNoticeUpdateLayer();
-            } else if (data === jsb.EventAssetsManager.ALREADY_UP_TO_DATE) {// 版本一致,无需更新
-                cc.log('版本一致,无需更新,进入游戏中...');
-                this._enterGame();
-            } else {
-                this._onShowNoticeCheckVersionFailed();
-            }
+            DialogMgr.showTipsWithOkBtn('检测到新版本,点击确定开始更新', () => {
+                HotUpdate.hotUpdate();
+            });
         };
         options.OnUpdateFailed = () => {
-
             this.tipsLabel.string = '更新失败';
             cc.log('热更新失败');
-            this._onShowDownLoadUpdateVersionResult(false);
+            DialogMgr.showTipsWithOkBtn('更新失败,点击重试', () => {
+                HotUpdate.checkUpdate();
+            });
 
-        }
+        };
         options.OnUpdateSucceed = () => {
             this.tipsLabel.string = '更新成功';
             cc.log('更新成功');
-            this._onShowDownLoadUpdateVersionResult(true);
-        }
-        HotUpdate.setOptions(options)
-        HotUpdate.checkUpdate();
+            DialogMgr.showTipsWithOkBtn('更新成功,点击确定重启游戏', () => {
+                cc.audioEngine.stopAll();
+                cc.game.restart();
+            });
+        };
+        HotUpdate.setOptions(options);
 
         this._initView();
-        // this._checkUpdate();
-
-        // HotUpdate.showSearchPath();
     }
 
-
-    _onShowNoticeUpdateLayer() {
-        cc.log('提示更新');
-        DialogMgr.showTipsWithOkBtn('检测到新版本,点击确定开始更新', function () {
-            HotUpdate.hotUpdate();
-        }.bind(this));
-    }
-
-    _onShowNoticeCheckVersionFailed() {
-        cc.log('检查更新失败');
-        DialogMgr.showTipsWithOkBtn('检查更新失败,点击重试', function () {
-            HotUpdate.checkUpdate();
-        }.bind(this));
-    }
 
     _onShowDownLoadUpdateVersionResult(result) {
         if (result) {
-            DialogMgr.showTipsWithOkBtn('更新成功,点击确定重启游戏', function () {
-                cc.audioEngine.stopAll();
-                cc.game.restart();
-            }.bind(this));
+
         } else {
-            DialogMgr.showTipsWithOkBtn('更新失败,点击重试', function () {
-                HotUpdate.checkUpdate();
-            }.bind(this));
+
         }
     }
 
@@ -135,10 +117,13 @@ export default class NewClass extends cc.Component {
         cc.log('进入游戏成功');
         this.updateProgress.node.active = false;
 
-        DialogMgr.showTipsWithOkBtn('更新成功', function () {
-            cc.director.loadScene('IndexScene');
-            // cc.director.loadScene("TestGameScene");
-        }.bind(this));
+        DialogMgr.showTipsWithOkBtn('更新成功', () => {
+            if (cc.sys.isBrowser) {
+            } else {
+
+                cc.director.loadScene('IndexScene');
+            }
+        });
     }
 
     onBtnClickReStart() {

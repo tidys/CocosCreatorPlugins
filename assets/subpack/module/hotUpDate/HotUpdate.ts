@@ -15,34 +15,11 @@ export class HotOptions {
 class Hot {
     _assetsMgr: jsb.AssetsManager;
     _checkListener: null;
-    _updateListener: null;
     _options: HotOptions;
-    private manifestUrl: string;
+    private manifestUrl: cc.Asset;
 
     setOptions(opt: HotOptions) {
         this._options = opt;
-    }
-
-    // --------------------------------检查更新--------------------------------
-    _compareVersion(versionA, versionB) {
-        console.log("客户端版本: " + versionA + ', 当前最新版本: ' + versionB);
-        this._options.OnVersionInfo({curVer: versionA, newVersion: versionB});
-        let vA = versionA.split('.');
-        let vB = versionB.split('.');
-        for (let i = 0; i < vA.length; ++i) {
-            let a = parseInt(vA[i]);
-            let b = parseInt(vB[i] || 0);
-            if (a === b) {
-                continue;
-            } else {
-                return a - b;
-            }
-        }
-        if (vB.length > vA.length) {
-            return -1;
-        } else {
-            return 0;
-        }
     }
 
     reCheckVersion() {
@@ -51,20 +28,15 @@ class Hot {
 
     // 检查更新
     checkUpdate() {
+        debugger
         if (this._assetsMgr.getState() === jsb.AssetsManager.State.UNINITED) {
-            this._assetsMgr.loadLocalManifest(this.manifestUrl);
+            this._initManifest();
         }
         if (!this._assetsMgr.getLocalManifest().isLoaded()) {
             console.log('加载本地 manifest 失败 ...');
             return;
         }
-        if (this._checkListener !== null) {
-            cc.eventManager.removeListener(this._checkListener);
-            this._checkListener = null;
-        }
-
-        this._checkListener = new jsb.EventListenerAssetsManager(this._assetsMgr, this._checkCallBack.bind(this));
-        cc.eventManager.addListener(this._checkListener, 1);
+        this._assetsMgr.setEventCallback(this._checkCallBack.bind(this));
         console.log("[HotUpdate] checkUpdate");
         this._assetsMgr.checkUpdate();
     }
@@ -77,47 +49,60 @@ class Hot {
             let item = v[k];
             console.log(JSON.stringify(v[k]));
         }
+        this._assetsMgr.setEventCallback(null)
 
         let code = event.getEventCode();
         switch (event.getEventCode()) {
             case jsb.EventAssetsManager.ERROR_NO_LOCAL_MANIFEST:
                 console.log("没有发现本地的manifest, 跳过热更新.");
+                this._options.OnUpdateFailed(code)
                 break;
             case jsb.EventAssetsManager.ERROR_DOWNLOAD_MANIFEST:
                 console.log("下载 manifest 失败, 跳过热更新.");
+                this._options.OnUpdateFailed(code)
                 break;
             case jsb.EventAssetsManager.ERROR_PARSE_MANIFEST:
                 console.log("解析 manifest 失败, 跳过热更新.");
+                this._options.OnUpdateFailed(code)
                 break;
             case jsb.EventAssetsManager.ALREADY_UP_TO_DATE:
                 console.log("已经和远程版本一致");
+                this._options.OnUpdateSucceed(code)
                 break;
             case jsb.EventAssetsManager.NEW_VERSION_FOUND:
                 console.log('发现新版本,请更新');
+                this._options.OnNeedUpdateVersion(code);
                 break;
             default:
                 return;
         }
-        if (this._checkListener !== null) {
-            cc.eventManager.removeListener(this._checkListener);
-            this._checkListener = null;
+    }
+
+    _initManifest() {
+        if (this._assetsMgr.getState() === jsb.AssetsManager.State.UNINITED) {
+            let url = this._getManifestUrl();
+            this._assetsMgr.loadLocalManifest(url);
+            return null;
         }
-        this._options.OnNeedUpdateVersion(code);
+    }
+
+    _getManifestUrl() {
+        let url = this.manifestUrl.nativeUrl;
+        if (cc.loader.md5Pipe) {
+            url = cc.loader.md5Pipe.transformURL(url)
+        }
+        return url;
     }
 
     // --------------------------------开始更新--------------------------------
     hotUpdate() {
         if (this._assetsMgr) {
-            this._updateListener = new jsb.EventListenerAssetsManager(this._assetsMgr, this._hotUpdateCallBack.bind(this));
-            cc.eventManager.addListener(this._updateListener, 1);
-            if (this._assetsMgr.getState() === jsb.AssetsManager.State.UNINITED) {
-                this._assetsMgr.loadLocalManifest(this.manifestUrl);
-            }
+            this._assetsMgr.setEventCallback(this._hotUpdateCallBack.bind(this));
             this._assetsMgr.update();
         }
     }
 
-    _hotUpdateCallBack(event) {
+    _hotUpdateCallBack(event: jsb.EventAssetsManager) {
         console.log("hotUpdate Code: " + event.getEventCode());
         switch (event.getEventCode()) {
             case jsb.EventAssetsManager.ERROR_NO_LOCAL_MANIFEST:
@@ -125,22 +110,7 @@ class Hot {
                 this._onUpdateFailed();
                 break;
             case jsb.EventAssetsManager.UPDATE_PROGRESSION:// 下载成功
-                let data = new ProgressInfo();
-                // console.log(JSON.stringify(event));
-                let filePro = event.getPercentByFile();
-                if (!filePro) {
-                    filePro = 0;
-                }
-                data.file = filePro.toFixed(2) || 1;
-                data.byte = event.getPercent().toFixed(2);
-                data.msg = "";
-                let msg = event.getMessage();
-                if (msg) {
-                    console.log('Updated file: ' + msg);
-                    cc.log(event.getPercent().toFixed(2) + '% : ' + msg);
-                    data.msg = msg;
-                }
-                this._options.OnUpdateProgress(data);
+                this._options.OnUpdateProgress(event);
                 break;
             case jsb.EventAssetsManager.ERROR_DOWNLOAD_MANIFEST:
             case jsb.EventAssetsManager.ERROR_PARSE_MANIFEST:
@@ -174,19 +144,13 @@ class Hot {
     }
 
     _onUpdateFailed() {
-        if (this._updateListener !== null) {
-            cc.eventManager.removeListener(this._updateListener);
-            this._updateListener = null;
-        }
+        this._assetsMgr.setEventCallback(null)
         this._options.OnUpdateFailed(false);
     }
 
     // 更新完成
     _onUpdateFinished() {
-        if (this._updateListener !== null) {
-            cc.eventManager.removeListener(this._updateListener);
-            this._updateListener = null;
-        }
+        this._assetsMgr.setEventCallback(null)
         let searchPaths = jsb.fileUtils.getSearchPaths();
         let newPaths = this._assetsMgr.getLocalManifest().getSearchPaths();
         console.log("[HotUpdate] 搜索路径: " + JSON.stringify(newPaths));
@@ -255,28 +219,45 @@ class Hot {
     }
 
     // ------------------------------初始化------------------------------
-    init(manifestUrl: string) {
+    init(manifestUrl: cc.Asset) {
         if (!cc.sys.isNative) {
             return;
         }
         this.showSearchPath();
         this.manifestUrl = manifestUrl;
+        this._initManifest();
         let storagePath = ((jsb.fileUtils ? jsb.fileUtils.getWritablePath() : '/') + 'remote-asset');
         console.log('热更新资源存放路径 : ' + storagePath);
         console.log('本地 manifest 路径 : ' + manifestUrl);
         // this.removeTempDir(storagePath);
-        this._assetsMgr = new jsb.AssetsManager(manifestUrl, storagePath);
-        if (!cc.sys.ENABLE_GC_FOR_NATIVE_OBJECTS) {
-            this._assetsMgr.retain();
-        }
+        let url = this._getManifestUrl();
+        this._assetsMgr = new jsb.AssetsManager(url, storagePath);
         console.log('[HotUpdate] local packageUrl:' + this._assetsMgr.getLocalManifest().getPackageUrl());
         console.log('[HotUpdate] project.manifest remote url:' + this._assetsMgr.getLocalManifest().getManifestFileUrl());
         console.log('[HotUpdate] version.manifest remote url:' + this._assetsMgr.getLocalManifest().getVersionFileUrl());
 
         // 比较版本
-        this._assetsMgr.setVersionCompareHandle(this._compareVersion.bind(this));
-
-        this._assetsMgr.setVerifyCallback(function (path, asset) {
+        this._assetsMgr.setVersionCompareHandle((versionA, versionB) => {
+            console.log("客户端版本: " + versionA + ', 当前最新版本: ' + versionB);
+            this._options.OnVersionInfo({curVer: versionA, newVersion: versionB});
+            let vA = versionA.split('.');
+            let vB = versionB.split('.');
+            for (let i = 0; i < vA.length; ++i) {
+                let a = parseInt(vA[i]);
+                let b = parseInt(vB[i] || '0');
+                if (a === b) {
+                    continue;
+                } else {
+                    return a - b;
+                }
+            }
+            if (vB.length > vA.length) {
+                return -1;
+            } else {
+                return 0;
+            }
+        });
+        this._assetsMgr.setVerifyCallback((path, asset) => {
             let compressed = asset.compressed;
             let expectedMD5 = asset.md5;
             let relativePath = asset.path;
@@ -286,11 +267,11 @@ class Hot {
             } else {
                 return true;
             }
-        });
+        })
 
         // 安卓手机设置 最大并发任务数量限制为2
         if (cc.sys.os === cc.sys.OS_ANDROID) {
-            this._assetsMgr.setMaxConcurrentTask(10);
+            // this._assetsMgr.setMaxConcurrentTask(10);
         }
     }
 }
