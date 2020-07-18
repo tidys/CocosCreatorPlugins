@@ -3,7 +3,7 @@
   "uuid": "08456479-ddd2-47a9-aad6-7e4f6279e89f",
   "isBundle": true,
   "bundleName": "resources",
-  "priority": 5,
+  "priority": 8,
   "compressionType": {
     "wechatgame": "subpackage",
     "baidugame": "subpackage",

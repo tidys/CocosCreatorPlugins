@@ -1,6 +1,6 @@
 import {ProgressInfo, HotOptions} from "./HotUpdate";
 import HotUpdate from './HotUpdate'
-import DialogMgr from "../ui/DialogMgr";
+import DialogMgr from "../../core/ui/DialogMgr";
 
 const {ccclass, property} = cc._decorator;
 
