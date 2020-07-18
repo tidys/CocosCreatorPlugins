@@ -7,7 +7,6 @@
     "doc": "doc"
   },
   "dependencies": {
-    "protobufjs": "^6.8.8"
   },
   "devDependencies": {},
   "scripts": {
