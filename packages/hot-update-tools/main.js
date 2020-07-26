@@ -1,20 +1,13 @@
 module.exports = {
     load() {
-        // 当 package 被正确加载的时候执行
     },
 
     unload() {
-        // 当 package 被正确卸载的时候执行
     },
 
     messages: {
-        'showPanel'() {
+        showPanel() {
             Editor.Panel.open('hot-update-tools');
-        },
-        'test'(event, args) {
-            console.log("1111111");
-            Editor.log(args);
-            Editor.Ipc.sendToPanel('hot-update-tools', 'hot-update-tools:onBuildFinished');
         },
         // 当插件构建完成的时候触发
         'editor:build-finished': function (event, target) {
