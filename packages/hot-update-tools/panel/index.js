@@ -10,7 +10,6 @@ const FileUtil = Editor.require('packages://hot-update-tools/core/FileUtil.js');
 const Mail = Editor.require('packages://hot-update-tools/mail/Mail.js');
 const OSS = Editor.require('packages://hot-update-tools/node_modules/ali-oss');
 const CO = Editor.require('packages://hot-update-tools/node_modules/co');
-const CocosAnalytics = Editor.require('packages://hot-update-tools/core/cocosAnalytics.min.js');
 const GoogleAnalytics = Editor.require('packages://hot-update-tools/core/GoogleAnalytics.js');
 const Express = require("express");
 
@@ -23,6 +22,7 @@ Editor.Panel.extend({
         testEnvSelect: '#testEnvSelect',
     },
     ready() {
+        debugger
         GoogleAnalytics.init();
         GoogleAnalytics.eventOpen();
 

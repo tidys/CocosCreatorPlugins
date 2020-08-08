@@ -87,3 +87,4 @@ cc-inspector-v2.1.zip
 node_modules
 out
 test.meta
+packages/ts-demo/dist

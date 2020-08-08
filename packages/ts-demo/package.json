@@ -1,0 +1,38 @@
+{
+  "name": "ts-demo",
+  "version": "0.0.1",
+  "description": "The package template for getting started.",
+  "author": "Cocos Creator",
+  "main": "dist/main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.package.title/ts-demo/open": {
+      "message": "ts-demo:open"
+    },
+    "i18n:MAIN_MENU.package.title/ts-demo/hello": {
+      "message": "ts-demo:say-hello"
+    }
+  },
+  "scripts": {
+    "build": "webpack --progress --hide-modules --display-error-details"
+  },
+  "panel": {
+    "main": "dist/panel.js",
+    "type": "dockable",
+    "title": "ts-demo",
+    "width": 400,
+    "height": 300
+  },
+  "dependencies": {
+    "ts-loader": "^8.0.1",
+    "typescript": "^3.9.7"
+  },
+  "devDependencies": {
+    "@types/cc-editor": "/Users/xyf/Documents/project/cc-editor",
+    "webpack-cli": "^3.3.12",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.5",
+    "vue-loader": "^15.9.3",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.44.0"
+  }
+}
