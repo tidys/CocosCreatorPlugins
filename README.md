@@ -16,7 +16,7 @@
     - 购买链接: http://store.cocos.com/stuff/show/178910.html
     - 帮助文档: [点击查看](doc/ttf/README.md)
 - BMFont位图字体生成工具
-    - 购买链接: http://store.cocos.com/stuff/show/178913.html
+    - 购买链接: http://store.cocos.com/#/resources/detail/1975
     - 帮助文档: [点击查看](doc/bitmap-font/README.md)
 
 # 插件常见问题
