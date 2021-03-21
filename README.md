@@ -43,4 +43,4 @@
 - [Observer.js](assets/subpack/core/Observer.js)
 - [ObserverMgr.js](assets/subpack/core/ObserverMgr.js)    
 # 支持一下呗
-![](CocosCreatorInspector/src/assets/images/money.jpg)
+![](https://gitee.com/tidys/doc/raw/master/others/wx-pay.jpg)
